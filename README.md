@@ -32,3 +32,14 @@ The project presented - is my smart home project. Where I sat for hours and was 
 <tr>
 <td><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA%20Picters/Lovelace%20Screenshots"><img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA%20Picters/Lovelace%20Screenshots/03.%20Downstairs.jpg" style="max-width:100%;"></a></td>
 </tr></tbody></table>
+
+<table>
+<thead>
+<tr>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA%20Picters/HA%20Screenshots/07.%20Electrical.jpg?raw=true">Home Assistant Screenshots</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA%20Picters/HA%20Screenshots"><img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA%20Picters/HA%20Screenshots/07.%20Electrical.jpg?raw=true" style="max-width:100%;"></a></td>
+</tr></tbody></table>
