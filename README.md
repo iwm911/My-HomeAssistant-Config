@@ -9,5 +9,14 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <hr>
 
-
-
+<table>
+<thead>
+<tr>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HomeAssistant_File/ui-lovelace.yaml">Lovelace UI</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HomeAssistant_File/packages">Packages</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HomeAssistant_File/config">Config</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HomeAssistant_File/config/scripts.yaml">Scripts</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HomeAssistant_File/config/groups.yaml">Groups</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HomeAssistant_File/config/automation/automations.yaml">Automations</a></th>
+</tr>
+</thead></table>
