@@ -9,6 +9,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <hr>
 
+<table>
 <thead>
 <tr>
 <th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#smart-home-hardware-topology">Topology</a></th>
@@ -20,5 +21,5 @@ The project presented - is my smart home project. Where I sat for hours and was 
 <th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#sensors">Sensors</a></th>
 <th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#fan--lighting-control">Fan &amp; Lighting</a></th>
 </tr>
-</thead>
+</thead></table>
 
