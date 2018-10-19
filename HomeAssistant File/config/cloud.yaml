@@ -1,0 +1,112 @@
+  alexa:
+    filter:
+      include_entities: ## להציג ##
+        - light.laundry
+        - light.parents
+        - light.service_balcony  
+        - light.balcony
+        - light.poop
+        - light.prozdor
+        - light.stairs
+        - light.liran_room
+        - switch.tv_lg
+        - switch.ac_power
+        - script.vacuum_all_home
+        - switch.sh20_pow
+        - switch.move_channels_down
+        - switch.move_channels_up
+        - switch.info
+        - switch.yes_mute
+        - switch.tris_down
+        - switch.tris_up
+      include_domains:
+        - switch
+        - media_player
+        - lights
+      exclude_entities: ## לא להציג ##
+        - media_player.living_room_tv
+        - group.version
+        - group.all_devices
+        - group.weather_sensor
+        - group.lighting
+        - group.homeassistent
+        - group.miscellaneous
+        - media_player.mibox3
+        - media_player.unnamed_device
+        - switch.ac_fan_speed
+        - switch.lg_volume_up
+        - switch.ac_timer
+        - switch.ac_temp_down
+        - switch.ac_mode
+        - switch.lg_volume_down
+        - switch.ac_temp_up
+        - media_player.safari
+ 
+    entity_config:
+      light.laundry:
+        name: Laundry room
+        description: להדליק את האור בחדר כביסה
+
+      light.parents:
+        name: Parents
+        description: להדליק את התאורה בחדר הורים  
+
+      light.service_balcony:
+        name: service balcony  
+        description: להדליק את האור במרפסת שירות
+
+      light.balcony:
+        name: balcony
+        description: להדליק את התאורה במרפסת הראשית
+
+      light.poop: 
+        name: Poop
+        description: להדליק את האור בשירותי אורחים   
+
+      light.stairs:
+        name: stairs
+        description: להדליק את האור במדרגות
+
+      light.liran_room: 
+        name: liran 
+        description:  להדליק את האור בחדר של לירן
+
+      switch.tv_lg:
+        name: tv               
+        description: להדליק את הטלוויזיה בסלון
+
+      switch.ac_power:
+        name: mazgan
+        description: להדליק את המזגן    
+
+      script.vacuum_all_home:
+        name: robot
+        description: לשאוב את כל הבית
+
+      switch.sh20_pow:
+        name: home camera
+        description: כיבוי מצלמת אבטחה בבית
+
+      switch.move_channels_down:
+        name: move channel down
+        description: העברת ערוץ אחורה
+
+      switch.move_channels_up:
+        name: move chammel up
+        description: העברת ערוץ קדימה   
+    
+      switch.info:
+        name: info
+        description: מידע על התוכנית המשודרת
+
+      switch.yes_mute:
+        name: mute
+        description: השתקה
+      
+      switch.tris_down:
+        name: tris lemata
+        description: הורדת התריס למטה
+      
+      switch.tris_up:
+        name: tris lemala
+        description: הרמת התריס למעלה 
