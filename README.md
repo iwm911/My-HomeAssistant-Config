@@ -9,5 +9,16 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <hr>
 
-<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HomeAssistant%20File/ui-lovelace.yaml">Lovelace UI</a></th>
+<thead>
+<tr>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#smart-home-hardware-topology">Topology</a></th>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#home-assistant-hardware">HA Hardware</a></th>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#home-assistant-software">HA Software</a></th>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#kingia-castle-network">Network</a></th>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#voice-control--tts">Voice Control</a></th>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#gateways">Gateways</a></th>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#sensors">Sensors</a></th>
+<th><a href="https://github.com/JamesMcCarthy79/Home-Assistant-Config#fan--lighting-control">Fan &amp; Lighting</a></th>
+</tr>
+</thead>
 
