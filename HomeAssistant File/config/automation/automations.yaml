@@ -1,0 +1,176 @@
+##############################################################################   
+#
+# HA Startup up and running Notification
+#
+##############################################################################   
+  - alias: 'Startup Notification'
+    hide_entity: true
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: notify.AviTelegram 
+        data:
+          title: 'System info'
+          message: 'Home Assistant is Up and Running.'
+          data:
+            #iOS Only
+            attachment: 
+              url: https://community-home-assistant-assets.s3-us-west-2.amazonaws.com/original/2X/6/6a99ebb8d0b585a00b407123ff76964cb3e18780.png
+              
+              
+
+## התראות לסלולרי מהבוט של טלגרם ##
+    # התראה במידה והדלת פתוחה יותר מדקה #
+  - alias:  notify if the home door was open for more then 1 min
+    trigger:
+      platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001ef3425
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 1
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"  #Front Door sensor
+        message: 'דלת הבית פתוחה יותר מדקה' #front door is open more then 1 min
+ 
+  
+    # התראה במידה והמזגן נכנס לעבודה
+  - alias: notify if the ac is on
+    trigger:
+      platform: state
+      entity_id: switch.ac_power
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "המזגן נדלק בסלון"
+
+
+  ##  לכיבוי או הפעלת המצלמה כאשר אני או נורית בבית או לא בבית ##
+
+  # הפעלת המצלמת של שיאומי (אבטחה)  בשעה 23:00 בלילה
+  - alias:  turn ON CCTV cameras if late Night 
+    trigger:
+      platform: time
+      at: '23:00:00'
+
+    action:
+      - service: automation.turn_off
+        data:
+          entity_id: automation.turn_off_xiaomi_cameras_if_avi_at_home
+      - service: automation.turn_off 
+        data:
+          entity_id: automation.turn_off_xiaomi_cameras_if_avi_at_home
+          
+      - service: homeassistant.turn_on
+        entity_id: switch.sh20_pow
+        
+      - service: notify.AviTelegram
+        data:
+          title: "אבטחה"  #Security 
+          message: 'השעה 23:00 המצלמות דולקות'        
+        
+
+           
+### גיבוי אוטומטי ##
+####################################################
+#                                                  #
+# Run the script daily to backup HASS config
+#                                                  #
+####################################################
+  - alias: 'Daily HASS Backup'
+    trigger:
+      platform: time
+      at: '02:00:00'
+    action:
+      - service: shell_command.backup_hass_config
+      - service: notify.AviTelegram
+        data:
+          title: 'גיבוי'
+          message: 'הגיבוי היומי להום-אסיסטנט בביצוע בדוק סיום תקין בבוקר '
+          data:
+            attachment: 
+              url: https://d33wubrfki0l68.cloudfront.net/b1c67285b113e40ab92d0136aed5c79f3d3ceb17/69117/images/screenshots/ui2015.png
+# ###################################################
+# #                                                  #
+# # Run the script Weekly to backup all OS (move the img proxmox made and save ha config in server)
+# #                                                  #
+# ####################################################
+  - alias: 'Weekly OS Backup'
+    trigger:
+      platform: time
+      at: '02:30:00'
+    condition:
+    - condition: time
+      weekday:
+        - wed #3 Tuesday at night
+        - sun #7 Saturday at night
+    action:
+      - service: script.turn_on
+        entity_id: script.backup_ha_and_move_backup_to_unraid
+      - service: notify.AviTelegram
+        data:
+          title: 'גיבוי'
+          message: 'הגיבוי השבועי לכלל המערכת בפעולה! בדוק סיום תקין בבוקר,בקבצי השרת'   #Backup For all the os is in prograss
+          data:
+            attachment: 
+              url: https://www.bullten.com/img/icon/weekly-backup.png
+
+
+
+
+
+  ## כיבוי שקע תמי4 ##
+  - id: Turn_off_Tami_4_in_Night
+    alias: 'Turn Off Tami 4 In Night'
+    trigger:
+    - at: '00:00'
+      platform: time
+    condition: []
+    action:
+    - data:
+        entity_id: switch.blitzwolf_shp1
+      service: switch.turn_off
+      
+  - id: Turn_on_Tami_4_in_Mornning
+    alias: 'Turn On Tami 4 In Mornning'
+    trigger:
+    - at: '05:00'
+      platform: time
+    condition: []
+    action:
+    - data:
+        entity_id: switch.blitzwolf_shp1
+      service: switch.turn_on
+
+  - id: Auto_off_Tami_4_in_Night
+    alias: 'Auto Off Tami 4 In Night'
+    trigger:
+      - entity_id: switch.service_out_light
+        from: 'off'
+        platform: state
+        to: 'on'
+    condition:
+      condition: time
+      after: '00:00:00'
+      before: '05:00:00'
+    action:
+    - service: timer.start
+      entity_id: timer.tami4
+      
+  - alias: Tami_4_Timerstop
+    id: 'Tami 4 Timerstop'
+    trigger: 
+    - platform: event
+      event_type: timer.finished
+      event_data: 
+        entity_id: timer.tami4
+    action:
+    - data:
+        entity_id: switch.blitzwolf_shp1
+      service: switch.turn_off            

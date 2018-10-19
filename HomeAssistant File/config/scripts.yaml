@@ -1,0 +1,54 @@
+             
+  ## ביצוע גיבוי אוטומטי למערכת בשרת אחר #
+  ###############################################
+  backup_ha_and_move_backup_to_unraid:
+     alias: 'Backup All Ha and Move To Unraid'
+     sequence:
+       - service: shell_command.backup_ha_and_move_backup_to_unraid
+  ## ביצוע גיבוי אוטומטי למערכת בשרת אחר 
+  ###############################################
+  backup_ha_config:
+     alias: 'Backup Home Assitant config'
+     sequence:
+       - service: shell_command.backup_hass_config  
+       
+  ## בדיקת מהירות אינטרנט ##
+  update_speedtestnet:
+    alias: Update SpeedtestNet info
+    sequence:
+      - service: sensor.update_speedtest
+
+  ## לתריס החשמלי ##
+  blinds_up:
+    alias: blinds up
+    sequence:
+    - service: switch.turn_off
+      data:  
+        entity_id: switch.tris_down
+    - delay:
+        milliseconds: 250
+    - service: switch.turn_on
+      data:
+        entity_id: switch.tris_up
+        
+  blinds_down:
+    alias: blinds down
+    sequence:
+    - service: switch.turn_off
+      data:  
+        entity_id: switch.tris_up
+    - delay:
+        milliseconds: 250
+    - service: switch.turn_on
+      data:
+        entity_id: switch.tris_down
+
+  blinds_stop:
+    alias: blinds stop
+    sequence:
+    - service: switch.turn_off
+      data:  
+        entity_id: switch.tris_down
+    - service: switch.turn_off
+      data:
+        entity_id: switch.tris_up

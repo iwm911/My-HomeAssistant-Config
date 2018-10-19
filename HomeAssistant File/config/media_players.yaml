@@ -1,0 +1,10 @@
+## LgTV ##
+  - platform: webostv
+    host: 1.1.1.1
+    name: Living Room TV  
+    timeout: 5
+    filename: webostv.conf
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret webostv

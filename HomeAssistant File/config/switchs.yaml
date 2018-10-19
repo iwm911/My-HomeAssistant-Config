@@ -1,0 +1,117 @@
+
+## Broadlink ##
+    ##############
+    ## שליטה על הטלוויזיה
+    ###############
+  - platform: broadlink
+    host: 1.1.1.1
+    mac: ''
+    timeout: 15
+    switches: 
+      tv_lg:
+        friendly_name: "LG Tv"
+        command_on: 'JgBYAAABKpIVEBURFDUWEBQRFBETEhURFDUVNRUQFTUVNRQ2FDUTNxQTExEUEhE3ExQTERMSFRITNRU1FDYUEhI3FDUVNRM3FQAFMwABKEoWAAxMAAEqSBUADQU='
+        command_off: 'JgBYAAABKpIUERURFDUVERQRFBEVEBURFDUVNRUQFTUVNRQ2FDUVNRQTERMUERQ1FRIRExQRFREUNRU1FDYUERM3FDUVNRU1EgAFNQABKkgVAAyAAAEoShQADQU='
+      lg_volume_up:
+        friendly_name: "LG TV Volume up"
+        command_on: 'JgBQAAABJZMTEhITETgSExEUERMSExITETgSOBITETgSNxM3ETgSOBEUETgRFBETEhMSExEUERMTNxISEzcROBM3ETgSOBI3EwAFGQABJkoSAA0FAAAAAAAAAAA='
+      lg_volume_down:
+        friendly_name: "Lg TV Volume Down"
+        command_on: 'JgBYAAABJpMSExEUETgSExEUERMSExEUETgSOBMREjgROBI4ETgSNxI4EjgRExITERQRExITEhMRFBETEjgROBI4ETgSOBE4EQAFGwABJkoSAAxFAAEmShIADQU=' 
+
+    ##############
+    ## שליטה בעזרת broadlink
+    ###############
+  - platform: broadlink
+    # type: rm_mini
+    timeout: 15
+    host: 1.1.1.1
+    mac: ''
+    switches:
+      ac_power:
+        friendly_name: "AC Power"
+        command_on: 'JgC4AGWDPiEgQCAhPiIeIR8hHyAgQD8iHiEgQD8hICAfIR8hICAfIR8hHiIeIh4hHyIeIh8hHiAgICAiHUI/IGKBQCAgQR8gPyIeIh4iHiEfQT8hHyEeQT8hICEeIh4iHyAfIR8hHyAfIh8iHSEgIB8hICEeIh4iH0A+IWGDQCAfQR8iPSMeICAhHiMdQj4iHiIeQT8hIB8fIR8hHyIeIh8iHSEgHyAiHSEgIh0hICAfIx0iHkE/IYAADQU='
+        command_off: 'JgC4AGWDPiEgQB8hPyEeIh4iHyEeQj4hIB8gQD8hHyMdIh4jHSEgIB8iHiAgIB8iHiEgIB8iHiEfIR8iHj9AIWGDPyEfQR8iPiEfIR4iHyAgQT4hICEeQEAgICAfIR8iHiIeIh4hHyEgHyAgICEeISAgICEeIh4hH0E/ImCDPyEeQR8iPyAfICAhHyAgQT4hHyEgQT8gHyAgIR4hHyIeISAhHiIfIR4hICAgHyAhHyEeIh8hHkE/IoIADQU='
+      ac_temp_up:
+        friendly_name: "AC Temp Up"
+        command_on: 'JgC+AGNjHyEeIR9CHyA/ISAgHyIfIR5BPiIeQT8hICEfIB8hHyEfICAiHSEgICAhHyAgIB8hHyAgICAgICEfQEAgYWMgIB8hH0EeIUAhHiEfIh4hID8/Ih9APyIfIB8hHyEgICAhHiEfICAhHyAfIR8hHyEfISAgICIdISA/PyFhZB4iHiIeQSAgPiEgIR8hHyAgQD8iHz8/Ix4hHiEfIx4hHiIeIh8gHyEfICAgICAgIR8gHyEgIB8hH0BAIYAADQUAAAAAAAAAAAAA'
+      ac_temp_down:
+        friendly_name: "AC Temp Down"
+        command_on: 'JgC+AGVjHiIfIh1BHyI+Ix0hHyIfIR8/QCAgIB9BPyIeIR8hICAfICAgHyIfIR4hICEeISAgHyEfISAgHyEeQT8hYWQeISAhHkAgIUAgHyEeIh4hH0FAIB8gIEE+IR8hHyEgIR4iHiEgIB8hHyAfIR8hICAfISAgICEeIh5BPyFgZB4iHiEfQR8hQCAeIR8hHyEfQj8gHyIeQT4hICEeIR8iHiMeIB8jHSIeIR8hHyAgIh4gICIeIR8gIEBAIYEADQUAAAAAAAAAAAAA'
+      ac_fan_speed:
+        friendly_name: "AC Fan Speed"
+        command_on: 'JgC4AGRjHyAgISBAPkI+ISAgHyIfQD4hIEA/ISAiHSEfIR8iHyAfICAgICEeIh4hHyIfIB8hICEeIh8gH0A/IWJiIR8fISBAQD9AICAgICAfQUAhH0E/Hx8hICEeIh4iHiEgIR4hHyIeIR8gICEfICEhHiAfIR8jHUE/IWBkHiIgHyBAP0E+ISAgHyEgQT4iH0A/ISAgIB8fIR8hICEfICAhHyEfIR8gHyEfIh8hHSEgIB8iH0A/IoEADQU='
+      ac_mode:
+        friendly_name: "AC Mode"
+        command_on: 'JgC+AGViHyIeQj4iHiEgIB8gICAgIR5BHyFAICBBPiIeISAgHyEeIR8iHiIfICAgHyEfIR8gIR8fISAgICAfQT8hYmEgICBAQCEeIh4iHyEeIh4hH0EfIT8gH0FAIh0iHyAgICAgHyAgIB8iHiEfIR8iIB8fIx0hHyEgHx9CPiJhYh8hIT5AIB8hICAfIR4iHyEfQR8iPiIeQT4hHyEfIR8iHiIfIR8fICEfICAhHiEfIR8iHiIeIh8hHkFAIIEADQUAAAAAAAAAAAAA'
+      ac_timer:
+        friendly_name: "AC Timer"
+        command_on: 'JgB4AAABJZEUNhMRFBETERQRExEUERM2ExEUNRQ1FBETEhM2EzYTERQ1FDUUNRQ1FDUUERMRFDUUERQRExEUERMRFDUUNRQREwAFZQABJUgUAAw8AAEmSRMADD0AASZJEwAMPQABJkgUAAw9AAElSRMADD4AASVIFAANBQ=='
+      
+      yes_mute:
+        friendly_name: "Yes Mute"
+        command_on: 'JgBYAAABJ5MSExEUEjcSExEUERQRExEUETgSNhMTEjgROBI4ETgSOBE4EhMRFBE4ExIRExITEhMRFBE4ETgSExI4ETgRORE4EQAFGwABJUsRAAxGAAEmShIADQU='
+
+      move_channels_up:
+        friendly_name: "Move channels up"
+        command_on: 'JgBQAAABJZMSExEUETgSExEUERMSExE5ERMSExE4EjgROBI4ExIRExI4EhISOBEUETgROBITEhMRFBE4ERQROBITERQROBE5EQAFZAABJUsRAA0FAAAAAAAAAAA='
+
+      move_channels_down:
+        friendly_name: "Move channels down"
+        command_on: 'JgBQAAABJZQRExITEjcSExITERQRExI4ERMSExI4ETgRORE4ERQRExI4ETgSOBISEjgROBITERQRFBETEhMROBITERQROBI4EQAFZAABJkoSAA0FAAAAAAAAAAA='
+        
+      info:
+        friendly_name: "info"
+        command_on: 'JgBQAAABJZQRExITETkRExITERQRExI4ERMSExI4ETgRORE4ERQRExITERQROBI4ERMSOBEUERMSOBE4EhMRFBE4ERQROBI4EQAFZAABJkoSAA0FAAAAAAAAAAA='  
+
+
+    ##############
+    ## שקע sh20 למצלמת שיאומי
+    ###############
+  - platform: mqtt
+    name: "SH20 POW"
+    state_topic: "stat/sh20/POWER"
+    command_topic: "cmnd/sh20/POWER"
+    availability_topic: "tele/sh20/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+
+    ##############
+    ## לתריס החשמלי
+    ###############
+  - platform: mqtt
+    name: "tris up"
+    state_topic: "stat/tris/POWER1"
+    command_topic: "cmnd/tris/POWER1"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: false  
+    
+  - platform: mqtt
+    name: "tris down"
+    state_topic: "stat/tris/POWER2"
+    command_topic: "cmnd/tris/POWER2"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: false
+
+    ##############
+    ## שקע BlitzWolf shp1 
+    ###############
+  - platform: mqtt
+    name: "BlitzWolf SHP1"
+    state_topic: "stat/bw-shp1/POWER"
+    command_topic: "cmnd/bw-shp1/POWER"
+    availability_topic: "tele/bw-shp1/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true    
