@@ -1,1 +1,1 @@
-# My HomeAssistant Config
+#                                           Abeksis Smart Home Configuration
