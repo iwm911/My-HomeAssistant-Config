@@ -5,7 +5,7 @@
 
 The project presented - is my smart home project. Where I sat for hours and was helped by good friends like [Eliran Turgeman](https://github.com/VirtualL/HomeAssistant-Config) ,[Dima Goltsman](https://github.com/dimagoltsman/ha-custom-component-ituran), And Yuval Meghaz  sorry if I forgot someone. 
 
-<h1 align="center"></a>Be sure to ⭐️ my repo!</h1>
+<align="center"></a>Be sure to ⭐️ my repo!</>
 
 
 
