@@ -1,0 +1,79 @@
+#################################################################
+#                                                               #
+#                    Packages/Coffee Machine                    #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+    light.yeelight_rgb_7c49eb0f97b1:
+      friendly_name: תאורה חדר שרתים
+      icon: mdi:server      
+
+    light.kitchen_strip_lamp:
+      friendly_name: תאורת לד במטבח
+      icon: mdi:led-strip
+      
+      
+#################################################################
+#                                                               #
+#                           Groups                              #
+#                                                               #
+#################################################################
+
+group:
+  yeelight:
+    name: Yeelight
+    view: no
+    entities:
+      - light.kitchen_strip_lamp
+      - light.yeelight_rgb_7c49eb0f97b1
+
+#################################################################
+#                                                               #
+#                           alexa                               # 
+#                                                               #
+#################################################################
+
+alexa:
+  filter:
+    include_entities: ## להציג ##
+      - light.yeelight_rgb_7c49eb0f97b1
+      - light.kitchen_strip_lamp
+
+  entity_config:
+    light.yeelight_rgb_7c49eb0f97b1:
+      name: server room
+      description: להדליק את האור בחדר מחשבים      
+
+#################################################################
+#                                                               #
+#                           lights                              #
+#                                                               #
+#################################################################
+
+light:
+  - platform: yeelight
+    devices:
+      1.1.1.1:
+        name: Computer Room
+        transition: 1000
+                
+  - platform: yeelight
+    devices:
+      1.1.1.1:
+        name: Kitchen strip Lamp
+        transition: 1000     
+    
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+# automation:

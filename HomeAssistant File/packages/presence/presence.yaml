@@ -1,0 +1,178 @@
+#################################################################
+#                                                               #
+#                       Packages/Presence                       #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+    device_tracker.nurit_iphone:
+      friendly_name: מצב הסוללה
+      
+    sensor.nurit_iphone:
+      icon: mdi:battery-70
+
+    device_tracker.iphone_nurit:
+      friendly_name: נורית 
+      entity_picture: /local/known_devices/nurit.png
+
+
+    device_tracker.avi_note8:
+      friendly_name: אבי 
+      entity_picture: /local/known_devices/avi.png
+ 
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+################################################################# 
+      
+group:
+  people at home:
+    name: People
+    view: no
+    entities:
+      - device_tracker.avi_note8
+      - device_tracker.iphone_nurit
+      - sensor.avi_battery
+      - sensor.nurit_iphone
+
+
+#################################################################
+#                                                               #
+#                      Device Trackers                          #
+#                                                               #
+################################################################# 
+
+# device_tracker:
+
+    
+    
+#################################################################
+#                                                               #
+#                          Sensors                              #
+#                                                               #
+################################################################# 
+
+## Batteries
+sensor:
+  - platform: template
+    sensors:
+      nurit_iphone:
+       friendly_name: סוללה של נורית
+       unit_of_measurement: "%"
+       value_template: '{{ states.device_tracker.nurit_iphone.attributes.battery|int }}'
+       entity_id: 
+       - device_tracker.nurit_iphone
+
+  # Zanzito #
+  - platform: mqtt
+    state_topic: "owntracks/Avi/avi"
+    name: "Avi Battery"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'
+    device_class: battery       
+       
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+automation:
+###########################
+  - alias:  turn off xiaomi cameras if avi at home
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.avi_note8
+      to: 'home'
+      for:
+        minutes: 1
+        seconds: 30
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.sh20_pow 
+
+      - service: notify.AviTelegram
+        data:
+          title: "אבטחה"
+          message: 'ברוך הבא אבי, המצלמה כבויה' 
+
+########################### 
+  - alias:  turn off xiaomi cameras if nurit at home
+    trigger:
+      platform: state
+      entity_id: device_tracker.iphone_nurit
+      to: 'home'
+      for:
+        minutes: 1
+        seconds: 30
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.sh20_pow 
+
+      - service: notify.ios_nurit_iphone
+        data:
+          title: "אבטחה"
+          message: 'ברוכה הבאה נורית, המצלמה כבויה'
+          data:
+            push:
+              sound: "US-EN-Alexa-Welcome-Home.wav"
+              badge: 0
+              category: 'modifymycctvswitch'
+            attachment: 
+              url: https://cdn2.iconfinder.com/data/icons/forbidden-signs/512/forbidden_record_video-512.png
+              
+              
+########################## 
+  - alias:  turn OFF xiaomi cameras if Morning and we are at home 
+    trigger:
+      - platform: time
+        at: '07:00:00'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: device_tracker.avi_note8
+          state: 'home'
+        - condition: state
+          entity_id: device_tracker.iphone_nurit
+          state: 'home'
+
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.sh20_pow
+      - service: notify.AviTelegram
+        data:
+          title: "אבטחה"
+          message: 'אתם בבית - המצלמה נסגרה, אין צורך '        
+          
+
+          
+##########################          
+  - alias:  turn on xiaomi cameras if nurit AND avi NOT at home
+    trigger:
+      - platform: state
+        entity_id: device_tracker.avi_note8,device_tracker.iphone_nurit
+        to: 'not_home'
+        for:
+          minutes: 1
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: device_tracker.avi_note8
+          state: 'not_home'
+        - condition: state
+          entity_id: device_tracker.iphone_nurit
+          state: 'not_home'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.sh20_pow          

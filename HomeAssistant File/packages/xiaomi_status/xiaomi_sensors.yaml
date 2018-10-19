@@ -1,0 +1,127 @@
+#################################################################
+#                                                               #
+#                   Packages/Xiaomi Status                      #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+
+  
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+
+group:
+  xiaomi_door_sensors:
+    name: Door Sensors
+    view: no
+    entities:
+      - binary_sensor.door_window_sensor_158d0001ef3425
+      - binary_sensor.door_window_sensor_158d00027a59c6    
+
+  xiaomi_motion_sensors:
+    name: Motion Sensors
+    view: no
+    entities:
+      - binary_sensor.motion_sensor_158d0002047c5a
+      - binary_sensor.motion_sensor_158d000204bfcb
+
+  xiaomi_temperature_sensors:
+    name: Temperature Sensors
+    view: no
+    entities:
+      - sensor.temperature_158d00022ece24
+      - sensor.second_floor_temperature
+
+      
+#################################################################
+#                                                               #
+#                       Binary Sensors                          #
+#                                                               #
+#################################################################
+
+binary_sensor:
+  - platform: template
+    sensors:
+## Door Sensors
+      front_door:
+        friendly_name: Front Door Sensor
+        device_class: connectivity
+        entity_id: sensor.front_door
+        value_template: "{{ is_state('binary_sensor.door_window_sensor_158d0001ef3425', 'on') }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.door_window_sensor_158d0001ef3425', 'on') %}
+            mdi:door
+          {% elif is_state('binary_sensor.door_window_sensor_158d0001ef3425', 'off') %}
+            mdi:door         
+          {% else %}
+            mdi:alert
+          {% endif %}
+      balcony_door:
+        friendly_name: dor exit to the balcony
+        device_class: connectivity
+        entity_id: binary_sensor.door_window_sensor_158d00027a59c6
+        value_template: "{{ is_state('binary_sensor.door_window_sensor_158d00027a59c6', 'on') }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.door_window_sensor_158d00027a59c6', 'on') %}
+            mdi:door
+          {% elif is_state('binary_sensor.door_window_sensor_158d00027a59c6', 'off') %}
+            mdi:door         
+          {% else %}
+            mdi:alert
+          {% endif %}
+
+## Motion Sensors
+      sensor_motion:
+        friendly_name: Sensor Motion Sensor
+        device_class: connectivity
+        entity_id: binary_sensor.motion_sensor_158d0002047c5a
+        value_template: "{{ is_state('binary_sensor.motion_sensor_158d0002047c5a', 'on') }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.motion_sensor_158d0002047c5a', 'on') %}
+            mdi:walk
+          {% elif is_state('binary_sensor.motion_sensor_158d0002047c5a', 'off') %}
+            mdi:walk         
+          {% else %}
+            mdi:alert
+          {% endif %}
+      bedroom_motion:
+        friendly_name: Bedroom sensor
+        device_class: connectivity
+        entity_id: binary_sensor.motion_sensor_158d000204bfcb
+        value_template: "{{ is_state('binary_sensor.motion_sensor_158d000204bfcb', 'on') }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.motion_sensor_158d000204bfcb', 'on') %}
+            mdi:walk
+          {% elif is_state('binary_sensor.motion_sensor_158d000204bfcb', 'off') %}
+            mdi:walk        
+          {% else %}
+            mdi:alert
+          {% endif %}
+
+## Temerature Sensors
+      computer_temperature:
+        friendly_name: "Computer Room Temperature"
+        value_template: >-
+          {% if is_state('sensor.temperature_158d00022ece24', 'unavailable') %}
+            off
+          {% else %}
+            on
+          {% endif %}
+      second_temperature:
+        friendly_name: "Second Floor Temperature"
+        value_template: >-
+          {% if is_state('sensor.second_floor_temperature', 'unavailable') %}
+            off
+          {% else %}
+            on
+          {% endif %}

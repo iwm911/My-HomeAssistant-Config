@@ -1,0 +1,106 @@
+#################################################################
+#                                                               #
+#                      Packages/weather                         #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+    sensor.washing_machine_yesterday:
+      friendly_name: שימוש אתמול
+      icon: mdi:washing-machine
+      
+    sensor.washing_machine_energy_today:
+      friendly_name: השימוש היום
+      icon: mdi:washing-machine    
+    
+    sensor.washing_machine_total:
+      friendly_name: סה״כ שימוש
+      icon: mdi:washing-machine 
+
+    sensor.washing_machine_total_cost:
+      friendly_name: סה״כ
+      icon: mdi:washing-machine     
+      
+      
+
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+group:
+  washing machin:
+    name: Total Cost
+    view: no
+    entities:
+      - sensor.washing_machine_total
+      - sensor.washing_machine_total_cost
+
+  washing machin tracking:
+    name: Tracking Day
+    view: no
+    entities:
+      - sensor.washing_machine_energy_today
+      - sensor.washing_machine_yesterday
+      
+      
+#################################################################
+#                                                               #
+#                          Sensors                              #
+#                                                               #
+################################################################# 
+sensor:
+  - platform: mqtt
+    name: "Washing Machine energy today"
+    state_topic: "tele/washing_machine/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+  - platform: mqtt
+    name: "Washing Machine yesterday"
+    state_topic: "tele/washing_machine/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+  - platform: mqtt
+    name: "Washing Machine total"
+    state_topic: "tele/washing_machine/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+  - platform: mqtt
+    name: "Washing Machine total cost"
+    state_topic: "tele/washing_machine/SENSOR"
+    value_template: '{{ (value_json["ENERGY"]["Total"] * 0.5404) | round(3) }}'
+    #ILS OR USD (Depends on local currency) Just change the value of "0.5404" to your local elctricity price
+    unit_of_measurement: "₪" # USD / Other local currency 
+
+
+#################################################################
+#                                                               #
+#                          swithcs                              #
+#                                                               #
+#################################################################
+switch:
+  - platform: mqtt
+    name: "Washing Machine"
+    state_topic: "stat/washing_machine/POWER"
+    command_topic: "cmnd/washing_machine/POWER"
+    availability_topic: "tele/washing_machine/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true    
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################    
+# automations:

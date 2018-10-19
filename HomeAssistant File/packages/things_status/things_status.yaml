@@ -1,0 +1,105 @@
+#################################################################
+#                                                               #
+#                   Packages/Things Status                      #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+
+  
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+
+group:
+  stuff:
+    name: All Stuff
+    view: no
+    entities:
+      - device_tracker.34CE008D4E2E
+      - device_tracker.amzonecho
+      - device_tracker.xiaomicamera
+      - device_tracker.service_balcony
+      - device_tracker.ipad
+      - device_tracker.foscam
+      - device_tracker.xiaomimibox
+      
+  phone:
+    name: Mobile Phone
+    view: no
+    entities:
+      - device_tracker.avi_note8
+      - device_tracker.iphone_nurit
+      - evice_tracker.yakir
+      
+  sonoff:
+    name: Sonoff Tracking
+    view: no
+    entities:
+      - device_tracker.sonofprozdor
+      - device_tracker.sonofstairs
+      - device_tracker.sonofs20
+      - device_tracker.sonofftris
+
+#################################################################
+#                                                               #
+#                          Sensors                              #
+#                                                               #
+################################################################# 
+sensor:
+  - platform: template
+    sensors:
+      foscam:
+        friendly_name: 'Foscam camera'
+        value_template: "{{ 'Online' if is_state('device_tracker.foscam', 'home') else 'Offline' }}"
+      xiaomi_mi_box:
+        friendly_name: 'Xiaomi Mi Box'
+        value_template: "{{ 'Online' if is_state('device_tracker.xiaomimibox', 'home') else 'Offline' }}"        
+      ipad:
+        friendly_name: 'IPad at the entrance'
+        value_template: "{{ 'Online' if is_state('device_tracker.ipad', 'home') else 'Offline' }}"
+      gateway:
+        friendly_name: 'Gateway Xiaomi'
+        value_template: "{{ 'Online' if is_state('device_tracker.34CE008D4E2E', 'home') else 'Offline' }}"
+      amzon_echo:
+        friendly_name: 'Amzon Echo'
+        value_template: "{{ 'Online' if is_state('device_tracker.amzonecho', 'home') else 'Offline' }}"
+      note_8:
+        friendly_name: 'Samsung Galaxy Note 8'
+        value_template: "{{ 'Online' if is_state('device_tracker.avi_note8', 'home') else 'Offline' }}"
+      iphone:
+        friendly_name: 'iPhone Nurit'
+        value_template: "{{ 'Online' if is_state('device_tracker.iphone_nurit', 'home') else 'Offline' }}"
+      yakir:
+        friendly_name: 'Samsung Galaxy 8'
+        value_template: "{{ 'Online' if is_state('device_tracker.yakir', 'home') else 'Offline' }}"
+      xiaomicamera:
+        friendly_name: 'Xiaomi Camera'
+        value_template: "{{ 'Online' if is_state('device_tracker.xiaomicamera', 'home') else 'Offline' }}"
+      macbookpro:
+        friendly_name: 'MacBook Pro'
+        value_template: "{{ 'Online' if is_state('device_tracker.macbookpro', 'home') else 'Offline' }}"
+      sonofftris:
+        friendly_name: 'Sonoof Ttris'
+        value_template: "{{ 'Online' if is_state('device_tracker.sonofftris', 'home') else 'Offline' }}"
+      sonofstairs:
+        friendly_name: 'Sonoof Stairs'
+        value_template: "{{ 'Online' if is_state('device_tracker.sonofstairs', 'home') else 'Offline' }}"
+      sonofprozdor:
+        friendly_name: 'Sonoof Prozdor'
+        value_template: "{{ 'Online' if is_state('device_tracker.sonofprozdor', 'home') else 'Offline' }}"
+      sonofs20:
+        friendly_name: 'Sonםof s20'
+        value_template: "{{ 'Online' if is_state('device_tracker.sonofs20', 'home') else 'Offline' }}" 
+      service_balcony:
+        friendly_name: 'Service Balcony'
+        value_template: "{{ 'Online' if is_state('device_tracker.service_balcony', 'home') else 'Offline' }}"        
