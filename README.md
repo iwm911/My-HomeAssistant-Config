@@ -1,5 +1,7 @@
 #                                           Abeksis Smart Home Configuration
-###### H6  Abeksis Smart Home Configuration
+
+<h1 align="center"></a>Kingia Castle Smart Home Configuration</h1>
+
 
  i live in Israel and I love technology very much. I'm familiar with Israel from my other projects and I enjoy sharing what I do.
 
