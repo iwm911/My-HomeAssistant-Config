@@ -25,10 +25,10 @@ The project presented - is my smart home project. Where I sat for hours and was 
 <table>
 <thead>
 <tr>
-<th><a href="https://raw.githubusercontent.com/abeksis/My-HomeAssistant-Config/master/HA%20Picters/Lovelace%20Screenshots/01.%20Home.jpg">Lovelace Screenshots</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA%20Picters/Lovelace%20Screenshots/01.%20Home.jpg">Lovelace Screenshots</a></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA%20Picters/Lovelace%20Screenshots"><img src="https://github.com/JamesMcCarthy79/Home-Assistant-Config/raw/master/HA%20Pics/Lovelace%20Screenshots/10.%20System%20Status.png" style="max-width:100%;"></a></td>
+<td><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA%20Picters/Lovelace%20Screenshots"><img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA%20Picters/Lovelace%20Screenshots/01.%20Home.jpg" style="max-width:100%;"></a></td>
 </tr></tbody></table>
