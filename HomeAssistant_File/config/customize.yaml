@@ -242,20 +242,6 @@
     icon: mdi:home-assistant
     assumed_state: false
       
-     
-  ## איתוראן ##
-  ituran.skodakodiak:
-    friendly_name: איתוראן
-    icon: mdi:car-connected
-    assumed_state: false
-
-  sensor.disk_use_percent_home:
-    # friendly_name: ניצול אחסון
-    icon: mdi:harddisk
-    homebridge_hidden: true
-
-  sensor.disk_use_:
-    friendly_name: Disk Use
   sensor.speedtest_ping:
     friendly_name: Ping
     icon: mdi:pulse

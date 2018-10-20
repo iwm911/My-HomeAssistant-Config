@@ -11,7 +11,12 @@
 #                          Customize                            #
 #                                                               #
 #################################################################
-# homeassistant:
+homeassistant:
+  customize:
+    ituran.skodakodiak:
+      friendly_name: איתוראן
+      icon: mdi:car-connected
+      assumed_state: false
  
 
 #################################################################

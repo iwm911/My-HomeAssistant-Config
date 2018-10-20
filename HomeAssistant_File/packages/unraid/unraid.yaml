@@ -83,7 +83,14 @@ homeassistant:
       hidden: false
       icon: mdi:home-automation
       friendly_name: גרסא מותקנת
-      homebridge_hidden: false      
+      homebridge_hidden: false 
+
+    sensor.disk_use_percent_home:
+      icon: mdi:harddisk
+      homebridge_hidden: true
+    
+    sensor.disk_use_:
+      friendly_name: Disk Use
   
 #################################################################
 #                                                               #
