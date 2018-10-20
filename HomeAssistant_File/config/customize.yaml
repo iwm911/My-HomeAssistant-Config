@@ -249,44 +249,6 @@
     icon: mdi:car-connected
     assumed_state: false
 
-  ## מידע מערכת ##
-  sensor.processor_use:
-    friendly_name: ניצול מעבד
-    homebridge_hidden: true
-  
-  sensor.memory_use_percent:
-    friendly_name: ניצול זכרון
-    icon: mdi:chip
-    homebridge_hidden: true
-
-  sensor.since_last_boot:
-    friendly_name: זמן מאז אתחול המערכת
-    icon: mdi:update
-    homebridge_hidden: true
-
-  sensor.time_online:
-    friendly_name: זמן פעילות הום-אסיסטנט
-    icon: mdi:home-assistant
-    homebridge_hidden: true
-    unit_of_measurement: 'שעות'  
-    
-  sensor.current_ha_version:
-    hidden: false
-    icon: mdi:new-box
-    friendly_name: גרסא עדכנית ביותר
-    homebridge_hidden: false
-
-  sensor.installed_version:
-    hidden: false
-    icon: mdi:home-automation
-    friendly_name: גירסא מותקנת
-    homebridge_hidden: false 
-
-  # sensor.cpu_temp:
-  #   icon: mdi:temperature-celsius
-  #   # friendly_name: טמפ מעבד
-  #   homebridge_hidden: true
-
   sensor.disk_use_percent_home:
     # friendly_name: ניצול אחסון
     icon: mdi:harddisk

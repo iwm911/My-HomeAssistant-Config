@@ -156,3 +156,19 @@ things status:
   view: yes
   entities:
     - group.battery_alert 
+
+
+####################################################
+#                                                  #
+#                  unraid server                   #
+#                                                  #
+####################################################
+
+unraid:
+  name: HDD Temp
+  icon: mdi:server
+  view: yes
+  entities:
+    - group.hdd_temp
+    - group.unraid_info
+    - group.homeassistant_info

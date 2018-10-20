@@ -2,42 +2,6 @@
   - platform: yr
 
 
-  ## מידע מערכת ##
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_use_percent
-      - type: processor_use
-      - type: since_last_boot
-  
-  ## גודל בסיס הנתונים ##   
-  - platform: filesize
-    file_paths:
-      - /config/home-assistant_v2.db
-
-  ## בדיקת זמן פעולה של ha ##
-  - platform: uptime
-    name: Time Online         
-
-  ## מהירות מעבד ##
-  - platform: command_line
-    name: 'CPU temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: " sshpass -p xxx ssh -o StrictHostKeyChecking=no user@1.1.1.1 'sensors |grep CPU | grep -o '[0-9][0-9].[0-9]' | head -1;' "
- 
-
-  # מציג את הגרסה האחרונה באתר הרשמי
-  - platform: command_line
-    command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
-    name: Current HA Version
-  
-  ## הצגת מספר הגרסה האחרונה המותקנת על המערכת ##
-  - platform: command_line
-    name: Installed version
-    command: "head -5 /config/.HA_VERSION"
-
   ## שעה ותאריך ##
   - platform: time_date
     display_options:

@@ -52,6 +52,38 @@ homeassistant:
       icon: mdi:harddisk
       assumed_state: false  
 
+    ############  Unraid Hardware info  ##########
+    sensor.processor_use:
+      friendly_name: ניצול מעבד
+      homebridge_hidden: true
+    
+    sensor.memory_use_percent:
+      friendly_name: ניצול זכרון
+      icon: mdi:chip
+      homebridge_hidden: true
+  
+    sensor.since_last_boot:
+      friendly_name: זמן מאז אתחול המערכת
+      icon: mdi:update
+      homebridge_hidden: true
+  
+    sensor.time_online:
+      friendly_name: זמן פעילות הום-אסיסטנט
+      icon: mdi:home-assistant
+      homebridge_hidden: true
+      unit_of_measurement: 'שעות'  
+      
+    sensor.current_ha_version:
+      hidden: false
+      icon: mdi:new-box
+      friendly_name: גרסא עדכנית ביותר
+      homebridge_hidden: false
+  
+    sensor.installed_version:
+      hidden: false
+      icon: mdi:home-automation
+      friendly_name: גרסא מותקנת
+      homebridge_hidden: false      
   
 #################################################################
 #                                                               #
@@ -72,6 +104,25 @@ group:
       - sensor.hdd_sdg_temp
       - sensor.hdd_sdh_temp
       - sensor.hdd_sdi_temp
+  
+  unraid info:
+    name: unraid info
+    view: no
+    entities:
+      - sensor.cpu_temp    
+      - sensor.processor_use
+      - sensor.memory_use_percent
+  
+  homeassistant info:
+    name: homeassistant info
+    view: no
+    entities:
+      - sensor.current_ha_version
+      - sensor.installed_version
+      - sensor.since_last_boot
+      - sensor.time_online      
+  
+    
 
 #################################################################
 #                                                               #
@@ -79,50 +130,86 @@ group:
 #                                                               #
 ################################################################# 
 sensor:
+  ############  HDD Temp  ##########
   - platform: command_line
     name: 'HDD_sdi_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
+    unit_of_measurement: "°C"
+    scan_interval: 120 
     command: "hddtemp -n /dev/sdi"
 
   - platform: command_line
     name: 'HDD_sdc_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
+    unit_of_measurement: "°C" 
+    scan_interval: 120 
     command: "hddtemp -n /dev/sdc"    
     
   - platform: command_line
     name: 'HDD_sdg_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
+    unit_of_measurement: "°C" 
+    scan_interval: 120 
     command: "hddtemp -n /dev/sdg"
     
   - platform: command_line
     name: 'HDD_sdf_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
+    unit_of_measurement: "°C" 
+    scan_interval: 120 
     command: "hddtemp -n /dev/sdf"
     
   - platform: command_line
     name: 'HDD_sde_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
+    unit_of_measurement: "°C" 
+    scan_interval: 120 
     command: "hddtemp -n /dev/sde"
     
   - platform: command_line
     name: 'HDD_sdd_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
+    unit_of_measurement: "°C" 
+    scan_interval: 120 
     command: "hddtemp -n /dev/sdd" 
 
   - platform: command_line
     name: 'HDD_sdh_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
+    unit_of_measurement: "°C" 
+    scan_interval: 120 
     command: "hddtemp -n /dev/sdh" 
     
   - platform: command_line
     name: 'HDD_sdb_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
+    unit_of_measurement: "°C" 
     scan_interval: 120 #2 min
     command: "hddtemp -n /dev/sdb"
+    
+  ############  Unraid Hardware  ##########
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+      - type: since_last_boot
+ 
+  ############  Database size ############   
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant_v2.db
+
+  ############  Time homeassistant activity #############
+  - platform: uptime
+    name: Time Online         
+
+  ############  Processor speed ##############
+  - platform: command_line
+    name: 'CPU temp'
+    unit_of_measurement: "°C"
+    scan_interval: 120 
+    command: " sshpass -p xxxxxx ssh -o StrictHostKeyChecking=no user@1.1.1.1 'sensors |grep CPU | grep -o '[0-9][0-9].[0-9]' | head -1;' "
+ 
+  ############  The latest version of ha ##############
+  - platform: command_line
+    command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+    name: Current HA Version
+  
+  ############  The latest version of ha  install ##############
+  - platform: command_line
+    name: Installed version
+    command: "head -5 /config/.HA_VERSION"      
