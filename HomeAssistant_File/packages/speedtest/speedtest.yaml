@@ -1,0 +1,57 @@
+#################################################################
+#                                                               #
+#                   Packages/Speed Test                         #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+    sensor.speedtest_ping:
+      friendly_name: Ping
+      icon: mdi:pulse
+    sensor.speedtest_download:
+      friendly_name: Download
+      icon: mdi:arrow-down-bold
+    script.update_speedtestnet:
+      friendly_name: Upload
+      icon: mdi:arrow-up-bold
+    sensor.speedtest_upload:
+      friendly_name: Upload
+      icon: mdi:arrow-up-bold   
+
+
+
+#################################################################
+#                                                               #
+#                          Sensors                              #
+#                                                               #
+################################################################# 
+sensor: 
+  - platform: speedtest
+    server_id: 9034
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+
+group:
+  speedtest:
+    name: Speed Test
+    view: no
+    entities:
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - script.update_speedtestnet

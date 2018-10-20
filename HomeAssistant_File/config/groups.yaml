@@ -172,3 +172,4 @@ unraid:
     - group.hdd_temp
     - group.unraid_info
     - group.homeassistant_info
+    - group.speedtest

@@ -9,14 +9,6 @@
       - 'time'
       - 'date' 
 
-  ## בדיקת מהירות אינטרנט ## 
-  - platform: speedtest
-    server_id: 9034
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-
   ## cloudflare ##
   #https://www.home-assistant.io/components/sensor.dnsip/    
   - platform: dnsip
