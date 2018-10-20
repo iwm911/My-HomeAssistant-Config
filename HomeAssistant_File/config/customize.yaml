@@ -255,13 +255,6 @@
     friendly_name: Upload
     icon: mdi:arrow-up-bold  
 
-  sensor.homeassistant_v2db:
-    # friendly_name: גודל הדאטה בייס
-    icon: mdi:database
-    homebridge_hidden: true
-    # unit_of_measurement: 'מגה-ביט'
-
-
   sensor.humidity_second_floor:
     friendly_name: לחות קומה שניה
     icon: mdi:water-percent

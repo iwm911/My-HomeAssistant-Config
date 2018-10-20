@@ -91,6 +91,12 @@ homeassistant:
     
     sensor.disk_use_:
       friendly_name: Disk Use
+ 
+    sensor.homeassistant_v2db:
+      # friendly_name: גודל הדאטה בייס
+      icon: mdi:database
+      homebridge_hidden: true
+      # unit_of_measurement: 'מגה-ביט'      
   
 #################################################################
 #                                                               #
@@ -119,9 +125,10 @@ group:
       - sensor.cpu_temp    
       - sensor.processor_use
       - sensor.memory_use_percent
+      - sensor.homeassistant_v2db
   
   homeassistant info:
-    name: homeassistant info
+    name: HomeAssistant info
     view: no
     entities:
       - sensor.current_ha_version
