@@ -35,22 +35,6 @@ group:
       - light.kitchen_strip_lamp
       - light.yeelight_rgb_7c49eb0f97b1
 
-#################################################################
-#                                                               #
-#                           alexa                               # 
-#                                                               #
-#################################################################
-
-alexa:
-  filter:
-    include_entities: ## להציג ##
-      - light.yeelight_rgb_7c49eb0f97b1
-      - light.kitchen_strip_lamp
-
-  entity_config:
-    light.yeelight_rgb_7c49eb0f97b1:
-      name: server room
-      description: להדליק את האור בחדר מחשבים      
 
 #################################################################
 #                                                               #
