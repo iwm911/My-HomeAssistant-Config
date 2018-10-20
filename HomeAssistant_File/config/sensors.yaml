@@ -102,57 +102,6 @@
             לא
           {% endif %} 
           
-          
-          
-## טמפ דיסקים בשרת unraid ##
-  - platform: command_line
-    name: 'HDD_sdi_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sdi"
-
-  - platform: command_line
-    name: 'HDD_sdc_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sdc"    
-    
-  - platform: command_line
-    name: 'HDD_sdg_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sdg"
-    
-  - platform: command_line
-    name: 'HDD_sdf_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sdf"
-    
-  - platform: command_line
-    name: 'HDD_sde_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sde"
-    
-  - platform: command_line
-    name: 'HDD_sdd_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sdd" 
-
-  - platform: command_line
-    name: 'HDD_sdh_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sdh" 
-    
-  - platform: command_line
-    name: 'HDD_sdb_temp'
-    unit_of_measurement: "°C" #temperature in C "°C"
-    scan_interval: 120 #2 min
-    command: "hddtemp -n /dev/sdb"     
-
 
 ###### Latest config backup time
   - platform: command_line

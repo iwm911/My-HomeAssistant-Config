@@ -52,47 +52,7 @@
     friendly_name: לחות חדר מחשבים
     icon: mdi:water-percent
     assumed_state: false
-
-  sensor.hdd_sdg_temp:
-    friendly_name: Parity 
-    icon: mdi:harddisk
-    assumed_state: false
-
-  sensor.hdd_sdi_temp:
-    friendly_name: Cache
-    icon: mdi:harddisk
-    assumed_state: false
-    
-  sensor.hdd_sdc_temp:
-    friendly_name: Cache 2
-    icon: mdi:harddisk
-    assumed_state: false    
-
-  sensor.hdd_sdf_temp: 
-    friendly_name: דיסק 1
-    icon: mdi:harddisk
-    assumed_state: false  
-  
-  sensor.hdd_sde_temp:
-    friendly_name: דיסק 2
-    icon: mdi:harddisk
-    assumed_state: false      
-    
-  sensor.HDD_sdj_temp: 
-    friendly_name: דיסק 3
-    icon: mdi:harddisk
-    assumed_state: false    
    
-  sensor.hdd_sdh_temp: 
-    friendly_name: דיסק 4
-    icon: mdi:harddisk
-    assumed_state: false
-    
-  sensor.hdd_sdb_temp: 
-    friendly_name: דיסק 5
-    icon: mdi:harddisk
-    assumed_state: false    
-    
     
 
   ## מזג האוויר ##

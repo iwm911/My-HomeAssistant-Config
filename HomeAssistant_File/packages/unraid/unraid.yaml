@@ -1,0 +1,128 @@
+#################################################################
+#                                                               #
+#                   Packages/unraid                             #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+    sensor.hdd_sdg_temp:
+      friendly_name: Parity 
+      icon: mdi:harddisk
+      assumed_state: false
+  
+    sensor.hdd_sdi_temp:
+      friendly_name: Cache
+      icon: mdi:harddisk
+      assumed_state: false
+      
+    sensor.hdd_sdc_temp:
+      friendly_name: Cache 2
+      icon: mdi:harddisk
+      assumed_state: false    
+  
+    sensor.hdd_sdf_temp: 
+      friendly_name: דיסק 1
+      icon: mdi:harddisk
+      assumed_state: false  
+    
+    sensor.hdd_sde_temp:
+      friendly_name: דיסק 2
+      icon: mdi:harddisk
+      assumed_state: false      
+      
+    sensor.HDD_sdd_temp: 
+      friendly_name: דיסק 3
+      icon: mdi:harddisk
+      assumed_state: false    
+     
+    sensor.hdd_sdh_temp: 
+      friendly_name: דיסק 4
+      icon: mdi:harddisk
+      assumed_state: false
+      
+    sensor.hdd_sdb_temp: 
+      friendly_name: דיסק 5
+      icon: mdi:harddisk
+      assumed_state: false  
+
+  
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+
+group:
+  hdd temp:
+    name: HDD Temp
+    view: no
+    entities:
+      - sensor.hdd_sdb_temp
+      - sensor.hdd_sdc_temp
+      - sensor.hdd_sdd_temp
+      - sensor.hdd_sde_temp
+      - sensor.hdd_sdf_temp
+      - sensor.hdd_sdg_temp
+      - sensor.hdd_sdh_temp
+      - sensor.hdd_sdi_temp
+
+#################################################################
+#                                                               #
+#                          Sensors                              #
+#                                                               #
+################################################################# 
+sensor:
+  - platform: command_line
+    name: 'HDD_sdi_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sdi"
+
+  - platform: command_line
+    name: 'HDD_sdc_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sdc"    
+    
+  - platform: command_line
+    name: 'HDD_sdg_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sdg"
+    
+  - platform: command_line
+    name: 'HDD_sdf_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sdf"
+    
+  - platform: command_line
+    name: 'HDD_sde_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sde"
+    
+  - platform: command_line
+    name: 'HDD_sdd_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sdd" 
+
+  - platform: command_line
+    name: 'HDD_sdh_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sdh" 
+    
+  - platform: command_line
+    name: 'HDD_sdb_temp'
+    unit_of_measurement: "°C" #temperature in C "°C"
+    scan_interval: 120 #2 min
+    command: "hddtemp -n /dev/sdb"
