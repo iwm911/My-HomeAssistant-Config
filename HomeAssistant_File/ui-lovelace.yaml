@@ -599,23 +599,13 @@ views:
                 style:
                   top: 89%
                   left: 18%
-                  
-              - type: custom:state-attribute-element
-                entity: sensor.last_successful_
-                attribute: country
-                prefix: 'Country: '
-                style:
-                  top: 89%
-                  left: 45%
 
-              - type: custom:state-attribute-element
-                entity: sensor.last_successful_
-                attribute: hostname
-                prefix: 'hostname: '
+              - type: state-label
+                entity: sensor.myip
+                prefix: 'My IP: '
                 style:
                   top: 89%
-                  left: 73%             
-                
+                  left: 58%  
 #################################################################
 #                                                               #
 #                   ¯\__/¯  Downstairs  ¯\__/¯                  #
