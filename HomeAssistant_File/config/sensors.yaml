@@ -39,14 +39,6 @@
       - 'time'
           
            
-# tautulli Plex
-  - platform: tautulli
-    api_key: !secret tautulli
-    host: 1.1.1.1
-    port: 8181
-    attributes:
-      - magic_title
-
 # אבטחה - איזה כתובת אי פי התחברה #
   - platform: template
     sensors:
