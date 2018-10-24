@@ -2001,7 +2001,7 @@ views:
                 cards:
                   - type: "custom:mini-graph-card"
                     entity: sensor.power_calc_total_phaze1
-                    height: 100
+                    height: 120
                     line_width: 1
                     font_size: 75
                     color: '#3498db'                    
@@ -2050,7 +2050,7 @@ views:
                 cards:
                   - type: "custom:mini-graph-card"
                     entity: sensor.phaze_1__total
-                    height: 100
+                    height: 120
                     line_width: 1
                     font_size: 75
                     color: '#3498db'                    
