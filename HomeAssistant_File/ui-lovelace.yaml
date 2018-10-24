@@ -1892,10 +1892,11 @@ views:
         thumb_interval: 15
         update_interval: 2
         cameras:
-          - entity: camera.front_camera_dor
+          - entity: camera.right_side_4mp
+          - entity: camera.left_side_2mp
+          - entity: camera.building_door
+          - entity: camera.front_camera_dor 
           - entity: camera.outside_camera_backwards
-          - entity: camera.front_house
-          - entity: camera.onvif_camera
 
 
 #################################################################
