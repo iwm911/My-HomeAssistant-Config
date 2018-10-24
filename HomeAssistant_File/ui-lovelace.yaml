@@ -1095,7 +1095,6 @@ views:
 ################################################################# 
   - type: vertical-stack
     icon: mdi:car
-    panel: true
     cards:
       - type: custom:card-modder
         card:
@@ -1103,7 +1102,6 @@ views:
           entity: ituran.skodakodiak
         style:
           color": "white"
-          padding: 23px 463px 21px
           background: "url(http://3.bp.blogspot.com/-tGNwK4MI4pU/T5pItz_GCvI/AAAAAAAACNs/fqXqJfWTJWo/s1600/Proton+Prevé+Wallpaper+1920x1080+dash+board+2.jpg"
           height: 750px
 
