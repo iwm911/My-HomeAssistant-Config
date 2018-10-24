@@ -1172,12 +1172,13 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - icon: mdi:washing-machine
+  - type: horizontal-stack
+    icon: mdi:washing-machine
     name: power
     cards:
-#################################################################
-#                        tammy4                                 #
-#################################################################    
+   #################################################################
+   #                        tammy4                                 #
+   #################################################################    
       - type: vertical-stack
         cards:
           - type: picture-elements
@@ -1917,16 +1918,25 @@ views:
                 font-size: 115%
                 font-weight: bold
 
-          - type: custom:card-modder
-            card:
-              type: "custom:tracker-card"
-              trackers:
-                - sensor.custom_card_tracker
-                - sensor.custom_component_tracker 
-            style:
-              "color": "white"
-              background: "url(http://www.zulkarnine.com/wp-content/uploads/2013/12/HD-1080p-Wallpaper-559.jpg"
-              height: 255px
+#################################################################
+#                                                               #
+#                ¯\__/¯ update plugin   ¯\__/¯                  #
+#                                                               #
+#                                                               #
+#################################################################
+  - title: Surveillance
+    icon: mdi:update
+    panel: true
+    cards:
+      - type: custom:card-modder
+        card:
+          type: "custom:tracker-card"
+          trackers:
+            - sensor.custom_card_tracker
+            - sensor.custom_component_tracker 
+        style:
+          color": white
+          background: "url(http://www.zulkarnine.com/wp-content/uploads/2013/12/HD-1080p-Wallpaper-559.jpg"
               
 #################################################################
 #                                                               #
@@ -1957,6 +1967,7 @@ views:
 
   - icon: mdi:power-plug
     name: Energy Stats
+    #panel: true
     cards:
       - type: vertical-stack
         cards:
