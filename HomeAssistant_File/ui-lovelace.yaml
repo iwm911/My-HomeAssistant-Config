@@ -39,7 +39,7 @@ resources:
     type: js
 
   ## Sonarr/Radarr - https://github.com/custom-cards/upcoming-media-card ##
-  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?v=0.2.2
+  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?v=0.2.5
     type: js 
 
     ## https://community.home-assistant.io/t/lovelace-swiper-card/72447 ##
@@ -48,7 +48,7 @@ resources:
 
     ## https://github.com/custom-cards/tracker-card ##
   - url: /local/custom_ui/tracker-card.js?v=0.1.5
-    type: js    
+    type: js
 
 #################################################################
 #                          Module                               #
@@ -64,7 +64,7 @@ resources:
     type: module
     
   ## https://github.com/kalkih/mini-media-player ##
-  - url: /local/custom_ui/mini-media-player.js?v=0.8.7
+  - url: /local/custom_ui/mini-media-player.js?v=0.8.8
     type: module
 
   ## https://github.com/thomasloven/lovelace-card-modder ##
@@ -105,22 +105,16 @@ views:
                 elements:
                   - type: state-icon
                     entity: sensor.avi_battery
-                    style:
-                      top: 92%
-                      left: 78%
-                      color: white
+                    style: {top: 94%, left: 78%, color: white}
+
                   - type: state-label    
                     entity: sensor.avi_battery
-                    style:
-                      top: 92%
-                      left: 90%
-                      color: white                       
+                    style: {top: 92%, left: 90%, color: white}
+                      
                   - type: state-label
                     entity: device_tracker.avi_note8
-                    style:
-                      top: 92%
-                      left: 15%
-                      color: white
+                    style: {top: 92%, left: 15%, color: white}
+
 
               ## device_tracker nurit ##
               - type: picture-elements
@@ -128,22 +122,16 @@ views:
                 elements:
                   - type: state-icon
                     entity: sensor.nurit_iphone_battery_level #Owntracks - סוללה
-                    style:
-                      top: 92%
-                      left: 78%
-                      color: white
+                    style: {top: 92%, left: 78%, color: white}
+
                   - type: state-label
                     entity: sensor.nurit_iphone_battery_level #Owntracks - סוללה
-                    style:
-                      top: 92%
-                      left: 90%
-                      color: white                      
+                    style: {top: 92%, left: 90%, color: white}
+                     
                   - type: state-label
                     entity: device_tracker.iphone_nurit # dd-wrt - דרך הראוטר בבית
-                    style:
-                      top: 92%
-                      left: 15%
-                      color: white
+                    style: {top: 94%, left: 15%, color: white}
+
 
 
 #################################################################
@@ -154,132 +142,96 @@ views:
             elements:  
               - type: state-icon
                 entity: binary_sensor.door_window_sensor_158d0001ef3425
-                style:
-                  top: 82%
-                  left: 62.7%
-                  color: white
+                style: {top: 94%, left: 62.7%, color: white}
+
 
               - type: state-icon
                 entity: light.laundry
-                style:
-                  top: 94%
-                  left: 4%
-                  color: white
+                style: {top: 94%, left: 4%, color: white}
+
 
               - type: state-icon
                 entity: light.poop
-                style:
-                  top: 94%
-                  left: 12%
-                  color: white 
+                style: {top: 94%, left: 12%, color: white}
+
 
               - type: state-icon
                 entity: light.prozdor
-                style:
-                  top: 94%
-                  left: 20%
-                  color: white 
+                style: {top: 94%, left: 20%, color: white}
+ 
 
               - type: state-icon
                 entity: light.miklahat
-                style:
-                  top: 94%
-                  left: 28%
-                  color: white                                         
+                style: {top: 94%, left: 28%, color: white}
+                                      
   
               - type: state-icon
                 entity: light.liran_room
-                style:
-                  top: 94%
-                  left: 38%
-                  color: white
+                style: {top: 94%, left: 38%, color: white}
+                
  
               - type: state-icon
                 entity: light.balcony
-                style:
-                  top: 94%
-                  left: 46%
-                  color: white                    
+                style: {top: 94%, left: 46%, color: white}
+                  
 
               - type: state-icon
                 entity: light.service_balcony
-                style:
-                  top: 94%
-                  left: 54%
-                  color: white     
+                style: {top: 94%, left: 54%, color: white}
+    
                   
               - type: state-icon
                 entity: light.yeelight_rgb_7c49eb0f97b1
-                style:
-                  top: 94%
-                  left: 62%
-                  color: white 
+                style: {top: 94%, left: 62%, color: white}
+
                   
               - type: state-icon
                 entity: light.parents
-                style:
-                  top: 94%
-                  left: 70%
-                  color: white                   
+                style: {top: 94%, left: 70%, color: white}
+                 
 
               - type: state-icon
                 entity: light.stairs
-                style:
-                  top: 94%
-                  left: 78%
-                  color: white 
+                style: {top: 94%, left: 78%, color: white}
+
 
               - type: state-icon
                 entity: light.kitchen_strip_lamp
-                style:
-                  top: 94%
-                  left: 86%
-                  color: white 
+                style: {top: 94%, left: 86%, color: white}
+
 
               - type: state-icon
                 entity: light.server_room_fan
-                style:
-                  top: 94%
-                  left: 92%
-                  color: white                                     
+                style: {top: 94%, left: 92%, color: white}
+                
                   
               ## temp ##
               - type: state-label
                 entity: sensor.second_floor_temperature
                 tap_action: more-info
-                style:
-                  top: 12%
-                  left: 20% 
-                  color: black
+                style: {top: 12%, left: 20%, color: black}
+
 
               - type: state-label
                 entity: sensor.humidity_second_floor
-                style:
-                  top: 12%
-                  left: 9%
-                  color: black                  
+                style: {top: 12%, left: 9%, color: black}
+                  
 
               - type: state-label
                 entity: sensor.temperature_158d00022ece24
-                style:
-                  top: 52%
-                  left: 24%
-                  color: white
+                style: {top: 52%, left: 24%, color: white}
+
 
               - type: state-label
                 entity: sensor.humidity_158d00022ece24
                 tap_action: more-info
-                style:
-                  top: 52%
-                  left: 70% 
-                  color: white
+                style: {top: 52%, left: 70%, color: white}
+
                                     
               - type: state-label
                 entity: sensor.upstairs_temperature
-                style:
-                  top: 95%
-                  left: 87%
-                  color: white
+                style: {top: 95%, left: 87%, color: white}
+
 
 #################################################################
 #                      Weather Forecast                         #
@@ -301,25 +253,18 @@ views:
             elements:
               - type: state-label
                 entity: sensor.time
-                style:
-                  top: 6%
-                  left: 10%
-                  font-family: 'Assistant, sans-serif'
+                style: {top: 6%, left: 10%, font-family: 'Assistant, sans-serif'}
 
 
               - type: state-icon
                 entity: sensor.outside_temp
-                style:
-                  top: 8%
-                  left: 91%
-              
+                style: {top: 8%, left: 91%}
+
+
               - type: state-label
                 entity: sensor.outside_temp  
                 suffix: °
-                style:
-                  top: 6%
-                  left: 90%
-                  font-family: 'Assistant, sans-serif'
+                style: {top: 6%, left: 90%, font-family: 'Assistant, sans-serif'}
 
 
               - type: state-icon
@@ -362,34 +307,25 @@ views:
       
               - type: state-label
                 entity: sensor.greeter_card_info
-                style:
-                  top: 76%
-                  left: 46.5%
-                  font-family: 'Assistant, sans-serif'
+                style: {top: 76%, left: 46.5%, font-family: 'Assistant, sans-serif'}
+
                   
               - type: custom:state-attribute-element
                 entity: calendar.avi_abeksis
                 attribute: message
-                style:
-                  top: 83.5%
-                  left: 53%
-                  font-family: 'Assistant, sans-serif'
+                style: {top: 83.5%, left: 53%, font-family: 'Assistant, sans-serif'}
 
 
               - type: state-label
                 entity: sensor.greeter_card_info_2
-                style:
-                  top: 46.5%
-                  left: 47.5%
-                  font-family: 'Assistant, sans-serif'
+                style: {top: 46.5%, left: 47.5%, font-family: 'Assistant, sans-serif'}
+
                   
               - type: custom:state-attribute-element
                 entity: calendar.work
                 attribute: message
-                style:
-                  top: 53.5%
-                  left: 57.5%
-                  font-family: 'Assistant, sans-serif'               
+                style: {top: 53.5%, left: 57.5%, font-family: 'Assistant, sans-serif'}
+              
                                
 #################################################################
 #                         Calendar - לוח שנה                    #
@@ -445,16 +381,14 @@ views:
             elements:
               - type: state-icon
                 entity: alarm_control_panel.ha_alarm
-                style:
-                  top: 88%
-                  left: 15%
+                style: {top: 88%, left: 15%}
+
                   
               - type: state-label
                 entity: alarm_control_panel.ha_alarm
                 prefix: 'Alarm: '
-                style:
-                  top: 88%
-                  left: 32%
+                style: {top: 88%, left: 32%}
+
 
 #################################################################
 #                     Smoke Detectors - גלאי עשן                 #
@@ -465,16 +399,14 @@ views:
             elements:
               - type: state-icon
                 entity: binary_sensor.smoke_sensor_158d00028ee7fb
-                style:
-                  top: 88%
-                  left: 15%
+                style: {top: 88%, left: 15%}
+
                   
               - type: state-label
                 entity: binary_sensor.smoke_sensor_158d00028ee7fb
                 prefix: 'Downstairs: '
-                style:
-                  top: 89%
-                  left: 32%
+                style: {top: 89%, left: 32%}
+
 
                                
 #################################################################
@@ -488,29 +420,25 @@ views:
             elements:
               - type: state-icon
                 entity: binary_sensor.door_window_sensor_158d0001ef3425
-                style:
-                  top: 82%
-                  left: 15%
+                style: {top: 82%, left: 15%}
+
                   
               - type: state-label
                 entity: binary_sensor.door_window_sensor_158d0001ef3425
                 prefix: 'Front: '
-                style:
-                  top: 92%
-                  left: 15%
+                style: {top: 92%, left: 15%}
+
                   
               - type: state-icon
                 entity: binary_sensor.door_window_sensor_158d00027a59c6
-                style:
-                  top: 82%
-                  left: 38%
+                style: {top: 82%, left: 38%}
+
                   
               - type: state-label
                 entity: binary_sensor.door_window_sensor_158d00027a59c6
                 prefix: 'Balcony: '
-                style:
-                  top: 92%
-                  left: 38%
+                style: {top: 92%, left: 38%}
+
 
 #################################################################
 #                        Cameras - מצלמות                       #
@@ -537,29 +465,25 @@ views:
             elements:
               - type: state-icon
                 entity: binary_sensor.motion_sensor_158d0002047c5a
-                style:
-                  top: 82%
-                  left: 25%     
+                style: {top: 82%, left: 25%}
+   
                   
               - type: state-label
                 entity: binary_sensor.motion_sensor_158d0002047c5a
                 prefix: 'Shower: '
-                style:
-                  top: 92%
-                  left: 25%
+                style: {top: 92%, left: 25%}
+
                   
               - type: state-icon
                 entity: binary_sensor.motion_sensor_158d000204bfcb
-                style:
-                  top: 82%
-                  left: 50%
+                style: {top: 82%, left: 50%}
+
                   
               - type: state-label
                 entity: binary_sensor.motion_sensor_158d000204bfcb
                 prefix: 'Parents: '
-                style:
-                  top: 92%
-                  left: 50%  
+                style: {top: 92%, left: 50%}
+ 
 
 #################################################################
 #                        Last IP Login                          #
@@ -570,29 +494,26 @@ views:
             elements:
               - type: state-icon
                 entity: sensor.last_successful_
-                style:
-                  top: 6%
-                  left: 50%
+                style: {top: 6%, left: 50%}
+
 
               - type: state-icon
                 entity: sensor.authentication_known_ip_info
                 style:
-                  top: 88%
-                  left: 94%                   
+                style: {top: 88%, left: 94%}
+               
                   
               - type: state-label
                 entity: sensor.last_successful_authentication
                 prefix: 'Last ip: '
-                style:
-                  top: 89%
-                  left: 18%
+                style: {top: 89%, left: 18%}                
+
                   
               - type: state-label
                 entity: sensor.myip
                 prefix: 'My IP: '
-                style:
-                  top: 89%
-                  left: 58%                  
+                style: {top: 89%, left: 58%}
+                 
                 
 #################################################################
 #                                                               #
@@ -1089,7 +1010,7 @@ views:
  
 #################################################################
 #                                                               #
-#                 ¯\__/¯ ituran - רכב ¯\__/¯                   #
+#                 ¯\__/¯ ituran - רכב ¯\__/¯                    #
 #                                                               #
 #                                                               #
 ################################################################# 
@@ -1101,7 +1022,7 @@ views:
           type: "custom:content-card-ituran"
           entity: ituran.skodakodiak
         style:
-          color": "white"
+          color: white
           background: "url(http://3.bp.blogspot.com/-tGNwK4MI4pU/T5pItz_GCvI/AAAAAAAACNs/fqXqJfWTJWo/s1600/Proton+Prevé+Wallpaper+1920x1080+dash+board+2.jpg"
           height: 750px
 
@@ -1143,10 +1064,9 @@ views:
               - type: icon
                 entity: sensor.blitzwolf_shp1_total_cost
                 icon: mdi:mdi:credit-card
-                style:
-                  top: 45%
-                  left: 87%               
-                                                 
+                style: {top: 45%, left: 87%}
+ 
+                   
               - type: state-label
                 entity: sensor.blitzwolf_shp1_energy_today
                 style:
@@ -1163,9 +1083,8 @@ views:
               - type: icon
                 entity: sensor.blitzwolf_shp1_energy_today
                 icon: mdi:flash
-                style:
-                  top: 10%
-                  left: 9%
+                style: {top: 10%, left: 9%}
+
                   
               - type: state-label
                 entity: sensor.blitzwolf_shp1_yesterday
@@ -1183,9 +1102,8 @@ views:
               - type: icon
                 entity: sensor.blitzwolf_shp1_yesterday
                 icon: mdi:calendar-today
-                style:
-                  top: 10%
-                  left: 40%
+                style: {top: 10%, left: 40%}
+
 
               - type: state-label
                 entity: sensor.blitzwolf_shp1_total
@@ -1203,9 +1121,7 @@ views:
               - type: icon
                 entity: sensor.blitzwolf_shp1_total
                 icon: mdi:chart-line-variant
-                style:
-                  top: 10%
-                  left: 70%
+                style: {top: 10%, left: 70%}
 
 
     #################################################################
@@ -1221,9 +1137,8 @@ views:
               tap_action: call-service
               entity: vacuum.xiaomi_vacuum_cleaner
               service: vacuum.locate
-              style:
-                top: 81%
-                left: 80%
+              style: {top: 81%, left: 80%}
+              
     
             - type: icon
               tap_action: more-info
@@ -1270,15 +1185,12 @@ views:
             - type: icon
               icon: mdi:clock-outline
               entity: sensor.vacuum_cleaning_time
-              style:
-                top: 91%
-                left: 5%
+              style: {top: 91%, left: 5%}
+
             
             - type: state-label
               entity: sensor.vacuum_cleaning_time
-              style:
-                top: 92%
-                left: 15%
+              style: {top: 92%, left: 15%}
       
             - type: icon
               icon: mdi:blender
@@ -1290,9 +1202,7 @@ views:
             
             - type: state-label
               entity: sensor.vacuum_main_brush
-              style:
-                top: 92%
-                left: 34%
+              style: {top: 92%, left: 34%}
     
             - type: icon
               icon: mdi:blender
@@ -1304,9 +1214,8 @@ views:
             
             - type: state-label
               entity: sensor.vacuum_side_brush
-              style:
-                top: 92%
-                left: 54%
+              style: {top: 92%, left: 54%}
+
     
             - type: icon
               icon: mdi:filter
@@ -1318,9 +1227,8 @@ views:
             
             - type: state-label
               entity: sensor.vacuum_filter
-              style:
-                top: 92%
-                left: 74%
+              style: {top: 92%, left: 74%}
+
             
             - type: icon
               icon: mdi:counter
@@ -1428,9 +1336,7 @@ views:
               - type: icon
                 entity: sensor.washing_machine_energy_today
                 icon: mdi:flash
-                style:
-                  top: 10%
-                  left: 9%
+                style: {top: 10%, left: 9%}
                   
               - type: state-label
                 entity: sensor.washing_machine_yesterday
@@ -1448,29 +1354,17 @@ views:
               - type: icon
                 entity: sensor.washing_machine_yesterday
                 icon: mdi:calendar-today
-                style:
-                  top: 10%
-                  left: 40%
+                style: {top: 10%, left: 40%}
+
 
               - type: state-label
                 entity: sensor.washing_machine_total
-                style:
-                  top: 10%
-                  left: 72%
-                  color: rgb(255, 255, 255)
-                  transform: translate(0%,-50%)
-                  pointer-events: none
-                  text-shadow: 1px 1px black
-                  font-family: Trebuchet MS
-                  font-size: 90%
-                  font-weight: bold                   
+                style: {top: 10%, left: 72%, color: rgb(255, 255, 255), transform: translate(0%,-50%), pointer-events: none, text-shadow: 1px 1px black, font-family: Trebuchet MS, font-size: 90%, font-weight: bold  }
 
               - type: icon
                 entity: sensor.washing_machine_total
                 icon: mdi:chart-line-variant
-                style:
-                  top: 10%
-                  left: 70%            
+                style: {top: 10%, left: 70%}
 
             
 
@@ -1602,88 +1496,64 @@ views:
             elements:
             - type: state-icon
               entity: sensor.disk_use_percent_home
-              style:
-                top: 84%
-                left: 29%
+              style: {top: 84%, left: 29%}
+
                 
             - type: state-label 
               entity: sensor.disk_use_percent_home
               prefix: "Resources : " 
-              style:
-                top: 93%
-                left: 20%
-                font-size: 115%
-                font-weight: bold
+              style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
+
                 
             - type: state-icon
               entity: sensor.memory_use_percent
-              style:
-                top: 84%
-                left: 46%
+              style: {top: 84%, left: 46%}
+
                 
             - type: state-label 
               entity: sensor.memory_use_percent
-              style:
-                top: 93%
-                left: 47%
-                font-size: 115%
-                font-weight: bold
+              style: {top: 93%, left: 47%, font-size: 115%, font-weight: bold}
+
                 
             - type: state-icon
               entity: sensor.processor_use
-              style:
-                top: 84%
-                left: 63%
+              style: {top: 84%, left: 63%}
+
                 
             - type: state-label 
               entity: sensor.processor_use
-              style:
-                top: 93%
-                left: 64%
-                font-size: 115%
-                font-weight: bold                
+              style: {top: 93%, left: 64%, font-size: 115%, font-weight: bold}
+                
 
             - type: state-icon
               entity: sensor.homeassistant_v2db
-              style:
-                top: 84%
-                left: 80%
+              style: {top: 84%, left: 80%}
+
                 
             - type: state-label 
               entity: sensor.homeassistant_v2db
-              style:
-                top: 93%
-                left: 81%
-                font-size: 115%
-                font-weight: bold
+              style: {top: 93%, left: 81%, font-size: 115%, font-weight: bold}
+
 
             - type: state-icon
               entity: sensor.installed_version
-              style:
-                top: 8%
-                left: 57%
+              style: {top: 8%, left: 57%}
+
                 
             - type: state-label 
               entity: sensor.installed_version
-              style:
-                top: 18%
-                left: 58%
-                font-size: 115%
-                font-weight: bold
+              style: {top: 18%, left: 58%, font-size: 115%, font-weight: bold}
+              
 
             - type: state-icon
               entity: sensor.current_ha_version
-              style:
-                top: 9%
-                left: 39.8%
-                
+              style: {top: 9%, left: 39.8%}
+              
+
             - type: state-label 
               entity: sensor.current_ha_version
-              style:
-                top: 18%
-                left: 40%
-                font-size: 115%
-                font-weight: bold
+              style: {top: 18%, left: 40%, font-size: 115%, font-weight: bold}
+
                  
 #################################################################
 #                        HD Temp                                #
@@ -1694,107 +1564,92 @@ views:
             elements:
               - type: state-icon
                 entity: sensor.hdd_sdg_temp
-                style:
-                  top: 82%
-                  left: 25%     
+                style: {top: 82%, left: 25%}
+                
                   
               - type: state-label
                 entity: sensor.hdd_sdg_temp
                 prefix: 'Parity: '
-                style:
-                  top: 92%
-                  left: 25%
+                style: {top: 92%, left: 25%}
+
                   
               - type: state-icon
                 entity: sensor.hdd_sdi_temp
-                style:
-                  top: 82%
-                  left: 50%
+                style: {top: 82%, left: 50%}
+
                   
               - type: state-label
                 entity: sensor.hdd_sdi_temp
                 prefix: 'Cache: '
-                style:
-                  top: 92%
-                  left: 50%
+                style: {top: 92%, left: 50%}
+
                   
               - type: state-icon
                 entity: sensor.hdd_sdc_temp
                 style:
-                  top: 45%
-                  left: 25%
+                style: {top: 45%, left: 25%}
+
                   
               - type: state-label
                 entity: sensor.hdd_sdc_temp
                 prefix: 'Cache 2: '
-                style:
-                  top: 55%
-                  left: 25%
+                style: {top: 55%, left: 25%}
+
                   
               - type: state-icon
                 entity: sensor.hdd_sdf_temp
-                style:
-                  top: 45%
-                  left: 50%
+                style: {top: 45%, left: 50%}
+                
                   
               - type: state-label
                 entity: sensor.hdd_sdf_temp
                 prefix: 'HD 1: '
-                style:
-                  top: 55%
-                  left: 50%
+                style: {top: 55%, left: 50%}
+                
                   
               - type: state-icon
                 entity: sensor.hdd_sdd_temp
-                style:
-                  top: 8%
-                  left: 25%
+                style: {top: 8%, left: 25%}
+                
                   
               - type: state-label
                 entity: sensor.hdd_sdd_temp
                 prefix: 'HD 2: '
-                style:
-                  top: 18%
-                  left: 25%
+                style: {top: 18%, left: 25%}
+                
                   
               - type: state-icon
                 entity: sensor.hdd_sde_temp
-                style:
-                  top: 8%
-                  left: 50%
+                style: {top: 8%, left: 50%}
+                
                   
               - type: state-label
                 entity: sensor.hdd_sde_temp
                 prefix: 'HD 3: '
-                style:
-                  top: 18%
-                  left: 50%
+                style: {top: 18%, left: 50%}
+                
                   
               - type: state-icon
                 entity: sensor.hdd_sdh_temp
-                style:
-                  top: 8%
-                  left: 75%
+                style: {top: 8%, left: 75%}
+                
                   
               - type: state-label
                 entity: sensor.hdd_sdh_temp
                 prefix: 'HD 4: '
-                style:
-                  top: 18%
-                  left: 75%
+                style: {top: 18%, left: 75%}
+                
                   
               - type: state-icon
                 entity: sensor.hdd_sdb_temp
-                style:
-                  top: 82%
-                  left: 75%
-                  
+                style: {top: 82%, left: 75%}
+                
+
               - type: state-label
                 entity: sensor.hdd_sdb_temp
                 prefix: 'HD 5: '
-                style:
-                  top: 92%
-                  left: 75% 
+                style: {top: 92%, left: 75%}
+                
 #################################################################
 #                        CPU Temperature                        #
 ################################################################# 
@@ -1816,46 +1671,31 @@ views:
             elements:
             - type: state-icon
               entity: sensor.speedtest_ping
-              style:
-                top: 85%
-                left: 25%
+              style: {top: 85%, left: 25%}
                 
             - type: state-label 
               entity: sensor.speedtest_ping
               prefix: "Internet : " 
-              style:
-                top: 93%
-                left: 20%
-                font-size: 115%
-                font-weight: bold
-                
+              style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
+
             - type: state-icon
               entity: sensor.speedtest_download
-              style:
-                top: 85%
-                left: 50%
-                
+              style: {top: 85%, left: 50%}
+
             - type: state-label 
               entity: sensor.speedtest_download
-              style:
-                top: 93%
-                left: 50%
-                font-size: 115%
-                font-weight: bold
+              style: {top: 93%, left: 50%, font-size: 115%, font-weight: bold}
+
                 
             - type: state-icon
               entity: sensor.speedtest_upload
-              style:
-                top: 85%
-                left: 75%
+              style: {top: 85%, left: 75%}
+
                 
             - type: state-label 
               entity: sensor.speedtest_upload
-              style:
-                top: 93%
-                left: 75%
-                font-size: 115%
-                font-weight: bold
+              style: {top: 93%, left: 75%, font-size: 115%, font-weight: bold}
+                
 
 #################################################################
 #                                                               #
@@ -1873,9 +1713,7 @@ views:
           trackers:
             - sensor.custom_card_tracker
             - sensor.custom_component_tracker 
-        style:
-          color": white
-          background: "url(http://www.zulkarnine.com/wp-content/uploads/2013/12/HD-1080p-Wallpaper-559.jpg"
+        style: {color: white, background: "url(http://www.zulkarnine.com/wp-content/uploads/2013/12/HD-1080p-Wallpaper-559.jpg"}
               
 #################################################################
 #                                                               #
