@@ -2,7 +2,6 @@ resources:
 #################################################################
 #                             JS                                #
 #################################################################  
-  
   ## https://community.home-assistant.io/t/custom-animated-weather-card-for-lovelace/58338 ##
   - url: /local/custom_ui/weather-card.js?v=2.4
     type: js
@@ -17,14 +16,14 @@ resources:
   ## https://github.com/dimagoltsman/ha-custom-component-ituran ##  
   - url: /local/custom_ui/content-card-ituran.js
     type: js
-  
+
   ## https://github.com/ciotlosm/custom-lovelace/tree/master/plan-coordinates ## 
   - url: /local/custom_ui/plan-coordinates.js?v=0.1.0
     type: js
-  
+
   ## https://github.com/custom-cards/state-attribute-element ## 
   - url: /local/custom_ui/state-attribute-element.js?v=0.2.0
-    type: js 
+    type: js
 
   ## https://github.com/custom-cards/text-element ##   
   - url: /local/custom_ui/text-element.js?v=0.0.2
@@ -32,15 +31,15 @@ resources:
 
   ## Goole Calendar ##
   - url: https://unpkg.com/moment@2.22.2/moment.js
-    type: js 
+    type: js
 
   ## https://community.home-assistant.io/t/lovelace-column-card/62039 ##
   - url: /local/custom_ui/column-card.js
     type: js
 
   ## Sonarr/Radarr - https://github.com/custom-cards/upcoming-media-card ##
-  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?v=0.2.5
-    type: js 
+  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?v=0.2.6
+    type: js
 
     ## https://community.home-assistant.io/t/lovelace-swiper-card/72447 ##
   - url: /local/custom-lovelace/swipe-card/swipe-card.js?v=1.0
@@ -58,22 +57,22 @@ resources:
     type: module
 
   - url: /local/custom_cards/canvas-gauge-card.js
-    type: module 
+    type: module
 
   - url: /local/custom_ui/hebrew-calender-card.js?v=1.0.0
     type: module
-    
+
   ## https://github.com/kalkih/mini-media-player ##
   - url: /local/custom_ui/mini-media-player.js?v=0.8.8
     type: module
 
   ## https://github.com/thomasloven/lovelace-card-modder ##
   - url: /local/custom_ui/card-modder.js
-    type: module  
-  
+    type: module
+
   ## https://github.com/custom-cards/surveillance-card ##
   - url: /local/custom_ui/surveillance-card.js?v=0.0.1
-    type: module 
+    type: module
 
   ## https://github.com/kalkih/mini-graph-card ##
   - url: /local/custom_ui/mini-graph-card.js?v=0.0.4
@@ -87,12 +86,13 @@ resources:
 ################################################################# 
 title: Abeksis Smart Home
 views:
-  - icon: mdi:home-assistant
+  - id: 0  # Automatically created id
+    icon: mdi:home-assistant
     name: Home
     cards:
-      - type: vertical-stack
+      - id: acb050716a874a2d9fdbf4514f0e2a78  # Automatically created id
+        type: vertical-stack
         cards:
-        
 #################################################################
 #                       Avi & Nurit                             #
 ################################################################# 
@@ -107,10 +107,9 @@ views:
                     entity: sensor.avi_battery
                     style: {top: 94%, left: 78%, color: white}
 
-                  - type: state-label    
+                  - type: state-label
                     entity: sensor.avi_battery
                     style: {top: 92%, left: 90%, color: white}
-                      
                   - type: state-label
                     entity: device_tracker.avi_note8
                     style: {top: 92%, left: 15%, color: white}
@@ -127,7 +126,6 @@ views:
                   - type: state-label
                     entity: sensor.nurit_iphone_battery_level #Owntracks - סוללה
                     style: {top: 92%, left: 90%, color: white}
-                     
                   - type: state-label
                     entity: device_tracker.iphone_nurit # dd-wrt - דרך הראוטר בבית
                     style: {top: 94%, left: 15%, color: white}
@@ -139,10 +137,10 @@ views:
 ################################################################# 
           - type: picture-elements
             image: /local/lovelace/home/home_02.jpg
-            elements:  
+            elements:
               - type: state-icon
                 entity: binary_sensor.door_window_sensor_158d0001ef3425
-                style: {top: 94%, left: 62.7%, color: white}
+                style: {top: 81%, left: 62.7%, color: white}
 
 
               - type: state-icon
@@ -158,28 +156,23 @@ views:
               - type: state-icon
                 entity: light.prozdor
                 style: {top: 94%, left: 20%, color: white}
- 
 
               - type: state-icon
                 entity: light.miklahat
                 style: {top: 94%, left: 28%, color: white}
-                                      
-  
+
               - type: state-icon
                 entity: light.liran_room
                 style: {top: 94%, left: 38%, color: white}
-                
- 
+
               - type: state-icon
                 entity: light.balcony
                 style: {top: 94%, left: 46%, color: white}
-                  
 
               - type: state-icon
                 entity: light.service_balcony
                 style: {top: 94%, left: 54%, color: white}
-    
-                  
+ 
               - type: state-icon
                 entity: light.yeelight_rgb_7c49eb0f97b1
                 style: {top: 94%, left: 62%, color: white}
@@ -188,7 +181,6 @@ views:
               - type: state-icon
                 entity: light.parents
                 style: {top: 94%, left: 70%, color: white}
-                 
 
               - type: state-icon
                 entity: light.stairs
@@ -203,8 +195,8 @@ views:
               - type: state-icon
                 entity: light.server_room_fan
                 style: {top: 94%, left: 92%, color: white}
-                
-                  
+
+
               ## temp ##
               - type: state-label
                 entity: sensor.second_floor_temperature
@@ -215,7 +207,6 @@ views:
               - type: state-label
                 entity: sensor.humidity_second_floor
                 style: {top: 12%, left: 9%, color: black}
-                  
 
               - type: state-label
                 entity: sensor.temperature_158d00022ece24
@@ -237,24 +228,23 @@ views:
 #                      Weather Forecast                         #
 ################################################################# 
 
-      - type: vertical-stack
+      - id: 75add65258264b92b432ba7d83978ea6  # Automatically created id
+        type: vertical-stack
         cards:
-          - type: "custom:weather-card"
+          - type: custom:weather-card
             entity_weather: weather.yweather
             entity_sun: sun.sun
-        
-            
+
+
 #################################################################
 #                      Welcome Avi & Nurit                      #
 ################################################################# 
-        
           - type: picture-elements
             image: /local/lovelace/home/calendar_01.jpg
             elements:
               - type: state-label
                 entity: sensor.time
-                style: {top: 6%, left: 10%, font-family: 'Assistant, sans-serif'}
-
+                style: {top: 6%, left: 10%}
 
               - type: state-icon
                 entity: sensor.outside_temp
@@ -262,10 +252,9 @@ views:
 
 
               - type: state-label
-                entity: sensor.outside_temp  
+                entity: sensor.outside_temp
                 suffix: °
-                style: {top: 6%, left: 90%, font-family: 'Assistant, sans-serif'}
-
+                style: {top: 6%, left: 90%}
 
               - type: state-icon
                 entity: sensor.outside_temp
@@ -275,8 +264,8 @@ views:
                   pointer-events: none
                   max-width: 24px
                   max-height: 24px
-                  color: rgb(249, 251, 255)                  
-      
+                  color: rgb(249, 251, 255)
+
               - type: state-label
                 entity: sensor.time_of_day
                 style:
@@ -286,58 +275,57 @@ views:
                   font-size: 150%
                   pointer-events: none
                   text-shadow: 1px 1px DarkSlateGrey
-                  font-family: 'Assistant, sans-serif'
+                  font-family: Assistant, sans-serif
                   font-style: oblique
                   font-weight: 200
 
-      
+
               - type: state-label
                 entity: sensor.imsweather
-                prefix: "התחזית להיום: "
+                prefix: 'התחזית להיום: '
                 style:
                   top: 29%
                   left: 50%
                   color: rgb(249, 251, 255)
-                  font-family: 'Assistant, sans-serif'
+                  font-family: Assistant, sans-serif
                   font-style: oblique
                   text-shadow: 1px 1px DarkSlateGrey
                   font-size: 120%
                   pointer-events: none
                   font-weight: 200
-      
+
               - type: state-label
                 entity: sensor.greeter_card_info
-                style: {top: 76%, left: 46.5%, font-family: 'Assistant, sans-serif'}
+                style: {top: 76%, left: 46.5%}
 
-                  
               - type: custom:state-attribute-element
                 entity: calendar.avi_abeksis
                 attribute: message
-                style: {top: 83.5%, left: 53%, font-family: 'Assistant, sans-serif'}
+                style: {top: 83.5%, left: 47.5%}
 
 
               - type: state-label
                 entity: sensor.greeter_card_info_2
-                style: {top: 46.5%, left: 47.5%, font-family: 'Assistant, sans-serif'}
+                style: {top: 46.5%, left: 47.5%}
 
                   
               - type: custom:state-attribute-element
                 entity: calendar.work
                 attribute: message
-                style: {top: 53.5%, left: 57.5%, font-family: 'Assistant, sans-serif'}
-              
-                               
+                style: {top: 53.5%, left: 57.5%}
+
 #################################################################
 #                         Calendar - לוח שנה                    #
 ################################################################# 
 
-      - type: vertical-stack
+      - id: e2776a2be5e348738a915b694b2d5f01  # Automatically created id
+        type: vertical-stack
         cards:
-          - type: "custom:hebrew-calendar-card"
-            entities: 
+          - type: custom:hebrew-calendar-card
+            entities:
               - calendar.avi_abeksis
               - calendar.work
-              
+
 #################################################################
 #                         נתונים סטטיסטיים                      #
 ################################################################# 
@@ -359,22 +347,24 @@ views:
               - light.poop
               - light.miklahat
             state_filter:
-              - 'on'
+              - on
             card:
               title: תאורה דלוקה בבית
 
-                         
+
 #################################################################
 #                                                               #
 #                 ¯\__/¯ Security  ¯\__/¯                       #
 #                                                               #
 #                                                               #
 ################################################################# 
-  - icon: mdi:security-home
+  - id: 1  # Automatically created id
+    icon: mdi:security-home
     name: Security
-    cards:  
-      - type: vertical-stack
-        cards:    
+    cards:
+      - id: 8f0308f08190438bae95bd3895bdb882  # Automatically created id
+        type: vertical-stack
+        cards:
           - type: picture-elements
             title: Alarm Panel
             image: /local/lovelace/security/alarm_3.jpg
@@ -412,10 +402,11 @@ views:
 #################################################################
 #                     Doors - חיישני כניסה                        #
 ################################################################# 
-      - type: vertical-stack
-        cards:    
+      - id: f3709b930cdb4097bc936c5ff8aa921f  # Automatically created id
+        type: vertical-stack
+        cards:
           - type: picture-elements
-            title: Doors 
+            title: Doors
             image: /local/lovelace/security/door_3.png
             elements:
               - type: state-icon
@@ -448,7 +439,7 @@ views:
             tap_action: toggle
             entities:
               - camera.right_side_4mp
-              - camera.left_side_2mp      
+              - camera.left_side_2mp
               - camera.building_door
               - camera.front_camera_dor
               - camera.outside_camera_backwards
@@ -457,8 +448,9 @@ views:
 #################################################################
 #                        Motion Sensors                         #
 ################################################################# 
-      - type: vertical-stack
-        cards:    
+      - id: a83b9543cfda4a78b78b9f414901424c  # Automatically created id
+        type: vertical-stack
+        cards:
           - type: picture-elements
             title: Motion Sensors
             image: /local/lovelace/security/motion_3.jpg
@@ -466,8 +458,6 @@ views:
               - type: state-icon
                 entity: binary_sensor.motion_sensor_158d0002047c5a
                 style: {top: 82%, left: 25%}
-   
-                  
               - type: state-label
                 entity: binary_sensor.motion_sensor_158d0002047c5a
                 prefix: 'Shower: '
@@ -483,7 +473,6 @@ views:
                 entity: binary_sensor.motion_sensor_158d000204bfcb
                 prefix: 'Parents: '
                 style: {top: 92%, left: 50%}
- 
 
 #################################################################
 #                        Last IP Login                          #
@@ -496,35 +485,31 @@ views:
                 entity: sensor.last_successful_
                 style: {top: 6%, left: 50%}
 
-
               - type: state-icon
                 entity: sensor.authentication_known_ip_info
-                style:
                 style: {top: 88%, left: 94%}
-               
-                  
               - type: state-label
                 entity: sensor.last_successful_authentication
                 prefix: 'Last ip: '
-                style: {top: 89%, left: 18%}                
+                style: {top: 89%, left: 18%}
 
                   
               - type: state-label
                 entity: sensor.myip
                 prefix: 'My IP: '
                 style: {top: 89%, left: 58%}
-                 
-                
 #################################################################
 #                                                               #
 #                   ¯\__/¯  Downstairs  ¯\__/¯                  #
 #                                                               #
 #                                                               #
 #################################################################
-  - icon: mdi:sofa
+  - id: 2  # Automatically created id
+    icon: mdi:sofa
     name: Downstairs
     cards:
-      - type: vertical-stack
+      - id: fc47bfbc4c054eed96476ba6ef00a4de  # Automatically created id
+        type: vertical-stack
         cards:
           - type: entities
             title: Temperature
@@ -579,7 +564,8 @@ views:
 #################################################################
 #                        Humidity                               #
 #################################################################                 
-      - type: vertical-stack
+      - id: c8fbb027415b4ab99d1e7d6fdd1c2cca  # Automatically created id
+        type: vertical-stack
         cards:
           - type: entities
             title: Humidity
@@ -590,14 +576,14 @@ views:
 #                             TV                                #
 #################################################################           
           - type: entities
-            title: TV 
+            title: TV
             entities:
-            - entity: media_player.living_room_tv
-              type: "custom:mini-media-player"
-              artwork_border: true
-              power_color: true
-              show_source: true
-              background: /local/lovelace/tv/salontv.jpg
+              - entity: media_player.living_room_tv
+                type: custom:mini-media-player
+                artwork_border: true
+                power_color: true
+                show_source: true
+                background: /local/lovelace/tv/salontv.jpg
 
 #################################################################
 #                        Radarr                                 #
@@ -606,14 +592,15 @@ views:
             service: radarr
             #title: Movie Library
             image_style: fanart
-            locale: 'he-IL'
+            locale: he-IL
             clock: 24
             max: 3
-                  
+
 #################################################################
 #           Electric shutter - תריס חשמלי                       #
 #################################################################        
-      - type: vertical-stack
+      - id: 9c7684a0f30648a09bcc52cc2426cb6d  # Automatically created id
+        type: vertical-stack
         cards:
           - type: entities
             title: תריס חשמלי
@@ -673,29 +660,31 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - icon: mdi:toggle-switch-off
+  - id: 3  # Automatically created id
+    icon: mdi:toggle-switch-off
     name: מצב פעיל/לא פעיל
     cards:
-      - type: vertical-stack
-        cards: 
+      - id: e524c712976d430185594625f74e9ee1  # Automatically created id
+        type: vertical-stack
+        cards:
 #################################################################
 #                           Left                                #
 #################################################################         
           - type: picture
             image: /local/lovelace/device_tracker/device_tracking_01.gif
- 
+
           - type: horizontal-stack
             cards:
               - type: picture-entity
                 entity: device_tracker.service_balcony
                 show_name: false
                 image: /local/lovelace/device_tracker/device_tracker_service_balcony.jpg
-                
+
               - type: picture-entity
                 entity: device_tracker.sonofftris
                 show_name: false
                 image: /local/lovelace/device_tracker/device_tracker.sonofftris.jpg
-                  
+
               - type: picture-entity
                 entity: device_tracker.sonofprozdor
                 show_name: false
@@ -709,30 +698,30 @@ views:
                     entity: device_tracker.sonofs20
                     name: Power S20
                     image: /local/lovelace/device_tracker/sonofs20.png
-                
+
                   - type: picture-entity
                     entity: device_tracker.sonoffmiklahat
                     name: Shower Sonoff
-                    image: /local/lovelace/device_tracker/device_tracker.sonoffmiklahat.jpg 
+                    image: /local/lovelace/device_tracker/device_tracker.sonoffmiklahat.jpg
 
               - type: picture-entity
                 entity: device_tracker.xiaomimibox
                 image: /local/lovelace/device_tracker/device_tracker.xiaomimibox.jpg
-                
+
 #################################################################
 #                           Center                              #
 #################################################################              
-      - type: vertical-stack
+      - id: f2c5e5b71494478491a3ebafe73cc0a9  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture
             image: /local/lovelace/device_tracker/device_tracking_02.gif
-               
 
           - type: picture-entity
             image: /local/lovelace/device_tracker/device_tracker.amzonecho.jpg
             entity: device_tracker.amzonecho
             name: Device Tracker Amzon Echo
-              
+
           - type: picture-entity
             entity: device_tracker.xiaomirobot
             name: Device Tracker Xiaomi Robot
@@ -741,23 +730,24 @@ views:
 #################################################################
 #                           Right                               #
 #################################################################               
-      - type: vertical-stack
+      - id: f292deb3a5fb474088ccd3b39c363759  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture
-            image: /local/lovelace/device_tracker/device_tracking_03.jpg        
- 
+            image: /local/lovelace/device_tracker/device_tracking_03.jpg
+
           - type: horizontal-stack
             cards:
               - type: picture-entity
                 entity: device_tracker.xiaomicamera
                 show_name: false
                 image: /local/lovelace/device_tracker/device_tracker_xiaomicamera.jpg
-                
+
               - type: picture-entity
                 entity: device_tracker.foscam
                 show_name: false
                 image: /local/lovelace/device_tracker/device_tracker.foscam.jpg
-                  
+
               - type: picture-entity
                 entity: device_tracker.ipad
                 show_name: false
@@ -771,11 +761,11 @@ views:
                     entity: device_tracker.broadlink
                     name: Broadlink
                     image: /local/lovelace/device_tracker/broadlink_02.jpg
-                
+
                   - type: picture-entity
                     entity: device_tracker.macbookpro
                     name: Yeelinklight Strip
-                    image: /local/lovelace/device_tracker/device_tracker.yeelinklightstrip1_miio98683770.jpg 
+                    image: /local/lovelace/device_tracker/device_tracker.yeelinklightstrip1_miio98683770.jpg
 
               - type: picture-entity
                 entity: device_tracker.macbookpro
@@ -786,14 +776,16 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - icon: mdi:settings
+  - id: 4  # Automatically created id
+    icon: mdi:settings
     name: System Status
     cards:
 
 #################################################################
 #                  First Row  - שורה ראשונה                      #
 #################################################################
-      - type: vertical-stack
+      - id: 5369614a7d9442c1921f6fe1ffc9d9c2  # Automatically created id
+        type: vertical-stack
         cards:
           - type: vertical-stack
             cards:
@@ -803,13 +795,13 @@ views:
                   title: Xiaomi Camera - Turn on/off
                   entities:
                     - automation.turn_off_xiaomi_cameras_if_avi_at_home
-                    - automation.turn_off_xiaomi_cameras_if_nurit_at_home          
+                    - automation.turn_off_xiaomi_cameras_if_nurit_at_home
                     - automation.turn_off_xiaomi_cameras_if_morning_and_we_are_at_home
-                    - automation.turn_on_xiaomi_cameras_if_nurit_and_avi_not_at_home                       
+                    - automation.turn_on_xiaomi_cameras_if_nurit_and_avi_not_at_home
                 style:
                   border-radius: 12px
-                  "color": "white"
-                  "background": "url(/local/lovelace/automation/xiaomi_05.jpg)"
+                  color: white
+                  background: url(/local/lovelace/automation/xiaomi_05.jpg)
                   height: 255px
 
           - type: vertical-stack
@@ -824,13 +816,13 @@ views:
                     - script.vacuum_dining_room
                     - script.vacuum_dogs_area
                     - script.vacuum_kitchen
-                    - script.vacuum_living_room 
+                    - script.vacuum_living_room
                 style:
                   border-radius: 12px
                   color: white
-                  "background": "url(/local/lovelace/automation/robovac_01.jpg)"
+                  background: url(/local/lovelace/automation/robovac_01.jpg)
                   height: 255px
- 
+
           - type: vertical-stack
             cards:
               - type: custom:card-modder
@@ -838,36 +830,37 @@ views:
                   type: entities
                   title: Blinds - Tris
                   entities:
-                  - script.blinds_down
-                  - script.blinds_stop
-                  - script.blinds_up
+                    - script.blinds_down
+                    - script.blinds_stop
+                    - script.blinds_up
                 style:
                   border-radius: 12px
                   color: white
-                  "background": "url(/local/lovelace/automation/blinds.jpg)"
-                  height: 210px                  
-              
+                  background: url(/local/lovelace/automation/blinds.jpg)
+                  height: 210px
+
 #################################################################
 #                  First Row  - שורה שניה                       #
 #################################################################
-      - type: vertical-stack
+      - id: 553ce24d0d8b4b7ea3df2ad987012a3d  # Automatically created id
+        type: vertical-stack
         cards:
           - type: custom:card-modder
             card:
               type: entities
               title: Turn on/off - Lighting
               entities:
-                  - automation.turn_on_lighting_on_the_main_balcony
-                  - automation.turn_on_lighting_on_the_service_balcony
-                  - automation.lighting_the_light_after_sunset_at_eleven_oclock                  
-                  - automation.lights_off_after_sunset
-                  - automation.turn_off_lights_miklahat_based_on_montion
+                - automation.turn_on_lighting_on_the_main_balcony
+                - automation.turn_on_lighting_on_the_service_balcony
+                - automation.lighting_the_light_after_sunset_at_eleven_oclock
+                - automation.lights_off_after_sunset
+                - automation.turn_off_lights_miklahat_based_on_montion
             style:
               border-radius: 12px
-              "color": "white"
-              "background": "url(/local/lovelace/automation/lighting_01.jpg)"
+              color: white
+              background: url(/local/lovelace/automation/lighting_01.jpg)
               height: 255px
-          
+
           - type: vertical-stack
             cards:
               - type: custom:card-modder
@@ -875,16 +868,16 @@ views:
                   type: entities
                   title: Notify - Light
                   entities:
-                  - automation.notify_if_the_stairs_is_on
-                  - automation.notify_if_the_service_balcony_in_on
-                  - automation.notify_if_the_prozdor_bathroom_on 
-                  - automation.notify_if_the_miklahat_is_on
-                  - automation.notify_if_the_light_in_room_off_liran_in_on
+                    - automation.notify_if_the_stairs_is_on
+                    - automation.notify_if_the_service_balcony_in_on
+                    - automation.notify_if_the_prozdor_bathroom_on
+                    - automation.notify_if_the_miklahat_is_on
+                    - automation.notify_if_the_light_in_room_off_liran_in_on
                 style:
                   border-radius: 12px
                   color: white
-                  "background": "url(/local/lovelace/automation/notifylight.jpg)"
-                  height: 255px    
+                  background: url(/local/lovelace/automation/notifylight.jpg)
+                  height: 255px
 
           - type: vertical-stack
             cards:
@@ -893,19 +886,20 @@ views:
                   type: entities
                   title: Notify - Light 2
                   entities:
-                  - automation.notify_if_the_laundry_room_on
-                  - automation.notify_if_the_guests_bathroom_on
-                  - automation.notify_if_the_balcony_in_on
+                    - automation.notify_if_the_laundry_room_on
+                    - automation.notify_if_the_guests_bathroom_on
+                    - automation.notify_if_the_balcony_in_on
                 style:
                   border-radius: 12px
                   color: white
-                  "background": "url(/local/lovelace/automation/mix.jpg)"
+                  background: url(/local/lovelace/automation/mix.jpg)
                   height: 210px
 
 #################################################################
 #                  First Row  - שורה שלישית                      #
 #################################################################
-      - type: vertical-stack
+      - id: b35f81f256b84553a664731bccbcb53b  # Automatically created id
+        type: vertical-stack
         cards:
           - type: custom:card-modder
             card:
@@ -915,11 +909,11 @@ views:
                 - automation.notify_if_the_ac_is_on
                 - automation.notify_if_the_home_door_was_open_for_more_then_1_min
                 - automation.weekly_os_backup
-                - automation.daily_hass_backup 
+                - automation.daily_hass_backup
             style:
               border-radius: 12px
               color: white
-              "background": "url(/local/lovelace/automation/backup_01.jpg)"
+              background: url(/local/lovelace/automation/backup_01.jpg)
               height: 255px
 
           - type: vertical-stack
@@ -929,13 +923,13 @@ views:
                   type: entities
                   title: Tami 4
                   entities:
-                  - automation.tami_4_timerstop
-                  - automation.turn_off_tami_4_in_night
-                  - automation.turn_on_tami_4_in_mornning
+                    - automation.tami_4_timerstop
+                    - automation.turn_off_tami_4_in_night
+                    - automation.turn_on_tami_4_in_mornning
                 style:
                   border-radius: 12px
                   color: white
-                  "background": "url(/local/lovelace/automation/tami4.jpg)"
+                  background: url(/local/lovelace/automation/tami4.jpg)
                   height: 255px
 
 #################################################################
@@ -945,10 +939,12 @@ views:
 #                                                               #
 #################################################################
 
-  - icon: mdi:cogs
+  - id: 5  # Automatically created id
+    icon: mdi:cogs
     name: Things Status
     cards:
-      - type: vertical-stack
+      - id: a6d41c2d6f07475dba84f23dfa4e8fd3  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture-glance
             title: TV Switches
@@ -960,18 +956,19 @@ views:
               - switch.move_channels_down
               - switch.move_channels_up
               - switch.yes_mute
-              - switch.info              
+              - switch.info
             image: /local/lovelace/switch/tv.jpg
-            
+
           - type: picture-glance
             title: Tris Switches
             tap_action: toggle
             entities:
               - switch.tris_down
               - switch.tris_up
-            image: /local/lovelace/switch/tris.jpg            
-            
-      - type: vertical-stack
+            image: /local/lovelace/switch/tris.jpg
+
+      - id: 4be9d01ffc2e44608387749f77c52bac  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture-glance
             title: Blitzwolf Switches
@@ -979,15 +976,16 @@ views:
             entities:
               - switch.blitzwolf_shp1
             image: /local/lovelace/switch/tami4.jpg
-                        
+
           - type: picture-glance
-            title: SH20 Pow Switch 
+            title: SH20 Pow Switch
             tap_action: toggle
             entities:
               - switch.sh20_pow
             image: /local/lovelace/switch/SH20.jpg
-            
-      - type: vertical-stack
+
+      - id: 5ce1a5ef08e24ec3a0256677a201872e  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture-glance
             title: AC Switches
@@ -999,31 +997,33 @@ views:
               - switch.ac_temp_down
               - switch.ac_temp_up
             image: /local/lovelace/switch/ac.jpg
-          
+
           - type: picture-glance
             title: Battery Alert Automations
             tap_action: toggle
             entities:
               - automation.battery_alert
               - automation.battery_alert_clear
-            image: /local/lovelace/things/battery_3.jpg            
- 
+            image: /local/lovelace/things/battery_3.jpg
+
 #################################################################
 #                                                               #
 #                 ¯\__/¯ ituran - רכב ¯\__/¯                    #
 #                                                               #
 #                                                               #
 ################################################################# 
-  - type: vertical-stack
+  - id: 6  # Automatically created id
+    type: vertical-stack
     icon: mdi:car
     cards:
-      - type: custom:card-modder
+      - id: 84179b1822d142f48d7d6b71919c8575  # Automatically created id
+        type: custom:card-modder
         card:
-          type: "custom:content-card-ituran"
+          type: custom:content-card-ituran
           entity: ituran.skodakodiak
         style:
           color: white
-          background: "url(http://3.bp.blogspot.com/-tGNwK4MI4pU/T5pItz_GCvI/AAAAAAAACNs/fqXqJfWTJWo/s1600/Proton+Prevé+Wallpaper+1920x1080+dash+board+2.jpg"
+          background: url(http://3.bp.blogspot.com/-tGNwK4MI4pU/T5pItz_GCvI/AAAAAAAACNs/fqXqJfWTJWo/s1600/Proton+Prevé+Wallpaper+1920x1080+dash+board+2.jpg
           height: 750px
 
 #################################################################
@@ -1032,14 +1032,16 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - type: horizontal-stack
+  - id: 7  # Automatically created id
+    type: horizontal-stack
     icon: mdi:washing-machine
     name: power
     cards:
    #################################################################
    #                        tammy4                                 #
    #################################################################    
-      - type: vertical-stack
+      - id: e2cf7cf3d52540b088e0ef5287954b2a  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture-elements
             image: /local/lovelace/home/tammy4.png
@@ -1048,7 +1050,7 @@ views:
                 entity: sensor.blitzwolf_shp1_total_cost
                 style:
                   top: 60%
-                  left: 80% 
+                  left: 80%
                   color: rgb(255, 255, 255)
                   transform: translate(0%,-50%)
                   pointer-events: none
@@ -1065,8 +1067,6 @@ views:
                 entity: sensor.blitzwolf_shp1_total_cost
                 icon: mdi:mdi:credit-card
                 style: {top: 45%, left: 87%}
- 
-                   
               - type: state-label
                 entity: sensor.blitzwolf_shp1_energy_today
                 style:
@@ -1078,8 +1078,8 @@ views:
                   text-shadow: 1px 1px black
                   font-family: Trebuchet MS
                   font-size: 90%
-                  font-weight: bold                  
-               
+                  font-weight: bold
+
               - type: icon
                 entity: sensor.blitzwolf_shp1_energy_today
                 icon: mdi:flash
@@ -1097,7 +1097,7 @@ views:
                   text-shadow: 1px 1px black
                   font-family: Trebuchet MS
                   font-size: 90%
-                  font-weight: bold                   
+                  font-weight: bold
 
               - type: icon
                 entity: sensor.blitzwolf_shp1_yesterday
@@ -1116,7 +1116,7 @@ views:
                   text-shadow: 1px 1px black
                   font-family: Trebuchet MS
                   font-size: 90%
-                  font-weight: bold                   
+                  font-weight: bold
 
               - type: icon
                 entity: sensor.blitzwolf_shp1_total
@@ -1127,156 +1127,153 @@ views:
     #################################################################
     #               xiaomi vacuum - שואב אבק                        #
     #################################################################
-      - type: vertical-stack
+      - id: e527e6ed51d447d8b91717cd6bb4b6a0  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture-elements
             image: /local/lovelace/home/xiaomi_vacuum.jpg
             elements:
-            - type: icon
-              icon: mdi:bell-ring
-              tap_action: call-service
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.locate
-              style: {top: 81%, left: 80%}
-              
-    
-            - type: icon
-              tap_action: more-info
-              entity: vacuum.xiaomi_vacuum_cleaner
-              icon: mdi:robot-vacuum
-              style:
-                top: 10%
-                left: 45%
-                color: rgb(255, 255, 255)
-                transform: translate(0%,-50%)
-                border-color: rgb(34, 154, 210)
-                background-color: rgb(54, 65, 78)           
-    
-            - type: icon
-              tap_action: call-service
-              icon: mdi:home
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.return_to_base
-              style:
-                top: 81%
-                left: 60%
-                "--paper-item-icon-color": rgb(115, 122, 130)   
-    
-            - type: icon
-              icon: mdi:play-pause
-              tap_action: call-service
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.start_pause
-              style:
-                top: 81%
-                left: 40%
-                "--paper-item-icon-color": rgb(115, 122, 130)
-    
-            - type: icon
-              icon: mdi:stop
-              tap_action: call-service
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.stop
-              style:
-                top: 81%
-                left: 20%
-                "--paper-item-icon-color": rgb(115, 122, 130)
-            
-            - type: icon
-              icon: mdi:clock-outline
-              entity: sensor.vacuum_cleaning_time
-              style: {top: 91%, left: 5%}
+              - type: icon
+                icon: mdi:bell-ring
+                tap_action: call-service
+                entity: vacuum.xiaomi_vacuum_cleaner
+                service: vacuum.locate
+                style: {top: 81%, left: 80%}
+              - type: icon
+                tap_action: more-info
+                entity: vacuum.xiaomi_vacuum_cleaner
+                icon: mdi:robot-vacuum
+                style:
+                  top: 10%
+                  left: 45%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  border-color: rgb(34, 154, 210)
+                  background-color: rgb(54, 65, 78)
+
+              - type: icon
+                tap_action: call-service
+                icon: mdi:home
+                entity: vacuum.xiaomi_vacuum_cleaner
+                service: vacuum.return_to_base
+                style:
+                  top: 81%
+                  left: 60%
+                  --paper-item-icon-color: rgb(115, 122, 130)
+
+              - type: icon
+                icon: mdi:play-pause
+                tap_action: call-service
+                entity: vacuum.xiaomi_vacuum_cleaner
+                service: vacuum.start_pause
+                style:
+                  top: 81%
+                  left: 40%
+                  --paper-item-icon-color: rgb(115, 122, 130)
+
+              - type: icon
+                icon: mdi:stop
+                tap_action: call-service
+                entity: vacuum.xiaomi_vacuum_cleaner
+                service: vacuum.stop
+                style:
+                  top: 81%
+                  left: 20%
+                  --paper-item-icon-color: rgb(115, 122, 130)
+
+              - type: icon
+                icon: mdi:clock-outline
+                entity: sensor.vacuum_cleaning_time
+                style: {top: 91%, left: 5%}
 
             
-            - type: state-label
-              entity: sensor.vacuum_cleaning_time
-              style: {top: 92%, left: 15%}
-      
-            - type: icon
-              icon: mdi:blender
-              entity: sensor.vacuum_main_brush
-              style:
-                top: 91%
-                left: 25%
-                "--paper-item-icon-color": rgb(115, 122, 130)   
-            
-            - type: state-label
-              entity: sensor.vacuum_main_brush
-              style: {top: 92%, left: 34%}
-    
-            - type: icon
-              icon: mdi:blender
-              entity: sensor.vacuum_side_brush
-              style:
-                top: 91%
-                left: 45%
-                "--paper-item-icon-color": rgb(115, 122, 130)
-            
-            - type: state-label
-              entity: sensor.vacuum_side_brush
-              style: {top: 92%, left: 54%}
+              - type: state-label
+                entity: sensor.vacuum_cleaning_time
+                style: {top: 92%, left: 15%}
+              - type: icon
+                icon: mdi:blender
+                entity: sensor.vacuum_main_brush
+                style:
+                  top: 91%
+                  left: 25%
+                  --paper-item-icon-color: rgb(115, 122, 130)
+
+              - type: state-label
+                entity: sensor.vacuum_main_brush
+                style: {top: 92%, left: 34%}
+              - type: icon
+                icon: mdi:blender
+                entity: sensor.vacuum_side_brush
+                style:
+                  top: 91%
+                  left: 45%
+                  --paper-item-icon-color: rgb(115, 122, 130)
+
+              - type: state-label
+                entity: sensor.vacuum_side_brush
+                style: {top: 92%, left: 54%}
 
     
-            - type: icon
-              icon: mdi:filter
-              entity: sensor.vacuum_filter
-              style:
-                top: 91%
-                left: 65%
-                "--paper-item-icon-color": rgb(115, 122, 130)
-            
-            - type: state-label
-              entity: sensor.vacuum_filter
-              style: {top: 92%, left: 74%}
+              - type: icon
+                icon: mdi:filter
+                entity: sensor.vacuum_filter
+                style:
+                  top: 91%
+                  left: 65%
+                  --paper-item-icon-color: rgb(115, 122, 130)
+
+              - type: state-label
+                entity: sensor.vacuum_filter
+                style: {top: 92%, left: 74%}
 
             
-            - type: icon
-              icon: mdi:counter
-              entity: sensor.vacuum_cleaning_count
-              style:
-                top: 91%
-                left: 85%
-                "--paper-item-icon-color": rgb(115, 122, 130)
-            
-            - type: state-label
-              entity: sensor.vacuum_filter
-              style:
-                top: 92%
-                left: 93%
-            
-            - type: state-label
-              entity: sensor.vacuum_status 
-              style:
-                top: 10%
-                left: 5%
-                color: rgb(255, 255, 255)
-                transform: translate(0%,-50%)
-                pointer-events: none
-                text-shadow: 1px 1px black
-                font-family: Trebuchet MS
-                font-size: 90%
-                font-weight: bold
-                border-left-style: solid
-                border-color: rgb(34, 154, 210)
-                background-color: rgb(54, 65, 78)
-                opacity: 0.8
-            
-            - type: state-label
-              entity: sensor.vacuum_battery
-              style:
-                top: 10%
-                right: 5%
-                color: rgb(255, 255, 255)
-                transform: translate(0%,-50%)
-                pointer-events: none
-                text-shadow: 1px 1px black
-                font-family: Trebuchet MS
-                font-size: 90%
-                font-weight: bold
-                border-right-style: solid
-                border-color: rgb(34, 154, 210)
-                background-color: rgb(54, 65, 78)
-                opacity: 0.8
+              - type: icon
+                icon: mdi:counter
+                entity: sensor.vacuum_cleaning_count
+                style:
+                  top: 91%
+                  left: 85%
+                  --paper-item-icon-color: rgb(115, 122, 130)
+
+              - type: state-label
+                entity: sensor.vacuum_filter
+                style:
+                  top: 92%
+                  left: 93%
+
+              - type: state-label
+                entity: sensor.vacuum_status
+                style:
+                  top: 10%
+                  left: 5%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
+                  border-left-style: solid
+                  border-color: rgb(34, 154, 210)
+                  background-color: rgb(54, 65, 78)
+                  opacity: 0.8
+
+              - type: state-label
+                entity: sensor.vacuum_battery
+                style:
+                  top: 10%
+                  right: 5%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
+                  border-right-style: solid
+                  border-color: rgb(34, 154, 210)
+                  background-color: rgb(54, 65, 78)
+                  opacity: 0.8
 
       # - type: vertical-stack
       #   cards:
@@ -1286,12 +1283,12 @@ views:
       #       entities:
       #         - input_select.vacuum_room
       #       image: /local/lovelace/home/xiaomi_vacuum.jpg
-            
 
 #################################################################
 #                        Washing Machine                        #
 #################################################################    
-      - type: vertical-stack
+      - id: 6230aa94216146839239531872075ded  # Automatically created id
+        type: vertical-stack
         cards:
           - type: picture-elements
             image: /local/lovelace/electricity/washing_machine_01.jpg
@@ -1301,7 +1298,7 @@ views:
                 entity: sensor.washing_machine_total_cost
                 style:
                   top: 60%
-                  left: 5% 
+                  left: 5%
                   color: rgb(255, 255, 255)
                   transform: translate(0%,-50%)
                   pointer-events: none
@@ -1319,7 +1316,6 @@ views:
               #   style:
               #     top: 45%
               #     left: 17%               
-                                                 
               - type: state-label
                 entity: sensor.washing_machine_energy_today
                 style:
@@ -1331,13 +1327,12 @@ views:
                   text-shadow: 1px 1px black
                   font-family: Trebuchet MS
                   font-size: 90%
-                  font-weight: bold                  
-               
+                  font-weight: bold
+
               - type: icon
                 entity: sensor.washing_machine_energy_today
                 icon: mdi:flash
                 style: {top: 10%, left: 9%}
-                  
               - type: state-label
                 entity: sensor.washing_machine_yesterday
                 style:
@@ -1349,7 +1344,7 @@ views:
                   text-shadow: 1px 1px black
                   font-family: Trebuchet MS
                   font-size: 90%
-                  font-weight: bold                   
+                  font-weight: bold
 
               - type: icon
                 entity: sensor.washing_machine_yesterday
@@ -1359,7 +1354,10 @@ views:
 
               - type: state-label
                 entity: sensor.washing_machine_total
-                style: {top: 10%, left: 72%, color: rgb(255, 255, 255), transform: translate(0%,-50%), pointer-events: none, text-shadow: 1px 1px black, font-family: Trebuchet MS, font-size: 90%, font-weight: bold  }
+                style: {top: 3%, left: 72%, color: rgb(255, 255: !!null '', 255): !!null '',
+                  transform: translate(0%, -50%): !!null '', pointer-events: none,
+                  text-shadow: 1px 1px black, font-family: Trebuchet MS, font-size: 90%,
+                  font-weight: bold}
 
               - type: icon
                 entity: sensor.washing_machine_total
@@ -1374,11 +1372,13 @@ views:
 #                                                               #
 #                                                               #
 #################################################################      
-  - icon: mdi:home-modern
+  - id: 8  # Automatically created id
+    icon: mdi:home-modern
   #- icon: mdi:hotel
     name: חדר שינה
     cards:
-      - type: vertical-stack
+      - id: ea5b77c1b8e3488c9333cb96b1df261a  # Automatically created id
+        type: vertical-stack
         cards:
 #################################################################
 #                       Motion Sensor                           #
@@ -1400,7 +1400,8 @@ views:
 #################################################################
 #                       illumination                            #
 #################################################################             
-      - type: vertical-stack
+      - id: 7b82fda1c54f45a0996fbee82eff2cb1  # Automatically created id
+        type: vertical-stack
         cards:
           - type: entities
             title: Light Level
@@ -1419,7 +1420,8 @@ views:
 #################################################################
 #                Whet Light is on? - איזו תאורה דלוקה             #
 #################################################################             
-      - type: vertical-stack
+      - id: 13f463b1bf8f480fb8b9ab2547858372  # Automatically created id
+        type: vertical-stack
         cards:
           - type: entity-filter
             entities:
@@ -1428,27 +1430,29 @@ views:
               - light.parents
               - light.yeelight_rgb_7c49eb0f97b1
             state_filter:
-              - 'on'
-            card: 
-              title: תאורה פעילה - קומה שניה                    
-          
+              - on
+            card:
+              title: תאורה פעילה - קומה שניה
+
 #################################################################
 #                                                               #
 #               ¯\__/¯ unraid Server ¯\__/¯                     #
 #                                                               #
 #                                                               #
 ################################################################# 
-  - icon: mdi:server
+  - id: 9  # Automatically created id
+    icon: mdi:server
     name: Server
     cards:
-      - type: vertical-stack
+      - id: f2ab852f6af94f8491fa3db1cd1487e0  # Automatically created id
+        type: vertical-stack
         cards:
-          - type: "custom:mini-graph-card"
+          - type: custom:mini-graph-card
             entity: sensor.temperature_158d00022ece24
             height: 100
             line_width: 4
             font_size: 75
-            color: '#3498db'       
+            color: '#3498db'
 
 #################################################################
 #                       Light - תאורה                           #
@@ -1467,7 +1471,7 @@ views:
             tap_action: toggle
             entities:
               - script.backup_ha_and_move_backup_to_unraid
-              - script.backup_ha_config 
+              - script.backup_ha_config
               - sensor.latest_ha_backup
               - automation.weekly_os_backup
               - automation.daily_hass_backup
@@ -1476,83 +1480,82 @@ views:
 #################################################################
 #                        Humidity - לחות                        #
 ################################################################# 
-      - type: vertical-stack
+      - id: 1e5dfaed03f249cdb6bd0700d21aba01  # Automatically created id
+        type: vertical-stack
         cards:
-          - type: "custom:mini-graph-card"
+          - type: custom:mini-graph-card
             entity: sensor.humidity_158d00022ece24
             height: 100
             line_width: 4
             font_size: 75
-            line_color: '#e74c3c'                
+            line_color: '#e74c3c'
 
 #################################################################
 #                        Server info                            #
 #################################################################
-      - type: vertical-stack
-        cards:  
+      - id: b13b348e18a442c68b039ee650c8c4f5  # Automatically created id
+        type: vertical-stack
+        cards:
           - type: picture-elements
             image: /local/lovelace/server/unraid.jpg
             #title: Internet
             elements:
-            - type: state-icon
-              entity: sensor.disk_use_percent_home
-              style: {top: 84%, left: 29%}
+              - type: state-icon
+                entity: sensor.disk_use_percent_home
+                style: {top: 84%, left: 29%}
 
                 
-            - type: state-label 
-              entity: sensor.disk_use_percent_home
-              prefix: "Resources : " 
-              style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
+              - type: state-label
+                entity: sensor.disk_use_percent_home
+                prefix: 'Resources : '
+                style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
 
                 
-            - type: state-icon
-              entity: sensor.memory_use_percent
-              style: {top: 84%, left: 46%}
+              - type: state-icon
+                entity: sensor.memory_use_percent
+                style: {top: 84%, left: 46%}
 
                 
-            - type: state-label 
-              entity: sensor.memory_use_percent
-              style: {top: 93%, left: 47%, font-size: 115%, font-weight: bold}
+              - type: state-label
+                entity: sensor.memory_use_percent
+                style: {top: 93%, left: 47%, font-size: 115%, font-weight: bold}
 
                 
-            - type: state-icon
-              entity: sensor.processor_use
-              style: {top: 84%, left: 63%}
+              - type: state-icon
+                entity: sensor.processor_use
+                style: {top: 84%, left: 63%}
 
                 
-            - type: state-label 
-              entity: sensor.processor_use
-              style: {top: 93%, left: 64%, font-size: 115%, font-weight: bold}
-                
+              - type: state-label
+                entity: sensor.processor_use
+                style: {top: 93%, left: 64%, font-size: 115%, font-weight: bold}
 
-            - type: state-icon
-              entity: sensor.homeassistant_v2db
-              style: {top: 84%, left: 80%}
-
-                
-            - type: state-label 
-              entity: sensor.homeassistant_v2db
-              style: {top: 93%, left: 81%, font-size: 115%, font-weight: bold}
-
-
-            - type: state-icon
-              entity: sensor.installed_version
-              style: {top: 8%, left: 57%}
+              - type: state-icon
+                entity: sensor.homeassistant_v2db
+                style: {top: 84%, left: 80%}
 
                 
-            - type: state-label 
-              entity: sensor.installed_version
-              style: {top: 18%, left: 58%, font-size: 115%, font-weight: bold}
-              
+              - type: state-label
+                entity: sensor.homeassistant_v2db
+                style: {top: 93%, left: 81%, font-size: 115%, font-weight: bold}
 
-            - type: state-icon
-              entity: sensor.current_ha_version
-              style: {top: 9%, left: 39.8%}
-              
 
-            - type: state-label 
-              entity: sensor.current_ha_version
-              style: {top: 18%, left: 40%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.installed_version
+                style: {top: 8%, left: 57%}
+
+                
+              - type: state-label
+                entity: sensor.installed_version
+                style: {top: 18%, left: 58%, font-size: 115%, font-weight: bold}
+
+              - type: state-icon
+                entity: sensor.current_ha_version
+                style: {top: 9%, left: 39.8%}
+
+              - type: state-label
+                entity: sensor.current_ha_version
+                style: {top: 18%, left: 40%, font-size: 115%, font-weight: bold}
 
                  
 #################################################################
@@ -1565,102 +1568,86 @@ views:
               - type: state-icon
                 entity: sensor.hdd_sdg_temp
                 style: {top: 82%, left: 25%}
-                
-                  
+
               - type: state-label
                 entity: sensor.hdd_sdg_temp
                 prefix: 'Parity: '
                 style: {top: 92%, left: 25%}
-
                   
               - type: state-icon
                 entity: sensor.hdd_sdi_temp
                 style: {top: 82%, left: 50%}
 
-                  
               - type: state-label
                 entity: sensor.hdd_sdi_temp
                 prefix: 'Cache: '
                 style: {top: 92%, left: 50%}
 
-                  
               - type: state-icon
                 entity: sensor.hdd_sdc_temp
-                style:
                 style: {top: 45%, left: 25%}
-
                   
               - type: state-label
                 entity: sensor.hdd_sdc_temp
                 prefix: 'Cache 2: '
                 style: {top: 55%, left: 25%}
-
                   
               - type: state-icon
                 entity: sensor.hdd_sdf_temp
                 style: {top: 45%, left: 50%}
-                
-                  
+
               - type: state-label
                 entity: sensor.hdd_sdf_temp
                 prefix: 'HD 1: '
                 style: {top: 55%, left: 50%}
-                
-                  
+
               - type: state-icon
                 entity: sensor.hdd_sdd_temp
                 style: {top: 8%, left: 25%}
-                
-                  
+
               - type: state-label
                 entity: sensor.hdd_sdd_temp
                 prefix: 'HD 2: '
                 style: {top: 18%, left: 25%}
-                
-                  
+
               - type: state-icon
                 entity: sensor.hdd_sde_temp
                 style: {top: 8%, left: 50%}
-                
-                  
+
               - type: state-label
                 entity: sensor.hdd_sde_temp
                 prefix: 'HD 3: '
                 style: {top: 18%, left: 50%}
-                
-                  
+
               - type: state-icon
                 entity: sensor.hdd_sdh_temp
                 style: {top: 8%, left: 75%}
-                
-                  
+
               - type: state-label
                 entity: sensor.hdd_sdh_temp
                 prefix: 'HD 4: '
                 style: {top: 18%, left: 75%}
-                
-                  
+
               - type: state-icon
                 entity: sensor.hdd_sdb_temp
                 style: {top: 82%, left: 75%}
-                
 
               - type: state-label
                 entity: sensor.hdd_sdb_temp
                 prefix: 'HD 5: '
                 style: {top: 92%, left: 75%}
-                
 #################################################################
 #                        CPU Temperature                        #
 ################################################################# 
-      - type: vertical-stack
+      - id: 66a143919c924382b4b22cc235861bc9  # Automatically created id
+        type: vertical-stack
         cards:
-          - type: "custom:mini-graph-card"
+          - type: custom:mini-graph-card
             entity: sensor.cpu_temp
             height: 100
             line_width: 4
             font_size: 75
-            line_color: '#3498db'                
+            line_color: '#3498db'
 
 #################################################################
 #                        Speedtest                              #
@@ -1669,33 +1656,31 @@ views:
             image: /local/lovelace/server/speed.jpg
             #title: Internet
             elements:
-            - type: state-icon
-              entity: sensor.speedtest_ping
-              style: {top: 85%, left: 25%}
-                
-            - type: state-label 
-              entity: sensor.speedtest_ping
-              prefix: "Internet : " 
-              style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.speedtest_ping
+                style: {top: 85%, left: 25%}
+              - type: state-label
+                entity: sensor.speedtest_ping
+                prefix: 'Internet : '
+                style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
 
-            - type: state-icon
-              entity: sensor.speedtest_download
-              style: {top: 85%, left: 50%}
+              - type: state-icon
+                entity: sensor.speedtest_download
+                style: {top: 85%, left: 50%}
 
-            - type: state-label 
-              entity: sensor.speedtest_download
-              style: {top: 93%, left: 50%, font-size: 115%, font-weight: bold}
-
-                
-            - type: state-icon
-              entity: sensor.speedtest_upload
-              style: {top: 85%, left: 75%}
+              - type: state-label
+                entity: sensor.speedtest_download
+                style: {top: 93%, left: 50%, font-size: 115%, font-weight: bold}
 
                 
-            - type: state-label 
-              entity: sensor.speedtest_upload
-              style: {top: 93%, left: 75%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.speedtest_upload
+                style: {top: 85%, left: 75%}
+
                 
+              - type: state-label
+                entity: sensor.speedtest_upload
+                style: {top: 93%, left: 75%, font-size: 115%, font-weight: bold}
 
 #################################################################
 #                                                               #
@@ -1703,18 +1688,20 @@ views:
 #                                                               #
 #                                                               #
 #################################################################
-  - title: Surveillance
+  - id: 10  # Automatically created id
+    title: Surveillance
     icon: mdi:update
     panel: true
     cards:
-      - type: custom:card-modder
+      - id: 829b44e560ae480f83bfd9a7531f6da9  # Automatically created id
+        type: custom:card-modder
         card:
-          type: "custom:tracker-card"
+          type: custom:tracker-card
           trackers:
             - sensor.custom_card_tracker
-            - sensor.custom_component_tracker 
-        style: {color: white, background: "url(http://www.zulkarnine.com/wp-content/uploads/2013/12/HD-1080p-Wallpaper-559.jpg"}
-              
+            - sensor.custom_component_tracker
+        style: {color: white, background: url(http://www.zulkarnine.com/wp-content/uploads/2013/12/HD-1080p-Wallpaper-559.jpg}
+
 #################################################################
 #                                                               #
 #               ¯\__/¯ Security cameras ¯\__/¯                  #
@@ -1722,18 +1709,20 @@ views:
 #                                                               #
 ################################################################# 
 
-  - title: Surveillance
+  - id: 11  # Automatically created id
+    title: Surveillance
     icon: mdi:cctv
     panel: true
     cards:
-      - type: custom:surveillance-card
+      - id: 16d49356d1eb4511901b99798535f59d  # Automatically created id
+        type: custom:surveillance-card
         thumb_interval: 15
         update_interval: 2
         cameras:
           - entity: camera.right_side_4mp
           - entity: camera.left_side_2mp
           - entity: camera.building_door
-          - entity: camera.front_camera_dor 
+          - entity: camera.front_camera_dor
           - entity: camera.outside_camera_backwards
 
 
@@ -1743,11 +1732,13 @@ views:
 #                                                               #
 #################################################################
 
-  - icon: mdi:power-plug
+  - id: 12  # Automatically created id
+    icon: mdi:power-plug
     name: Energy Stats
     #panel: true
     cards:
-      - type: vertical-stack
+      - id: 5dff1a436f14450eb708d065fef6066d  # Automatically created id
+        type: vertical-stack
         cards:
           - type: horizontal-stack
             cards:
@@ -1771,7 +1762,7 @@ views:
                   - type: service-button
                     title: Yesterday
                     service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold} 
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
 
           - type: vertical-stack
             cards:
@@ -1788,15 +1779,16 @@ views:
 
               - type: vertical-stack
                 cards:
-                  - type: "custom:mini-graph-card"
+                  - type: custom:mini-graph-card
                     entity: sensor.power_calc_total_phaze1
                     height: 120
                     line_width: 1
                     font_size: 75
-                    color: '#3498db'                    
+                    color: '#3498db'
 
 
-      - type: vertical-stack
+      - id: 3695ffd4044e49edbd0e78fca5c2a75b  # Automatically created id
+        type: vertical-stack
         cards:
           - type: horizontal-stack
             cards:
@@ -1820,7 +1812,7 @@ views:
                   - type: service-button
                     title: Yesterday
                     service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold} 
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
 
           - type: vertical-stack
             cards:
@@ -1837,15 +1829,15 @@ views:
 
               - type: vertical-stack
                 cards:
-                  - type: "custom:mini-graph-card"
+                  - type: custom:mini-graph-card
                     entity: sensor.phaze_1__total
                     height: 120
                     line_width: 1
                     font_size: 75
-                    color: '#3498db'                    
-                    
+                    color: '#3498db'
 
-      - type: vertical-stack
+      - id: 6ff456f34d274c1fa324153f10404491  # Automatically created id
+        type: vertical-stack
         cards:
           - type: horizontal-stack
             cards:
@@ -1869,7 +1861,7 @@ views:
                   - type: service-button
                     title: P. Consumption
                     service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold} 
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
 
 
           - type: vertical-stack
@@ -1907,7 +1899,7 @@ views:
                   - type: service-button
                     title: Voltage
                     service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}                     
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
 
 
           - type: vertical-stack
