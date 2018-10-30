@@ -38,7 +38,7 @@ resources:
     type: js
 
   ## Sonarr/Radarr - https://github.com/custom-cards/upcoming-media-card ##
-  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?v=0.2.6
+  - url: /local/custom-lovelace/upcoming-media-card/upcoming-media-card.js?v=0.2.9
     type: js
 
     ## https://community.home-assistant.io/t/lovelace-swiper-card/72447 ##
@@ -585,6 +585,17 @@ views:
                 show_source: true
                 background: /local/lovelace/tv/salontv.jpg
 
+
+          - type: entities
+            title: Kodi
+            entities:
+              - entity: media_player.kodi
+                type: custom:mini-media-player
+                artwork_border: true
+                power_color: true
+                show_source: true
+                background: /local/lovelace/tv/salontv.jpg                
+
 #################################################################
 #                        Radarr                                 #
 #################################################################             
@@ -594,7 +605,7 @@ views:
             image_style: fanart
             locale: he-IL
             clock: 24
-            max: 3
+            max: 2
 
 #################################################################
 #           Electric shutter - תריס חשמלי                       #
@@ -654,13 +665,229 @@ views:
             image: /local/lovelace/downstairs/stairs.jpg
 
 
+
+#################################################################
+#                                                               #
+#             ¯\__/¯ Energy Consumption ¯\__/¯                  #
+#                                                               #
+#################################################################
+  - id: 3  # Automatically created id
+    icon: mdi:power-plug
+    name: Energy Stats
+    #panel: true
+    cards:
+      - id: 5dff1a436f14450eb708d065fef6066d  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/today01.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.power_calc_today_phaze1
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Today
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+              - type: picture-elements
+                image: /local/lovelace/electricity/yesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.power_calc_yesterday_phaze1
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Yesterday
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+          - type: vertical-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/electrical_total01.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.power_calc_total_phaze1
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Total
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+              - type: vertical-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    entity: sensor.power_calc_total_phaze1
+                    height: 120
+                    line_width: 1
+                    font_size: 75
+                    color: '#3498db'
+
+      - id: 3695ffd4044e49edbd0e78fca5c2a75b  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/totalkwh.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__today
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Today
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+              - type: picture-elements
+                image: /local/lovelace/electricity/kwhyesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__yesterday
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Yesterday
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+          - type: vertical-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/allkwh.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__total
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Total
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+              - type: picture-elements
+                image: /local/lovelace/electricity/beginning01.jpg
+                elements:
+                  - type: state-label
+                    entity: input_number.kwh_number
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: From the beginning of the account
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/kwhyesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.kwh_count_yesterday
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Yesterday
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}  
+                    
+              - type: picture-elements
+                image: /local/lovelace/electricity/outside.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.kwh_count_all
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Outside
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+                    
+
+      - id: 6ff456f34d274c1fa324153f10404491  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/supply.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__power
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Supply
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
+
+              - type: picture-elements
+                image: /local/lovelace/electricity/kwhyesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__apparent_power
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: P. Consumption
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
+
+
+          - type: vertical-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/reactiveconsumption.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__reactive_power
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Reactive Consumption
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/power_difference.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__power_factor
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Power Difference
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
+
+              - type: picture-elements
+                image: /local/lovelace/electricity/voltage.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__voltage
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Voltage
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
+
+
+          - type: vertical-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/consumption.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__current
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Consumption
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
+
+
 #################################################################
 #                                                               #
 #         ¯\__/¯   מצב פעיל/לא פעיל - סונוף  ¯\__/¯             #
 #                                                               #
 #                                                               #
 ################################################################# 
-  - id: 3  # Automatically created id
+  - id: 4 # Automatically created id
     icon: mdi:toggle-switch-off
     name: מצב פעיל/לא פעיל
     cards:
@@ -776,7 +1003,7 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - id: 4  # Automatically created id
+  - id: 5 # Automatically created id
     icon: mdi:settings
     name: System Status
     cards:
@@ -799,8 +1026,13 @@ views:
                     - automation.turn_off_xiaomi_cameras_if_morning_and_we_are_at_home
                     - automation.turn_on_xiaomi_cameras_if_nurit_and_avi_not_at_home
                 style:
-                  border-radius: 12px
+                  background-repeat: no-repeat                                      
+                  background-color: rgba(0,0,0,0.0)
+                  background-size: 100% 100%
+                  border-radius: 20px
+                  border: solid 1px rgba(255, 255, 255, 0.2)
                   color: white
+                  box-shadow: 3px 3px rgba(0,0,0,0.3) 
                   background: url(/local/lovelace/automation/xiaomi_05.jpg)
                   height: 255px
 
@@ -939,7 +1171,7 @@ views:
 #                                                               #
 #################################################################
 
-  - id: 5  # Automatically created id
+  - id: 6  # Automatically created id
     icon: mdi:cogs
     name: Things Status
     cards:
@@ -1012,19 +1244,25 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - id: 6  # Automatically created id
+  - id: 7  # Automatically created id
     type: vertical-stack
+    background: center / cover no-repeat url("/local/lovelace/background/back.png") fixed
     icon: mdi:car
     cards:
-      - id: 84179b1822d142f48d7d6b71919c8575  # Automatically created id
-        type: custom:card-modder
+      - type: custom:card-modder
         card:
           type: custom:content-card-ituran
+          title: Where is my car?
           entity: ituran.skodakodiak
         style:
-          color: white
-          background: url(http://3.bp.blogspot.com/-tGNwK4MI4pU/T5pItz_GCvI/AAAAAAAACNs/fqXqJfWTJWo/s1600/Proton+Prevé+Wallpaper+1920x1080+dash+board+2.jpg
-          height: 750px
+         background-image: url("/local/lovelace/background/cardbackK.png")
+         background-repeat: no-repeat
+         background-color: rgba(50,50,50,0.3)
+         background-size: 100% 68px
+         border-radius: 20px
+         border: solid 1px rgba(100,100,100,0.3)
+         color: "#ffffff"
+         box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                                                               #
@@ -1032,7 +1270,7 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - id: 7  # Automatically created id
+  - id: 8  # Automatically created id
     type: horizontal-stack
     icon: mdi:washing-machine
     name: power
@@ -1309,13 +1547,7 @@ views:
                   background-color: rgb(21, 21, 21)
                   border-radius: 8px
 
-
-              # - type: icon
-              #   entity: sensor.washing_machine_total_cost
-              #   icon: mdi:mdi:credit-card
-              #   style:
-              #     top: 45%
-              #     left: 17%               
+             
               - type: state-label
                 entity: sensor.washing_machine_energy_today
                 style:
@@ -1354,10 +1586,13 @@ views:
 
               - type: state-label
                 entity: sensor.washing_machine_total
-                style: {top: 3%, left: 72%, color: rgb(255, 255: !!null '', 255): !!null '',
-                  transform: translate(0%, -50%): !!null '', pointer-events: none,
-                  text-shadow: 1px 1px black, font-family: Trebuchet MS, font-size: 90%,
-                  font-weight: bold}
+                style:
+                  top: 3%, 
+                  left: 72%, 
+                  pointer-events: none
+                  text-shadow: 1px 1px black, font-family
+                  font-size: 90%
+                  font-weight: bold
 
               - type: icon
                 entity: sensor.washing_machine_total
@@ -1372,7 +1607,7 @@ views:
 #                                                               #
 #                                                               #
 #################################################################      
-  - id: 8  # Automatically created id
+  - id: 9  # Automatically created id
     icon: mdi:home-modern
   #- icon: mdi:hotel
     name: חדר שינה
@@ -1440,7 +1675,7 @@ views:
 #                                                               #
 #                                                               #
 ################################################################# 
-  - id: 9  # Automatically created id
+  - id: 10  # Automatically created id
     icon: mdi:server
     name: Server
     cards:
@@ -1688,19 +1923,27 @@ views:
 #                                                               #
 #                                                               #
 #################################################################
-  - id: 10  # Automatically created id
-    title: Surveillance
+  - id: 11  # Automatically created id
+    title: Update plugin
+    background: center / cover no-repeat url("/local/lovelace/background/back.png") fixed
     icon: mdi:update
-    panel: true
     cards:
-      - id: 829b44e560ae480f83bfd9a7531f6da9  # Automatically created id
-        type: custom:card-modder
+      - type: custom:card-modder
         card:
           type: custom:tracker-card
+          title: CUSTOM CARDS UPDATE
           trackers:
             - sensor.custom_card_tracker
             - sensor.custom_component_tracker
-        style: {color: white, background: url(http://www.zulkarnine.com/wp-content/uploads/2013/12/HD-1080p-Wallpaper-559.jpg}
+        style:                 
+         background-image: url("/local/lovelace/background/cardbackK.png")
+         background-repeat: no-repeat
+         background-color: rgba(50,50,50,0.3)
+         background-size: 100% 68px
+         border-radius: 20px
+         border: solid 1px rgba(100,100,100,0.3)
+         color: "#999999"
+         box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                                                               #
@@ -1709,7 +1952,7 @@ views:
 #                                                               #
 ################################################################# 
 
-  - id: 11  # Automatically created id
+  - id: 12  # Automatically created id
     title: Surveillance
     icon: mdi:cctv
     panel: true
@@ -1724,193 +1967,3 @@ views:
           - entity: camera.building_door
           - entity: camera.front_camera_dor
           - entity: camera.outside_camera_backwards
-
-
-#################################################################
-#                                                               #
-#                     Energy Consumption                        #
-#                                                               #
-#################################################################
-
-  - id: 12  # Automatically created id
-    icon: mdi:power-plug
-    name: Energy Stats
-    #panel: true
-    cards:
-      - id: 5dff1a436f14450eb708d065fef6066d  # Automatically created id
-        type: vertical-stack
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/today01.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.power_calc_today_phaze1
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Today
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-
-              - type: picture-elements
-                image: /local/lovelace/electricity/yesterday.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.power_calc_yesterday_phaze1
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Yesterday
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-
-          - type: vertical-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/electrical_total01.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.power_calc_total_phaze1
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Total
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-
-              - type: vertical-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    entity: sensor.power_calc_total_phaze1
-                    height: 120
-                    line_width: 1
-                    font_size: 75
-                    color: '#3498db'
-
-
-      - id: 3695ffd4044e49edbd0e78fca5c2a75b  # Automatically created id
-        type: vertical-stack
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/totalkwh.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__today
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Today
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-
-              - type: picture-elements
-                image: /local/lovelace/electricity/kwhyesterday.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__yesterday
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Yesterday
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-
-          - type: vertical-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/allkwh.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__total
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Total
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-
-              - type: vertical-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    entity: sensor.phaze_1__total
-                    height: 120
-                    line_width: 1
-                    font_size: 75
-                    color: '#3498db'
-
-      - id: 6ff456f34d274c1fa324153f10404491  # Automatically created id
-        type: vertical-stack
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/supply.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__power
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Supply
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-
-              - type: picture-elements
-                image: /local/lovelace/electricity/kwhyesterday.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__apparent_power
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: P. Consumption
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-
-
-          - type: vertical-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/reactiveconsumption.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__reactive_power
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Reactive Consumption
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-
-          - type: horizontal-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/power_difference.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__power_factor
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Power Difference
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-
-              - type: picture-elements
-                image: /local/lovelace/electricity/voltage.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__voltage
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Voltage
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-
-
-          - type: vertical-stack
-            cards:
-              - type: picture-elements
-                image: /local/lovelace/electricity/consumption.jpg
-                elements:
-                  - type: state-label
-                    entity: sensor.phaze_1__current
-                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                  - type: service-button
-                    title: Consumption
-                    service: python_script.github_scaper
-                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}

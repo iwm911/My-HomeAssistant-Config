@@ -1,6 +1,10 @@
-## LgTV ##
+####################################################
+#                                                  #
+#                      Lg TV                       #
+#                                                  #
+####################################################
   - platform: webostv
-    host: 1.1.1.1
+    host: 192.168.1.22
     name: Living Room TV  
     timeout: 5
     filename: webostv.conf
@@ -8,3 +12,13 @@
       service: wake_on_lan.send_magic_packet
       data:
         mac: !secret webostv
+
+
+####################################################
+#                                                  #
+#                      Kodi                        #
+#                                                  #
+####################################################
+
+  - platform: kodi
+    host: 192.168.1.3 
