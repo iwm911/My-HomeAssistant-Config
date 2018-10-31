@@ -97,7 +97,11 @@ homeassistant:
 
     binary_sensor.motion_sensor_158d0002b42fa3:
       friendly_name: חיישן תנועה שירותי אורחים
-      assumed_state: false  
+      assumed_state: false 
+      
+    binary_sensor.motion_sensor_158d00024e7972:
+      friendly_name: חיישן תנועה מרפסת 
+      assumed_state: false       
       
 
 
@@ -337,6 +341,28 @@ automation:
     action:
     - service: light.turn_off
       entity_id: light.poop
+      
+
+  ############## כיבוי תאורה במרפסת בהתאם לתנעוה #################
+  - alias: Turn on lights miklahat based on montion
+    trigger:
+    - entity_id: binary_sensor.motion_sensor_158d00024e7972
+      platform: state
+      to: 'on'
+    action:
+    - service: light.turn_on
+      entity_id: light.balcony
+  ############## כיבוי תאורה בהתאם לתנועה ###################
+  - alias: Turn off lights miklahat based on montion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_158d00024e7972
+      to: 'off'
+      for:
+        minutes: 3
+    action:
+    - service: light.turn_off
+      entity_id: light.balcony      
       
 
   ## הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש ##

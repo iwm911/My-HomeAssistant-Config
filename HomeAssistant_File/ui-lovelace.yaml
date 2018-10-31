@@ -476,13 +476,20 @@ views:
               - type: state-icon
                 entity: binary_sensor.motion_sensor_158d0002b42fa3
                 style: {top: 82%, left: 80%}
-                
+
               - type: state-label
                 entity: binary_sensor.motion_sensor_158d0002b42fa3
                 prefix: 'Guests Bathroom: '
-                style: {top: 92%, left: 80%}                
+                style: {top: 92%, left: 80%}
 
+              - type: state-icon
+                entity: binary_sensor.motion_sensor_158d00024e7972
+                style: {top: 54%, left: 80%}
 
+              - type: state-label
+                entity: binary_sensor.motion_sensor_158d00024e7972
+                prefix: 'Balcony: '
+                style: {top: 64%, left: 80%}                          
 #################################################################
 #                        Last IP Login                          #
 ################################################################# 
