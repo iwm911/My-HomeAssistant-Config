@@ -458,21 +458,30 @@ views:
               - type: state-icon
                 entity: binary_sensor.motion_sensor_158d0002047c5a
                 style: {top: 82%, left: 25%}
+
               - type: state-label
                 entity: binary_sensor.motion_sensor_158d0002047c5a
                 prefix: 'Shower: '
                 style: {top: 92%, left: 25%}
-
                   
               - type: state-icon
                 entity: binary_sensor.motion_sensor_158d000204bfcb
                 style: {top: 82%, left: 50%}
-
-                  
+                
               - type: state-label
                 entity: binary_sensor.motion_sensor_158d000204bfcb
                 prefix: 'Parents: '
                 style: {top: 92%, left: 50%}
+
+              - type: state-icon
+                entity: binary_sensor.motion_sensor_158d0002b42fa3
+                style: {top: 82%, left: 80%}
+                
+              - type: state-label
+                entity: binary_sensor.motion_sensor_158d0002b42fa3
+                prefix: 'Guests Bathroom: '
+                style: {top: 92%, left: 80%}                
+
 
 #################################################################
 #                        Last IP Login                          #
