@@ -594,7 +594,7 @@ views:
                 artwork_border: true
                 power_color: true
                 show_source: true
-                background: /local/lovelace/tv/salontv.jpg                
+                background: /local/lovelace/tv/kodi.jpg                
 
 #################################################################
 #                        Radarr                                 #
