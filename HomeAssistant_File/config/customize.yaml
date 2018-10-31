@@ -86,22 +86,6 @@
   group.dor_sensor:
     friendly_name: מצב דלת
     assumed_state: false
-
-  sensor.illumination_158d0002047c5a:
-    friendly_name: עוצמת אור
-    assumed_state: false
-
-  sensor.illumination_158d000204bfcb:
-    friendly_name: עוצמת אור - מקלחת הורים
-    assumed_state: false    
-
-  binary_sensor.motion_sensor_158d0002047c5a:
-    friendly_name: חיישן - מקלחת ראשית
-    assumed_state: false 
-    
-  binary_sensor.motion_sensor_158d000204bfcb: 
-    friendly_name: חיישן תנועה מקלחת הורים
-    assumed_state: false
     
   ## גיבוי אוטומטי ##
   sensor.latest_ha_backup:
