@@ -100,7 +100,7 @@ homeassistant:
       assumed_state: false 
       
     binary_sensor.motion_sensor_158d00024e7972:
-      friendly_name: חיישן תנועה מרפסת 
+      friendly_name: חיישן תנועה חדר כביסה 
       assumed_state: false       
       
 
@@ -277,7 +277,10 @@ group:
 #################################################################
 
 automation:
-  ############## הדלקת תאורה מקלחת הורים בהתאם לתנועה #################
+
+#################################################################
+#                    חיישן תנועה מקלחת שלי                        #
+#################################################################
   - alias: Turn on lights parents based on montion
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d000204bfcb
@@ -286,20 +289,20 @@ automation:
     action:
     - service: light.turn_on
       entity_id: light.parents
-  ############## כיבוי תאורה מקלחת הורים בהתאם לתנועה ###################
   - alias: Turn off lights parents based on montion
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d000204bfcb
       to: 'off'
       for:
-        minutes: 3
+        minutes: 1
     action:
     - service: light.turn_off
       entity_id: light.parents
 
-
-  ############## הדלקת תאורה מקלחת ראשית בהתאם לתנועה #################
+#################################################################
+#                    חיישן תנועה מקלחת ראשית                     #
+#################################################################
   - alias: Turn on lights miklahat based on montion
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d0002047c5a
@@ -308,7 +311,7 @@ automation:
     action:
     - service: light.turn_on
       entity_id: light.miklahat
-  ############## כיבוי תאורה מקלחת ראשית בהתאם לתנועה ###################
+
   - alias: Turn off lights miklahat based on montion
     trigger:
       platform: state
@@ -321,8 +324,10 @@ automation:
       entity_id: light.miklahat
 
 
-  ############## הדלקת תאורה בשירותי אורחים בהתאם לתנועה #################
-  - alias: Turn on lights miklahat based on montion
+#################################################################
+#                    חיישן תנועה שירותי אורחים                     #
+#################################################################
+  - alias: Turn on lights poop based on montion
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d0002b42fa3
       platform: state
@@ -330,42 +335,48 @@ automation:
     action:
     - service: light.turn_on
       entity_id: light.poop
-  ############## כיבוי תאורה בשירותי אורחים בהתאם לתנועה ###################
-  - alias: Turn off lights miklahat based on montion
+
+  - alias: Turn off lights poop based on montion
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d0002b42fa3
       to: 'off'
       for:
-        minutes: 3
+        minutes: 1
     action:
     - service: light.turn_off
       entity_id: light.poop
       
 
-  ############## כיבוי תאורה במרפסת בהתאם לתנעוה #################
-  - alias: Turn on lights miklahat based on montion
+#################################################################
+#                       חיישן תנועה חדר כביסה                     #
+#################################################################
+  - alias: Turn on lights laundry based on montion
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d00024e7972
       platform: state
       to: 'on'
     action:
     - service: light.turn_on
-      entity_id: light.balcony
-  ############## כיבוי תאורה בהתאם לתנועה ###################
-  - alias: Turn off lights miklahat based on montion
+      entity_id: light.laundry
+
+
+  - alias: Turn off lights laundry based on montion
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d00024e7972
       to: 'off'
       for:
-        minutes: 3
+        minutes: 1
     action:
     - service: light.turn_off
-      entity_id: light.balcony      
+      entity_id: light.laundry      
       
 
-  ## הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש ##
+#################################################################
+#    ## הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש ##     #
+#################################################################
+
   - alias: Lighting the light after sunset at eleven oclock
     trigger:
       platform: time
@@ -388,7 +399,7 @@ automation:
 
 
 #################################################################
-#                 Mobile Alert - התראה לסלולרי                  #
+#                 Mobile Alert - התראה לסלולרי                   #
 #################################################################    
   ## התראה במידה והאור דולק במרפסת ##  
   - alias:  notify if the balcony in ON
