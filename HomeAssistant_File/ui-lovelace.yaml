@@ -48,6 +48,9 @@ resources:
     ## https://github.com/custom-cards/tracker-card ##
   - url: /local/custom_ui/tracker-card.js?v=0.1.5
     type: js
+   ## https://github.com/thomasloven/lovelace-layout-card ##
+  - url: /local/custom_ui/layout-card.js
+    type: js
 
 #################################################################
 #                          Module                               #
@@ -1773,10 +1776,8 @@ views:
       - id: e2cf7cf3d52540b088e0ef5287954b2a  # Automatically created id
         type: vertical-stack
         cards:
-#################################################################
-#                        tammy4                                 #
-#################################################################
-          - type: vertical-stack
+          - type: custom:layout-card
+            layout: horizontal
             cards:
               - type: custom:card-modder
                 card:
@@ -1868,7 +1869,8 @@ views:
 #               xiaomi vacuum - שואב אבק                        #
 #################################################################
       - id: e527e6ed51d447d8b91717cd6bb4b6a0  # Automatically created id
-        type: vertical-stack
+        type: custom:layout-card
+        layout: horizontal
         cards:
           - type: custom:card-modder
             card:
@@ -1992,7 +1994,8 @@ views:
 #################################################################
 
       - id: 6230aa94216146839239531872075ded  # Automatically created id
-        type: vertical-stack
+        type: custom:layout-card
+        layout: horizontal
         cards:
           - type: custom:card-modder
             card:
@@ -2096,7 +2099,7 @@ views:
               background-image: url("/local/lovelace/background/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
-              background-size: 100% 130px
+              background-size: 100% 70px
               border-radius: 15px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
@@ -2527,4 +2530,18 @@ views:
           - entity: camera.left_side_2mp
           - entity: camera.building_door
           - entity: camera.front_camera_dor
-          - entity: camera.outside_camera_backwards
+          - entity: camera.outside_camera_backward
+
+# tast 
+
+  - id: 13  # Automatically created id
+    title: Update plugin
+    background: center / cover no-repeat url("/local/lovelace/background/back01.jpg") fixed
+    icon: mdi:update
+    cards:
+      - title: Horizontal
+        cards:
+          - type: custom:layout-card
+            layout: horizontal
+            cards:
+              - type: entities
