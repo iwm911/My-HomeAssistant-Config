@@ -19,10 +19,12 @@
         - switch.yes_mute
         - switch.tris_down
         - switch.tris_up
+        - sensor.binary_sensors
       include_domains:
         - switch
         - media_player
         - lights
+        - sensor
       exclude_entities: ## לא להציג ##
         - media_player.living_room_tv
         - group.version
@@ -41,6 +43,20 @@
         - switch.lg_volume_down
         - switch.ac_temp_up
         - media_player.safari
+        - sensor.hdd_sdi_temp
+        - sensor.hdd_sde_temp
+        - sensor.hdd_sdc_temp
+        - sensor.hdd_sdf_temp
+        - sensor.hdd_sdg_temp
+        - sensor.hdd_sdd_temp
+        - sensor.hdd_sdh_temp
+        - sensor.cpu_temp
+        - sensor.hdd_sdb_temp
+        - media_player.safari_4
+        - media_player.safari_3
+        - media_player.whizz
+        - media_player.whizz_2
+        - media_player.kodi
  
     entity_config:
       light.laundry:
@@ -70,6 +86,10 @@
       light.liran_room: 
         name: liran 
         description:  להדליק את האור בחדר של לירן
+
+      light.prozdor:
+        name: prozdor
+        description: תאורה בפרוזדור
 
       switch.tv_lg:
         name: tv               
@@ -109,4 +129,20 @@
       
       switch.tris_up:
         name: tris lemala
-        description: הרמת התריס למעלה 
+        description: הרמת התריס למעלה
+        
+      sensor.second_floor_temperature:
+        name: temperature second floor
+        description: מה הטמפ׳ בקומה השניה
+      
+      sensor.temperature_158d00022ece24:
+        name: temperature server room
+        description: טמפ׳ חדר מחשבים
+      
+      switch.blitzwolf_shp1:
+        name: water
+        description: כיבוי חשמל לתמי 4
+            
+      switch.washing_machine:
+        name: washing machine
+        description: כיבוי או הדלקה מכונת כביסה
