@@ -1,0 +1,264 @@
+#################################################################
+#                                                               #
+#                          Telegram                             #
+#                                                               #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+homeassistant:
+  customize:
+
+
+
+
+
+#################################################################
+#                                                               #
+#                           Groups                              #
+#                                                               #
+#################################################################
+group:
+
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+automation:
+    #########################  Home Assistant  ##########################
+    ## Home Assistant is Up and Running ##
+  - alias: 'Startup Notification'
+    hide_entity: true
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: notify.AviTelegram 
+        data:
+          title: 'System info'
+          message: 'Home Assistant is Up and Running'
+          data:
+            #iOS Only
+            attachment: 
+              url: https://community-home-assistant-assets.s3-us-west-2.amazonaws.com/original/2X/6/6a99ebb8d0b585a00b407123ff76964cb3e18780.png
+
+    ## Daily HASS Backup ##
+  - alias: 'Daily HASS Backup'
+    trigger:
+      platform: time
+      at: '02:00:00'
+    action:
+      - service: shell_command.backup_hass_config
+      - service: notify.AviTelegram
+        data:
+          title: 'גיבוי'
+          message: 'הגיבוי היומי להום-אסיסטנט בביצוע בדוק סיום תקין בבוקר '
+          data:
+            attachment: 
+              url: https://d33wubrfki0l68.cloudfront.net/b1c67285b113e40ab92d0136aed5c79f3d3ceb17/69117/images/screenshots/ui2015.png   
+   
+   ## Weekly OS Backup ##
+  - alias: 'Weekly OS Backup'
+    trigger:
+      platform: time
+      at: '02:30:00'
+    condition:
+    - condition: time
+      weekday:
+        - wed #3 Tuesday at night
+        - sun #7 Saturday at night
+    action:
+      - service: script.turn_on
+        entity_id: script.backup_ha_and_move_backup_to_unraid
+      - service: notify.AviTelegram
+        data:
+          title: 'גיבוי'
+          message: 'הגיבוי השבועי לכלל המערכת בפעולה! בדוק סיום תקין בבוקר,בקבצי השרת'
+          data:
+            attachment: 
+              url: https://www.bullten.com/img/icon/weekly-backup.png
+
+    #########################  Xiaomi Sensor  ########################## 
+
+    ## The dor open for more 1 min ##
+  - alias:  notify if the home door was open for more then 1 min
+    trigger:
+      platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001ef3425
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 1
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: 'דלת הבית פתוחה יותר מדקה'
+
+    #########################  Camera  ##########################        
+
+    ## Turn on xiaomi Camera in 23:00 ##
+  - alias:  turn ON CCTV cameras if late Night 
+    trigger:
+      platform: time
+      at: '23:00:00'
+
+    action:
+      - service: automation.turn_off
+        data:
+          entity_id: automation.turn_off_c_cameras_if_avi_at_home
+      - service: automation.turn_off 
+        data:
+          entity_id: automation.turn_off_xiaomi_cameras_if_avi_at_home
+          
+      - service: homeassistant.turn_on
+        entity_id: switch.sh20_pow
+        
+      - service: notify.AviTelegram
+        data:
+          title: "אבטחה"  
+          message: 'השעה 23:00 המצלמות דולקות'
+          
+    #########################  Ac  ##########################
+
+    ## notify if AC is on ##
+  - alias: notify if the ac is on
+    trigger:
+      platform: state
+      entity_id: switch.ac_power
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: 'המזגן נכנס לעבודה'
+        
+
+    #########################  boiler  ##########################        
+
+    ## notify if boiler is on ##
+  - alias: notify if the boiler is on
+    trigger:
+      platform: state
+      entity_id: switcher_aio.control_device_switch
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "חמור מאוד, אבי"
+        message: 'מישהו הדליק את הדוד' 
+        
+
+
+  #########################  Light  ##########################   
+  ## התראה במידה והאור דולק במרפסת ##  
+  - alias:  notify if the balcony in ON
+    trigger:
+      platform: state
+      entity_id: light.balcony
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "האור דולק במרפסת" 
+
+  ## התראה על תאורה שנדלקת במרפסת שירות ##  
+  - alias:  notify if the Service balcony in ON
+    trigger:
+      platform: state
+      entity_id: light.service_balcony
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "האור דולק במרפסת"
+
+  ## התראה על הדלקת תאורה בחדר כביסה  
+  - alias:  notify if the laundry room ON
+    trigger:
+      platform: state
+      entity_id: light.laundry
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "האור דולק בחדר כביסה"
+
+  ## התראה על הדלקת תאורה בחדר של לירן ## 
+  - alias:  notify if the light in room off liran in ON
+    trigger:
+      platform: state
+      entity_id: light.liran_room
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "האור דולק בחדר של לירן" 
+
+  ## התראה שהתאורה עובדת בחדר שירותי אורחים ##
+  - alias:  notify if the guests bathroom ON
+    trigger:
+      platform: state
+      entity_id: light.poop
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "התאורה דולקת בשירותי אורחים"
+
+  ## התראה שהתאורה עובדת בפרוזדור ##
+  - alias:  notify if the prozdor bathroom ON
+    trigger:
+      platform: state
+      entity_id: light.prozdor
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "התאורה דולקת בפרוזדור"
+
+  ### התראה במידה והתאורה נדלקת במקלחת ##
+  - alias: notify if the miklahat is on
+    trigger:
+      platform: state
+      entity_id: light.miklahat
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "התאורה דולקת במקלחת"
+
+  ## התראה במידה והתאורה דולקת במדרגות ##
+  - alias:  notify if the stairs is on
+    trigger:
+      platform: state
+      entity_id: light.stairs
+      from: 'off'
+      to: 'on'
+    action:
+      service: notify.AviTelegram
+      data:
+        title: "שלום אבי"
+        message: "התאורה דולקת במדרגות"        

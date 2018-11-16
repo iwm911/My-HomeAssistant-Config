@@ -77,8 +77,7 @@ homeassistant:
       friendly_name: תאורה אוטומטית - מקלחת
       icon: mdi:light-switch
       assumed_state: false
-      
-
+     
     sensor.illumination_158d0002047c5a:
       friendly_name: עוצמת אור
       assumed_state: false
@@ -318,7 +317,7 @@ automation:
       entity_id: binary_sensor.motion_sensor_158d0002047c5a
       to: 'off'
       for:
-        minutes: 3
+        minutes: 2
     action:
     - service: light.turn_off
       entity_id: light.miklahat
@@ -380,7 +379,7 @@ automation:
   - alias: Lighting the light after sunset at eleven oclock
     trigger:
       platform: time
-      at: '21:45:00'
+      at: '22:00:00'
     action:
     - service: light.turn_on
       data_template:
@@ -390,7 +389,7 @@ automation:
   - alias: Lights off after sunset
     trigger:
       platform: time
-      at: '06:05:00'
+      at: '05:15:00'
     action:
     - service: light.turn_off
       data_template:
@@ -398,112 +397,6 @@ automation:
         - light.stairs        
 
 
-#################################################################
-#                 Mobile Alert - התראה לסלולרי                   #
-#################################################################    
-  ## התראה במידה והאור דולק במרפסת ##  
-  - alias:  notify if the balcony in ON
-    trigger:
-      platform: state
-      entity_id: light.balcony
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "האור דולק במרפסת" 
-
-  ## התראה על תאורה שנדלקת במרפסת שירות ##  
-  - alias:  notify if the Service balcony in ON
-    trigger:
-      platform: state
-      entity_id: light.service_balcony
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "האור דולק במרפסת"
-
-  ## התראה על הדלקת תאורה בחדר כביסה  
-  - alias:  notify if the laundry room ON
-    trigger:
-      platform: state
-      entity_id: light.laundry
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "האור דולק בחדר כביסה"
-
-  ## התראה על הדלקת תאורה בחדר של לירן ## 
-  - alias:  notify if the light in room off liran in ON
-    trigger:
-      platform: state
-      entity_id: light.liran_room
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "האור דולק בחדר של לירן" 
-
-  ## התראה שהתאורה עובדת בחדר שירותי אורחים ##
-  - alias:  notify if the guests bathroom ON
-    trigger:
-      platform: state
-      entity_id: light.poop
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "התאורה דולקת בשירותי אורחים"
-
-  ## התראה שהתאורה עובדת בפרוזדור ##
-  - alias:  notify if the prozdor bathroom ON
-    trigger:
-      platform: state
-      entity_id: light.prozdor
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "התאורה דולקת בפרוזדור"
-
-  ### התראה במידה והתאורה נדלקת במקלחת ##
-  - alias: notify if the miklahat is on
-    trigger:
-      platform: state
-      entity_id: light.miklahat
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "התאורה דולקת במקלחת"
-
-  ## התראה במידה והתאורה דולקת במדרגות ##
-  - alias:  notify if the stairs is on
-    trigger:
-      platform: state
-      entity_id: light.stairs
-      from: 'off'
-      to: 'on'
-    action:
-      service: notify.AviTelegram
-      data:
-        title: "שלום אבי"
-        message: "התאורה דולקת במדרגות" 
 
 #################################################################
 #                     Sensor Xiaom                              #
@@ -530,4 +423,62 @@ automation:
         click_type: single
     action:
     - service: light.toggle
-      entity_id: light.service_balcony
+      entity_id: light.service_balcony 
+      
+
+
+#################################################################
+#                     Good night                                #
+#################################################################
+  - alias: turn off lights on long press before sleep
+    trigger:
+      platform: event
+      event_type: click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001f36255
+        click_type: long_click_press
+    action:
+      service: light.turn_off
+      entity_id: 
+        - light.poop
+        - light.prozdor
+        - light.miklahat
+        - light.laundry
+        - light.balcony
+        - light.service_balcony
+        - light.kitchen_strip_lamp
+        
+#################################################################
+#                     turn on with a single click               #
+#################################################################
+  - alias: turn off lights on single press
+    trigger:
+      platform: event
+      event_type: click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001f36255
+        click_type: single
+    action:
+      service: light.turn_on
+      entity_id:
+        - light.poop
+        - light.prozdor
+        - light.miklahat
+        - light.laundry
+        - light.balcony
+        - light.service_balcony
+        - light.kitchen_strip_lamp
+
+#################################################################
+#                     turn on with a double press               #
+#################################################################
+  - alias: turn on light on double press
+    trigger:
+      platform: event
+      event_type: click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001f36255
+        click_type: double
+    action:
+    - service: light.turn_on
+      entity_id: light.stairs

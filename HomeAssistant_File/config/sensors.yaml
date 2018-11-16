@@ -65,6 +65,15 @@
     days: 120
     ssl: false
 
+  # plex #
+  - platform: plex_recently_added
+    token: !secret plex
+    server_name: HP
+    ssl: false
+    ssl_cert: false
+    download_images: false
+    max: 5     
+
   - platform: mqtt
     name: "BlitzWolf shp1 energy today"
     state_topic: "tele/bw-shp1/SENSOR"

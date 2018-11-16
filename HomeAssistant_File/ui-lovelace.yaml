@@ -753,15 +753,13 @@ views:
               box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
-#                        Radarr                                 #
+#                        plex                                   #
 #################################################################             
           - type: custom:card-modder
             card:
               type: custom:upcoming-media-card
-              service: radarr
-              image_style: fanart
-              clock: 24
-              max: 2
+              entity: sensor.plex_recently_added
+              title: Recently Downloaded
 
             style:
               background-image: url("/local/lovelace/background/cardbackK.png")
