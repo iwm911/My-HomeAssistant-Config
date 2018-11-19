@@ -100,6 +100,10 @@ homeassistant:
       
     binary_sensor.motion_sensor_158d00024e7972:
       friendly_name: חיישן תנועה חדר כביסה 
+      assumed_state: false
+
+    binary_sensor.motion_sensor_158d000272bbe8:
+      friendly_name: חיישן תנועה חדר מחשבים 
       assumed_state: false       
       
 
@@ -369,8 +373,32 @@ automation:
         minutes: 1
     action:
     - service: light.turn_off
-      entity_id: light.laundry      
-      
+      entity_id: light.laundry   
+
+
+#################################################################
+#                      חיישן תנועה חדר מחשבים                     #
+#################################################################
+  - alias: Turn on lights room pc based on montion
+    trigger:
+    - entity_id: binary_sensor.motion_sensor_158d000272bbe8
+      platform: state
+      to: 'on'
+    action:
+    - service: light.turn_on
+      entity_id: light.computer_room
+
+
+  - alias: Turn off lights room pc based on montion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_158d000272bbe8
+      to: 'off'
+      for:
+        minutes: 1
+    action:
+    - service: light.turn_off
+      entity_id: light.computer_room
 
 #################################################################
 #    ## הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש ##     #
