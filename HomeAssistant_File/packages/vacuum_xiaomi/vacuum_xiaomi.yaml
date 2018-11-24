@@ -109,7 +109,24 @@ input_select:
       - Living Room  ## סלון ##
       - Dining Room  ## פינת אוכל ## 
       - Corridor     ## פרוזדור ## 
-      - Dogs area    ## אזור הכלבים ##
+      - Dogs area    ## אזור הכלבים ##    
+      
+
+#################################################################
+#                                                               #
+#                          input_boolean                        #
+#                                                               #
+#################################################################
+input_boolean:
+  daily_vacuum_first_run:
+    name: Daily Vacuum First Run
+    initial: 'off'
+  disable_daily_vacuum:
+    name: Disable Daily Vacuum Automation
+    initial: 'off'
+  disable_dustbin_notification:
+    name: Disable Dustbin Notification
+    initial: 'off'      
   
 
 #################################################################
@@ -147,50 +164,110 @@ group:
 #                                                               #
 #################################################################
 sensor:
-
   - platform: template
     sensors:
       vacuum_status:
-        friendly_name: "Vacuum - Status"
-        # value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}:מצב"
-        value_template: >-
-          {%if states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Charging' %}מצב:בטעינה
-          {% elif states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Cleaning' %}מצב:מנקה
-          {% elif states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Spot cleaning' %}מצב:מנקה נקודתי
-          {% elif states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Returning home' %}מצב:בחזרה לבסיס
-          {% elif states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Paused' %}מצב:בהשהייה
-          {% elif states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Idle' %}מצב:לא פעיל
-          {% elif states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Error' %}מצב:שגיאה,בדוק מה הסיבה באפליקציה          
-          {% elif states.vacuum.xiaomi_vacuum_cleaner.attributes.status == 'Charger disconnected' %}מצב:מטען מנותק          
-          {%- else -%}
-            {{states.vacuum.xiaomi_vacuum_cleaner.attributes.status}}:מצב
+        friendly_name: Status
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: 'Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
+        icon_template: >
+          {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.status  %}
+          {% if val == 'Charging' %}
+            mdi:battery-charging
+          {% elif val == 'Cleaning' %}
+            mdi:move-resize
+          {% elif val == 'Returning home' %}
+            mdi:keyboard-return
+          {% elif val == 'Idle' %}
+            mdi:dots-horizontal
+          {% elif val == 'Paused' %}
+            mdi:pause-circle
+          {% else %}
+            mdi:help-circle
           {% endif %}
-  - platform: template
-    sensors:
+      vacuum_fan_speed:
+        friendly_name: Fan Speed
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: 'Mode: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.fan_speed }}'
+        icon_template: 'mdi:speedometer'
       vacuum_battery:
-        friendly_name: "Vacuum - Battery"
-        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}%:סוללה"
-        device_class: battery
+        friendly_name: Vacuum Battery
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: 'Battery: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
+        unit_of_measurement: '%'
+        icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
       vacuum_cleaning_time:
-        friendly_name: "Cleaning Time"
-        unit_of_measurement: "Mins"
-        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time }}"
-      vacuum_main_brush:
-        friendly_name: "Main Brush Left"
-        unit_of_measurement: "Hrs"
-        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}"
-      vacuum_side_brush:
-        friendly_name: "Side Brush Left"
-        unit_of_measurement: "Hrs"
-        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}"
-      vacuum_filter:
-        friendly_name: "Filter Left"
-        unit_of_measurement: "Hrs"
-        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}"
-      vacuum_cleaning_count:
-        friendly_name: "Cleaning Count"
-        value_template: "{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_count }}"       
-        # unit_of_measurement: '%'
+        friendly_name: Time of Last Cycle
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time }}'
+        icon_template: 'mdi:timer'
+      vacuum_cleaned_area:
+        friendly_name: Area of Last Cycle
+        unit_of_measurement: 'm ²'
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area }}'
+        icon_template: 'mdi:ruler'
+      vacuum_cleanmainbrush:
+        friendly_name: Replace main brush
+        unit_of_measurement: 'h'
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: 'Main Brush: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}'
+        icon_template: 'mdi:screwdriver'
+      vacuum_cleansidebrush:
+        friendly_name: Replace side brush
+        unit_of_measurement: 'h'
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: 'Side brush: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}'
+        icon_template: 'mdi:screwdriver'
+      vacuum_cleanfilter:
+        friendly_name: Replace filter
+        unit_of_measurement: 'h'
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: 'Filter: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}'
+        icon_template: 'mdi:screwdriver'
+      vacuum_sensordirtyleft:
+        friendly_name: Replace filter
+        unit_of_measurement: 'h'
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: 'Sensor: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
+        icon_template: 'mdi:screwdriver'
+      vacuum_do_not_disturb:
+        friendly_name: Do Not Disturb
+        entity_id:
+          - vacuum.xiaomi_vacuum_cleaner
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb }}'
+        icon_template: >
+          {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.do_not_disturb  %}
+          {% if val == 'on' %}
+            mdi:do-not-disturb
+          {% else %}
+            mdi:do-not-disturb-off
+          {% endif %}
+      vacuum_operation:
+        value_template: 'Operation'
+      vacuum_accessories:
+        value_template: 'Maintenance'
+        
+#################################################################
+#                                                               #
+#                           vacuum                              # 
+#                                                               #
+#################################################################
+
+vacuum:
+    platform: xiaomi_miio
+    host: !secret vacuum_ip
+    token: !secret vacuum      
+        
 
 #################################################################
 #                                                               #
@@ -206,8 +283,9 @@ script:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
               params: [[23341,19451,32741,30201,1]] ## כל הבית ##
-  vacuum_corridor:
-        alias: "Vacuum Corridor"
+
+  vacuum_bedroom:
+        alias: "Vacuum Bedroom"
         sequence:
           - service: vacuum.send_command
             data:
@@ -221,7 +299,7 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[26253,21948,28503,25948,1]] ## פינת אוכל ##
+              params: [[26253,21948,28503,25948,1]] ## פינת אוכל #
   vacuum_kitchen:
         alias: "Vacuum Kitchen"
         sequence:
@@ -237,15 +315,15 @@ script:
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[23327,21890,26077,26040,1]] ## סלון ##                         
-  vacuum_dogs_area:
-        alias: "Vacuum Dogs area"
+              params: [[23327,21890,26077,26040,1]] ## סלון ##
+  vacuum_guestroom:
+        alias: "Vacuum Guestroom"
         sequence:
           - service: vacuum.send_command
             data:
               entity_id: vacuum.xiaomi_vacuum_cleaner
               command: app_zoned_clean
-              params: [[28624,25960,31574,30260,1]] ## אזור הכלבים ## 
+              params: [[28624,25960,31574,30260,1]] ## אזור הכלבים ##             
 
 
 #################################################################
@@ -270,53 +348,13 @@ input_boolean:
 #                                                               #
 #################################################################
 automation:
-  - alias: Start Daily Vacuum
-    trigger:
-    - platform: state
-      entity_id: group.family
-      from: 'home'
-      to: 'not_home'
-      for:
-        minutes: 2
-    - platform: time
-      at: '7:02:00'
-    condition:
-      condition: and
-      conditions:
-      - condition: state
-        entity_id: input_boolean.daily_vacuum_first_run
-        state: 'off'
-      - condition: time
-        after: '07:00:00'
-        before: '22:00:00'
-      - condition: state
-        entity_id: group.family
-        state: 'not_home'
-      - condition: state
-        entity_id: input_boolean.disable_daily_vacuum
-        state: 'off'
-    action:
-    - delay: '00:00:30'
-    - service: vacuum.turn_on
-      entity_id: vacuum.xiaomi_vacuum_cleaner
-    - service: homeassistant.turn_on
-      entity_id: input_boolean.daily_vacuum_first_run
-
-  - alias: Reset Daily Vacuum First Run state at midnight
-    trigger:
-    - platform: time
-      at: '0:00:00'
-    action:
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.daily_vacuum_first_run
-
   - alias: Send alert after daily vacuum to empty the dustbin
     trigger:
     - platform: state
-      entity_id: group.family
+      entity_id: device_tracker.galaxy_note_fan_edition
       to: 'home'
       for:
-        minutes: 2
+        minutes: 5
     condition:
       condition: and
       conditions:
@@ -325,7 +363,7 @@ automation:
         state: 'on'
       - condition: time
         after: '08:30:00'
-        before: '22:30:00'
+        before: '23:30:00'
       - condition: template
         value_template: >
           {% if states.automation.send_alert_after_daily_vacuum_to_empty_the_dustbin.last_triggered is not none %}
@@ -338,25 +376,25 @@ automation:
         entity_id: input_boolean.disable_dustbin_notification
         state: 'off'
     action:
-      - service: script.speech_processing
+      - service: media_player.volume_set
         data_template:
-          speech_message: >
-           {% if (is_state('device_tracker.google_maps_109209758211303121867', 'home')) or (is_state('device_tracker.nurit_iphone', 'home'))  %}
-             Attention!: the vacuum dustbin needs to be cleared.
-           {% endif %}
-      - service_template: >
-          {% if (is_state('device_tracker.google_maps_109209758211303121867', 'home')) and (is_state('device_tracker.nurit_iphone', 'home'))  %}
-            notify.trent_and_rachel
-          {% elif is_state('device_tracker.google_maps_109209758211303121867', 'home') %}
-            notify.trent
-          {% elif is_state('device_tracker.nurit_iphone', 'home') %}
-            notify.rachel
-          {% endif %}
-        data:
-          message: 'Hey, the vacuum dustbin needs to be cleared'
-          title: 'Vacuum Dustbin'
+          entity_id: media_player.living_room_speaker_3
+          volume_level: 0.7
+      - service: tts.google_say
+        entity_id: media_player.living_room_speaker_3
+        data_template:
+          message: 'Hey, the vacuum dustbin needs to be emptied!'
+          cache: false
 
-  - alias: Start Cleaning Room
+    alias: Reset Daily Vacuum First Run state at midnight
+    trigger:
+    - platform: time
+      at: '0:00:00'
+    action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.daily_vacuum_first_run
+
+    alias: Start Cleaning Room
     hide_entity: True
     trigger:
     - platform: state
@@ -368,19 +406,46 @@ automation:
         entity_id: >
           {% if is_state("input_select.vacuum_room", "All The House Space") %}
             script.vacuum_all_home
-          {% elif is_state("input_select.vacuum_room", "Corridor") %}
-            script.vacuum_corridor
-          {% elif is_state("input_select.vacuum_room", "Dining Room") %}
-            script.vacuum_dining_room
           {% elif is_state("input_select.vacuum_room", "Kitchen") %}
             script.vacuum_kitchen
           {% elif is_state("input_select.vacuum_room", "Living Room") %}
-            script.vacuum_living_room            
+            script.vacuum_living_room
+          {% elif is_state("input_select.vacuum_room", "Dining Room") %}
+            script.vacuum_dining_room
+          {% elif is_state("input_select.vacuum_room", "Corridor") %}
+            script.vacuum_corridor
           {% elif is_state("input_select.vacuum_room", "Dogs area") %}
-            script.vacuum_dogs_area
+            script.vacuum_dogs_area           
           {% else %}
           {% endif %}
     - service: input_select.select_option
       entity_id: input_select.vacuum_room
       data_template:
         option: "Select Input"
+        
+    alias: Start Daily Vacuum
+    trigger:
+    - platform: time
+      minutes: '/45'
+      seconds: 00
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: device_tracker.avi_note8
+        state: 'not_home'
+      - condition: state
+        entity_id: input_boolean.daily_vacuum_first_run
+        state: 'off'
+      - condition: time
+        after: '11:00:00'
+        before: '21:00:00'
+      - condition: state
+        entity_id: input_boolean.disable_daily_vacuum
+        state: 'off'
+    action:
+    - delay: '00:00:15'
+    - service: vacuum.turn_on
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.daily_vacuum_first_run
