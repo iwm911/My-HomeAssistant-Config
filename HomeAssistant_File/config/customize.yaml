@@ -52,8 +52,7 @@
     friendly_name: לחות חדר מחשבים
     icon: mdi:water-percent
     assumed_state: false
-   
-    
+
 
   ## מזג האוויר ##
   sun.sun:
@@ -103,19 +102,9 @@
     icon: mdi:harddisk
     assumed_state: false
 
-  script.backup_ha_and_move_backup_to_unraid:
-    friendly_name: גיבוי הום אסיסטנט והעברה לשרת
-    icon: mdi:backup-restore
-    assumed_state: false      
-    
-  script.backup_ha_config:
-    friendly_name: גיבוי קונפיגרציה הום אסיסטנט
-    icon: mdi:backup-restore
-    assumed_state: false   
-
   ## לחצנים של שיאומי ##
   binary_sensor.switch_158d0001f36255:
-    friendly_name: לחצן תאורת שירותים
+    friendly_name: לחצן לילה טוב
     icon: mdi:shower
     assumed_state: false
     hidden: true
@@ -226,6 +215,8 @@
     icon: mdi:home-assistant
     assumed_state: false
       
+     
+
 
   sensor.humidity_second_floor:
     friendly_name: לחות קומה שניה
@@ -385,5 +376,3 @@
     riendly_name: הפעלת תמי 4 בהפעלה
     icon: mdi:cup-water
     home-assistant: true       
-
-

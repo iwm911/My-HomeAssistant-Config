@@ -1,0 +1,99 @@
+#################################################################
+#                                                               #
+#                    Packages/Backup                            #  
+#                                                               # 
+#                                                               #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+homeassistant:
+  customize:
+    script.backup_ha_and_move_backup_to_unraid:
+      friendly_name: גיבוי הום אסיסטנט והעברה לשרת
+      icon: mdi:backup-restore
+      assumed_state: false      
+    
+    script.backup_ha_config:
+      friendly_name: גיבוי קונפיגרציה הום אסיסטנט
+      icon: mdi:backup-restore
+      assumed_state: false
+
+    script.install_comp_after_update:
+      friendly_name: השלמת חוסרים
+      icon: mdi:home-assistant
+      assumed_state: false    
+      
+#################################################################
+#                                                               #
+#                           script                              #
+#                                                               #
+#################################################################
+script:
+  
+  #######################  גיבוי יומי למערכת    ###################  
+  backup_ha_config:
+     alias: 'Backup Home Assitant config'
+     sequence:
+       - service: shell_command.backup_hass_config
+       
+  ####################### העברת הגיבוי לשרת נפרד    ##############
+  backup_ha_and_move_backup_to_unraid:
+     alias: 'Backup All Ha and Move To Unraid'
+     sequence:
+       - service: shell_command.backup_ha_and_move_backup_to_unraid
+
+  ###### install all the regular after Update of docker ########
+  install_comp_after_update:
+    alias: 'install all the regular after Update of docker'
+    sequence:
+      - service: shell_command.install_comp_after_update         
+
+#################################################################
+#                                                               #
+#                           Groups                              #
+#                                                               #
+#################################################################
+group:
+
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+automation:
+    ############# Run the script daily to backup HASS config ####
+  - alias: 'Daily HASS Backup'
+    trigger:
+      platform: time
+      at: '02:00:00'
+    action:
+      - service: shell_command.backup_hass_config
+      - service: notify.AviTelegram
+        data:
+          title: 'גיבוי'
+          message: 'הגיבוי היומי להום-אסיסטנט בביצוע בדוק סיום תקין בבוקר '
+
+
+   ################### Weekly OS Backup ########################
+  - alias: 'Weekly OS Backup'
+    trigger:
+      platform: time
+      at: '02:30:00'
+    condition:
+    - condition: time
+      weekday:
+        - wed #3 Tuesday at night
+        - sun #7 Saturday at night
+    action:
+      - service: script.turn_on
+        entity_id: script.backup_ha_and_move_backup_to_unraid
+      - service: notify.AviTelegram
+        data:
+          title: 'גיבוי'
+          message: 'הגיבוי השבועי לכלל המערכת בפעולה! בדוק סיום תקין בבוקר,בקבצי השרת'

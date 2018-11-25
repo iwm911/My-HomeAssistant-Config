@@ -1,18 +1,4 @@
-             
-  ## ביצוע גיבוי אוטומטי למערכת בשרת אחר #
-  ###############################################
-  backup_ha_and_move_backup_to_unraid:
-     alias: 'Backup All Ha and Move To Unraid'
-     sequence:
-       - service: shell_command.backup_ha_and_move_backup_to_unraid
-  ## ביצוע גיבוי אוטומטי למערכת בשרת אחר 
-  ###############################################
-  backup_ha_config:
-     alias: 'Backup Home Assitant config'
-     sequence:
-       - service: shell_command.backup_hass_config  
-       
-  ## בדיקת מהירות אינטרנט ##
+   ## בדיקת מהירות אינטרנט ##
   update_speedtestnet:
     alias: Update SpeedtestNet info
     sequence:
