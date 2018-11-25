@@ -48,42 +48,6 @@ automation:
             attachment: 
               url: https://community-home-assistant-assets.s3-us-west-2.amazonaws.com/original/2X/6/6a99ebb8d0b585a00b407123ff76964cb3e18780.png
 
-    ## Daily HASS Backup ##
-  - alias: 'Daily HASS Backup'
-    trigger:
-      platform: time
-      at: '02:00:00'
-    action:
-      - service: shell_command.backup_hass_config
-      - service: notify.AviTelegram
-        data:
-          title: 'גיבוי'
-          message: 'הגיבוי היומי להום-אסיסטנט בביצוע בדוק סיום תקין בבוקר '
-          data:
-            attachment: 
-              url: https://d33wubrfki0l68.cloudfront.net/b1c67285b113e40ab92d0136aed5c79f3d3ceb17/69117/images/screenshots/ui2015.png   
-   
-   ## Weekly OS Backup ##
-  - alias: 'Weekly OS Backup'
-    trigger:
-      platform: time
-      at: '02:30:00'
-    condition:
-    - condition: time
-      weekday:
-        - wed #3 Tuesday at night
-        - sun #7 Saturday at night
-    action:
-      - service: script.turn_on
-        entity_id: script.backup_ha_and_move_backup_to_unraid
-      - service: notify.AviTelegram
-        data:
-          title: 'גיבוי'
-          message: 'הגיבוי השבועי לכלל המערכת בפעולה! בדוק סיום תקין בבוקר,בקבצי השרת'
-          data:
-            attachment: 
-              url: https://www.bullten.com/img/icon/weekly-backup.png
-
     #########################  Xiaomi Sensor  ########################## 
 
     ## The dor open for more 1 min ##
@@ -159,6 +123,7 @@ automation:
 
 
   #########################  Light  ##########################   
+
   ## התראה במידה והאור דולק במרפסת ##  
   - alias:  notify if the balcony in ON
     trigger:
@@ -261,4 +226,4 @@ automation:
       service: notify.AviTelegram
       data:
         title: "שלום אבי"
-        message: "התאורה דולקת במדרגות"        
+        message: "התאורה דולקת במדרגות"
