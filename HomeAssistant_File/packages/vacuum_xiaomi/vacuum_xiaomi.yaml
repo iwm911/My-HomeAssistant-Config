@@ -12,91 +12,91 @@
 
 homeassistant:
   customize:
-  vacuum.xiaomi_vacuum_cleaner:
-    friendly_name: Xiaomi שואב אבק
-    home-assistant: true
-
-  input_boolean.disable_daily_vacuum:
-    friendly_name: רובוט - הפעל ביטול שאיבה בצורה אוטומטית
-    icon: mdi:cancel
-    home-assistant: true
-
-  input_boolean.disable_dustbin_notification:
-    friendly_name: רובוט - הפעל ביטול התראות
-    icon: mdi:bell-off
-    hidden: true
-
-  input_boolean.daily_vacuum_first_run:
-    friendly_name: רובוט - הפעל פעולת השואב החל מיום ראשון
-    icon: mdi:calendar-blank
-    hidden: true 
-
-  automation.start_cleaning_room:
-    friendly_name: התחל בניקוי החדר
-    home-assistant: true
-
-  automation.start_daily_vacuum:
-    friendly_name: החל שאיבה בכל יום
-    icon: mdi:robot-vacuum-variant
-    home-assistant: true
-
-  automation.send_alert_after_daily_vacuum_to_empty_the_dustbin:
-    friendly_name: שלח התראה במידה והשואב אבק מלא
-    icon: mdi:delete-empty
-    home-assistant: true
-
-  automation.reset_daily_vacuum_first_run_state_at_midnight:
-    friendly_name: שלח איפוס לשואב לאחר חצות
-    icon: mdi:lock-reset
-    home-assistant: true
-
-  input_select.vacuum_room:
-    friendly_name: בחר אזור לניקוי
-    icon: mdi:broom
-    hidden: true
-
-  group.vacuum_a_room:
-    friendly_name: בחירת אזור לשאיבה
-    home-assistant: true 
-
-  group.robot_vacuum: 
-    friendly_name: שואב אבק
-    home-assistant: true
-
-  script.vacuum_all_home:
-    friendly_name: רובוט - לשאוב את כל הבית
-    icon: mdi:home-variant
-    home-assistant: true
-
-  script.vacuum_corridor:
-    friendly_name: רובוט - לשאוב את הפרוזדור
-    icon: mdi:transition
-    home-assistant: true
-
-  script.vacuum_dining_room:
-    friendly_name: רובוט - חדר אוכל
-    icon: mdi:silverware
-    home-assistant: true
-
-  script.vacuum_dogs_area:
-    friendly_name: רובוט - לשאוב באזור הכלבים
-    icon: mdi:cat
-    home-assistant: true
-
-  script.vacuum_kitchen:
-    friendly_name: רובוט - מטבח
-    icon: mdi:fridge
-    home-assistant: true
-
-  script.vacuum_living_room:
-    friendly_name: רובוט - סלון
-    icon: mdi:chair-school
-    home-assistant: true  
+    vacuum.xiaomi_vacuum_cleaner:
+      friendly_name: Xiaomi שואב אבק
+      home-assistant: true
+  
+    input_boolean.disable_daily_vacuum:
+      friendly_name: רובוט - הפעל ביטול שאיבה בצורה אוטומטית
+      icon: mdi:cancel
+      home-assistant: true
+  
+    input_boolean.disable_dustbin_notification:
+      friendly_name: רובוט - הפעל ביטול התראות
+      icon: mdi:bell-off
+      hidden: true
+  
+    input_boolean.daily_vacuum_first_run:
+      friendly_name: רובוט - הפעל פעולת השואב החל מיום ראשון
+      icon: mdi:calendar-blank
+      hidden: true 
+  
+    automation.start_cleaning_room:
+      friendly_name: התחל בניקוי החדר
+      home-assistant: true
+  
+    automation.start_daily_vacuum:
+      friendly_name: החל שאיבה בכל יום
+      icon: mdi:robot-vacuum-variant
+      home-assistant: true
+  
+    automation.send_alert_after_daily_vacuum_to_empty_the_dustbin:
+      friendly_name: שלח התראה במידה והשואב אבק מלא
+      icon: mdi:delete-empty
+      home-assistant: true
+  
+    automation.reset_daily_vacuum_first_run_state_at_midnight:
+      friendly_name: שלח איפוס לשואב לאחר חצות
+      icon: mdi:lock-reset
+      home-assistant: true
+  
+    input_select.vacuum_room:
+      friendly_name: בחר אזור לניקוי
+      icon: mdi:broom
+      hidden: true
+  
+    group.vacuum_a_room:
+      friendly_name: בחירת אזור לשאיבה
+      home-assistant: true 
+  
+    group.robot_vacuum: 
+      friendly_name: שואב אבק
+      home-assistant: true
+  
+    script.vacuum_all_home:
+      friendly_name: רובוט - לשאוב את כל הבית
+      icon: mdi:home-variant
+      home-assistant: true
+  
+    script.vacuum_corridor:
+      friendly_name: רובוט - לשאוב את הפרוזדור
+      icon: mdi:transition
+      home-assistant: true
+  
+    script.vacuum_dining_room:
+      friendly_name: רובוט - חדר אוכל
+      icon: mdi:silverware
+      home-assistant: true
+  
+    script.vacuum_dogs_area:
+      friendly_name: רובוט - לשאוב באזור הכלבים
+      icon: mdi:cat
+      home-assistant: true
+  
+    script.vacuum_kitchen:
+      friendly_name: רובוט - מטבח
+      icon: mdi:fridge
+      home-assistant: true
+  
+    script.vacuum_living_room:
+      friendly_name: רובוט - סלון
+      icon: mdi:chair-school
+      home-assistant: true  
 
 
 #################################################################
 #                                                               #
-#                          input select                        #
+#                          input                                #
 #                                                               #
 #################################################################
 input_select:
@@ -110,13 +110,7 @@ input_select:
       - Dining Room  ## פינת אוכל ## 
       - Corridor     ## פרוזדור ## 
       - Dogs area    ## אזור הכלבים ##    
-      
 
-#################################################################
-#                                                               #
-#                          input_boolean                        #
-#                                                               #
-#################################################################
 input_boolean:
   daily_vacuum_first_run:
     name: Daily Vacuum First Run
@@ -126,7 +120,7 @@ input_boolean:
     initial: 'off'
   disable_dustbin_notification:
     name: Disable Dustbin Notification
-    initial: 'off'      
+    initial: 'off'
   
 
 #################################################################
@@ -285,7 +279,7 @@ script:
               params: [[23341,19451,32741,30201,1]] ## כל הבית ##
 
   vacuum_bedroom:
-        alias: "Vacuum Bedroom"
+        alias: "Vacuum Corridor"
         sequence:
           - service: vacuum.send_command
             data:
@@ -317,7 +311,7 @@ script:
               command: app_zoned_clean
               params: [[23327,21890,26077,26040,1]] ## סלון ##
   vacuum_guestroom:
-        alias: "Vacuum Guestroom"
+        alias: "Vacuum Dםgs area"
         sequence:
           - service: vacuum.send_command
             data:
@@ -326,21 +320,6 @@ script:
               params: [[28624,25960,31574,30260,1]] ## אזור הכלבים ##             
 
 
-#################################################################
-#                                                               #
-#                           input_boolean                       #
-#                                                               #
-#################################################################
-
-input_boolean:
-  daily_vacuum_first_run:
-    name: Daily Vacuum First Run
-    initial: off
-  disable_daily_vacuum:
-    name: Disable Daily Vacuum Automation
-    initial: on
-  disable_dustbin_notification:
-    name: Disable Dustbin Notification
     
 #################################################################
 #                                                               #
@@ -351,7 +330,7 @@ automation:
   - alias: Send alert after daily vacuum to empty the dustbin
     trigger:
     - platform: state
-      entity_id: device_tracker.galaxy_note_fan_edition
+      entity_id: notify.AviTelegram     #device_tracker.avi_note8
       to: 'home'
       for:
         minutes: 5
@@ -386,7 +365,7 @@ automation:
           message: 'Hey, the vacuum dustbin needs to be emptied!'
           cache: false
 
-    alias: Reset Daily Vacuum First Run state at midnight
+  - alias: Reset Daily Vacuum First Run state at midnight
     trigger:
     - platform: time
       at: '0:00:00'
@@ -394,7 +373,7 @@ automation:
     - service: homeassistant.turn_off
       entity_id: input_boolean.daily_vacuum_first_run
 
-    alias: Start Cleaning Room
+  - alias: Start Cleaning Room
     hide_entity: True
     trigger:
     - platform: state
@@ -423,7 +402,7 @@ automation:
       data_template:
         option: "Select Input"
         
-    alias: Start Daily Vacuum
+  - alias: Start Daily Vacuum
     trigger:
     - platform: time
       minutes: '/45'

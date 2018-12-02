@@ -100,10 +100,6 @@ homeassistant:
       
     binary_sensor.motion_sensor_158d00024e7972:
       friendly_name: חיישן תנועה חדר כביסה 
-      assumed_state: false
-
-    binary_sensor.motion_sensor_158d000272bbe8:
-      friendly_name: חיישן תנועה חדר מחשבים 
       assumed_state: false       
       
 
@@ -373,32 +369,8 @@ automation:
         minutes: 1
     action:
     - service: light.turn_off
-      entity_id: light.laundry   
-
-
-#################################################################
-#                      חיישן תנועה חדר מחשבים                     #
-#################################################################
-  - alias: Turn on lights room pc based on montion
-    trigger:
-    - entity_id: binary_sensor.motion_sensor_158d000272bbe8
-      platform: state
-      to: 'on'
-    action:
-    - service: light.turn_on
-      entity_id: light.computer_room
-
-
-  - alias: Turn off lights room pc based on montion
-    trigger:
-      platform: state
-      entity_id: binary_sensor.motion_sensor_158d000272bbe8
-      to: 'off'
-      for:
-        minutes: 1
-    action:
-    - service: light.turn_off
-      entity_id: light.computer_room
+      entity_id: light.laundry      
+      
 
 #################################################################
 #    ## הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש ##     #
@@ -417,7 +389,7 @@ automation:
   - alias: Lights off after sunset
     trigger:
       platform: time
-      at: '05:15:00'
+      at: '06:00:00'
     action:
     - service: light.turn_off
       data_template:
@@ -433,7 +405,7 @@ automation:
   - alias: Turn on lighting on the main balcony
     trigger:
       platform: event
-      event_type: click
+      event_type: xiaomi_aqara.click
       event_data:
         entity_id: binary_sensor.switch_158d0001f3ddfd
         click_type: single
@@ -445,7 +417,7 @@ automation:
   - alias: Turn on lighting on the Service balcony
     trigger:
       platform: event
-      event_type: click
+      event_type: xiaomi_aqara.click
       event_data:
         entity_id: binary_sensor.switch_158d000224231e
         click_type: single
@@ -461,7 +433,7 @@ automation:
   - alias: turn off lights on long press before sleep
     trigger:
       platform: event
-      event_type: click
+      event_type: xiaomi_aqara.click
       event_data:
         entity_id: binary_sensor.switch_158d0001f36255
         click_type: long_click_press
@@ -482,7 +454,7 @@ automation:
   - alias: turn off lights on single press
     trigger:
       platform: event
-      event_type: click
+      event_type: xiaomi_aqara.click
       event_data:
         entity_id: binary_sensor.switch_158d0001f36255
         click_type: single
@@ -503,7 +475,7 @@ automation:
   - alias: turn on light on double press
     trigger:
       platform: event
-      event_type: click
+      event_type: xiaomi_aqara.click
       event_data:
         entity_id: binary_sensor.switch_158d0001f36255
         click_type: double
