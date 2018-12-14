@@ -112,6 +112,14 @@ input_number:
     min: 0
     max: 999999999
     step: 1
+    mode: box 
+
+  shekel_number:
+    name: kWh Count
+    initial: 806
+    min: 0
+    max: 999999999
+    step: 1
     mode: box      
 
 #################################################################
@@ -187,6 +195,10 @@ sensor:
         friendly_name: "KWH Count Total"
         value_template: "{{((states.input_number.kwh_number.state | float) + (states.sensor.phaze_1__total.state | float)) | round(2) }}"
         unit_of_measurement: "kWh"
+      shekel_count_all:
+        friendly_name: "shekel Count start"
+        value_template: "{{((states.input_number.shekel_number.state | float) + (states.sensor.power_calc_today_phaze1 | float)) | round(2) }}"
+        unit_of_measurement: "₪"        
       kwh_count_yesterday:
         friendly_name: "KWH Count Yesterday"
         value_template: "{{((states.sensor.kwh_count_all.state | float) - (states.sensor.phaze_1__yesterday.state | float)) | round(2) }}"

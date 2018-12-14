@@ -66,7 +66,7 @@ resources:
     type: module
 
   ## https://github.com/kalkih/mini-media-player ##
-  - url: /local/custom_ui/mini-media-player.js?v=0.9.4
+  - url: /local/custom_ui/mini-media-player.js?v=0.9.7
     type: module
 
   ## https://github.com/thomasloven/lovelace-card-modder ##
@@ -135,7 +135,7 @@ views:
                       entity: sensor.nurit_iphone_battery_level
                       style: {top: 92%, left: 90%, color: white}
                     - type: state-label
-                      entity: sensor.nurit_iphone_battery_level
+                      entity: device_tracker.iphone_nurit
                       style: {top: 92%, left: 15%, color: white}
                 style:
                   border-radius: 15px
@@ -184,7 +184,7 @@ views:
                   entity: light.stairs
                   style: {top: 94%, left: 78%, color: white}
                 - type: state-icon
-                  entity: light.kitchen_strip_lamp
+                  entity: light.yeelight_strip_7c49ebadb95c
                   style: {top: 94%, left: 86%, color: white}
                 - type: state-icon
                   entity: light.server_room_fan
@@ -365,7 +365,7 @@ views:
                 - light.miklahat
 
               state_filter:
-                - on
+                - "on"
               card:
                 title: תאורה דלוקה בבית
             style:
@@ -732,10 +732,6 @@ views:
               show_source: true
               #background: /local/lovelace/tv/salontv.jpg
             style:
-              background-image: url("/local/lovelace/background/cardbackK.png")
-              background-repeat: no-repeat
-              background-color: rgba(50,50,50,0.3)
-              background-size: 100%
               border-radius: 15px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
@@ -749,12 +745,8 @@ views:
               power_color: true
               show_source: true
               show_progress: true
-              #background: /local/lovelace/tv/kodi.jpg
+              background: /local/lovelace/tv/kodi.jpg
             style:
-              background-image: url("/local/lovelace/background/cardbackK.png")
-              background-repeat: no-repeat
-              background-color: rgba(50,50,50,0.3)
-              background-size: 100%
               border-radius: 15px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
@@ -779,7 +771,7 @@ views:
               
 
 #################################################################
-#             Service Balcony - מרפסת שירות                      #
+#             Service Balcony - מרפסת שירות                       #
 #################################################################                 
           - type: custom:card-modder
             card:
@@ -838,7 +830,7 @@ views:
               type: picture-entity
               name: Strip Kitchen light
               image: /local/lovelace/home/strip.jpg
-              entity: light.kitchen_strip_lamp
+              entity: light.yeelight_strip_7c49ebadb95c
             style:
               border-radius: 15px
               border: solid 1px rgba(100,100,100,0.3)
@@ -938,7 +930,6 @@ views:
                   border: solid 1px rgba(100,100,100,0.3)
                   box-shadow: 3px 3px rgba(0,0,0,0.4)
 
-###
               - type: custom:card-modder
                 card:
                   type: picture-elements
@@ -1523,13 +1514,13 @@ views:
                   #title: vacuum - script
                   entities:
                     - script.vacuum_all_home
-                    - script.vacuum_corridor
+                    - script.vacuum_bedroom
                     - script.vacuum_dining_room
-                    - script.vacuum_dogs_area
+                    - script.vacuum_guestroom
                     - script.vacuum_kitchen
                     - script.vacuum_living_room
                 style:
-                  background-repeat: no-repeat
+                  background-rpeat: no-repeat
                   background-color: rgba(0,0,0,0.0)
                   background-size: 100% 100%
                   border-radius: 20px
@@ -2012,23 +2003,20 @@ views:
                 - type: icon
                   icon: mdi:google-circles-communities
                   entity: group.switcher_aio_v2_configuration
-                  style: {color: white, left: 60%, top: 9%, --paper-item-icon-color: rgb(115,
-                    122: !!null '', 130): !!null ''}
+                  style: {color: white, left: 60%, top: 9%, --paper-item-icon-color: rgb(115,122, 130)}
 
                 - type: icon
                   icon: mdi:stop
                   tap_action: call-service
                   entity: switcher_aio.control_device_switch
                   service: switcher_aio.turn_off
-                  style: {color: white, left: 40%, top: 9%, --paper-item-icon-color: rgb(115,
-                    122: !!null '', 130): !!null ''}
+                  style: {color: white, left: 40%, top: 9%, --paper-item-icon-color: rgb(115,122, 130)}
 
 
                 - type: icon
                   icon: mdi:thermostat-box
                   entity: switcher_aio.control_device_switch
-                  style: {color: white, left: 20%, top: 9%, --paper-item-icon-color: rgb(115,
-                    122: !!null '', 130): !!null ''}
+                  style: {color: white, left: 20%, top: 9%, --paper-item-icon-color: rgb(115,122,130)}
 
 
                 - type: icon
@@ -2043,8 +2031,7 @@ views:
                 - type: icon
                   icon: mdi:timer
                   entity: switcher_aio.auto_off_sensor
-                  style: {color: white, left: 25%, top: 91%, --paper-item-icon-color: rgb(115,
-                    122: !!null '', 130): !!null ''}
+                  style: {color: white, left: 25%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
 
                 - type: state-label
                   entity: switcher_aio.auto_off_sensor
@@ -2053,8 +2040,8 @@ views:
                 - type: icon
                   icon: mdi:format-list-bulleted
                   entity: switcher_aio.timer_minutes_input_select
-                  style: {color: white, left: 48%, top: 91%, --paper-item-icon-color: rgb(115,
-                    122: !!null '', 130): !!null ''}
+                  style: {color: white, left: 48%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
+
 
                 - type: state-label
                   entity: switcher_aio.timer_minutes_input_select
@@ -2063,8 +2050,8 @@ views:
                 - type: icon
                   icon: mdi:power
                   entity: switcher_aio.send_auto_off_script
-                  style: {color: white, left: 65%, top: 91%, --paper-item-icon-color: rgb(115,
-                    122: !!null '', 130): !!null ''}
+                  style: {color: white, left: 65%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
+
 
                 - type: state-label
                   entity: switcher_aio.send_auto_off_script
@@ -2073,8 +2060,8 @@ views:
                 - type: icon
                   icon: mdi:flash-circle
                   entity: switcher_aio.electric_current_sensor
-                  style: {color: white, left: 85%, top: 91%, --paper-item-icon-color: rgb(115,
-                    122: !!null '', 130): !!null ''}
+                  style: {color: white, left: 85%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
+
 
                 - type: state-label
                   entity: switcher_aio.electric_current_sensor
@@ -2094,7 +2081,6 @@ views:
   - id: 9  # Automatically created id
     icon: mdi:robot-vacuum-variant
     background: center / cover no-repeat url("/local/lovelace/background/back01.jpg") fixed
-    name: robot vacuum
     type: custom:layout-card
     layout: horizontal
     cards:
@@ -2287,7 +2273,6 @@ views:
           border-radius: 15px
           border: solid 1px rgba(100,100,100,0.3)
           box-shadow: 3px 3px rgba(0,0,0,0.4)
-          background-size: 100% 68px
       
 
       - type: custom:layout-card
@@ -2479,6 +2464,7 @@ views:
               entities:
                 - script.backup_ha_and_move_backup_to_unraid
                 - script.backup_ha_config
+                - script.install_comp_after_update
                 - sensor.latest_ha_backup
                 - automation.weekly_os_backup
                 - automation.daily_hass_backup
