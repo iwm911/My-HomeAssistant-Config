@@ -77,7 +77,12 @@ homeassistant:
       friendly_name: תאורה אוטומטית - מקלחת
       icon: mdi:light-switch
       assumed_state: false
-     
+
+    automation.turn_off_lights_pc_room_based_on_montion:     
+      friendly_name: תאורה אוטונטית - חדר מחשבים
+      icon: mdi:light-switch
+      assumed_state: false 
+      
     sensor.illumination_158d0002047c5a:
       friendly_name: עוצמת אור
       assumed_state: false
@@ -100,10 +105,12 @@ homeassistant:
       
     binary_sensor.motion_sensor_158d00024e7972:
       friendly_name: חיישן תנועה חדר כביסה 
-      assumed_state: false       
+      assumed_state: false 
+    
+    binary_sensor.motion_sensor_158d000272bc63:
+      friendly_name: חיישן תנועה חדר מחשבים
+      assumed_state: false
       
-
-
 #################################################################
 #                                                               #
 #                          mqtt - light                         #
@@ -258,7 +265,8 @@ group:
       - light.liran_room
       - light.balcony
       - light.service_balcony
-      - light.kitchen_strip_lamp
+      - light.yeelight_strip_7c49ebadb95c
+      - light.yeelight_rgb_7c49eb0f97b1
       - light.gateway_light_34ce008d4e2e
       
   upstairs lights:
@@ -278,7 +286,7 @@ group:
 automation:
 
 #################################################################
-#                    חיישן תנועה מקלחת שלי                        #
+#                    חיישן תנועה מקלחת שלי                      #
 #################################################################
   - alias: Turn on lights parents based on montion
     trigger:
@@ -294,13 +302,13 @@ automation:
       entity_id: binary_sensor.motion_sensor_158d000204bfcb
       to: 'off'
       for:
-        minutes: 1
+        seconds: 30
     action:
     - service: light.turn_off
       entity_id: light.parents
 
 #################################################################
-#                    חיישן תנועה מקלחת ראשית                     #
+#                    חיישן תנועה מקלחת ראשית                    #
 #################################################################
   - alias: Turn on lights miklahat based on montion
     trigger:
@@ -324,7 +332,7 @@ automation:
 
 
 #################################################################
-#                    חיישן תנועה שירותי אורחים                     #
+#                    חיישן תנועה שירותי אורחים                  #
 #################################################################
   - alias: Turn on lights poop based on montion
     trigger:
@@ -341,14 +349,14 @@ automation:
       entity_id: binary_sensor.motion_sensor_158d0002b42fa3
       to: 'off'
       for:
-        minutes: 1
+        seconds: 30
     action:
     - service: light.turn_off
       entity_id: light.poop
       
 
 #################################################################
-#                       חיישן תנועה חדר כביסה                     #
+#                       חיישן תנועה חדר כביסה                   #
 #################################################################
   - alias: Turn on lights laundry based on montion
     trigger:
@@ -369,11 +377,36 @@ automation:
         minutes: 1
     action:
     - service: light.turn_off
-      entity_id: light.laundry      
+      entity_id: light.laundry 
+
+
+#################################################################
+#                      חיישן תנועה חדר מחשבים                   #
+#################################################################
+  - alias: Turn on lights pc room based on montion
+    trigger:
+    - entity_id: binary_sensor.motion_sensor_158d000272bc63
+      platform: state
+      to: 'on'
+    action:
+    - service: light.turn_on
+      entity_id: light.yeelight_rgb_7c49eb0f97b1
+
+
+  - alias: Turn off lights pc room based on montion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_158d000272bc63
+      to: 'off'
+      for:
+        minutes: 1
+    action:
+    - service: light.turn_off
+      entity_id: light.yeelight_rgb_7c49eb0f97b1       
       
 
 #################################################################
-#    ## הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש ##     #
+#       הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש      #
 #################################################################
 
   - alias: Lighting the light after sunset at eleven oclock
@@ -446,12 +479,12 @@ automation:
         - light.laundry
         - light.balcony
         - light.service_balcony
-        - light.kitchen_strip_lamp
+        - light.yeelight_strip_7c49ebadb95c
         
 #################################################################
 #                     turn on with a single click               #
 #################################################################
-  - alias: turn off lights on single press
+  - alias: turn on lights on single press
     trigger:
       platform: event
       event_type: xiaomi_aqara.click
@@ -467,7 +500,7 @@ automation:
         - light.laundry
         - light.balcony
         - light.service_balcony
-        - light.kitchen_strip_lamp
+        - light.yeelight_strip_7c49ebadb95c
 
 #################################################################
 #                     turn on with a double press               #

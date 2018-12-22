@@ -51,6 +51,11 @@ resources:
    ## https://github.com/thomasloven/lovelace-layout-card ##
   - url: /local/custom_ui/layout-card.js
     type: js
+    
+   ## https://github.com/thomasloven/lovelace-card-tools ##
+  - url: /local/custom_ui/card-tools.js?v=445b68
+    type: js
+    
 
 #################################################################
 #                          Module                               #
@@ -104,115 +109,123 @@ views:
 
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/avi_nurit/avi.jpg
-                  elements:
-                    - type: state-icon
-                      entity: sensor.avi_battery
-                      style: {top: 94%, left: 78%, color: white}
-                    - type: state-label
-                      entity: sensor.avi_battery
-                      style: {top: 92%, left: 90%, color: white}
-                    - type: state-label
-                      entity: device_tracker.avi_note8
-                      style: {top: 92%, left: 15%, color: white}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/avi_nurit/avi.jpg
+                elements:
+                  - type: state-icon
+                    entity: sensor.avi_battery
+                    style: {top: 94%, left: 78%, color: white}
+                  - type: state-label
+                    entity: sensor.avi_battery
+                    style: {top: 92%, left: 90%, color: white}
+                  - type: state-label
+                    entity: device_tracker.avi_note8
+                    style: {top: 92%, left: 15%, color: white}
 
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/avi_nurit/nurit.jpg
-                  elements:
-                    - type: state-icon
-                      entity: sensor.nurit_iphone_battery_level
-                      style: {top: 94%, left: 78%, color: white}
-                    - type: state-label
-                      entity: sensor.nurit_iphone_battery_level
-                      style: {top: 92%, left: 90%, color: white}
-                    - type: state-label
-                      entity: device_tracker.iphone_nurit
-                      style: {top: 92%, left: 15%, color: white}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/avi_nurit/nurit.jpg
+                elements:
+                  - type: state-icon
+                    entity: sensor.nurit_iphone_battery_level
+                    style: {top: 94%, left: 78%, color: white}
+                  - type: state-label
+                    entity: sensor.nurit_iphone_battery_level
+                    style: {top: 92%, left: 90%, color: white}
+                  - type: state-label
+                    entity: device_tracker.iphone_nurit
+                    style: {top: 92%, left: 15%, color: white}
+
+          - type: horizontal-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/avi_nurit/liran.jpg
+                elements:
+                  - type: state-label
+                    entity: device_tracker.lirannote8
+                    style: {top: 92%, left: 50%, color: white}
+
+
+              - type: picture-elements
+                image: /local/lovelace/avi_nurit/rotam.jpg
+                elements:
+                  - type: state-label
+                    entity: device_tracker.rotam_iphone
+                    style: {top: 92%, left: 50%, color: white}
+            
+
+              - type: picture-elements
+                image: /local/lovelace/avi_nurit/yakir.jpg
+                elements:
+                  - type: state-label
+                    entity: device_tracker.yakir
+                    style: {top: 92%, left: 50%, color: white}                  
 
 #################################################################
 #                       House - General View                    #
 ################################################################# 
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/home/home_02.jpg
-              elements:
-                - type: state-icon
-                  entity: binary_sensor.door_window_sensor_158d0001ef3425
-                  style: {top: 81%, left: 62.7%, color: white}
-                - type: state-icon
-                  entity: light.laundry
-                  style: {top: 94%, left: 4%, color: white}
-                - type: state-icon
-                  entity: light.poop
-                  style: {top: 94%, left: 12%, color: white}
-                - type: state-icon
-                  entity: light.prozdor
-                  style: {top: 94%, left: 20%, color: white}
-                - type: state-icon
-                  entity: light.miklahat
-                  style: {top: 94%, left: 28%, color: white}
-                - type: state-icon
-                  entity: light.liran_room
-                  style: {top: 94%, left: 38%, color: white}
-                - type: state-icon
-                  entity: light.balcony
-                  style: {top: 94%, left: 46%, color: white}
-                - type: state-icon
-                  entity: light.service_balcony
-                  style: {top: 94%, left: 54%, color: white}
-                - type: state-icon
-                  entity: light.yeelight_rgb_7c49eb0f97b1
-                  style: {top: 94%, left: 62%, color: white}
-                - type: state-icon
-                  entity: light.parents
-                  style: {top: 94%, left: 70%, color: white}
-                - type: state-icon
-                  entity: light.stairs
-                  style: {top: 94%, left: 78%, color: white}
-                - type: state-icon
-                  entity: light.yeelight_strip_7c49ebadb95c
-                  style: {top: 94%, left: 86%, color: white}
-                - type: state-icon
-                  entity: light.server_room_fan
-                  style: {top: 94%, left: 92%, color: white}
-                  ## temp ##
-                - type: state-label
-                  entity: sensor.second_floor_temperature
-                  tap_action: more-info
-                  style: {top: 12%, left: 20%, color: black}
 
-                - type: state-label
-                  entity: sensor.humidity_second_floor
-                  style: {top: 12%, left: 9%, color: black}
-                - type: state-label
-                  entity: sensor.temperature_158d00022ece24
-                  style: {top: 52%, left: 24%, color: white}
+          - type: picture-elements
+            image: /local/lovelace/home/home_02.jpg
+            elements:
+              - type: state-icon
+                entity: binary_sensor.door_window_sensor_158d0001ef3425
+                style: {top: 81%, left: 62.7%, color: white}
+              - type: state-icon
+                entity: light.laundry
+                style: {top: 94%, left: 4%, color: white}
+              - type: state-icon
+                entity: light.poop
+                style: {top: 94%, left: 12%, color: white}
+              - type: state-icon
+                entity: light.prozdor
+                style: {top: 94%, left: 20%, color: white}
+              - type: state-icon
+                entity: light.miklahat
+                style: {top: 94%, left: 28%, color: white}
+              - type: state-icon
+                entity: light.liran_room
+                style: {top: 94%, left: 38%, color: white}
+              - type: state-icon
+                entity: light.balcony
+                style: {top: 94%, left: 46%, color: white}
+              - type: state-icon
+                entity: light.service_balcony
+                style: {top: 94%, left: 54%, color: white}
+              - type: state-icon
+                entity: light.yeelight_rgb_7c49eb0f97b1
+                style: {top: 94%, left: 62%, color: white}
+              - type: state-icon
+                entity: light.parents
+                style: {top: 94%, left: 70%, color: white}
+              - type: state-icon
+                entity: light.stairs
+                style: {top: 94%, left: 78%, color: white}
+              - type: state-icon
+                entity: light.yeelight_strip_7c49ebadb95c
+                style: {top: 94%, left: 86%, color: white}
+              - type: state-icon
+                entity: light.server_room_fan
+                style: {top: 94%, left: 92%, color: white}
+                ## temp ##
+              - type: state-label
+                entity: sensor.second_floor_temperature
+                tap_action: more-info
+                style: {top: 12%, left: 20%, color: black}
 
-                - type: state-label
-                  entity: sensor.humidity_158d00022ece24
-                  tap_action: more-info
-                  style: {top: 52%, left: 70%, color: white}
-                - type: state-label
-                  entity: sensor.upstairs_temperature
-                  style: {top: 95%, left: 87%, color: white}
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: state-label
+                entity: sensor.humidity_second_floor
+                style: {top: 12%, left: 9%, color: black}
+              - type: state-label
+                entity: sensor.temperature_158d00022ece24
+                style: {top: 52%, left: 24%, color: white}
+
+              - type: state-label
+                entity: sensor.humidity_158d00022ece24
+                tap_action: more-info
+                style: {top: 52%, left: 70%, color: white}
+              - type: state-label
+                entity: sensor.upstairs_temperature
+                style: {top: 95%, left: 87%, color: white}
 
 #################################################################
 #                      Weather Forecast                         #
@@ -231,91 +244,81 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 400px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              color: "#ffffff"
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
-#                      Welcome Avi & Nurit                      #
+#                             Forecast                          #
 ################################################################# 
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/home/calendar_01.jpg
-              elements:
-                - type: state-label
-                  entity: sensor.time
-                  style: {top: 6%, left: 10%}
+          - type: picture-elements
+            image: /local/lovelace/home/calendar_02.jpg
+            elements:
+              - type: state-label
+                entity: sensor.time
+                style: {top: 6%, left: 10%}
 
-                - type: state-icon
-                  entity: sensor.outside_temp
-                  style: {top: 8%, left: 91%}
+              - type: state-icon
+                entity: sensor.outside_temp
+                style: {top: 8%, left: 96%}
 
-                - type: state-label
-                  entity: sensor.outside_temp
-                  suffix: °
-                  style: {top: 6%, left: 90%}
+              - type: state-label
+                entity: sensor.outside_temp
+                # suffix: °
+                style: {top: 6%, left: 90%}
 
-                - type: state-icon
-                  entity: sensor.outside_temp
-                  style:
-                    top: 7.5%
-                    left: 82%
-                    pointer-events: none
-                    max-width: 24px
-                    max-height: 24px
-                    color: rgb(249, 251, 255)
+              # - type: state-icon
+              #   entity: sensor.outside_temp
+              #   style:
+              #     top: 7.5%
+              #     left: 82%
+              #     pointer-events: none
+              #     max-width: 24px
+              #     max-height: 24px
+              #     color: rgb(249, 251, 255)
 
-                - type: state-label
-                  entity: sensor.time_of_day
-                  style:
-                    top: 19%
-                    left: 50%
-                    color: rgb(249, 251, 255)
-                    font-size: 150%
-                    pointer-events: none
-                    text-shadow: 1px 1px DarkSlateGrey
-                    font-family: Assistant, sans-serif
-                    font-style: oblique
-                    font-weight: 200
+              - type: state-label
+                entity: sensor.time_of_day
+                style:
+                  top: 19%
+                  left: 50%
+                  color: rgb(249, 251, 255)
+                  font-size: 150%
+                  pointer-events: none
+                  text-shadow: 1px 1px DarkSlateGrey
+                  font-family: Assistant, sans-serif
+                  font-style: oblique
+                  font-weight: 200
 
 
-                - type: state-label
-                  entity: sensor.imsweather
-                  prefix: 'התחזית להיום: '
-                  style:
-                    top: 29%
-                    left: 50%
-                    color: rgb(249, 251, 255)
-                    font-family: Assistant, sans-serif
-                    font-style: oblique
-                    text-shadow: 1px 1px DarkSlateGrey
-                    font-size: 120%
-                    pointer-events: none
-                    font-weight: 200
+              - type: state-label
+                entity: sensor.imsweather
+                prefix: 'התחזית להיום: '
+                style:
+                  top: 29%
+                  left: 50%
+                  color: rgb(255, 255, 255)
+                  font-family: Assistant, sans-serif
+                  font-style: oblique
+                  text-shadow: 1px 1px DarkSlateGrey
+                  font-size: 120%
+                  pointer-events: none
+                  font-weight: 200
 
-                - type: state-label
-                  entity: sensor.greeter_card_info
-                  style: {top: 76%, left: 46.5%}
+              - type: state-label
+                entity: sensor.greeter_card_info
+                style: {top: 76%, left: 46.5%}
 
-                - type: custom:state-attribute-element
-                  entity: calendar.avi_abeksis
-                  attribute: message
-                  style: {top: 83.5%, left: 47.5%}
+              - type: custom:state-attribute-element
+                entity: calendar.avi_abeksis
+                attribute: message
+                style: {top: 83.5%, left: 47.5%}
 
-                - type: state-label
-                  entity: sensor.greeter_card_info_2
-                  style: {top: 46.5%, left: 47.5%}
+              - type: state-label
+                entity: sensor.greeter_card_info_2
+                style: {top: 46.5%, left: 47.5%}
 
-                - type: custom:state-attribute-element
-                  entity: calendar.work
-                  attribute: message
-                  style: {top: 53.5%, left: 57.5%}
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: custom:state-attribute-element
+                entity: calendar.work
+                attribute: message
+                style: {top: 53.5%, left: 57.5%}
 
 #################################################################
 #                         Calendar - לוח שנה                    #
@@ -335,10 +338,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 550px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              color: '#ffffff'
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 
 #################################################################
@@ -373,9 +372,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 400px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 
 #################################################################
@@ -411,10 +407,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 68px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
 
 #################################################################
 #                     Smoke Detectors - גלאי עשן                 #
@@ -437,9 +429,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 68px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                     Doors - חיישני כניסה                        #
@@ -472,10 +461,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 68px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
 
 #################################################################
 #                        Cameras - מצלמות                       #
@@ -493,8 +478,8 @@ views:
                 - camera.outside_camera_backwards
               image: /local/lovelace/security/cameras.jpg
             style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
+              border-radius: 0px
+              border: solid 0px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
@@ -511,25 +496,25 @@ views:
               elements:
                 - type: state-icon
                   entity: binary_sensor.motion_sensor_158d0002047c5a
-                  style: {top: 81%, left: 22%}
+                  style: {top: 10%, left: 22%}
                 - type: state-label
                   entity: binary_sensor.motion_sensor_158d0002047c5a
                   prefix: 'Shower: '
-                  style: {top: 91%, left: 22%}
+                  style: {top: 20%, left: 22%}
                 - type: state-icon
                   entity: binary_sensor.motion_sensor_158d000204bfcb
-                  style: {top: 81%, left: 49%}
+                  style: {top: 10%, left: 49%}
                 - type: state-label
                   entity: binary_sensor.motion_sensor_158d000204bfcb
                   prefix: 'Parents: '
-                  style: {top: 91%, left: 49%}
+                  style: {top: 20%, left: 49%}
                 - type: state-icon
                   entity: binary_sensor.motion_sensor_158d0002b42fa3
-                  style: {top: 81%, left: 78%}
+                  style: {top: 10%, left: 78%}
                 - type: state-label
                   entity: binary_sensor.motion_sensor_158d0002b42fa3
                   prefix: 'Guests Bathroom: '
-                  style: {top: 91%, left: 79%}
+                  style: {top: 20%, left: 79%}
                 - type: state-icon
                   entity: binary_sensor.motion_sensor_158d00024e7972
                   style: {top: 46%, left: 22%}
@@ -538,10 +523,10 @@ views:
                   prefix: 'Laundry: '
                   style: {top: 56%, left: 22%}
                 - type: state-icon
-                  entity: binary_sensor.motion_sensor_158d000272bbe8
+                  entity: binary_sensor.motion_sensor_158d000272bc63
                   style: {top: 47%, left: 49%}
                 - type: state-label
-                  entity: binary_sensor.motion_sensor_158d000272bbe8
+                  entity: binary_sensor.motion_sensor_158d000272bc63
                   prefix: 'PC Room: '
                   style: {top: 56%, left: 49%}                  
             style:
@@ -549,9 +534,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 68px
-              border-radius: 20px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                        Last IP Login                          #
@@ -584,9 +566,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 68px
-              border-radius: 20px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 
 #################################################################
@@ -597,8 +576,7 @@ views:
 #################################################################
   - id: 2  # Automatically created id
     icon: mdi:sofa
-    background: center / cover no-repeat url("/local/lovelace/background/back01.jpg")
-      fixed
+    background: center / cover no-repeat url("/local/lovelace/background/back01.jpg") fixed
     name: Downstairs
     cards:
       - id: fc47bfbc4c054eed96476ba6ef00a4de  # Automatically created id
@@ -607,94 +585,61 @@ views:
           - type: custom:card-modder
             card:
               type: custom:mini-graph-card
-              entity: sensor.second_floor_temperature
-              height: 40
-              line_width: 2
-              font_size: 70
+              entity: sensor.temperature_158d00022ece24
+              height: 100
+              line_width: 4
+              font_size: 75
               hours_to_show: 168
-              line_color: '#e74c3c'
+              line_color: '#3498db'
             style:
               background-image: url("/local/lovelace/background/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
-              background-size: 100% 180px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+              background-size: 100% 220px
 
 #################################################################
 #                        All Lights OFF/ON                      #
 #################################################################                
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: All Lights OFF/ON
-              image: /local/lovelace/downstairs/living-room-lights_1.jpg
-              entity: group.all_lights
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: All Lights OFF/ON
+            image: /local/lovelace/downstairs/living-room-lights_1.jpg
+            entity: group.all_lights
 
 #################################################################
-#                 Guest Services - שירותי אורחים                  #
+#                 Guest Services - שירותי אורחים                #
 #################################################################              
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: שירותי אורחים
-              image: /local/lovelace/downstairs/guests_bathroom.jpg
-              entity: light.poop
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: שירותי אורחים
+            image: /local/lovelace/downstairs/guests_bathroom.jpg
+            entity: light.poop
 
 #################################################################
-#                   Corridor - פרוזדור                            #
+#                   Corridor - פרוזדור                          #
 #################################################################                  
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: פרוזדור
-              tap_action: toggle
-              image: /local/lovelace/downstairs/dining-light_2.jpg
-              entity: light.prozdor
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: פרוזדור
+            tap_action: toggle
+            image: /local/lovelace/downstairs/dining-light_2.jpg
+            entity: light.prozdor
 
 
 #################################################################
 #                   Shower - מקלחת                              #
 #################################################################                  
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: מקלחת
-              tap_action: toggle
-              image: /local/lovelace/downstairs/bathroom.jpg
-              entity: light.miklahat
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: מקלחת
+            tap_action: toggle
+            image: /local/lovelace/downstairs/bathroom.jpg
+            entity: light.miklahat
 
 #################################################################
 #             Lighting Room Lirn - תאורה חדר לירן                 #
 #################################################################                  
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: החדר של לירן
-              tap_action: toggle
-              image: /local/lovelace/downstairs/liran.jpg
-              entity: light.liran_room
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: החדר של לירן
+            tap_action: toggle
+            image: /local/lovelace/downstairs/liran.jpg
+            entity: light.liran_room
 
 #################################################################
 #                        Humidity                               #
@@ -705,102 +650,56 @@ views:
           - type: custom:card-modder
             card:
               type: custom:mini-graph-card
-              entity: sensor.humidity_second_floor
-              height: 40
-              line_width: 2
-              font_size: 70
+              entity: sensor.humidity_158d00022ece24
+              height: 100
+              line_width: 4
+              font_size: 75
               hours_to_show: 168
               line_color: '#e74c3c'
             style:
               background-image: url("/local/lovelace/background/cardbackK.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
-              background-size: 100% 180px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
+              background-size: 100% 220px  
+              
 #################################################################
 #                             TV                                #
 #################################################################           
-          - type: custom:card-modder
-            card:
-              type: custom:mini-media-player
-              entity: media_player.living_room_tv
-              artwork_border: true
-              power_color: true
-              show_source: true
-              #background: /local/lovelace/tv/salontv.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: custom:mini-media-player
+            entity: media_player.living_room_tv
+            artwork_border: true
+            power_color: true
+            show_source: true
+            background: /local/lovelace/tv/salontv.jpg
 
 
-          - type: custom:card-modder
-            card:
-              type: custom:mini-media-player
-              entity: media_player.kodi
-              artwork: cover
-              power_color: true
-              show_source: true
-              show_progress: true
-              background: /local/lovelace/tv/kodi.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
-#################################################################
-#                        plex                                   #
-#################################################################             
-          # - type: custom:card-modder
-          #   card:
-          #     type: custom:upcoming-media-card
-          #     entity: sensor.plex_recently_added
-          #     title: Recently Downloaded
-
-          #   style:
-          #     background-image: url("/local/lovelace/background/cardbackK.png")
-          #     background-repeat: no-repeat
-          #     background-color: rgba(50,50,50,0.3)
-          #     background-size: 100%
-          #     border-radius: 15px
-          #     border: solid 1px rgba(100,100,100,0.3)
-          #     box-shadow: 3px 3px rgba(0,0,0,0.4)
-              
+          - type: custom:mini-media-player
+            entity: media_player.kodi
+            artwork: cover
+            power_color: true
+            show_source: true
+            show_progress: true
+            background: /local/lovelace/tv/kodi.jpg
 
 #################################################################
 #             Service Balcony - מרפסת שירות                       #
 #################################################################                 
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: חדר מחשבים
-              image: /local/lovelace/server/server_room.jpg
-              entity: light.computer_room
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: חדר מחשבים
+            image: /local/lovelace/server/server_room.jpg
+            entity: light.computer_room
 
 #################################################################
 #                     Stair - מדרגות                             #
 #################################################################             
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: שירותי הורים
-              image: /local/lovelace/parents/parents.jpg
-              entity: light.parents
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: שירותי הורים
+            image: /local/lovelace/parents/parents.jpg
+            entity: light.parents
               
 
 #################################################################
-#           Electric shutter - תריס חשמלי                       #
+#           Electric shutter - תריס חשמלי                         #
 #################################################################        
       - id: 9c7684a0f30648a09bcc52cc2426cb6d  # Automatically created id
         type: vertical-stack
@@ -817,80 +716,46 @@ views:
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 130px
               height: 100px
-              border-radius: 20px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
 
 #################################################################
 #                       Strip light                             #
 #################################################################              
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: Strip Kitchen light
-              image: /local/lovelace/home/strip.jpg
-              entity: light.yeelight_strip_7c49ebadb95c
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: Strip Kitchen light
+            image: /local/lovelace/home/strip.jpg
+            entity: light.yeelight_strip_7c49ebadb95c
 
 #################################################################
 #                Laundry room - חדר כביסה                        #
 #################################################################             
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              title: חדר כביסה
-              image: /local/lovelace/downstairs/laundry.jpg
-              entity: light.laundry
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            title: חדר כביסה
+            image: /local/lovelace/downstairs/laundry.jpg
+            entity: light.laundry
 
 #################################################################
 #                    Balcony - מרפסת                            #
 #################################################################             
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: מרפסת
-              image: /local/lovelace/downstairs/smoke_balcony.jpg
-              entity: light.balcony
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: מרפסת
+            image: /local/lovelace/downstairs/smoke_balcony.jpg
+            entity: light.balcony
 
 #################################################################
 #             Service Balcony - מרפסת שירות                      #
 #################################################################                 
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: מרפסת שירות
-              image: /local/lovelace/downstairs/service_balcony.jpg
-              entity: light.service_balcony
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: מרפסת שירות
+            image: /local/lovelace/downstairs/service_balcony.jpg
+            entity: light.service_balcony
 
 #################################################################
 #                     Stair - מדרגות                             #
 #################################################################             
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: מדרגות
-              image: /local/lovelace/downstairs/stairs.jpg
-              entity: light.stairs
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: מדרגות
+            image: /local/lovelace/downstairs/stairs.jpg
+            entity: light.stairs
 
 
 
@@ -911,228 +776,178 @@ views:
         cards:
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/today01.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.power_calc_today_phaze1
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Today
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/today01.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.power_calc_today_phaze1
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Today
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/yesterday.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.power_calc_yesterday_phaze1
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Yesterday
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/yesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.power_calc_yesterday_phaze1
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Yesterday
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
           - type: vertical-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/electrical_total01.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.power_calc_total_phaze1
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Total
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/electrical_total01.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.power_calc_total_phaze1
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Total
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
+
+          - type: vertical-stack
+            cards:
+              - type: picture-elements
+                image: /local/lovelace/electricity/monthly_bill.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.shekel_count_all
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: חשבון חודש - 11
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}  
+            
+              - type: picture-elements
+                image: /local/lovelace/electricity/date.jpg
+                elements:
+                  - type: state-label
+                    entity: input_datetime.only_date
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Calculation start date
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}                                     
 
 
-              - type: custom:card-modder
-                card:
-                  type: custom:mini-graph-card
-                  entity: sensor.power_calc_total_phaze1
-                  height: 120
-                  line_width: 1
-                  font_size: 75
-                  hours_to_show: 168
-                  line_color: '#DC7D35'
-                style:
-                  background-image: url("/local/lovelace/background/cardbackK.png")
-                  background-repeat: no-repeat
-                  background-color: rgba(50,50,50,0.3)
-                  background-size: 100% 225px
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              # - type: custom:card-modder
+              #   card:
+              #     type: custom:mini-graph-card
+              #     entity: sensor.power_calc_total_phaze1
+              #     height: 120
+              #     line_width: 1
+              #     font_size: 75
+              #     hours_to_show: 168
+              #     line_color: '#DC7D35'
+              #   style:
+              #     background-image: url("/local/lovelace/background/cardbackK.png")
+              #     background-repeat: no-repeat
+              #     background-color: rgba(50,50,50,0.3)
+              #     background-size: 100% 225px
+              #     border-radius: 15px
+              #     border: solid 1px rgba(100,100,100,0.3)
+              #     box-shadow: 3px 3px rgba(0,0,0,0.4)
 
       - id: 3695ffd4044e49edbd0e78fca5c2a75b  # Automatically created id
         type: vertical-stack
         cards:
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/totalkwh.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__today
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Today
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/totalkwh.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__today
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Today
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
 
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/kwhyesterday.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__yesterday
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Yesterday
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/kwhyesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__yesterday
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Yesterday
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
 
 
           - type: vertical-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/allkwh.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__total
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Total
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/allkwh.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__total
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Total
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/beginning01.jpg
-                  elements:
-                    - type: state-label
-                      entity: input_number.kwh_number
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: From the beginning of the account
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/beginning01.jpg
+                elements:
+                  - type: state-label
+                    entity: input_number.kwh_number
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: From the beginning of the account
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
 
 
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/kwhyesterday.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.kwh_count_yesterday
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Yesterday
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/kwhyesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.kwh_count_yesterday
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Yesterday
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/outside.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.kwh_count_all
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Outside
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
-
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/electricity/date.jpg
-              elements:
-                - type: state-label
-                  entity: input_datetime.only_date
-                  style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
-                - type: service-button
-                  title: Calculation start date
-                  service: python_script.github_scaper
-                  style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
+              - type: picture-elements
+                image: /local/lovelace/electricity/outside.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.kwh_count_all
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%, font-weight: bold}
+                  - type: service-button
+                    title: Outside
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%, font-weight: bold}
 
 
       - id: 6ff456f34d274c1fa324153f10404491  # Automatically created id
@@ -1140,125 +955,88 @@ views:
         cards:
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/supply.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__power
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Supply
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/supply.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__power
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Supply
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
 
-
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/kwhyesterday.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__apparent_power
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: P. Consumption
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/kwhyesterday.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__apparent_power
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: P. Consumption
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
 
 
           - type: vertical-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/reactiveconsumption.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__reactive_power
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Reactive Consumption
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/reactiveconsumption.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__reactive_power
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Reactive Consumption
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/power_difference.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__power_factor
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Power Difference
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/power_difference.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__power_factor
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Power Difference
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
 
 
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/voltage.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__voltage
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Voltage
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/voltage.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__voltage
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Voltage
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 90%, font-weight: bold}
 
 
           - type: vertical-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-elements
-                  image: /local/lovelace/electricity/consumption.jpg
-                  elements:
-                    - type: state-label
-                      entity: sensor.phaze_1__current
-                      style: {color: white, left: 50%, top: 68%, font-size: 200%,
-                        font-weight: bold}
-                    - type: service-button
-                      title: Consumption
-                      service: python_script.github_scaper
-                      style: {color: white, left: 50%, top: 30%, font-size: 125%,
-                        font-weight: bold}
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-elements
+                image: /local/lovelace/electricity/consumption.jpg
+                elements:
+                  - type: state-label
+                    entity: sensor.phaze_1__current
+                    style: {color: white, left: 50%, top: 68%, font-size: 200%,
+                      font-weight: bold}
+                  - type: service-button
+                    title: Consumption
+                    service: python_script.github_scaper
+                    style: {color: white, left: 50%, top: 30%, font-size: 125%,
+                      font-weight: bold}
 
 
 #################################################################
@@ -1284,74 +1062,38 @@ views:
 
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.service_balcony
-                  show_name: false
-                  image: /local/lovelace/device_tracker/device_tracker_service_balcony.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.service_balcony
+                show_name: false
+                image: /local/lovelace/device_tracker/device_tracker_service_balcony.jpg
 
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.sonofftris
-                  show_name: false
-                  image: /local/lovelace/device_tracker/device_tracker.sonofftris.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.sonofftris
+                show_name: false
+                image: /local/lovelace/device_tracker/device_tracker.sonofftris.jpg
 
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.sonofprozdor
-                  show_name: false
-                  image: /local/lovelace/device_tracker/sonofprozdor.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.sonofprozdor
+                show_name: false
+                image: /local/lovelace/device_tracker/sonofprozdor.jpg
 
           - type: vertical-stack
             cards:
               - type: horizontal-stack
                 cards:
-                  - type: custom:card-modder
-                    card:
-                      type: picture-entity
-                      entity: device_tracker.sonofs20
-                      name: Power S20
-                      image: /local/lovelace/device_tracker/sonofs20.png
-                    style:
-                      border-radius: 15px
-                      border: solid 1px rgba(100,100,100,0.3)
-                      box-shadow: 3px 3px rgba(0,0,0,0.4)
+                  - type: picture-entity
+                    entity: device_tracker.sonofs20
+                    name: Power S20
+                    image: /local/lovelace/device_tracker/sonofs20.png
 
-                  - type: custom:card-modder
-                    card:
-                      type: picture-entity
-                      entity: device_tracker.sonoffmiklahat
-                      name: Shower Sonoff
-                      image: /local/lovelace/device_tracker/device_tracker.sonoffmiklahat.jpg
-                    style:
-                      border-radius: 15px
-                      border: solid 1px rgba(100,100,100,0.3)
-                      box-shadow: 3px 3px rgba(0,0,0,0.4)
+                  - type: picture-entity
+                    entity: device_tracker.sonoffmiklahat
+                    name: Shower Sonoff
+                    image: /local/lovelace/device_tracker/device_tracker.sonoffmiklahat.jpg
 
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.xiaomimibox
-                  image: /local/lovelace/device_tracker/device_tracker.xiaomimibox.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.xiaomimibox
+                image: /local/lovelace/device_tracker/device_tracker.xiaomimibox.jpg
 
 #################################################################
 #                           Center                              #
@@ -1362,27 +1104,15 @@ views:
           - type: picture
             image: /local/lovelace/device_tracker/device_tracking_02.gif
 
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: Device Tracker Amzon Echo
-              entity: device_tracker.amzonecho
-              image: /local/lovelace/device_tracker/device_tracker.amzonecho.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: Device Tracker Amzon Echo
+            entity: device_tracker.amzonecho
+            image: /local/lovelace/device_tracker/device_tracker.amzonecho.jpg
 
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              name: Device Tracker Xiaomi Robot
-              entity: device_tracker.xiaomirobot
-              image: /local/lovelace/device_tracker/device_tracker.xiaomirobot.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            name: Device Tracker Xiaomi Robot
+            entity: device_tracker.xiaomirobot
+            image: /local/lovelace/device_tracker/device_tracker.xiaomirobot.jpg
 
 #################################################################
 #                           Right                               #
@@ -1395,76 +1125,41 @@ views:
 
           - type: horizontal-stack
             cards:
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.xiaomicamera
-                  show_name: false
-                  image: /local/lovelace/device_tracker/device_tracker_xiaomicamera.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.xiaomicamera
+                show_name: false
+                image: /local/lovelace/device_tracker/device_tracker_xiaomicamera.jpg
 
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.foscam
-                  show_name: false
-                  image: /local/lovelace/device_tracker/device_tracker.foscam.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.foscam
+                show_name: false
+                image: /local/lovelace/device_tracker/device_tracker.foscam.jpg
 
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.ipad
-                  show_name: false
-                  image: /local/lovelace/device_tracker/device_tracker.ipad.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.ipad
+                show_name: false
+                image: /local/lovelace/device_tracker/device_tracker.ipad.jpg
+
 
 
           - type: vertical-stack
             cards:
               - type: horizontal-stack
                 cards:
-                  - type: custom:card-modder
-                    card:
-                      type: picture-entity
-                      entity: device_tracker.broadlink
-                      name: Broadlink
-                      image: /local/lovelace/device_tracker/broadlink_02.jpg
-                    style:
-                      border-radius: 15px
-                      border: solid 1px rgba(100,100,100,0.3)
-                      box-shadow: 3px 3px rgba(0,0,0,0.4)
+                  - type: picture-entity
+                    entity: device_tracker.broadlink
+                    name: Broadlink
+                    image: /local/lovelace/device_tracker/broadlink_02.jpg
 
-                  - type: custom:card-modder
-                    card:
-                      type: picture-entity
-                      entity: device_tracker.macbookpro
-                      name: Yeelinklight Strip
-                      image: /local/lovelace/device_tracker/device_tracker.yeelinklightstrip1_miio98683770.jpg
-                    style:
-                      border-radius: 15px
-                      border: solid 1px rgba(100,100,100,0.3)
-                      box-shadow: 3px 3px rgba(0,0,0,0.4)
+                  - type: picture-entity
+                    entity: device_tracker.macbookpro
+                    name: Yeelinklight Strip
+                    image: /local/lovelace/device_tracker/device_tracker.yeelinklightstrip1_miio98683770.jpg
 
 
-              - type: custom:card-modder
-                card:
-                  type: picture-entity
-                  entity: device_tracker.macbookpro
-                  image: /local/lovelace/device_tracker/device_tracker.macbookpro.jpg
-                style:
-                  border-radius: 15px
-                  border: solid 1px rgba(100,100,100,0.3)
-                  box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: picture-entity
+                entity: device_tracker.macbookpro
+                image: /local/lovelace/device_tracker/device_tracker.macbookpro.jpg
 #################################################################
 #                                                               #
 #               ¯\__/¯ אוטומציה ¯\__/¯                          #
@@ -1499,10 +1194,7 @@ views:
                   background-repeat: no-repeat
                   background-color: rgba(0,0,0,0.0)
                   background-size: 100% 100%
-                  border-radius: 20px
-                  border: solid 1px rgba(255, 255, 255, 0.2)
                   color: white
-                  box-shadow: 3px 3px rgba(0,0,0,0.3)
                   background: url(/local/lovelace/automation/xiaomi_05.jpg)
                   height: 265px
 
@@ -1523,10 +1215,7 @@ views:
                   background-rpeat: no-repeat
                   background-color: rgba(0,0,0,0.0)
                   background-size: 100% 100%
-                  border-radius: 20px
-                  border: solid 1px rgba(255, 255, 255, 0.2)
                   color: white
-                  box-shadow: 3px 3px rgba(0,0,0,0.3)
                   background: url(/local/lovelace/automation/robovac_01.jpg)
                   height: 265px
 
@@ -1544,10 +1233,7 @@ views:
                   background-repeat: no-repeat
                   background-color: rgba(0,0,0,0.0)
                   background-size: 100% 100%
-                  border-radius: 15px
-                  border: solid 1px rgba(255, 255, 255, 0.2)
                   color: white
-                  box-shadow: 3px 3px rgba(0,0,0,0.3)
                   background: url(/local/lovelace/automation/blinds.jpg)
                   height: 265px
 
@@ -1571,10 +1257,7 @@ views:
               background-repeat: no-repeat
               background-color: rgba(0,0,0,0.0)
               background-size: 100% 100%
-              border-radius: 15px
-              border: solid 1px rgba(255, 255, 255, 0.2)
               color: white
-              box-shadow: 3px 3px rgba(0,0,0,0.3)
               background: url(/local/lovelace/automation/lighting_01.jpg)
               height: 265px
 
@@ -1594,10 +1277,7 @@ views:
                   background-repeat: no-repeat
                   background-color: rgba(0,0,0,0.0)
                   background-size: 100% 100%
-                  border-radius: 20px
-                  border: solid 1px rgba(255, 255, 255, 0.2)
                   color: white
-                  box-shadow: 3px 3px rgba(0,0,0,0.3)
                   background: url(/local/lovelace/automation/notifylight.jpg)
                   height: 265px
 
@@ -1615,10 +1295,7 @@ views:
                   background-repeat: no-repeat
                   background-color: rgba(0,0,0,0.0)
                   background-size: 100% 100%
-                  border-radius: 20px
-                  border: solid 1px rgba(255, 255, 255, 0.2)
                   color: white
-                  box-shadow: 3px 3px rgba(0,0,0,0.3)
                   background: url(/local/lovelace/automation/mix.jpg)
                   height: 265px
 
@@ -1641,10 +1318,7 @@ views:
               background-repeat: no-repeat
               background-color: rgba(0,0,0,0.0)
               background-size: 100% 100%
-              border-radius: 20px
-              border: solid 1px rgba(255, 255, 255, 0.2)
               color: white
-              box-shadow: 3px 3px rgba(0,0,0,0.3)
               background: url(/local/lovelace/automation/backup_01.jpg)
               height: 265px
 
@@ -1663,10 +1337,7 @@ views:
                   background-repeat: no-repeat
                   background-color: rgba(0,0,0,0.0)
                   background-size: 100% 100%
-                  border-radius: 20px
-                  border: solid 1px rgba(255, 255, 255, 0.2)
                   color: white
-                  box-shadow: 3px 3px rgba(0,0,0,0.3)
                   background: url(/local/lovelace/automation/tami4.jpg)
                   height: 265px
 #################################################################
@@ -1685,101 +1356,65 @@ views:
       - id: a6d41c2d6f07475dba84f23dfa4e8fd3  # Automatically created id
         type: vertical-stack
         cards:
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: TV Switches
-              tap_action: toggle
-              entities:
-                - switch.lg_volume_up
-                - switch.tv_lg
-                - switch.lg_volume_down
-                - switch.move_channels_down
-                - switch.move_channels_up
-                - switch.yes_mute
-                - switch.info
-              image: /local/lovelace/switch/tv.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-glance
+            title: TV Switches
+            tap_action: toggle
+            entities:
+              - switch.lg_volume_up
+              - switch.tv_lg
+              - switch.lg_volume_down
+              - switch.move_channels_down
+              - switch.move_channels_up
+              - switch.yes_mute
+              - switch.info
+            image: /local/lovelace/switch/tv.jpg
 
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: Tris Switches
-              tap_action: toggle
-              entities:
-                - switch.tris_down
-                - switch.tris_up
-              image: /local/lovelace/switch/tris.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-glance
+            title: Tris Switches
+            tap_action: toggle
+            entities:
+              - switch.tris_down
+              - switch.tris_up
+            image: /local/lovelace/switch/tris.jpg
 
       - id: 4be9d01ffc2e44608387749f77c52bac  # Automatically created id
         type: vertical-stack
         cards:
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: Blitzwolf Switches
-              tap_action: toggle
-              entities:
-                - switch.blitzwolf_shp1
-              image: /local/lovelace/switch/tami4.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-glance
+            title: Blitzwolf Switches
+            tap_action: toggle
+            entities:
+              - switch.blitzwolf_shp1
+            image: /local/lovelace/switch/tami4.jpg
 
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: SH20 Pow Switch
-              tap_action: toggle
-              entities:
-                - switch.sh20_pow
-              image: /local/lovelace/switch/SH20.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-glance
+            title: SH20 Pow Switch
+            tap_action: toggle
+            entities:
+              - switch.sh20_pow
+            image: /local/lovelace/switch/SH20.jpg
 
       - id: 5ce1a5ef08e24ec3a0256677a201872e  # Automatically created id
         type: vertical-stack
         cards:
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: AC Switches
-              tap_action: toggle
-              entities:
-                - switch.ac_fan_speed
-                - switch.ac_mode
-                - switch.ac_power
-                - switch.ac_temp_down
-                - switch.ac_temp_up
-              image: /local/lovelace/switch/ac.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-glance
+            title: AC Switches
+            tap_action: toggle
+            entities:
+              - switch.ac_fan_speed
+              - switch.ac_mode
+              - switch.ac_power
+              - switch.ac_temp_down
+              - switch.ac_temp_up
+            image: /local/lovelace/switch/ac.jpg
 
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: Battery Alert Automations
-              tap_action: toggle
-              entities:
-                - automation.battery_alert
-                - automation.battery_alert_clear
-              image: /local/lovelace/things/battery_3.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-glance
+            title: Battery Alert Automations
+            tap_action: toggle
+            entities:
+              - automation.battery_alert
+              - automation.battery_alert_clear
+            image: /local/lovelace/things/battery_3.jpg
 
 #################################################################
 #                                                               #
@@ -1789,7 +1424,7 @@ views:
 ################################################################# 
   - id: 7  # Automatically created id
     type: vertical-stack
-    background: center / cover no-repeat url("/local/lovelace/background/back01.jpg")
+    background: center / cover no-repeat url("/local/lovelace/background/back02.jpg")
       fixed
     icon: mdi:car
     cards:
@@ -1803,10 +1438,7 @@ views:
           background-repeat: no-repeat
           background-color: rgba(50,50,50,0.3)
           background-size: 100% 68px
-          border-radius: 20px
-          border: solid 1px rgba(100,100,100,0.3)
           color: "#ffffff"
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                                                               #
@@ -1823,254 +1455,234 @@ views:
         layout: horizontal
         column_num: 3
         cards:
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/home/tammy4_02.png
-              elements:
-                - type: state-label
-                  entity: sensor.blitzwolf_shp1_total_cost
-                  style:
-                    top: 60%
-                    left: 80%
-                    color: rgb(255, 255, 255)
-                    transform: translate(0%,-50%)
-                    pointer-events: none
-                    text-shadow: 1px 1px black
-                    font-family: Trebuchet MS
-                    font-size: 90%
-                    font-weight: bold
-                    border-right-style: solid
-                    border-color: rgb(34, 154, 210)
-                    background-color: rgb(54, 65, 78)
+          - type: picture-elements
+            image: /local/lovelace/home/tammy4_02.png
+            elements:
+              - type: state-label
+                entity: sensor.blitzwolf_shp1_total_cost
+                style:
+                  top: 60%
+                  left: 80%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
+                  border-right-style: solid
+                  border-color: rgb(34, 154, 210)
+                  background-color: rgb(54, 65, 78)
 
 
-                - type: icon
-                  entity: sensor.blitzwolf_shp1_total_cost
-                  icon: mdi:mdi:credit-card
-                  style: {top: 45%, left: 87%}
-                - type: state-label
-                  entity: sensor.blitzwolf_shp1_energy_today
-                  style:
-                    top: 10%
-                    left: 10%
-                    color: rgb(255, 255, 255)
-                    transform: translate(0%,-50%)
-                    pointer-events: none
-                    text-shadow: 1px 1px black
-                    font-family: Trebuchet MS
-                    font-size: 90%
-                    font-weight: bold
+              - type: icon
+                entity: sensor.blitzwolf_shp1_total_cost
+                icon: mdi:mdi:credit-card
+                style: {top: 45%, left: 87%}
+              - type: state-label
+                entity: sensor.blitzwolf_shp1_energy_today
+                style:
+                  top: 10%
+                  left: 10%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
 
-                - type: icon
-                  entity: sensor.blitzwolf_shp1_energy_today
-                  icon: mdi:flash
-                  style: {top: 10%, left: 9%}
-                - type: state-label
-                  entity: sensor.blitzwolf_shp1_yesterday
-                  style:
-                    top: 10%
-                    left: 42%
-                    color: rgb(255, 255, 255)
-                    transform: translate(0%,-50%)
-                    pointer-events: none
-                    text-shadow: 1px 1px black
-                    font-family: Trebuchet MS
-                    font-size: 90%
-                    font-weight: bold
+              - type: icon
+                entity: sensor.blitzwolf_shp1_energy_today
+                icon: mdi:flash
+                style: {top: 10%, left: 9%}
+              - type: state-label
+                entity: sensor.blitzwolf_shp1_yesterday
+                style:
+                  top: 10%
+                  left: 42%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
 
-                - type: icon
-                  entity: sensor.blitzwolf_shp1_yesterday
-                  icon: mdi:calendar-today
-                  style: {top: 10%, left: 40%}
-                - type: state-label
-                  entity: sensor.blitzwolf_shp1_total
-                  style:
-                    top: 10%
-                    left: 72%
-                    color: rgb(255, 255, 255)
-                    transform: translate(0%,-50%)
-                    pointer-events: none
-                    text-shadow: 1px 1px black
-                    font-family: Trebuchet MS
-                    font-size: 90%
-                    font-weight: bold
+              - type: icon
+                entity: sensor.blitzwolf_shp1_yesterday
+                icon: mdi:calendar-today
+                style: {top: 10%, left: 40%}
+              - type: state-label
+                entity: sensor.blitzwolf_shp1_total
+                style:
+                  top: 10%
+                  left: 72%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
 
-                - type: icon
-                  entity: sensor.blitzwolf_shp1_total
-                  icon: mdi:chart-line-variant
-                  style: {top: 10%, left: 70%}
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: icon
+                entity: sensor.blitzwolf_shp1_total
+                icon: mdi:chart-line-variant
+                style: {top: 10%, left: 70%}
 
 #################################################################
 #                        Washing Machine                        #
 #################################################################
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/electricity/washing_machine_01.jpg
-              elements:
-                - type: state-label
-                  prefix: 'Total Money: '
-                  entity: sensor.washing_machine_total_cost
-                  style:
-                    top: 60%
-                    left: 5%
-                    color: rgb(255, 255, 255)
-                    transform: translate(0%,-50%)
-                    pointer-events: none
-                    text-shadow: 1px 1px black
-                    font-family: Trebuchet MS
-                    font-size: 90%
-                    font-weight: bold
-                    background-color: rgb(21, 21, 21)
-                    border-radius: 8px
+          - type: picture-elements
+            image: /local/lovelace/electricity/washing_machine_01.jpg
+            elements:
+              - type: state-label
+                prefix: 'Total Money: '
+                entity: sensor.washing_machine_total_cost
+                style:
+                  top: 60%
+                  left: 5%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
+                  background-color: rgb(21, 21, 21)
+                  border-radius: 8px
 
 
-                - type: state-label
-                  entity: sensor.washing_machine_energy_today
-                  style:
-                    top: 10%
-                    left: 10%
-                    color: rgb(255, 255, 255)
-                    transform: translate(0%,-50%)
-                    pointer-events: none
-                    text-shadow: 1px 1px black
-                    font-family: Trebuchet MS
-                    font-size: 90%
-                    font-weight: bold
+              - type: state-label
+                entity: sensor.washing_machine_energy_today
+                style:
+                  top: 10%
+                  left: 10%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
 
-                - type: icon
-                  entity: sensor.washing_machine_energy_today
-                  icon: mdi:flash
-                  style: {top: 10%, left: 9%}
+              - type: icon
+                entity: sensor.washing_machine_energy_today
+                icon: mdi:flash
+                style: {top: 10%, left: 9%}
 
-                - type: state-label
-                  entity: sensor.washing_machine_yesterday
-                  style:
-                    top: 10%
-                    left: 42%
-                    color: rgb(255, 255, 255)
-                    transform: translate(0%,-50%)
-                    pointer-events: none
-                    text-shadow: 1px 1px black
-                    font-family: Trebuchet MS
-                    font-size: 90%
-                    font-weight: bold
+              - type: state-label
+                entity: sensor.washing_machine_yesterday
+                style:
+                  top: 10%
+                  left: 42%
+                  color: rgb(255, 255, 255)
+                  transform: translate(0%,-50%)
+                  pointer-events: none
+                  text-shadow: 1px 1px black
+                  font-family: Trebuchet MS
+                  font-size: 90%
+                  font-weight: bold
 
-                - type: icon
-                  entity: sensor.washing_machine_yesterday
-                  icon: mdi:calendar-today
-                  style: {top: 10%, left: 40%}
+              - type: icon
+                entity: sensor.washing_machine_yesterday
+                icon: mdi:calendar-today
+                style: {top: 10%, left: 40%}
 
 
-                - type: state-label
-                  entity: sensor.washing_machine_total
-                  style:
-                    top: 25px
-                    left: 388px
-                    pointer-events: none
-                    text-shadow: 1px 1px black, font-family
-                    font-size: 90%
-                    font-weight: bold
+              - type: state-label
+                entity: sensor.washing_machine_total
+                style:
+                  top: 25px
+                  left: 388px
+                  pointer-events: none
+                  text-shadow: 1px 1px black, font-family
+                  font-size: 90%
+                  font-weight: bold
 
-                - type: icon
-                  entity: sensor.washing_machine_total
-                  icon: mdi:chart-line-variant
-                  style: {top: 10%, left: 70%}
-
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: icon
+                entity: sensor.washing_machine_total
+                icon: mdi:chart-line-variant
+                style: {top: 10%, left: 70%}
 
 #################################################################
 #                         Switcher                              #
 #################################################################
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/electricity/switcher3.jpg
-              elements:
-                - type: icon
-                  icon: mdi:clock-outline
-                  entity: group.switcher_aio_v2_create_schedule
-                  style: {color: white, left: 80%, top: 9%}
+          - type: picture-elements
+            image: /local/lovelace/electricity/switcher3.jpg
+            elements:
+              - type: icon
+                icon: mdi:clock-outline
+                entity: group.switcher_aio_v2_create_schedule
+                style: {color: white, left: 80%, top: 9%}
 
-                - type: icon
-                  icon: mdi:google-circles-communities
-                  entity: group.switcher_aio_v2_configuration
-                  style: {color: white, left: 60%, top: 9%, --paper-item-icon-color: rgb(115,122, 130)}
+              - type: icon
+                icon: mdi:google-circles-communities
+                entity: group.switcher_aio_v2_configuration
+                style: {color: white, left: 60%, top: 9%, --paper-item-icon-color: rgb(115,122, 130)}
 
-                - type: icon
-                  icon: mdi:stop
-                  tap_action: call-service
-                  entity: switcher_aio.control_device_switch
-                  service: switcher_aio.turn_off
-                  style: {color: white, left: 40%, top: 9%, --paper-item-icon-color: rgb(115,122, 130)}
+              - type: icon
+                icon: mdi:stop
+                tap_action: call-service
+                entity: switcher_aio.control_device_switch
+                service: switcher_aio.turn_off
+                style: {color: white, left: 40%, top: 9%, --paper-item-icon-color: rgb(115,122, 130)}
 
 
-                - type: icon
-                  icon: mdi:thermostat-box
-                  entity: switcher_aio.control_device_switch
-                  style: {color: white, left: 20%, top: 9%, --paper-item-icon-color: rgb(115,122,130)}
+              - type: icon
+                icon: mdi:thermostat-box
+                entity: switcher_aio.control_device_switch
+                style: {color: white, left: 20%, top: 9%, --paper-item-icon-color: rgb(115,122,130)}
 
 
-                - type: icon
-                  icon: mdi:timelapse
-                  entity: switcher_aio.time_left_sensor
-                  style: {color: white, left: 5%, top: 91%}
+              - type: icon
+                icon: mdi:timelapse
+                entity: switcher_aio.time_left_sensor
+                style: {color: white, left: 5%, top: 91%}
 
-                - type: state-label
-                  entity: switcher_aio.time_left_sensor
-                  style: {color: white, left: 13%, top: 91%}
+              - type: state-label
+                entity: switcher_aio.time_left_sensor
+                style: {color: white, left: 13%, top: 91%}
 
-                - type: icon
-                  icon: mdi:timer
-                  entity: switcher_aio.auto_off_sensor
-                  style: {color: white, left: 25%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
+              - type: icon
+                icon: mdi:timer
+                entity: switcher_aio.auto_off_sensor
+                style: {color: white, left: 25%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
 
-                - type: state-label
-                  entity: switcher_aio.auto_off_sensor
-                  style: {color: white, left: 34%, top: 92%}
+              - type: state-label
+                entity: switcher_aio.auto_off_sensor
+                style: {color: white, left: 34%, top: 92%}
 
-                - type: icon
-                  icon: mdi:format-list-bulleted
-                  entity: switcher_aio.timer_minutes_input_select
-                  style: {color: white, left: 48%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
-
-
-                - type: state-label
-                  entity: switcher_aio.timer_minutes_input_select
-                  style: {color: white, left: 54%, top: 92%}
-
-                - type: icon
-                  icon: mdi:power
-                  entity: switcher_aio.send_auto_off_script
-                  style: {color: white, left: 65%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
+              - type: icon
+                icon: mdi:format-list-bulleted
+                entity: switcher_aio.timer_minutes_input_select
+                style: {color: white, left: 48%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
 
 
-                - type: state-label
-                  entity: switcher_aio.send_auto_off_script
-                  style: {color: white, left: 72%, top: 92%}
+              - type: state-label
+                entity: switcher_aio.timer_minutes_input_select
+                style: {color: white, left: 54%, top: 92%}
 
-                - type: icon
-                  icon: mdi:flash-circle
-                  entity: switcher_aio.electric_current_sensor
-                  style: {color: white, left: 85%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
+              - type: icon
+                icon: mdi:power
+                entity: switcher_aio.send_auto_off_script
+                style: {color: white, left: 65%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
 
 
-                - type: state-label
-                  entity: switcher_aio.electric_current_sensor
-                  style: {color: white, left: 91%, top: 92%}
+              - type: state-label
+                entity: switcher_aio.send_auto_off_script
+                style: {color: white, left: 72%, top: 92%}
 
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+              - type: icon
+                icon: mdi:flash-circle
+                entity: switcher_aio.electric_current_sensor
+                style: {color: white, left: 85%, top: 91%, --paper-item-icon-color: rgb(115,122, 130)}
+
+
+              - type: state-label
+                entity: switcher_aio.electric_current_sensor
+                style: {color: white, left: 91%, top: 92%}
               
 #################################################################
 #                                                               #
@@ -2084,195 +1696,189 @@ views:
     type: custom:layout-card
     layout: horizontal
     cards:
-      - type: custom:card-modder
-        card:
-          type: picture-elements
-          image: /local/lovelace/home/xiaomi_vacuum_03.jpg
-          elements:
-            - type: icon
-              icon: mdi:bell-ring
-              tap_action: call-service
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.locate
-              style:
-               top: 93%
-               left: 80%
-               color: '#ffffff'
-            - type: icon
-              icon: mdi:crosshairs
-              tap_action: call-service
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.clean_spot
-              style:
-               top: 93%
-               left: 65%
-               color: '#ffffff'
-            - type: icon
-              tap_action: call-service
-              icon: mdi:home
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.return_to_base
-              style:
-               top: 93%
-               left: 50%
-               color: '#ffffff'
-            - type: icon
-              icon: mdi:stop
-              tap_action: call-service
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.stop
-              style:
-               top: 93%
-               left: 35%
-               color: '#ffffff'
-            - type: icon
-              icon: mdi:play
-              tap_action: call-service
-              entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.start
-              style:
-               top: 93%
-               left: 20%
-               color: '#ffffff'
-            - type: state-label
-              entity: sensor.vacuum_operation
-              style:
-               top: 10%
-               left: 1%
-               color: rgb(255, 255, 255)
-               transform: translate(0%,-50%)
-               pointer-events: none
-               font-family: Trebuchet MS
-               font-size: 90%
-               font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_accessories
-              style:
-               top: 10%
-               right: 1%
-               color: rgb(255, 255, 255)
-               transform: translate(0%,-50%)
-               pointer-events: none
-               font-family: Trebuchet MS
-               font-size: 90%
-               font-weight: bold
-            - type: state-label
-              tap_action: more-info
-              entity: vacuum.xiaomi_vacuum_cleaner
-              style:
-               top: 10%
-               right: 43%
-               color: rgb(255, 255, 255)
-               transform: translate(0%,-50%)
-               font-family: Trebuchet MS
-               font-size: 150%
-               font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_cleanmainbrush
-              style:
-                top: 33%
-                right: 2%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 76%
-                font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_cleansidebrush
-              style:
-                top: 40%
-                right: 0%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 76%
-                font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_cleanfilter
-              style:
-                top: 57%
-                right: 3%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 76%
-                font-weight: bold
-                opacity: 0.8
-            - type: state-label
-              entity: sensor.vacuum_sensordirtyleft
-              style:
-                top: 74%
-                right: 5%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 76%
-                font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_status
-              style:
-                top: 33%
-                left: 2%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 80%
-                font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_battery
-              style:
-                top: 54%
-                left: -1%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 80%
-                font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_fan_speed
-              style:
-                top: 65%
-                left: 1%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 80%
-                font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_cleaned_area
-              prefix: "Area:"
-              style:
-                top: 25%
-                left: 26%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 80%
-                font-weight: bold
-            - type: state-label
-              entity: sensor.vacuum_cleaning_time
-              prefix: "Time:"
-              style:
-                top: 25%
-                left: 60%
-                color: '#ffffff'
-                transform: translate(0%,-50%)
-                pointer-events: none
-                font-family: Trebuchet MS
-                font-size: 80%
-                font-weight: bold
-        style:
-          border-radius: 15px
-          border: solid 1px rgba(100,100,100,0.3)
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
+      - type: picture-elements
+        image: /local/lovelace/home/xiaomi_vacuum_04.jpg
+        elements:
+          - type: icon
+            icon: mdi:bell-ring
+            tap_action: call-service
+            entity: vacuum.xiaomi_vacuum_cleaner
+            service: vacuum.locate
+            style:
+              top: 93%
+              left: 80%
+              color: '#ffffff'
+          - type: icon
+            icon: mdi:crosshairs
+            tap_action: call-service
+            entity: vacuum.xiaomi_vacuum_cleaner
+            service: vacuum.clean_spot
+            style:
+              top: 93%
+              left: 65%
+              color: '#ffffff'
+          - type: icon
+            tap_action: call-service
+            icon: mdi:home
+            entity: vacuum.xiaomi_vacuum_cleaner
+            service: vacuum.return_to_base
+            style:
+              top: 93%
+              left: 50%
+              color: '#ffffff'
+          - type: icon
+            icon: mdi:stop
+            tap_action: call-service
+            entity: vacuum.xiaomi_vacuum_cleaner
+            service: vacuum.stop
+            style:
+              top: 93%
+              left: 35%
+              color: '#ffffff'
+          - type: icon
+            icon: mdi:play
+            tap_action: call-service
+            entity: vacuum.xiaomi_vacuum_cleaner
+            service: vacuum.start
+            style:
+              top: 93%
+              left: 20%
+              color: '#ffffff'
+          - type: state-label
+            entity: sensor.vacuum_operation
+            style:
+              top: 10%
+              left: 1%
+              color: rgb(255, 255, 255)
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 90%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_accessories
+            style:
+              top: 10%
+              right: 1%
+              color: rgb(255, 255, 255)
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 90%
+              font-weight: bold
+          - type: state-label
+            tap_action: more-info
+            entity: vacuum.xiaomi_vacuum_cleaner
+            style:
+              top: 10%
+              right: 43%
+              color: rgb(255, 255, 255)
+              transform: translate(0%,-50%)
+              font-family: Trebuchet MS
+              font-size: 150%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_cleanmainbrush
+            style:
+              top: 31%
+              right: 6%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 76%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_cleansidebrush
+            style:
+              top: 78%
+              right: 4%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 76%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_cleanfilter
+            style:
+              top: 40%
+              right: 3%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 76%
+              font-weight: bold
+              opacity: 0.8
+          - type: state-label
+            entity: sensor.vacuum_sensordirtyleft
+            style:
+              top: 60%
+              right: 5%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 76%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_status
+            style:
+              top: 33%
+              left: 0%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 80%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_battery
+            style:
+              top: 54%
+              left: -1%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 80%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_fan_speed
+            style:
+              top: 74%
+              left: 1%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 80%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_cleaned_area
+            prefix: "Area:"
+            style:
+              top: 81%
+              left: 1%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 80%
+              font-weight: bold
+          - type: state-label
+            entity: sensor.vacuum_cleaning_time
+            prefix: "Time:"
+            style:
+              top: 87%
+              left: 5%
+              color: '#ffffff'
+              transform: translate(0%,-50%)
+              pointer-events: none
+              font-family: Trebuchet MS
+              font-size: 80%
+              font-weight: bold
       
 
       - type: custom:layout-card
@@ -2291,9 +1897,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 150px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)  
               
           - type: custom:card-modder
             card:
@@ -2305,9 +1908,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 150px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
           
 #################################################################
 #                                                               #
@@ -2334,21 +1934,12 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 150px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              entity: light.parents
-              name: Light
-              tap_action: toggle
-              image: /local/lovelace/parents/parents.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            entity: light.parents
+            name: Light
+            tap_action: toggle
+            image: /local/lovelace/parents/parents.jpg
 
 
       - id: 7b82fda1c54f45a0996fbee82eff2cb1  # Automatically created id
@@ -2365,22 +1956,12 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 150px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
-
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              entity: light.server_room_fan
-              name: Fan
-              tap_action: toggle
-              image: /local/lovelace/server/fan_02.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            entity: light.server_room_fan
+            name: Fan
+            tap_action: toggle
+            image: /local/lovelace/server/fan_02.jpg
 
 
       - id: 13f463b1bf8f480fb8b9ab2547858372  # Automatically created id
@@ -2402,9 +1983,6 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 130px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                                                               #
@@ -2420,211 +1998,145 @@ views:
       - id: f2ab852f6af94f8491fa3db1cd1487e0  # Automatically created id
         type: vertical-stack
         cards:
-          - type: custom:card-modder
-            card:
-              type: custom:mini-graph-card
-              entity: sensor.temperature_158d00022ece24
-              height: 100
-              line_width: 4
-              font_size: 75
-              hours_to_show: 168
-              line_color: '#3498db'
-            style:
-              background-image: url("/local/lovelace/background/cardbackK.png")
-              background-repeat: no-repeat
-              background-color: rgba(50,50,50,0.3)
-              background-size: 100% 220px
-              border-radius: 20px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
 #################################################################
 #                       Light - תאורה                           #
 #################################################################              
-          - type: custom:card-modder
-            card:
-              type: picture-entity
-              entity: light.yeelight_rgb_7c49eb0f97b1
-              name: Light
-              tap_action: toggle
-              image: /local/lovelace/server/xiaomi_lamp.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-entity
+            entity: light.yeelight_rgb_7c49eb0f97b1
+            name: Light
+            tap_action: toggle
+            image: /local/lovelace/server/xiaomi_lamp.jpg
 
 #################################################################
 #                        System Backup                          #
 #################################################################                 
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: System Backup
-              tap_action: toggle
-              entities:
-                - script.backup_ha_and_move_backup_to_unraid
-                - script.backup_ha_config
-                - script.install_comp_after_update
-                - sensor.latest_ha_backup
-                - automation.weekly_os_backup
-                - automation.daily_hass_backup
-              image: /local/lovelace/server/backup.jpg
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
-
-#################################################################
-#                        Humidity - לחות                        #
-################################################################# 
-      - id: 1e5dfaed03f249cdb6bd0700d21aba01  # Automatically created id
-        type: vertical-stack
-        cards:
-          - type: custom:card-modder
-            card:
-              type: custom:mini-graph-card
-              entity: sensor.humidity_158d00022ece24
-              height: 100
-              line_width: 4
-              font_size: 75
-              hours_to_show: 168
-              line_color: '#e74c3c'
-            style:
-              background-image: url("/local/lovelace/background/cardbackK.png")
-              background-repeat: no-repeat
-              background-color: rgba(50,50,50,0.3)
-              background-size: 100% 220px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-glance
+            title: System Backup
+            tap_action: toggle
+            entities:
+              - script.backup_ha_and_move_backup_to_unraid
+              - script.backup_ha_config
+              - script.install_comp_after_update
+              - sensor.latest_ha_backup
+              - automation.weekly_os_backup
+              - automation.daily_hass_backup
+            image: /local/lovelace/server/backup.jpg
 #################################################################
 #                        Server info                            #
 #################################################################
       - id: b13b348e18a442c68b039ee650c8c4f5  # Automatically created id
         type: vertical-stack
         cards:
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/server/unraid.jpg
-              #title: Internet
-              elements:
-                - type: state-label
-                  entity: sensor.time_online
-                  prefix: 'System Uptime ----- '
-                  style: {color: white, left: 50%, top: 50%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.disk_use_percent_home
-                  style: {top: 84%, left: 29%}
-                - type: state-label
-                  entity: sensor.disk_use_percent_home
-                  prefix: 'Resources : '
-                  style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.memory_use_percent
-                  style: {top: 84%, left: 46%}
-                - type: state-label
-                  entity: sensor.memory_use_percent
-                  style: {top: 93%, left: 47%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.processor_use
-                  style: {top: 84%, left: 63%}
-                - type: state-label
-                  entity: sensor.processor_use
-                  style: {top: 93%, left: 64%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.homeassistant_v2db
-                  style: {top: 84%, left: 80%}
-                - type: state-label
-                  entity: sensor.homeassistant_v2db
-                  style: {top: 93%, left: 81%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.installed_version
-                  style: {top: 8%, left: 57%}
-                - type: state-label
-                  entity: sensor.installed_version
-                  style: {top: 18%, left: 58%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.current_ha_version
-                  style: {top: 9%, left: 39.8%}
-                - type: state-label
-                  entity: sensor.current_ha_version
-                  style: {top: 18%, left: 40%, font-size: 115%, font-weight: bold}
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-elements
+            image: /local/lovelace/server/unraid.jpg
+            #title: Internet
+            elements:
+              - type: state-label
+                entity: sensor.time_online
+                prefix: 'System Uptime ----- '
+                style: {color: white, left: 50%, top: 50%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.disk_use_percent_home
+                style: {top: 84%, left: 29%}
+              - type: state-label
+                entity: sensor.disk_use_percent_home
+                prefix: 'Resources : '
+                style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.memory_use_percent
+                style: {top: 84%, left: 46%}
+              - type: state-label
+                entity: sensor.memory_use_percent
+                style: {top: 93%, left: 47%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.processor_use
+                style: {top: 84%, left: 63%}
+              - type: state-label
+                entity: sensor.processor_use
+                style: {top: 93%, left: 64%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.homeassistant_v2db
+                style: {top: 84%, left: 80%}
+              - type: state-label
+                entity: sensor.homeassistant_v2db
+                style: {top: 93%, left: 81%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.installed_version
+                style: {top: 8%, left: 57%}
+              - type: state-label
+                entity: sensor.installed_version
+                style: {top: 18%, left: 58%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.current_ha_version
+                style: {top: 9%, left: 39.8%}
+              - type: state-label
+                entity: sensor.current_ha_version
+                style: {top: 18%, left: 40%, font-size: 115%, font-weight: bold}
 
 
 #################################################################
 #                        HD Temp                                #
 #################################################################                           
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/server/server_hdd_temp.jpg
-              #title: Internet
-              elements:
-                - type: state-icon
-                  entity: sensor.hdd_sdg_temp
-                  style: {top: 82%, left: 25%}
-                - type: state-label
-                  entity: sensor.hdd_sdg_temp
-                  prefix: 'Parity: '
-                  style: {top: 92%, left: 25%}
-                - type: state-icon
-                  entity: sensor.hdd_sdi_temp
-                  style: {top: 82%, left: 50%}
-                - type: state-label
-                  entity: sensor.hdd_sdi_temp
-                  prefix: 'Cache: '
-                  style: {top: 92%, left: 50%}
-                - type: state-icon
-                  entity: sensor.hdd_sdc_temp
-                  style: {top: 45%, left: 25%}
-                - type: state-label
-                  entity: sensor.hdd_sdc_temp
-                  prefix: 'Cache 2: '
-                  style: {top: 55%, left: 25%}
-                - type: state-icon
-                  entity: sensor.hdd_sdf_temp
-                  style: {top: 45%, left: 50%}
-                - type: state-label
-                  entity: sensor.hdd_sdf_temp
-                  prefix: 'HD 1: '
-                  style: {top: 55%, left: 50%}
-                - type: state-icon
-                  entity: sensor.hdd_sdd_temp
-                  style: {top: 8%, left: 25%}
-                - type: state-label
-                  entity: sensor.hdd_sdd_temp
-                  prefix: 'HD 2: '
-                  style: {top: 18%, left: 25%}
-                - type: state-icon
-                  entity: sensor.hdd_sde_temp
-                  style: {top: 8%, left: 50%}
-                - type: state-label
-                  entity: sensor.hdd_sde_temp
-                  prefix: 'HD 3: '
-                  style: {top: 18%, left: 50%}
-                - type: state-icon
-                  entity: sensor.hdd_sdh_temp
-                  style: {top: 8%, left: 75%}
-                - type: state-label
-                  entity: sensor.hdd_sdh_temp
-                  prefix: 'HD 4: '
-                  style: {top: 18%, left: 75%}
-                - type: state-icon
-                  entity: sensor.hdd_sdb_temp
-                  style: {top: 82%, left: 75%}
-                - type: state-label
-                  entity: sensor.hdd_sdb_temp
-                  prefix: 'HD 5: '
-                  style: {top: 92%, left: 75%}
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-elements
+            image: /local/lovelace/server/server_hdd_temp.jpg
+            #title: Internet
+            elements:
+              - type: state-icon
+                entity: sensor.hdd_sdg_temp
+                style: {top: 82%, left: 25%}
+              - type: state-label
+                entity: sensor.hdd_sdg_temp
+                prefix: 'Parity: '
+                style: {top: 92%, left: 25%}
+              - type: state-icon
+                entity: sensor.hdd_sdi_temp
+                style: {top: 82%, left: 50%}
+              - type: state-label
+                entity: sensor.hdd_sdi_temp
+                prefix: 'Cache: '
+                style: {top: 92%, left: 52%}
+              - type: state-icon
+                entity: sensor.hdd_sdc_temp
+                style: {top: 82%, left: 75%}
+              - type: state-label
+                entity: sensor.hdd_sdc_temp
+                prefix: 'Cache 2: '
+                style: {top: 92%, left: 75%}
+              - type: state-icon
+                entity: sensor.hdd_sdf_temp
+                style: {top: 8%, left: 25%}
+              - type: state-label
+                entity: sensor.hdd_sdf_temp
+                prefix: 'HD 1: '
+                style: {top: 18%, left: 25%}
+              - type: state-icon
+                entity: sensor.hdd_sdd_temp
+                style: {top: 8%, left: 75%}
+              - type: state-label
+                entity: sensor.hdd_sdd_temp
+                prefix: 'HD 2: '
+                style: {top: 18%, left: 50%}
+              - type: state-icon
+                entity: sensor.hdd_sdj_temp
+                style: {top: 8%, left: 50%}
+              - type: state-label
+                entity: sensor.hdd_sdj_temp
+                prefix: 'HD 3: '
+                style: {top: 18%, left: 75%}
+              - type: state-icon
+                entity: sensor.hdd_sdh_temp
+                style: {top: 45%, left: 25%}
+              - type: state-label
+                entity: sensor.hdd_sdh_temp
+                prefix: 'HD 4: '
+                style: {top: 55%, left: 25%}
+              - type: state-icon
+                entity: sensor.hdd_sdb_temp
+                style: {top: 45%, left: 50%}
+              - type: state-label
+                entity: sensor.hdd_sdb_temp
+                prefix: 'HD 5: '
+                style: {top: 55%, left: 50%}
 
 #################################################################
 #                        CPU Temperature                        #
@@ -2646,44 +2158,34 @@ views:
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 220px
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 
 #################################################################
 #                        Speedtest                              #
 #################################################################            
-          - type: custom:card-modder
-            card:
-              type: picture-elements
-              image: /local/lovelace/server/speed.jpg
-              #title: Internet
-              elements:
-                - type: state-icon
-                  entity: sensor.speedtest_ping
-                  style: {top: 85%, left: 25%}
-
-                - type: state-label
-                  entity: sensor.speedtest_ping
-                  prefix: 'Internet : '
-                  style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.speedtest_download
-                  style: {top: 85%, left: 50%}
-                - type: state-label
-                  entity: sensor.speedtest_download
-                  style: {top: 93%, left: 50%, font-size: 115%, font-weight: bold}
-                - type: state-icon
-                  entity: sensor.speedtest_upload
-                  style: {top: 85%, left: 75%}
-                - type: state-label
-                  entity: sensor.speedtest_upload
-                  style: {top: 93%, left: 75%, font-size: 115%, font-weight: bold}
-            style:
-              border-radius: 15px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)
+          - type: picture-elements
+            image: /local/lovelace/server/speed.jpg
+            #title: Internet
+            elements:
+              - type: state-icon
+                entity: sensor.speedtest_ping
+                style: {top: 85%, left: 25%}
+              - type: state-label
+                entity: sensor.speedtest_ping
+                prefix: 'Internet : '
+                style: {top: 93%, left: 20%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.speedtest_download
+                style: {top: 85%, left: 50%}
+              - type: state-label
+                entity: sensor.speedtest_download
+                style: {top: 93%, left: 50%, font-size: 115%, font-weight: bold}
+              - type: state-icon
+                entity: sensor.speedtest_upload
+                style: {top: 85%, left: 75%}
+              - type: state-label
+                entity: sensor.speedtest_upload
+                style: {top: 93%, left: 75%, font-size: 115%, font-weight: bold}
 
 #################################################################
 #                                                               #
@@ -2693,7 +2195,7 @@ views:
 #################################################################
   - id: 12  # Automatically created id
     title: Update plugin
-    background: center / cover no-repeat url("/local/lovelace/background/back01.jpg") fixed
+    background: center / cover no-repeat url("/local/lovelace/background/back02.jpg") fixed
     icon: mdi:update
     cards:
       - type: custom:card-modder
@@ -2708,10 +2210,7 @@ views:
           background-repeat: no-repeat
           background-color: rgba(50,50,50,0.3)
           background-size: 100% 68px
-          border-radius: 20px
-          border: solid 1px rgba(100,100,100,0.3)
           color: "#999999"
-          box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                                                               #
