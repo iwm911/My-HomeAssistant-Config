@@ -26,6 +26,8 @@ The project presented - is my smart home project. Where I sat for hours and was 
 |:-----:|:----:|:------:|:-------------------:|
 |8      |2     |1       |4                    |
 
+<hr --- </hr> 
+
 <table>
 <thead>
 <tr>
