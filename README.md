@@ -25,12 +25,12 @@ The project presented - is my smart home project. Where I sat for hours and was 
 <table>
 <thead>
 <tr>
-<th><a href="https://raw.githubusercontent.com/abeksis/My-HomeAssistant-Config/master/HA%20Picters/Lovelace%20Screenshots/00.Home.jpg">Lovelace Screenshots</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA_Picters/Lovelace_Screenshots">Lovelace Screenshots</a></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA%20Picters/Lovelace%20Screenshots"><img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA%20Picters/Lovelace%20Screenshots/03.%20Downstairs.jpg" style="max-width:100%;"></a></td>
+<td><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA_Picters/Lovelace_Screenshots"><img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Picters/Lovelace_Screenshots/00.Home.jpg" style="max-width:100%;"></a></td>
 </tr></tbody></table>
 
 <table>
