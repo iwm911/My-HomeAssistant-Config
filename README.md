@@ -36,7 +36,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
 <table>
 <thead>
 <tr>
-<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Picters/HA_Screenshots/07.%20Electrical.jpg?raw=true">Home Assistant Screenshots</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA_Picters/HA_Screenshots">Home Assistant Screenshots</a></th>
 </tr>
 </thead>
 <tbody>
