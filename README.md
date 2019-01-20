@@ -8,30 +8,6 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <p align="center">Be sure to <g-emoji class="g-emoji" alias="star" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png">⭐️</g-emoji> my repo!</p>
 
-<p>
-  <img src="https://img.shields.io/github/stars/JamesMcCarthy79/Home-Assistant-Config.svg?style=plasticr"/>
-  <img src="https://img.shields.io/badge/HA--Version-0.85.0-brightgreen.svg"/>
-  <img src="https://img.shields.io/maintenance/yes/2019.svg"/>
-  <img src="https://img.shields.io/github/commit-activity/y/JamesMcCarthy79/Home-Assistant-Config.svg"/>
-  <img src="https://img.shields.io/github/last-commit/JamesMcCarthy79/Home-Assistant-Config.svg?style=plasticr"/>
-  <img src="https://img.shields.io/github/issues/JamesMcCarthy79/Home-Assistant-Config.svg"/>
-  <img src="https://img.shields.io/badge/license-Unlicense-blue.svg"/>
-</p>
-<p>
-  <href="https://github.com/hassio-addons/addon-appdaemon3"><img src="https://img.shields.io/badge/AppDaemon3-v1.5.0-5294E2.svg"/>
-  <href="https://github.com/danielwelch/hassio-dropbox-sync"><img src="https://img.shields.io/badge/DropBox Sync-v1.3.0-5294E2.svg"/>
-  <href="https://github.com/hassio-addons/addon-grafana"><img src="https://img.shields.io/badge/Grafana-v1.2.1-5294E2.svg"/>
-  <href="https://www.home-assistant.io/addons/ide"><img src="https://img.shields.io/badge/IDE-v0.7.2-5294E2.svg"/>
-  <href="https://github.com/hassio-addons/addon-influxdb"><img src="https://img.shields.io/badge/InfluxDB-v1.2.1-5294E2.svg"/>
-  <href="https://www.home-assistant.io/addons/mosquitto/"><img src="https://img.shields.io/badge/Mosquitto-v4.0-5294E2.svg"/>  
-</p>
-<p>
-  <href="https://github.com/danielwelch/hassio-dropbox-sync"><img src="https://img.shields.io/badge/Network UPS Tools-v0.1-5294E2.svg"/>
-  <href="https://github.com/hassio-addons/addon-node-red"><img src="https://img.shields.io/badge/Node--RED-1.2.3-5294E2.svg"/>
-  <href="https://www.home-assistant.io/addons/samba/"><img src="https://img.shields.io/badge/Samba-v8.0-5294E2.svg"/>
-  <href="https://github.com/hassio-addons/addon-ssh"><img src="https://img.shields.io/badge/SSH-v3.7.0-5294E2.svg"/>
-  <href="https://github.com/hassio-addons/addon-tasmoadmin"><img src="https://img.shields.io/badge/TasmoAdmin-0.6.0-5294E2.svg"/>
-</p>
 
 <hr>
 
