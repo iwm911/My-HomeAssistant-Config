@@ -22,9 +22,9 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Picters/Github_picters/sonoff.png" width="180"/>
 
-| Basic | POW2 | iFan02 | Wall Switch (Touch) |
+| Basic | POW2 | TH10 | Wall Switch (Touch) |
 |:-----:|:----:|:------:|:-------------------:|
-|15     |2     |4       |20                   |
+|8      |2     |1       |4                    |
 
 <table>
 <thead>
