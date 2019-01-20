@@ -12,17 +12,17 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <img src="https://github.com/JamesMcCarthy79/Home-Assistant-Config/blob/master/HA%20Pics/Xiaomi%20Logo.png" width="150"/>
 
-| Gateways | Door/Window Sensors | Motion Sensors | Smoke Sensors | Smart Switches | Water Leak Sensors |
-|:--------:|:-------------------:|:--------------:|:-------------:|:--------------:|:------------------:|
-|2         |10                   |12              |2              |7               |2                   |
+| Gateways | Door/Window Sensors | Motion Sensors | Smoke Sensors | Smart Switch   |
+|:--------:|:-------------------:|:--------------:|:-------------:|:--------------:|
+|1         |2                    |5               |1              |2               |
 
-| Philips Light Bulb | Yi Light Bulb | Plant Sensors | Temp/Hum Sensors | Smart Plugs | Appliances | Lamps |
-|:------------------:|:-------------:|:-------------:|:----------------:|:-----------:|:----------:|:-----:| 
-|5                   |4              |10             |7                 |7            |4           |1      |
+| Yi Light Bulb | Temp/Hum Sensors | Appliances    | Lamps      |
+|:-------------:|:----------------:|:-------------:|:----------:|
+|1              |1                 |2              |1           |
 
 <img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Picters/Github_picters/sonoff.png" width="180"/>
 
-| Basic | POW2 | TH10 | Wall Switch (Touch) |
+| Basic | POW2 | TH10 | Wall Switch (Touch)   |
 |:-----:|:----:|:------:|:-------------------:|
 |8      |2     |1       |4                    |
 
