@@ -25,7 +25,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
 <table>
 <thead>
 <tr>
-<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA%20Picters/Lovelace%20Screenshots/00.Home.jpg">Lovelace Screenshots</a></th>
+<th><a href="https://raw.githubusercontent.com/abeksis/My-HomeAssistant-Config/master/HA%20Picters/Lovelace%20Screenshots/00.Home.jpg">Lovelace Screenshots</a></th>
 </tr>
 </thead>
 <tbody>
