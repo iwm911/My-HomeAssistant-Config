@@ -11,19 +11,6 @@
 #                                                               #
 #################################################################
 homeassistant:
-  customize:
-
-
-
-
-
-#################################################################
-#                                                               #
-#                           Groups                              #
-#                                                               #
-#################################################################
-group:
-
 
 #################################################################
 #                                                               #
@@ -34,6 +21,7 @@ automation:
     #########################  Home Assistant  ##########################
     ## Home Assistant is Up and Running ##
   - alias: 'Startup Notification'
+    initial_state: 'on'  
     hide_entity: true
     trigger:
       platform: homeassistant
@@ -52,6 +40,7 @@ automation:
 
     ## The dor open for more 1 min ##
   - alias:  notify if the home door was open for more then 1 min
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: binary_sensor.door_window_sensor_158d0001ef3425
@@ -69,6 +58,7 @@ automation:
 
     ## Turn on xiaomi Camera in 23:00 ##
   - alias:  turn ON CCTV cameras if late Night 
+    initial_state: 'on'  
     trigger:
       platform: time
       at: '23:00:00'
@@ -93,6 +83,7 @@ automation:
 
     ## notify if AC is on ##
   - alias: notify if the ac is on
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: switch.ac_power
@@ -109,6 +100,7 @@ automation:
 
     ## notify if boiler is on ##
   - alias: notify if the boiler is on
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: switcher_aio.control_device_switch
@@ -126,6 +118,7 @@ automation:
 
   ## התראה במידה והאור דולק במרפסת ##  
   - alias:  notify if the balcony in ON
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.balcony
@@ -139,6 +132,7 @@ automation:
 
   ## התראה על תאורה שנדלקת במרפסת שירות ##  
   - alias:  notify if the Service balcony in ON
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.service_balcony
@@ -152,6 +146,7 @@ automation:
 
   ## התראה על הדלקת תאורה בחדר כביסה  
   - alias:  notify if the laundry room ON
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.laundry
@@ -165,6 +160,7 @@ automation:
 
   ## התראה על הדלקת תאורה בחדר של לירן ## 
   - alias:  notify if the light in room off liran in ON
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.liran_room
@@ -178,6 +174,7 @@ automation:
 
   ## התראה שהתאורה עובדת בחדר שירותי אורחים ##
   - alias:  notify if the guests bathroom ON
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.poop
@@ -191,6 +188,7 @@ automation:
 
   ## התראה שהתאורה עובדת בפרוזדור ##
   - alias:  notify if the prozdor bathroom ON
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.prozdor
@@ -204,6 +202,7 @@ automation:
 
   ### התראה במידה והתאורה נדלקת במקלחת ##
   - alias: notify if the miklahat is on
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.miklahat
@@ -217,6 +216,7 @@ automation:
 
   ## התראה במידה והתאורה דולקת במדרגות ##
   - alias:  notify if the stairs is on
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: light.stairs
@@ -226,4 +226,4 @@ automation:
       service: notify.AviTelegram
       data:
         title: "שלום אבי"
-        message: "התאורה דולקת במדרגות"
+        message: "התאורה דולקת במדרגות"        

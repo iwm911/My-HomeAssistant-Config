@@ -1,0 +1,289 @@
+/* SVG shapes */
+
+svg, svg * {
+  vector-effect: non-scaling-stroke !important;
+  pointer-events: all !important;
+}
+
+/* Hover over */
+
+.entity:hover {
+  stroke: #03A9F4 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Bootstrap succsss */
+
+.success-text {
+  fill: #3c763d !important;
+}
+
+.success-background, .success-text-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+  stroke: #d6e9c6 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap info */
+
+.info-text {
+  fill: #31708f !important;
+}
+
+.info-background, .info-text-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+  stroke: #bce8f1 !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap warning */
+
+.warning-text {
+  fill: #8a6d3b !important;
+}
+
+.warning-background, .warning-text-background  {
+  fill: #fcf8e3 !important;
+  fill-opacity: 1 !important;
+  stroke: #faebcc !important;
+  stroke-width: 1px !important;
+}
+
+/* Bootstrap danger */
+
+.danger-text {
+  fill: #a94442 !important;
+}
+
+.danger-background, .danger-text-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+  stroke: #ebccd1 !important;
+  stroke-width: 1px !important;
+}
+
+/* Last motion entity */
+
+.last-motion {
+  stroke: #808080 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Alarm Panel */
+
+.alarm-disarmed {
+  fill: #3c763d !important;
+}
+
+.alarm-armed {
+  fill: #8a6d3b !important;
+}
+
+
+/* Doors start */
+
+/* Animation */
+
+/* Animation */
+@keyframes rotation {
+  from {
+      transform: rotate(0deg); /* מהירות סיבוב איטית מאוורר */
+  }
+  to {
+      transform: rotate(459deg); /* מהירות סיבוב מאוורר */
+  }
+}
+
+/* שייך לויזואליות של פתיחת הדלת וסגירה */
+@keyframes rotate90 {
+100% {
+  transform: rotate(-90deg);
+}
+}
+
+@keyframes rotateReset90 {
+0% {
+  transform: rotate(-90deg);
+}
+100% {
+  transform: none;
+}
+}
+/* שייך לויזואליות של פתיחת הדלת וסגירה */
+
+/* @keyframes rotate-90 {
+100% {
+  transform: rotate(-90deg);
+}
+}
+
+@keyframes rotateReset-90 {
+0% {
+  transform: rotate(-90deg);
+}
+100% {
+  transform: none;
+}
+} */
+
+
+@keyframes fadeIn {
+ 0% {
+   opacity: 0;
+ }
+ 100% {
+   opacity: 1;
+ }
+}
+
+@keyframes fadeOut {
+ 0% {
+   opacity: 1;
+ }
+ 100% {
+   opacity: 0;
+ }
+}
+
+#sensor\.binary_sensor.door_window_sensor_158d0001ef3425 {
+  transform-origin: bottom right;
+}
+
+.door_closed90 {
+  fill: #acaba8 !important;
+  animation-duration: 2s;
+  animation-name: rotateReset90;
+  transform-box: fill-box;
+}
+
+.door_open90 {
+  fill: #000000 !important;
+  animation-duration: 2s;
+  animation-name: rotate90;
+  animation-fill-mode: forwards;
+  transform-box: fill-box;
+}
+
+.door_closed-90 {
+  fill: #acaba8 !important;
+  animation-duration: 2s;
+  animation-name: rotateReset-90;
+  transform-box: fill-box;
+}
+
+.door_open-90 {
+  fill: #000000 !important;
+  animation-duration: 2s;
+  animation-name: rotate-90;
+  animation-fill-mode: forwards;
+  transform-box: fill-box;
+}
+
+/* doors and
+
+/* Fans Start */
+
+#input_boolean.fan_status {
+  transform-origin: center;
+}
+
+.fan-on {
+  fill: #ff8a65 !important;
+  animation: rotation 2s infinite linear;
+  transform-box: fill-box;
+  transform-origin: center;
+  position: relative;
+  }
+  
+
+.fan-off {
+  fill: #e4e4e4 !important;
+}
+/* Fans and */
+
+
+/* Camera */
+
+.camera-idle {
+/*  fill: #B9CEF7 !important; */
+  fill: # !important;
+}
+
+/* Light */
+
+.light-off {
+  opacity: 0.5 !important;
+  transition: opacity 1s;
+}
+
+.light-on {
+  opacity: 0.0 !important;
+  transition: opacity 1s;
+
+/* Doorbell 
+
+.doorbell-off {
+  fill: #C3B7F4 !important;
+}
+
+.doorbell-on {
+  fill: #F8D2B9 !important;
+}
+*/
+
+/* Temperature sensor */
+
+.temp-very-low-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-below-average-background {
+  fill: #dcefe8 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-average-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-very-high-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+}
+
+/* Media player */
+
+.squeezebox-off {
+  fill: #8AA8A7 !important;
+}
+
+.squeezebox-on {
+  fill: #2baaa6 !important;
+}
+
+/* 
+Device_Tracker Start
+########################################################################
+*/
+.tracker_home {
+  fill: #006400 !important;
+  /*content: 'בבית';*/
+
+}
+
+.tracker_not_home {
+  fill: #8B0000 !important;
+  transform-box: fill-box;
+}
+/* 
+########################################################################
+Device_Tracker END
+########################################################################
+*/
+

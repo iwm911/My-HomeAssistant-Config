@@ -11,7 +11,7 @@
 #################################################################
 
 homeassistant:
-  customize:
+  #customize:
 
   
 #################################################################
@@ -25,14 +25,14 @@ group:
     name: Door Sensors
     view: no
     entities:
-      - binary_sensor.door_window_sensor_158d0001ef3425
-      - binary_sensor.door_window_sensor_158d00027a59c6
+      - binary_sensor.front_door
+      - binary_sensor.balcony_door
 
   xiaomi_motion_sensors:
     name: Motion Sensors
     view: no
     entities:
-      - binary_sensor.motion_sensor_158d0002047c5a
+      - binary_sensor.motion_shower
       - binary_sensor.motion_sensor_158d000204bfcb
       - binary_sensor.motion_sensor_158d0002b42fa3
       - binary_sensor.motion_sensor_158d00024e7972
@@ -59,43 +59,45 @@ binary_sensor:
         friendly_name: Front Door Sensor
         device_class: connectivity
         entity_id: sensor.front_door
-        value_template: "{{ is_state('binary_sensor.door_window_sensor_158d0001ef3425', 'on') }}"
+        value_template: "{{ is_state('binary_sensor.front_door', 'on') }}"
         icon_template: >-
-          {% if is_state('binary_sensor.door_window_sensor_158d0001ef3425', 'on') %}
-            mdi:door
-          {% elif is_state('binary_sensor.door_window_sensor_158d0001ef3425', 'off') %}
-            mdi:door         
+          {% if is_state('binary_sensor.front_door', 'on') %}
+            fas:door-open
+          {% elif is_state('binary_sensor.front_door', 'off') %}
+            fas:door-closed         
           {% else %}
             mdi:alert
           {% endif %}
+          
       balcony_door:
-        friendly_name: dor exit to the balcony
+        friendly_name: Exit Door to balcony
         device_class: connectivity
-        entity_id: binary_sensor.door_window_sensor_158d00027a59c6
-        value_template: "{{ is_state('binary_sensor.door_window_sensor_158d00027a59c6', 'on') }}"
+        entity_id: binary_sensor.balcony_door
+        value_template: "{{ is_state('binary_sensor.balcony_door', 'on') }}"
         icon_template: >-
-          {% if is_state('binary_sensor.door_window_sensor_158d00027a59c6', 'on') %}
-            mdi:door
-          {% elif is_state('binary_sensor.door_window_sensor_158d00027a59c6', 'off') %}
-            mdi:door         
+          {% if is_state('binary_sensor.balcony_door', 'on') %}
+            fas:door-closed
+          {% elif is_state('binary_sensor.balcony_door', 'off') %}
+            fas:door-open         
           {% else %}
             mdi:alert
           {% endif %}
 
 ## Motion Sensors
-      sensor_motion:
-        friendly_name: Sensor Motion Sensor
+      motion_shower:
+        friendly_name: Motion sensor Main Shower
         device_class: connectivity
-        entity_id: binary_sensor.motion_sensor_158d0002047c5a
-        value_template: "{{ is_state('binary_sensor.motion_sensor_158d0002047c5a', 'on') }}"
+        entity_id: binary_sensor.motion_shower
+        value_template: "{{ is_state('binary_sensor.motion_shower', 'on') }}"
         icon_template: >-
-          {% if is_state('binary_sensor.motion_sensor_158d0002047c5a', 'on') %}
+          {% if is_state('binary_sensor.motion_shower', 'on') %}
             mdi:walk
-          {% elif is_state('binary_sensor.motion_sensor_158d0002047c5a', 'off') %}
+          {% elif is_state('binary_sensor.motion_shower', 'off') %}
             mdi:walk         
           {% else %}
             mdi:alert
           {% endif %}
+
       bedroom_motion:
         friendly_name: Bedroom sensor
         device_class: connectivity
@@ -109,6 +111,50 @@ binary_sensor:
           {% else %}
             mdi:alert
           {% endif %}
+
+      guest_services:
+        friendly_name: Guest Services Motion Sensor
+        device_class: connectivity
+        entity_id: binary_sensor.motion_sensor_158d0002b42fa3
+        value_template: "{{ is_state('binary_sensor.motion_sensor_158d0002b42fa3', 'on') }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.motion_sensor_158d0002b42fa3', 'on') %}
+            mdi:walk
+          {% elif is_state('binary_sensor.motion_sensor_158d0002b42fa3', 'off') %}
+            mdi:walk         
+          {% else %}
+            mdi:alert
+          {% endif %} 
+          
+          
+      computer_room:
+        friendly_name: Motion Sensor Computer Room
+        device_class: connectivity
+        entity_id: binary_sensor.motion_sensor_158d000272bc63
+        value_template: "{{ is_state('binary_sensor.motion_sensor_158d000272bc63', 'on') }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.motion_sensor_158d000272bc63', 'on') %}
+            mdi:walk
+          {% elif is_state('binary_sensor.motion_sensor_158d000272bc63', 'off') %}
+            mdi:walk         
+          {% else %}
+            mdi:alert
+          {% endif %} 
+
+      laundry_room:
+        friendly_name: Motion Sensor Laundry Room
+        device_class: connectivity
+        entity_id: binary_sensor.motion_sensor_158d00024e7972
+        value_template: "{{ is_state('binary_sensor.motion_sensor_158d00024e7972', 'on') }}"
+        icon_template: >-
+          {% if is_state('binary_sensor.motion_sensor_158d00024e7972', 'on') %}
+            mdi:walk
+          {% elif is_state('binary_sensor.motion_sensor_158d00024e7972', 'off') %}
+            mdi:walk         
+          {% else %}
+            mdi:alert
+          {% endif %} 
+
 
 ## Temerature Sensors
       computer_temperature:

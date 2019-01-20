@@ -1,4 +1,9 @@
-  - platform: ddwrt
-    host: 1.1.1.1
-    username: !secret ddwrt_username
-    password: !secret ddwrt_password
+  - platform: linksys_smart
+    host: 192.168.1.1 
+    track_new_devices: false
+    interval_seconds: 15    
+
+  - platform: unifi_direct
+    host: 192.168.1.38
+    username: !secret unifi_username
+    password: !secret unifi_password

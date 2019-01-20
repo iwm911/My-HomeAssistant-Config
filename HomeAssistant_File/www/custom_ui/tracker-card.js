@@ -15,9 +15,9 @@ class TrackerCard extends HTMLElement {
 
     const cardConfig = Object.assign({}, config);
     if (!cardConfig.title) {
-  /*  cardConfig.title = '📣 Updates'; */
+      cardConfig.title = '';
     } else {
-      cardConfig.title = '📣 ' + cardConfig.title;
+      cardConfig.title = '' + cardConfig.title;
     }
     const card = document.createElement('ha-card');
     const content = document.createElement('div');
@@ -32,12 +32,6 @@ class TrackerCard extends HTMLElement {
           }
           thead th {
             text-align: left;
-          }
-          tbody tr:nth-child(odd) {
-            background-color: var(--paper-card-background-color);
-          }
-          tbody tr:nth-child(even) {
-            background-color: var(--secondary-background-color);
           }
           .button {
             overflow: auto;

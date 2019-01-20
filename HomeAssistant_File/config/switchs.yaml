@@ -4,8 +4,8 @@
     ## שליטה על הטלוויזיה
     ###############
   - platform: broadlink
-    host: 1.1.1.1
-    mac: ''
+    host: 192.x.x.x
+    mac: 'xx:xx:xx:xx:xx:xx'
     timeout: 15
     switches: 
       tv_lg:
@@ -25,8 +25,8 @@
   - platform: broadlink
     # type: rm_mini
     timeout: 15
-    host: 1.1.1.1
-    mac: ''
+    host: 192.x.x.x
+    mac: 'xx:xx:xx:xx:xx:xx'
     switches:
       ac_power:
         friendly_name: "AC Power"
@@ -109,6 +109,36 @@
     state_topic: "stat/bw-shp1/POWER"
     command_topic: "cmnd/bw-shp1/POWER"
     availability_topic: "tele/bw-shp1/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true    
+  
+    ##############
+    ## TV Yakir 
+    ###############
+  - platform: mqtt
+    name: "Yakir Tv"
+    state_topic: "stat/yakirtv/POWER"
+    command_topic: "cmnd/yakirtv/POWER"
+    availability_topic: "tele/yakirtv/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+    
+    ##############
+    ## Heating
+    ###############
+  - platform: mqtt
+    name: "Heating"
+    state_topic: "stat/heating/POWER"
+    command_topic: "cmnd/heating/POWER"
+    availability_topic: "tele/heating/LWT"
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"

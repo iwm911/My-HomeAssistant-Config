@@ -53,12 +53,18 @@ script:
     sequence:
       - service: shell_command.install_comp_after_update         
 
+
 #################################################################
 #                                                               #
-#                           Groups                              #
+#                           sensors                             #
 #                                                               #
 #################################################################
-group:
+sensor:
+    ###### Latest config backup time
+  - platform: command_line
+    command: "bash /config/bin/latest_Hass_backup.py"
+    name: 'Latest HA Backup'
+    scan_interval: 43200 #12 Hours
 
 
 #################################################################
@@ -69,6 +75,7 @@ group:
 automation:
     ############# Run the script daily to backup HASS config ####
   - alias: 'Daily HASS Backup'
+    initial_state: 'on'
     trigger:
       platform: time
       at: '02:00:00'
@@ -82,6 +89,7 @@ automation:
 
    ################### Weekly OS Backup ########################
   - alias: 'Weekly OS Backup'
+    initial_state: 'on'
     trigger:
       platform: time
       at: '02:30:00'
@@ -95,5 +103,5 @@ automation:
         entity_id: script.backup_ha_and_move_backup_to_unraid
       - service: notify.AviTelegram
         data:
-          title: 'גיבוי'
-          message: 'הגיבוי השבועי לכלל המערכת בפעולה! בדוק סיום תקין בבוקר,בקבצי השרת'
+          title: 'הודעת גיבוי'
+          message: 'הגיבוי השבועי בוצע, בדוק תקינות הקבצים בשרת הנפרד.'

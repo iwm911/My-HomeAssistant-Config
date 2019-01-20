@@ -1,0 +1,113 @@
+#################################################################
+#                                                               #
+#                    Packages/17track                           #  
+#                                                               # 
+#                                                               #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+homeassistant:
+  customize:
+    sensor.17track_packages_in_transit:
+      friendly_name: Packages in Transit
+      icon: mdi:package-variant
+   
+      
+#################################################################
+#                                                               #
+#                           script                              #
+#                                                               #
+#################################################################
+script:
+        
+
+#################################################################
+#                                                               #
+#                           Groups                              #
+#                                                               #
+#################################################################
+group:
+
+
+#################################################################
+#                                                               #
+#                           sensors                             #
+#                                                               #
+#################################################################
+sensor:
+ - platform: seventeentrack
+   username: !secret 17track_username
+   password: !secret 17track_password
+
+
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+automation:
+  - id: '1547149419592'
+    alias: 'Packages - Send Packages Status Updates'
+    initial_state: 'on'
+    trigger:
+    - at: '07:00'
+      platform: time
+    - at: '16:00'
+      platform: time    
+    condition: []
+    action:
+    - data_template:
+        message: "17track Tracking data
+          |\n
+          {% for state in states.sensor -%}
+          {% if state.attributes.attribution=='Data provided by 17track.net' and state.attributes.unit_of_measurement!='packages' -%} 
+          {{ state.name|replace('Seventeentrack Package:','') }} - {{ state.attributes.tracking_number}} - {{ state.state}} - {{ state.attributes.info_text }}
+          \n|\n
+          {%- endif %}
+          {%- endfor %}
+          |\n"
+        title: Package updates 17track & AfterShip by Home Assistant
+      service: notify.AviTelegram
+
+
+  - id: '1547151681126'
+    alias: 'Packages - Alert 17Track New Package for Pickup '
+    initial_state: 'on'
+    trigger:
+    - entity_id: sensor.packages_ready_to_be_picked_up
+      from: '0'
+      platform: state
+      to: '1'
+    - entity_id: sensor.packages_ready_to_be_picked_up
+      from: '1'
+      platform: state
+      to: '2'
+    - entity_id: sensor.packages_ready_to_be_picked_up
+      from: '2'
+      platform: state
+      to: '3'
+    - entity_id: sensor.packages_ready_to_be_picked_up
+      from: '3'
+      platform: state
+      to: '4'
+    condition: []
+    action:
+    - data_template:
+        message: "17track Tracking data
+          |\n
+          {% for state in states.sensor -%}
+          {% if state.attributes.attribution=='Data provided by 17track.net' and state.attributes.unit_of_measurement!='packages' -%} 
+          {{ state.name|replace('Seventeentrack Package:','') }} - {{ state.attributes.tracking_number}} - {{ state.state}} - {{ state.attributes.info_text }}
+          \n|\n
+          {%- endif %}
+          {%- endfor %}
+          |\n"
+        title: New Package ready for Pickup - 17Track by Home Assistant
+      service: notify.AviTelegram
+

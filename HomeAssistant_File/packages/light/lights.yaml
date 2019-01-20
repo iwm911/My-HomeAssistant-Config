@@ -18,7 +18,7 @@ homeassistant:
 
     light.poop:
       friendly_name: שירותי אורחים
-      icon: mdi:emoticon-poop
+      icon: fas:toilet
       assumed_state: false  
       
     light.prozdor:
@@ -37,7 +37,7 @@ homeassistant:
   
     Light.balcony:
       friendly_name: מרפסת
-      icon: mdi:smoking
+      icon: fas:smoking
       assumed_state: false 
     
     light.liran_room:
@@ -70,7 +70,7 @@ homeassistant:
 #################################################################  
     automation.turn_on_lights_parents_based_on_montion:
       friendly_name: תאורה אוטומטית - הורים
-      icon: mdi:light-switch
+      icon: fas:restroom
       assumed_state: false 
       
     automation.turn_on_lights_miklahat_based_on_montion:  
@@ -83,34 +83,7 @@ homeassistant:
       icon: mdi:light-switch
       assumed_state: false 
       
-    sensor.illumination_158d0002047c5a:
-      friendly_name: עוצמת אור
-      assumed_state: false
-  
-    sensor.illumination_158d000204bfcb:
-      friendly_name: עוצמת אור - מקלחת הורים
-      assumed_state: false    
-  
-    binary_sensor.motion_sensor_158d0002047c5a:
-      friendly_name: חיישן - מקלחת ראשית
-      assumed_state: false 
-      
-    binary_sensor.motion_sensor_158d000204bfcb: 
-      friendly_name: חיישן תנועה מקלחת הורים
-      assumed_state: false  
 
-    binary_sensor.motion_sensor_158d0002b42fa3:
-      friendly_name: חיישן תנועה שירותי אורחים
-      assumed_state: false 
-      
-    binary_sensor.motion_sensor_158d00024e7972:
-      friendly_name: חיישן תנועה חדר כביסה 
-      assumed_state: false 
-    
-    binary_sensor.motion_sensor_158d000272bc63:
-      friendly_name: חיישן תנועה חדר מחשבים
-      assumed_state: false
-      
 #################################################################
 #                                                               #
 #                          mqtt - light                         #
@@ -266,7 +239,6 @@ group:
       - light.balcony
       - light.service_balcony
       - light.yeelight_strip_7c49ebadb95c
-      - light.yeelight_rgb_7c49eb0f97b1
       - light.gateway_light_34ce008d4e2e
       
   upstairs lights:
@@ -276,6 +248,7 @@ group:
       - light.stairs
       - light.server_room_fan
       - light.parents
+      - light.yeelight_rgb_7c49eb0f97b1
 
 #################################################################
 #                                                               #
@@ -289,6 +262,7 @@ automation:
 #                    חיישן תנועה מקלחת שלי                      #
 #################################################################
   - alias: Turn on lights parents based on montion
+    initial_state: 'on'
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d000204bfcb
       platform: state
@@ -296,7 +270,9 @@ automation:
     action:
     - service: light.turn_on
       entity_id: light.parents
+
   - alias: Turn off lights parents based on montion
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d000204bfcb
@@ -311,6 +287,7 @@ automation:
 #                    חיישן תנועה מקלחת ראשית                    #
 #################################################################
   - alias: Turn on lights miklahat based on montion
+    initial_state: 'on'  
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d0002047c5a
       platform: state
@@ -320,6 +297,7 @@ automation:
       entity_id: light.miklahat
 
   - alias: Turn off lights miklahat based on montion
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d0002047c5a
@@ -335,6 +313,7 @@ automation:
 #                    חיישן תנועה שירותי אורחים                  #
 #################################################################
   - alias: Turn on lights poop based on montion
+    initial_state: 'on'  
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d0002b42fa3
       platform: state
@@ -344,6 +323,7 @@ automation:
       entity_id: light.poop
 
   - alias: Turn off lights poop based on montion
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d0002b42fa3
@@ -359,6 +339,7 @@ automation:
 #                       חיישן תנועה חדר כביסה                   #
 #################################################################
   - alias: Turn on lights laundry based on montion
+    initial_state: 'on'  
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d00024e7972
       platform: state
@@ -369,6 +350,7 @@ automation:
 
 
   - alias: Turn off lights laundry based on montion
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d00024e7972
@@ -384,6 +366,7 @@ automation:
 #                      חיישן תנועה חדר מחשבים                   #
 #################################################################
   - alias: Turn on lights pc room based on montion
+    initial_state: 'on'  
     trigger:
     - entity_id: binary_sensor.motion_sensor_158d000272bc63
       platform: state
@@ -391,9 +374,12 @@ automation:
     action:
     - service: light.turn_on
       entity_id: light.yeelight_rgb_7c49eb0f97b1
-
+      data:
+        brightness: 255
+        rgb_color: [255,255,255]  
 
   - alias: Turn off lights pc room based on montion
+    initial_state: 'on'  
     trigger:
       platform: state
       entity_id: binary_sensor.motion_sensor_158d000272bc63
@@ -402,7 +388,9 @@ automation:
         minutes: 1
     action:
     - service: light.turn_off
-      entity_id: light.yeelight_rgb_7c49eb0f97b1       
+      entity_id: light.yeelight_rgb_7c49eb0f97b1    
+    
+
       
 
 #################################################################
@@ -410,6 +398,7 @@ automation:
 #################################################################
 
   - alias: Lighting the light after sunset at eleven oclock
+    initial_state: 'on'  
     trigger:
       platform: time
       at: '22:00:00'
@@ -420,6 +409,7 @@ automation:
         - light.stairs
 
   - alias: Lights off after sunset
+    initial_state: 'on'  
     trigger:
       platform: time
       at: '06:00:00'
@@ -436,6 +426,7 @@ automation:
 #################################################################
   ## לחצן הפעלה במרפסת ##
   - alias: Turn on lighting on the main balcony
+    initial_state: 'on'  
     trigger:
       platform: event
       event_type: xiaomi_aqara.click
@@ -448,6 +439,7 @@ automation:
 
   ## לחצן הפעלה מרפסת שירות ##
   - alias: Turn on lighting on the Service balcony
+    initial_state: 'on'  
     trigger:
       platform: event
       event_type: xiaomi_aqara.click
@@ -464,6 +456,7 @@ automation:
 #                     Good night                                #
 #################################################################
   - alias: turn off lights on long press before sleep
+    initial_state: 'on'  
     trigger:
       platform: event
       event_type: xiaomi_aqara.click
@@ -485,6 +478,7 @@ automation:
 #                     turn on with a single click               #
 #################################################################
   - alias: turn on lights on single press
+    initial_state: 'on'  
     trigger:
       platform: event
       event_type: xiaomi_aqara.click
@@ -506,6 +500,7 @@ automation:
 #                     turn on with a double press               #
 #################################################################
   - alias: turn on light on double press
+    initial_state: 'on'  
     trigger:
       platform: event
       event_type: xiaomi_aqara.click

@@ -258,9 +258,9 @@ sensor:
 #################################################################
 
 vacuum:
-    platform: xiaomi_miio
-    host: !secret vacuum_ip
-    token: !secret vacuum      
+- platform: xiaomi_miio
+  host: !secret vacuum_ip
+  token: !secret vacuum      
         
 
 #################################################################
@@ -320,17 +320,18 @@ script:
               params: [[28624,25960,31574,30260,1]] ## אזור הכלבים ##             
 
 
-    
 #################################################################
 #                                                               #
 #                         Automations                           #
 #                                                               #
 #################################################################
+
 automation:
   - alias: Send alert after daily vacuum to empty the dustbin
+    initial_state: 'on'  
     trigger:
     - platform: state
-      entity_id: notify.AviTelegram     #device_tracker.avi_note8
+      entity_id: notify.AviTelegram 
       to: 'home'
       for:
         minutes: 5
@@ -366,6 +367,7 @@ automation:
           cache: false
 
   - alias: Reset Daily Vacuum First Run state at midnight
+    initial_state: 'on'  
     trigger:
     - platform: time
       at: '0:00:00'
@@ -403,6 +405,7 @@ automation:
         option: "Select Input"
         
   - alias: Start Daily Vacuum
+    initial_state: 'on'  
     trigger:
     - platform: time
       minutes: '/45'

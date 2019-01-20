@@ -39,40 +39,18 @@
       - 'time'
           
            
+
 # אבטחה - איזה כתובת אי פי התחברה #
   - platform: template
     sensors:
       authentication_known_ip_info:
         value_template: >-
-          {% if is_state('sensor.last_successful_rature.attributes.new_ip', 'true') %}
+          {% if is_state('sensor.last_successful_authentication.attributes.new_ip', 'true') %}
             כן
           {% else %}
             לא
-          {% endif %} 
+          {% endif %}
           
-
-###### Latest config backup time
-  - platform: command_line
-    command: "bash /config/bin/latest_Hass_backup.py"
-    name: 'Latest HA Backup'
-    scan_interval: 43200 #12 Hours
-
-  # Radarr #
-  - platform: radarr_upcoming_media
-    api_key: !secret radarr
-    host: 1.1.1.1
-    port: 7878
-    days: 120
-    ssl: false
-
-  # plex #
-  - platform: plex_recently_added
-    token: !secret plex
-    server_name: HP
-    ssl: false
-    ssl_cert: false
-    download_images: false
-    max: 5     
 
   - platform: mqtt
     name: "BlitzWolf shp1 energy today"
@@ -94,4 +72,4 @@
     state_topic: "tele/bw-shp1/SENSOR"
     value_template: '{{ (value_json["ENERGY"]["Total"] * 0.5404) | round(3) }}'
     #ILS OR USD (Depends on local currency) Just change the value of "0.5404" to your local elctricity price
-    unit_of_measurement: "₪" # USD / Other local currency           
+    unit_of_measurement: "₪" # USD / Other local currency

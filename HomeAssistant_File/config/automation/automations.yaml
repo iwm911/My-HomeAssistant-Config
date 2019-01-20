@@ -1,5 +1,6 @@
   ## כיבוי שקע תמי4 ##
   - id: Turn_off_Tami_4_in_Night
+    initial_state: 'on'  
     alias: 'Turn Off Tami 4 In Night'
     trigger:
     - at: '22:00'
@@ -11,6 +12,7 @@
       service: switch.turn_off
       
   - id: Turn_on_Tami_4_in_Mornning
+    initial_state: 'on'  
     alias: 'Turn On Tami 4 In Mornning'
     trigger:
     - at: '05:45'
@@ -22,6 +24,7 @@
       service: switch.turn_on
 
   - id: Auto_off_Tami_4_in_Night
+    initial_state: 'on'  
     alias: 'Auto Off Tami 4 In Night'
     trigger:
       - entity_id: switch.service_out_light
@@ -37,6 +40,7 @@
       entity_id: timer.tami4
       
   - alias: Tami_4_Timerstop
+    initial_state: 'on'  
     id: 'Tami 4 Timerstop'
     trigger: 
     - platform: event
@@ -46,4 +50,40 @@
     action:
     - data:
         entity_id: switch.blitzwolf_shp1
+      service: switch.turn_off            
+
+#################################################################
+#                                                               #
+#                  Turn off - Yakir TV Card                     #
+#                                                               #
+#################################################################
+
+  - id: Turn_off_yakir_tv_in_Night
+    initial_state: 'on'  
+    alias: 'turn Off yakir tv in night'
+    trigger:
+    - at: '00:30'
+      platform: time
+    condition: []
+    action:
+    - data:
+        entity_id: switch.yakir_tv
       service: switch.turn_off
+
+#################################################################
+#                                                               #
+#                  Turn on  - Yakir TV Card                     #
+#                                                               #
+#################################################################      
+
+  - id: Turn_on_yakir_tv_in_Mornning
+    initial_state: 'on'  
+    alias: 'Turn on yakir in Mornning'
+    trigger:
+    - at: '05:45'
+      platform: time
+    condition: []
+    action:
+    - data:
+        entity_id: switch.yakir_tv
+      service: switch.turn_on      

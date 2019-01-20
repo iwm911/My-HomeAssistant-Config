@@ -15,9 +15,6 @@ homeassistant:
     device_tracker.nurit_iphone:
       friendly_name: מצב הסוללה
       
-    sensor.nurit_iphone:
-      icon: mdi:battery-70
-
     device_tracker.iphone_nurit:
       friendly_name: נורית 
       entity_picture: /local/known_devices/nurit.png
@@ -26,6 +23,9 @@ homeassistant:
     device_tracker.avi_note8:
       friendly_name: אבי 
       entity_picture: /local/known_devices/avi.png
+      
+    sensor.next_bus:
+      icon: 'mdi:bus-clock'      
  
 #################################################################
 #                                                               #
@@ -39,20 +39,11 @@ group:
     view: no
     entities:
       - device_tracker.avi_note8
-      - device_tracker.iphone_nurit
+      # - device_tracker.iphone_nurit
       - sensor.avi_battery
-      - sensor.nurit_iphone
+      # - sensor.nurit_iphone_battery_level
 
 
-#################################################################
-#                                                               #
-#                      Device Trackers                          #
-#                                                               #
-################################################################# 
-
-# device_tracker:
-
-    
     
 #################################################################
 #                                                               #
@@ -60,26 +51,46 @@ group:
 #                                                               #
 ################################################################# 
 
-## Batteries
 sensor:
-  - platform: template
-    sensors:
-      nurit_iphone:
-       friendly_name: סוללה של נורית
-       unit_of_measurement: "%"
-       value_template: '{{ states.device_tracker.nurit_iphone.attributes.battery|int }}'
-       entity_id: 
-       - device_tracker.nurit_iphone
-
   # Zanzito #
   - platform: mqtt
     state_topic: "owntracks/Avi/avi"
     name: "Avi Battery"
     unit_of_measurement: "%"
     value_template: '{{ value_json.batt }}'
-    device_class: battery       
-       
+    device_class: battery
 
+
+  - platform: template
+    sensors:
+      next_bus:
+        friendly_name: Time to Next Bus
+        unit_of_measurement: min
+        value_template: >
+          {% set min_now = states('sensor.time').split(':')[1]|int %}
+          {% set time_now_h = states('sensor.time').split(":",)[0].replace("0", "")|int %}
+          {% set time_now_m = states('sensor.time').split(":",)[1].replace("0", "")|int %}
+          {% if now().strftime("%H")|int < 5 %}
+            {{ (330 - (time_now_h*60) + (time_now_m)) }}
+          {% elif now().strftime("%H")|int < 6 %}
+            {{ 29 - min_now if min_now < 29 else 59 - min_now if min_now < 59 }}
+          {% elif now().strftime("%H")|int < 7 %}
+            {{ 19 - min_now if min_now < 19 else 39 - min_now if min_now < 39 else 59 - min_now if min_now < 59 }}
+          {% elif now().strftime("%H")|int < 8 %}
+            {{ 14 - min_now if min_now < 14 else 29 - min_now if min_now < 29 else 44 - min_now if min_now < 44 else 59 - min_now if min_now < 59 }}
+          {% elif now().strftime("%H")|int < 9 %}
+            {{ 14 - min_now if min_now < 9 else 29 - min_now if min_now < 29 else 49 - min_now if min_now < 49 }}
+          {% elif now().strftime("%H")|int < 15 %}
+            {{ 9 - min_now if min_now < 9 else 29 - min_now if min_now < 29 else 49 - min_now if min_now < 49 }}
+          {% elif now().strftime("%H")|int < 18 %}
+            {{ 14 - min_now if min_now < 14 else 24 - min_now if min_now < 24 else 39 - min_now if min_now < 39 else 54 - min_now if min_now < 54 }}
+          {% elif now().strftime("%H")|int < 20 %}
+            {{ 14 - min_now if min_now < 9 else 34 - min_now if min_now < 34 else 59 - min_now if min_now < 59 }}
+          {% elif now().strftime("%H")|int < 24 %}
+            {{ 29 - min_now if min_now < 29 else 59 - min_now if min_now < 59 }}
+          {% else %}
+            Unknown
+          {% endif %}            
 #################################################################
 #                                                               #
 #                         Automations                           #
@@ -107,6 +118,7 @@ automation:
 
 ########################### 
   - alias:  turn off xiaomi cameras if nurit at home
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: device_tracker.iphone_nurit
@@ -118,7 +130,7 @@ automation:
       - service: homeassistant.turn_off
         entity_id: switch.sh20_pow 
 
-      - service: notify.ios_nurit_iphone
+      - service: notify.iphone_nurit
         data:
           title: "אבטחה"
           message: 'ברוכה הבאה נורית, המצלמה כבויה'
@@ -132,7 +144,8 @@ automation:
               
               
 ########################## 
-  - alias:  turn OFF xiaomi cameras if Morning and we are at home 
+  - alias:  turn OFF xiaomi cameras if Morning and we are at home
+    initial_state: 'on'
     trigger:
       - platform: time
         at: '07:00:00'
@@ -143,7 +156,7 @@ automation:
           entity_id: device_tracker.avi_note8
           state: 'home'
         - condition: state
-          entity_id: device_tracker.iphone_nurit
+          entity_id: notify.iphone_nurit
           state: 'home'
 
     action:
@@ -158,6 +171,7 @@ automation:
           
 ##########################          
   - alias:  turn on xiaomi cameras if nurit AND avi NOT at home
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: device_tracker.avi_note8,device_tracker.iphone_nurit
@@ -175,4 +189,4 @@ automation:
           state: 'not_home'
     action:
       - service: homeassistant.turn_on
-        entity_id: switch.sh20_pow          
+        entity_id: switch.sh20_pow

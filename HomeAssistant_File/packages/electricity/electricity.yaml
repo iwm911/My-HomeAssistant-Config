@@ -37,7 +37,7 @@ homeassistant:
       icon: mdi:altimeter
     
     sensor.power_calc_total_phaze1:  
-      icon: mdi:cash-100 
+      icon: fas:bolt
       
     sensor.power_calc_today_phaze1:
       icon: mdi:cash
@@ -77,20 +77,20 @@ group:
     name: Electricity
     view: no
     entities:
-      - sensor.phaze_1__total
-      - sensor.phaze_1__current
-      - sensor.phaze_1__today
-      - sensor.phaze_1__yesterday
+      - sensor.phaze_1_total
+      - sensor.phaze_1_current
+      - sensor.phaze_1_today
+      - sensor.phaze_1_yesterday
 
   voltage:
     name: All Voltage
     view: no
     entities:
-      - sensor.phaze_1__voltage
-      - sensor.phaze_1__yesterday
-      - sensor.phaze_1__power_factor
-      - sensor.phaze_1__apparent_power
-      - sensor.phaze_1__reactive_power
+      - sensor.phaze_1_voltage
+      - sensor.phaze_1_yesterday
+      - sensor.phaze_1_power_factor
+      - sensor.phaze_1_apparent_power
+      - sensor.phaze_1_reactive_power
 
   electric clock:
     name: Electric Company
@@ -117,7 +117,7 @@ input_number:
 
   shekel_number:
     name: shekel Count
-    initial: 806
+    # initial: 806
     min: 0
     max: 999999999
     step: 1
@@ -181,28 +181,28 @@ sensor:
     sensors:
       power_calc_total_phaze1:
         friendly_name: "חישוב צריכה כללי"
-        value_template: "{{(((states.sensor.phaze_1__total.state | float) * 54.04) / 100) | round(2) }}"
+        value_template: "{{(((states.sensor.phaze_1_total.state | float) * 54.04) / 100) | round(2) }}"
         unit_of_measurement: "₪"
       power_calc_today_phaze1:
         friendly_name: "חישוב צריכה יומית"
-        value_template: "{{(((states.sensor.phaze_1__today.state | float) * 54.04) / 100) | round(2) }}"
+        value_template: "{{(((states.sensor.phaze_1_today.state | float) * 54.04) / 100) | round(2) }}"
         unit_of_measurement: "₪"
       power_calc_yesterday_phaze1:
         friendly_name: "חישוב צריכה יום קודם"
-        value_template: "{{(((states.sensor.phaze_1__yesterday.state | float) * 54.04) / 100) | round(2) }}"
+        value_template: "{{(((states.sensor.phaze_1_yesterday.state | float) * 54.04) / 100) | round(2) }}"
         unit_of_measurement: "₪" 
 
       kwh_count_all:
         friendly_name: "KWH Count Total"
-        value_template: "{{((states.input_number.kwh_number.state | float) + (states.sensor.phaze_1__total.state | float)) | round(2) }}"
+        value_template: "{{((states.input_number.kwh_number.state | float) + (states.sensor.phaze_1_total.state | float)) | round(2) }}"
         unit_of_measurement: "kWh"
       shekel_count_all:
         friendly_name: "shekel Count start"
-        value_template: "{{((states.input_number.shekel_number.state | float) + (states.sensor.phaze_1__yesterday.state | float)) | round(2) }}"
+        value_template: "{{((states.input_number.shekel_number.state | float) + (states.sensor.power_calc_yesterday_phaze1.state | float)) | round(2) }}"
         unit_of_measurement: "₪"        
       kwh_count_yesterday:
         friendly_name: "KWH Count Yesterday"
-        value_template: "{{((states.sensor.kwh_count_all.state | float) - (states.sensor.phaze_1__yesterday.state | float)) | round(2) }}"
+        value_template: "{{((states.sensor.kwh_count_all.state | float) - (states.sensor.phaze_1_yesterday.state | float)) | round(2) }}"
         unit_of_measurement: "kWh"        
        
 
@@ -212,3 +212,13 @@ sensor:
 #                                                               #
 #################################################################
 automation:
+  - alias: Set shekel_number
+    initial_state: 'on'
+    trigger:
+    - at: '03:14'
+      platform: time
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.shekel_number
+        value: "{{ states.sensor.shekel_count_all.state | float }}"

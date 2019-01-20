@@ -141,7 +141,8 @@ general electricity:
     - group.voltage
     - group.money
     - group.washing_machin
-    - group.washing_machin_tracking      
+    - group.washing_machin_tracking 
+    - group.electric_clock
 
 
 ####################################################
@@ -156,7 +157,7 @@ things status:
   view: yes
   entities:
     - group.battery_alert 
-
+    
 
 ####################################################
 #                                                  #

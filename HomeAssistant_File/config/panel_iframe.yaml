@@ -1,4 +1,4 @@
   tasmoadmin:
     title: 'TasmoAdmin'
-    url: 'http://1.1.1.1:1111'
+    url: 'http://192.168.1.199:9541'
     icon: mdi:lightbulb-on

@@ -76,8 +76,7 @@ sensor:
     name: "Washing Machine total cost"
     state_topic: "tele/washing_machine/SENSOR"
     value_template: '{{ (value_json["ENERGY"]["Total"] * 0.5404) | round(3) }}'
-    #ILS OR USD (Depends on local currency) Just change the value of "0.5404" to your local elctricity price
-    unit_of_measurement: "₪" # USD / Other local currency 
+    unit_of_measurement: "₪"  
 
 
 #################################################################

@@ -3,24 +3,7 @@
   custom_ui_state_card: state-card-custom-ui
   templates:
     theme: if (state =='on') return 'alert_gold'; else if (state =='unavailable') return 'alert_steel';  #else -regular
-# שייך לשינוי המצב כיבוי או הפעלת מצלמת אבטחה #
-input_boolean.status_*:
-  custom_ui_state_card: state-card-custom-ui
-  templates:
-    theme: if (state =='online') return 'alert_green'; else return 'alert_red';
-    
-# חיישן לחות חדר מחשבים #
-sensor.humidity_*:
-  custom_ui_state_card: state-card-custom-ui
-  templates:
-    theme: if (state =='on') return 'alert_green'; else return 'alert_red';
-    icon_color: if (state =='on') return 'gold';
-# חיישן טמפ חדר מחשבים #
-sensor.temperature_158d00022ece24:
-    custom_ui_state_card: state-card-custom-ui
-    templates:
-      theme: if (state =='on') return 'alert_green'; else return 'alert_red';
-      icon_color: if (state =='on') return 'gold';
+
 
       
 group.*:

@@ -1,0 +1,84 @@
+#################################################################
+#                                                               #
+#                       Packages/Fitness                        #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+    sensor.nurit_steps:
+      icon: mdi:walk
+      
+    sensor.steps:
+      icon: mdi:walk 
+
+    sensor.weight:
+      icon: mdi:weight-kilogram 
+    
+    sensor.height:
+      icon: mdi:table-row-height
+
+    # sensor.calories:
+    #   icon: mdi:
+    
+    sensor.distance:
+      icon: mdi:map-marker-distance 
+    
+    sensor.time:
+      icon: mdi:timer
+      
+#################################################################
+#                                                               #
+#                            group                              #
+#                                                               #
+#################################################################
+
+group:
+  Google_Fit:
+    - sensor.steps
+    - sensor.distance
+    - sensor.time
+    - sensor.calories
+    - sensor.weight
+    - sensor.height
+
+#################################################################
+#                                                               #
+#                            Sensors                            #
+#                                                               #
+#################################################################
+
+sensor:
+
+####################################################
+#                                                  #
+#               Sensors - Google Fit               #
+#                                                  #
+####################################################
+
+  - platform: google_fit
+    client_id: !secret google_client_id
+    client_secret: !secret google_client_secret
+    scan_interval: 30   
+    
+####################################################
+#                                                  #
+#             Sensors - MQTT                       #
+#                                                  #
+####################################################
+
+  - platform: mqtt
+    name: "Avi Steps"
+    state_topic: "steps/avi/samsung"
+    
+  - platform: mqtt
+    name: "Nurit Steps"
+    state_topic: "steps/nurit/iphone"
+    
+  

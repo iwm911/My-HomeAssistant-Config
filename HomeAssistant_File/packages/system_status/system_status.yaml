@@ -1,0 +1,315 @@
+#################################################################
+#                                                               #
+#                    Packages/Core Network                      #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+
+homeassistant:
+  customize:
+  
+#################################################################
+#                                                               #
+#                           Group                               #
+#                                                               #
+#################################################################
+
+group:
+  core network:
+    name: Core Network
+    view: no
+    entities:
+      - binary_sensor.core_router
+      - binary_sensor.switch
+      - binary_sensor.unifi
+
+      
+  core devices:
+    name: Core Devices
+    view: no
+    entities:
+      - binary_sensor.nas_movies
+      - binary_sensor.xtreamer_whizz
+      - binary_sensor.unriad
+      - binary_sensor.broadlink
+      - binary_sensor.xiaomi_gateway
+      - binary_sensor.alexa_main
+      - binary_sensor.ubuntu
+      - binary_sensor.windows_10_vm
+      - binary_sensor.windows_liran
+      - binary_sensor.desktop_4fdcngh
+      
+  ha devices:
+    name: HA Devices
+    view: no
+    entities:
+      - binary_sensor.ipad
+
+  media devices:
+    name: Media Devices
+    view: no
+    entities:
+      - binary_sensor.media_tv
+
+
+#################################################################
+#                                                               #
+#                       Device Tracker                          #
+#                                                               #
+#################################################################
+
+device_tracker:
+  - platform: ping
+    hosts:
+      core_router: 192.168.1.1
+      nas_movies: 192.168.1.199
+      xtreamer_whizz: 192.168.1.4
+      unriad: 192.168.1.125
+      broadlink: 192.168.1.218
+      xiaomi_gateway: 192.168.1.17
+      switch: 192.168.1.28
+      unifi: 192.168.1.38
+      alexa_main: 192.168.1.20
+      ubuntu: 192.168.1.120
+      media_tv: 192.168.1.23
+      ipad: 192.168.1.134
+      windows_10_vm: 192.168.1.198
+      desktop_4fdcngh: 192.168.1.74 
+      windows_liran: 192.168.1.10
+
+
+
+      
+  - platform: nmap_tracker
+    hosts:
+      - 192.168.1.1
+      
+
+#################################################################
+#                                                               #
+#                       Binary Sensors                          #
+#                                                               #
+#################################################################
+
+binary_sensor:
+  - platform: template
+    sensors:
+      router:
+        friendly_name: Core Router
+        device_class: connectivity
+        entity_id: device_tracker.core_router
+        value_template: "{{ is_state('device_tracker.core_router', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.core_router', 'home') %}
+            mdi:router-wireless
+          {% else %}
+            mdi:router-wireless
+          {% endif %}
+      broadlink:
+        friendly_name: Core Switch
+        device_class: connectivity
+        entity_id: device_tracker.broadlink
+        value_template: "{{ is_state('device_tracker.broadlink', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.broadlink', 'home') %}
+            mdi:switch
+          {% else %}
+            mdi:switch
+          {% endif %}
+      unifi:
+        friendly_name: UniFi
+        device_class: connectivity
+        entity_id: device_tracker.unifi
+        value_template: "{{ is_state('device_tracker.unifi', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.unifi', 'home') %}
+            mdi:access-point
+          {% else %}
+            mdi:access-point
+          {% endif %}
+      switch:
+        friendly_name: HP Switch
+        device_class: connectivity
+        entity_id: device_tracker.switch
+        value_template: "{{ is_state('device_tracker.switch', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.switch', 'home') %}
+            mdi:switch
+          {% else %}
+            mdi:switch
+          {% endif %}
+      nas_movies:
+        friendly_name: NAS Movies
+        device_class: connectivity
+        entity_id: device_tracker.nas_movies
+        value_template: "{{ is_state('device_tracker.nas_movies', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.nas_movies', 'home') %}
+            mdi:harddisk
+          {% else %}
+            mdi:harddisk
+          {% endif %}
+      xtreamer_whizz:
+        friendly_name: Xtreamer Whizz Shows
+        device_class: connectivity
+        entity_id: device_tracker.xtreamer_whizz
+        value_template: "{{ is_state('device_tracker.xtreamer_whizz', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.xtreamer_whizz', 'home') %}
+            fas:film
+          {% else %}
+            fas:film
+          {% endif %}
+      unriad:
+        friendly_name: Unriad Man
+        device_class: connectivity
+        entity_id: device_tracker.unriad
+        value_template: "{{ is_state('device_tracker.unriad', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.unriad', 'home') %}
+            fas:server
+          {% else %}
+            fas:server
+          {% endif %}
+      alexa_main:
+        friendly_name: Alexa Main
+        device_class: connectivity
+        entity_id: device_tracker.amzonecho
+        value_template: "{{ is_state('device_tracker.amzonecho', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.amzonecho', 'home') %}
+            mdi:voice
+          {% else %}
+            mdi:voice
+          {% endif %}
+      windows_10_vm:
+        friendly_name: windows 10 VM
+        device_class: connectivity
+        entity_id: device_tracker.windows_10_vm
+        value_template: "{{ is_state('device_tracker.windows_10_vm', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.windows_10_vm', 'home') %}
+            mdi:windows
+          {% else %}
+            mdi:windows
+          {% endif %}
+      windows_liran:
+        friendly_name: windows 10 Liran
+        device_class: connectivity
+        entity_id: device_tracker.windows_10_vm
+        value_template: "{{ is_state('device_tracker.windows_liran', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.windows_liran', 'home') %}
+            mdi:windows
+          {% else %}
+            mdi:windows
+          {% endif %}          
+      ubuntu:
+        friendly_name: Ubuntu PC
+        device_class: connectivity
+        entity_id: device_tracker.ubuntu
+        value_template: "{{ is_state('device_tracker.ubuntu', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.ubuntu', 'home') %}
+            fas:ubuntu
+          {% else %}
+            fas:ubuntu
+          {% endif %}
+      desktop_4fdcngh:
+        friendly_name: desktop_4fdcngh
+        device_class: connectivity
+        entity_id: device_tracker.desktop_4fdcngh
+        value_template: "{{ is_state('device_tracker.desktop_4fdcngh', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.desktop_4fdcngh', 'home') %}
+            mdi:windows
+          {% else %}
+            mdi:windows
+          {% endif %}
+      xiaomi_gateway:
+        friendly_name: Xiaomi Gateway
+        device_class: connectivity
+        entity_id: device_tracker.xiaomi_gateway
+        value_template: "{{ is_state('device_tracker.xiaomi_gateway', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.xiaomi_gateway', 'home') %}
+            mdi:server
+          {% else %}
+            mdi:server
+          {% endif %}
+      ipad:
+        friendly_name: HA Automation Server
+        device_class: connectivity
+        entity_id: device_tracker.ipad
+        value_template: "{{ is_state('device_tracker.ipad', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.ipad', 'home') %}
+            fas:tablet-alt
+          {% else %}
+            fas:tablet-alt
+          {% endif %} 
+      media_tv:
+        friendly_name: Media 4K TV
+        device_class: connectivity
+        entity_id: device_tracker.media_tv
+        value_template: "{{ is_state('device_tracker.media_tv', 'home') }}"
+        icon_template: >-
+          {% if is_state('device_tracker.media_tv', 'home') %}
+            mdi:television
+          {% else %}
+            mdi:television
+          {% endif %}          
+
+          
+#################################################################
+#                                                               #
+#                          Automations                          #
+#                                                               #
+################################################################# 
+
+automation:
+# ## Notify if CPU Temperature is High
+  - alias: CPU Temp Alarm
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.cpu_temp
+      above: 40
+    action:
+      - service: notify.AviTelegram
+        data:
+          title: 'Home Assistant CPU Temp Server'
+          message: 'Warning - HA Server CPU Temp Above 40c'
+          
+## Notify if ISP Download Speed has dropped
+  - alias: Internet Download Speed Drop
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.speedtest_download
+      below: 90
+    action:
+      - service: notify.AviTelegram
+        data:
+          title: 'Home Assistant Unraid Server'
+          message: 'Warning - ISP Download Speed is lower then 90Mbps'
+          
+
+## Notify if the database is High
+  - alias: Database Use Alarm
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.home_assistant_v2_db
+      above: 800
+    action:
+      - service: notify.AviTelegram
+        data:
+          title: 'Home Assistant Database'
+          message: 'Warning - Database is Use is above 800mb'
+         

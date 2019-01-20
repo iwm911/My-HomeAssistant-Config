@@ -16,7 +16,7 @@ homeassistant:
       friendly_name: תאורה חדר שרתים
       icon: mdi:server      
 
-    light.kitchen_strip_lamp:
+    light.yeelight_strip_7c49ebadb95c:
       friendly_name: תאורת לד במטבח
       icon: mdi:led-strip
       
@@ -32,10 +32,10 @@ group:
     name: Yeelight
     view: no
     entities:
-      - light.kitchen_strip_lamp
+      - light.yeelight_strip_7c49ebadb95c
       - light.yeelight_rgb_7c49eb0f97b1
 
-
+    
 #################################################################
 #                                                               #
 #                           lights                              #
@@ -45,13 +45,13 @@ group:
 light:
   - platform: yeelight
     devices:
-      1.1.1.1:
+      192.xxx.x.xxx:
         name: Computer Room
         transition: 1000
                 
   - platform: yeelight
     devices:
-      1.1.1.1:
+      192.xxx.x.xxx:
         name: Kitchen strip Lamp
         transition: 1000     
     

@@ -12,24 +12,7 @@
 
 homeassistant:
   customize:
-    ## שינוי שמות ##
-    camera.building_door:
-      friendly_name: מצלמת דלת בניין
-
-    camera.front_camera_dor:
-      friendly_name: מצלמת דלת הבית
-
-    camera.outside_camera_backwards:
-      friendly_name: מצלמה חיצונית מרכזי
-      
-    camera.right_side_4mp:
-      friendly_name: מצלמה צד ימין 4 מגה
-      
-    camera.left_side_2mp:
-      friendly_name: מצלמה צד שמאל  2 מגה
-      
-    
-
+          
     ## שינוי שמות לאוטומציה של כיבוי המצלמה ##
     automation.turn_on_xiaomi_cameras_if_nurit_and_avi_not_at_home:
       friendly_name: פעיל - אני ונורית לא בבית
@@ -88,34 +71,35 @@ homeassistant:
 
 #################################################################
 #                                                               #
-#                          cameras                            #
+#                          cameras                              #
 #                                                               #
 #################################################################
 camera:
-  ## hikvision Camera ## 
-    - platform: ffmpeg
-      input: !secret input_01
-      name:  building door
 
-  ## hikvision Camera  dvr ## 
+  ## hikvision Camera 3mp ## 
     - platform: ffmpeg
-      input: !secret input_02
-      name:  Outside Camera backwards
-  
-  ## foscam Camera ## 
-    - platform: mjpeg
-      mjpeg_url: !secret mjpeg_url
-      name: front Camera Dor
+      input: !secret camera_3mp_entrance_to_the_building
+      name: Entrance To The Building
 
-  ## Dahua Camera 4mp ## 
+  ## Front Door Camera ##
     - platform: ffmpeg
-      input: !secret camera4mp
-      name: Right Side 4MP  
+      input: !secret front_door_camera_ip_url
+      name: Front Door Camera
+
+  ## Dahua Camera ##
+    - platform: onvif
+      name: Dahua Camera 
+      host: !secret dahua_host
+      profile: 0 # 0 for SuperHD
+      port: 80
+      username: !secret dahua_username
+      password: !secret dahua_password  
+
       
-  ## hikvision Camera 2mp ## 
+  ## Dahua Camera 6mp ##
     - platform: ffmpeg
-      input: !secret camera2mp
-      name: Left Side 2MP
+      input: !secret dahua_6m
+      name: Dahua Camera 6m
 
               
 #################################################################
@@ -124,42 +108,21 @@ camera:
 #                                                               #
 #################################################################
 group:
-  security cameras:
-    name: camera
+  Outside the home:
+    name: Outside Camera
     view: no
     entities:
-      - camera.building_door
-      - camera.outside_camera_backwards
-      
-  high quality:
-    name: Quality Camera
-    view: no
-    entities:
-      - camera.right_side_4mp
-      - camera.left_side_2mp
+      - camera.entrance_to_the_building
+      - camera.dahua_camera
+      - camera.dahua_camera_6m
 
   inside the home:
     name: Home Fornt Dor Camera 
     view: no
     entities:
-      - camera.front_camera_dor    
+      - camera.front_door_camera
+    
       
-
-#################################################################
-#                                                               #
-#                           sensor                              # 
-#                                                               #
-#################################################################
-# sensor:
-
-#################################################################
-#                                                               #
-#                           scripts                             # 
-#                                                               #
-#################################################################
-# script:
-
-
 
     
 #################################################################
@@ -169,6 +132,7 @@ group:
 #################################################################
 automation:
   - alias: frontdoor_snapshot
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: 'binary_sensor.door_window_sensor_158d0001ef3425'
@@ -185,7 +149,7 @@ automation:
     action:
       - service: camera.snapshot
         data:
-          entity_id: camera.front_camera_dor
+          entity_id: camera.front_door_camera
           filename: "/config/tmp/front_house_{{ now().year }}_{{ now().month }}_{{ now().day }}_{{ now().hour }}_{{ now().minute }}.jpg"
       # - delay: 
       #   seconds: 5
