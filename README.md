@@ -10,16 +10,6 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <hr>
 
-<img src="https://github.com/JamesMcCarthy79/Home-Assistant-Config/blob/master/HA%20Pics/Kingia%20Castle.png" width="125"/>
-
-| Components - Standard | Components - Custom |Network Devices | Automations | Scripts |
-|:---------------------:|:-------------------:|:--------------:|:-----------:|:-------:|
-| 90                    |6                    |83              |16           |36       |
-
-| Binary Sensors | Cameras | Fans | Lights | Media Players | Plants | Sensors | Switches |
-|:--------------:|:-------:|:----:|:------:|:-------------:|:------:|:-------:|:--------:|
-|153             |7        |5     |8       |10             |9       |153      |59        |
-
 <img src="https://github.com/JamesMcCarthy79/Home-Assistant-Config/blob/master/HA%20Pics/Xiaomi%20Logo.png" width="150"/>
 
 | Gateways | Door/Window Sensors | Motion Sensors | Smoke Sensors | Smart Switches | Water Leak Sensors |
@@ -30,7 +20,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
 |:------------------:|:-------------:|:-------------:|:----------------:|:-----------:|:----------:|:-----:| 
 |5                   |4              |10             |7                 |7            |4           |1      |
 
-<img src="https://github.com/JamesMcCarthy79/Home-Assistant-Config/blob/master/HA%20Pics/Sonoff%20Logo.png" width="180"/>
+<img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Picters/Github_picters/sonoff.png" width="180"/>
 
 | Basic | POW2 | iFan02 | Wall Switch (Touch) |
 |:-----:|:----:|:------:|:-------------------:|
