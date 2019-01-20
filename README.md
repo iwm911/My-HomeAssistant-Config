@@ -10,7 +10,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <hr>
 
-<img src="https://github.com/JamesMcCarthy79/Home-Assistant-Config/blob/master/HA%20Pics/Xiaomi%20Logo.png" width="150"/>
+<img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Picters/Github_picters/Xiaomi_Logo.png" width="150"/>
 
 | Gateways | Door/Window Sensors | Motion Sensors | Smoke Sensors | Smart Switch   |
 |:--------:|:-------------------:|:--------------:|:-------------:|:--------------:|
