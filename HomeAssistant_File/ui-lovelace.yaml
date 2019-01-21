@@ -90,7 +90,7 @@ resources:
     type: module
   
   ## https://community.home-assistant.io/t/custom-dark-sky-animated-weather-card/59816/394 ##    
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=7.1
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.7.1
     type: module 
     
 #############################################################################################################################################
@@ -119,7 +119,7 @@ views:
               - type: custom:card-modder
                 card:          
                   type: picture-elements
-                  image: /local/lovelace/avi_nurit/avi_01.jpg
+                  image: /local/lovelace/avi_nurit/avi_02.jpg
                   elements:
                     - type: state-label
                       entity: device_tracker.avi_note8
@@ -132,6 +132,9 @@ views:
                     - type: state-label
                       entity: sensor.avi_battery
                       style: {color: white, left: 87%, top: 91%}
+                    - type: state-icon
+                      entity: ituran.skodakodiak
+                      style: {color: white, left: 92%, top: 15%}
                 style:                 
                   border-radius: 20px
                   border: solid 1px rgba(100,100,100,0.3)
@@ -147,7 +150,7 @@ views:
               - type: custom:card-modder
                 card:          
                   type: picture-elements
-                  image: /local/lovelace/avi_nurit/nurit_01.jpg
+                  image: /local/lovelace/avi_nurit/nurit_02.jpg
                   elements:
                     - type: state-label
                       entity: device_tracker.iphone_nurit
@@ -160,6 +163,9 @@ views:
                     - type: state-label
                       entity: sensor.nurit_iphone_battery_level
                       style: {color: white, left: 87%, top: 91%}
+                    - type: state-icon
+                      entity: ituran.skodakodiak
+                      style: {color: white, left: 92%, top: 15%}                      
                 style:                 
                   border-radius: 20px
                   border: solid 1px rgba(100,100,100,0.3)
@@ -393,8 +399,6 @@ views:
               border: solid 1px rgba(100,100,100,0.3)
               color: "#999999"
               box-shadow: 3px 3px rgba(0,0,0,0.4)
-              
-
 
 
       - id: e2776a2be5e348738a915b694b2d5f01  
