@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Pictures/Github_Pictures/house-icon.png" width="250"/>
+  <img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Pictures/Github_Pictures/Banner.png" width="250"/>
 </p>
-<h1 align="center">The Abeksis family - Smart Home</h1>
 
 
  i live in Israel and I love technology very much. I'm familiar with Israel from my other projects and I enjoy sharing what I do.
