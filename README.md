@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Pictures/Github_Pictures/Banner.png" width="250"/>
+  <img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Pictures/Github_Pictures/Banner.png" width="800"/>
 </p>
 
 
