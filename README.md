@@ -3,7 +3,7 @@
 </p>
 
 
- i live in Israel and I love technology very much. I'm familiar with Israel from my other projects and I enjoy sharing what I do.
+I live in <img src="https://github.com/oxguy3/flags/blob/master/mini/il.png"/>, and I love technology very much. I'm familiar with Israel from my other projects and I enjoy sharing what I do.
 
 The project presented - is my smart home project. Where I sat for hours and was helped by good friends like [Eliran Turgeman](https://github.com/VirtualL/HomeAssistant-Config) ,[Dima Goltsman](https://github.com/dimagoltsman/ha-custom-component-ituran), And [Yuval Mejahez](https://github.com/rt400/Shabbat-Times?fbclid=IwAR1ctaMcllg22ZSeg97n_G6L-f0kiBI0y0rqpIIOS82eIVlNHg6dvjn-QgU) sorry if I forgot someone. 
 
