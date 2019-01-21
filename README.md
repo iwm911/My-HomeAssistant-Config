@@ -58,7 +58,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
 <table>
 <thead>
 <tr>
-<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA_Picters/HA_Screenshots">Mobile Display</a></th>
+<th><a href="https://github.com/abeksis/My-HomeAssistant-Config/tree/master/HA_Picters/Lovelace_Screenshots">Mobile Display</a></th>
 </tr>
 </thead>
 <tbody>
