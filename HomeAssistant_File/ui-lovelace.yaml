@@ -2106,7 +2106,7 @@ views:
                 - entity: input_boolean.disable_daily_vacuum
                   name: Disable Daily Cleanup
             style:                 
-              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               border-radius: 20px
