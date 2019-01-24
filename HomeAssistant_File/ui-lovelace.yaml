@@ -814,7 +814,7 @@ views:
                   prefix: 'My IP: '
                   style: {top: 89%, left: 58%}
             style:                 
-              background-image: url("/local/lovelace/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 68px
@@ -1832,9 +1832,10 @@ views:
               entities:
                 - ituran.skodakodiak
             style:                 
-              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
+              background-size: 100% 130px
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
@@ -2109,9 +2110,10 @@ views:
                 - entity: input_boolean.disable_daily_vacuum
                   name: Disable Daily Cleanup
             style:                 
-              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
+              background-size: 100% 130px
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
@@ -2122,9 +2124,10 @@ views:
               entities:
                 - input_select.vacuum_room
             style:                 
-              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
+              background-size: 100% 130px
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
@@ -2165,7 +2168,7 @@ views:
               entities:
                 - binary_sensor.motion_sensor_158d000204bfcb
             style:                 
-              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 130px
@@ -2295,7 +2298,7 @@ views:
                   entity: switcher_aio.electric_current_sensor
                   style: {color: white, left: 91%, top: 92%}
             style:                 
-              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 68px
@@ -2345,7 +2348,7 @@ views:
               entities:
                 - sensor.illumination_158d000204bfcb
             style:                 
-              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
+              background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               background-size: 100% 130px
