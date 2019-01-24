@@ -49,7 +49,7 @@ resources:
     type: js
     
    ## https://github.com/thomasloven/lovelace-card-tools ##
-  - url: /local/custom_ui/card-tools.js?v=6ce5d0
+  - url: /local/custom_ui/card-tools.js?v=090958
     type: js
     
   ## https://github.com/ciotlosm/custom-lovelace/tree/master/monster-card
@@ -90,7 +90,7 @@ resources:
     type: module
   
   ## https://community.home-assistant.io/t/custom-dark-sky-animated-weather-card/59816/394 ##    
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.7.1
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.8.2
     type: module 
     
 #############################################################################################################################################
@@ -381,15 +381,18 @@ views:
               entity_summary_5: sensor.dark_sky_summary_5
               locale: en
               static_icons: false
-              sunset: true
-              tooltips: true
               tooltip_bg_color: 'rgb( 75,155,239)'
               tooltip_border_color: orange
               tooltip_border_width: 3
               tooltip_caret_size: 10
               tooltip_fg_color: '#fff'
-              tooltip_left_offset: -5
+              tooltip_left_offset: -12
               tooltip_width: 100
+              tooltips: true
+              old_daily_format: false
+              time_format: 24
+              show_beaufort: true
+              show_separator: true
             style:                 
               background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
@@ -2106,7 +2109,7 @@ views:
                 - entity: input_boolean.disable_daily_vacuum
                   name: Disable Daily Cleanup
             style:                 
-              background-image: url("/local/lovelace/background/cardbackk.png")
+              background-image: url("/local/lovelace/backgrouNd/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
               border-radius: 20px
