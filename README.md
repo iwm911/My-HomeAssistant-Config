@@ -18,6 +18,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
   <img src="https://img.shields.io/github/last-commit/abeksis/My-HomeAssistant-Config.svg?style=plasticr"/>
   <img src="https://img.shields.io/github/issues/abeksis/My-HomeAssistant-Config.svg"/>
   <img src="https://img.shields.io/badge/license-Unlicense-blue.svg"/>
+  <img src=" http://hits.dwyl.io/abeksis/My-HomeAssistant-Config.svg)%5D(http://hits.dwyl.io/VirtualL/HomeAssistant-Config)"/>
 </p>
 
 <hr>
