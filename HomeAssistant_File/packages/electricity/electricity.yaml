@@ -12,27 +12,27 @@
 
 homeassistant:
   customize:
-    sensor.phaze_1__total:
+    sensor.phaze_1_total:
       friendly_name: שימוש כללי
       icon: mdi:power-cycle
     
-    sensor.phaze_1__current:  
+    sensor.phaze_1_current:  
       friendly_name: צריכה
       icon: mdi:chart-line-variant
     
-    sensor.phaze_1__today:
+    sensor.phaze_1_today:
       friendly_name: שימוש יומי
       icon: mdi:calendar-today
       
-    sensor.phaze_1__yesterday:
+    sensor.phaze_1_yesterday:
       friendly_name: שימוש בעבר
       icon: mdi:calendar-blank
     
-    sensor.phaze_1__voltage:
+    sensor.phaze_1_voltage:
       friendly_name: מתח
       icon: mdi:battery-charging-outline
 
-    sensor.phaze_1__power_factor:
+    sensor.phaze_1_power_factor:
       friendly_name: הפרש הספק
       icon: mdi:altimeter
     
@@ -45,13 +45,13 @@ homeassistant:
     sensor.power_calc_yesterday_phaze1:
       icon: mdi:cash-usd
 
-    sensor.phaze_1__power:
+    sensor.phaze_1_power:
       friendly_name: הספק      
 
-    sensor.phaze_1__reactive_power:
+    sensor.phaze_1_reactive_power:
       friendly_name: צריכה תגובתית      
 
-    sensor.phaze_1__apparent_power:
+    sensor.phaze_1_apparent_power:
       friendly_name: צריכה הסתברותית
       
 
