@@ -111,7 +111,7 @@ automation:
       - service: homeassistant.turn_off
         entity_id: switch.sh20_pow 
 
-      - service: notify.AviTelegram
+      - service: notify.avitelegram
         data:
           title: "אבטחה"
           message: 'ברוך הבא אבי, המצלמה כבויה' 
@@ -147,8 +147,8 @@ automation:
   - alias:  turn OFF xiaomi cameras if Morning and we are at home
     initial_state: 'on'
     trigger:
-      - platform: time
-        at: '07:00:00'
+      platform: time
+      at: '07:00:00'
     condition:
       condition: or
       conditions:
@@ -162,7 +162,7 @@ automation:
     action:
       - service: homeassistant.turn_off
         entity_id: switch.sh20_pow
-      - service: notify.AviTelegram
+      - service: notify.avitelegram
         data:
           title: "אבטחה"
           message: 'אתם בבית - המצלמה נסגרה, אין צורך '        

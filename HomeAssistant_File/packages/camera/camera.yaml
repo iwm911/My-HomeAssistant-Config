@@ -11,8 +11,8 @@
 #################################################################
 
 homeassistant:
-  customize:
-          
+  customize:      
+
     ## שינוי שמות לאוטומציה של כיבוי המצלמה ##
     automation.turn_on_xiaomi_cameras_if_nurit_and_avi_not_at_home:
       friendly_name: פעיל - אני ונורית לא בבית
@@ -71,7 +71,7 @@ homeassistant:
 
 #################################################################
 #                                                               #
-#                          cameras                              #
+#                          cameras                            #
 #                                                               #
 #################################################################
 camera:
@@ -153,7 +153,7 @@ automation:
           filename: "/config/tmp/front_house_{{ now().year }}_{{ now().month }}_{{ now().day }}_{{ now().hour }}_{{ now().minute }}.jpg"
       # - delay: 
       #   seconds: 5
-      - service: notify.AviTelegram
+      - service: notify.avitelegram
         data:
           message: "הדלת נפתחה"
           data:

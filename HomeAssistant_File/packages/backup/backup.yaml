@@ -81,7 +81,7 @@ automation:
       at: '02:00:00'
     action:
       - service: shell_command.backup_hass_config
-      - service: notify.AviTelegram
+      - service: notify.avitelegram
         data:
           title: 'גיבוי'
           message: 'הגיבוי היומי להום-אסיסטנט בביצוע בדוק סיום תקין בבוקר '
@@ -101,7 +101,7 @@ automation:
     action:
       - service: script.turn_on
         entity_id: script.backup_ha_and_move_backup_to_unraid
-      - service: notify.AviTelegram
+      - service: notify.avitelegram
         data:
           title: 'הודעת גיבוי'
           message: 'הגיבוי השבועי בוצע, בדוק תקינות הקבצים בשרת הנפרד.'

@@ -124,9 +124,8 @@ automation:
 - alias: battery_alert_clear
   initial_state: 'on'
   trigger:
-    - platform: time
-      minutes: '/30'
-      seconds: 00
+    - platform: time_pattern
+      minutes: 30
   condition:
     - condition: template
       value_template: >

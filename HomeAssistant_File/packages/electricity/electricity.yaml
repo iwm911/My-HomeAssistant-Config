@@ -215,8 +215,9 @@ automation:
   - alias: Set shekel_number
     initial_state: 'on'
     trigger:
-    - at: '03:14'
       platform: time
+      at: '03:14:00'
+
     action:
       service: input_number.set_value
       data_template:

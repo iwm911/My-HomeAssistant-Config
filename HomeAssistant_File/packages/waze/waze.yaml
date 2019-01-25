@@ -34,13 +34,13 @@ sensor:
   - platform: waze_travel_time
     name: 'Avi to Home'
     origin: device_tracker.avi_note8
-    destination: 11.1111, 11.11111111
+    destination: 11.111111, 11.111111111111111
     region: 'IL'
     
   - platform: waze_travel_time
     name: 'Nurit to Home'
     origin: device_tracker.nurit_iphone
-    destination: 11.11111, 11.11111111
+    destination: 11.111111, 11.111111111111111
     region: 'IL'
 
   - platform: template
@@ -48,11 +48,11 @@ sensor:
        dest_address:
          value_template: >-
             {%- if is_state("input_select.destination", "Home")  -%}
-              11.111111, 11.11111111111
+              11.111111, 11.111111111111111
             {%- elif is_state("input_select.destination", "Work")  -%}
-              11.111111, 11.11111111111
+              11.111111, 11.111111111111111
             {%- elif is_state("input_select.destination", "Parents")  -%}
-              11.111111, 11.11111111111
+              11.111111, 11.111111111111111
             {%- else -%}
               Unknown
             {%- endif %}    

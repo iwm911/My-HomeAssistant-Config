@@ -3,9 +3,9 @@
     initial_state: 'on'  
     alias: 'Turn Off Tami 4 In Night'
     trigger:
-    - at: '22:00'
       platform: time
-    condition: []
+      at: '22:00:00'
+    condition:
     action:
     - data:
         entity_id: switch.blitzwolf_shp1
@@ -15,9 +15,9 @@
     initial_state: 'on'  
     alias: 'Turn On Tami 4 In Mornning'
     trigger:
-    - at: '05:45'
       platform: time
-    condition: []
+      at: '05:45:00'
+    condition:
     action:
     - data:
         entity_id: switch.blitzwolf_shp1
@@ -62,9 +62,9 @@
     initial_state: 'on'  
     alias: 'turn Off yakir tv in night'
     trigger:
-    - at: '00:30'
       platform: time
-    condition: []
+      at: '00:30:00'      
+    condition:
     action:
     - data:
         entity_id: switch.yakir_tv
@@ -80,10 +80,10 @@
     initial_state: 'on'  
     alias: 'Turn on yakir in Mornning'
     trigger:
-    - at: '05:45'
       platform: time
-    condition: []
+      at: '05:45:00'
+    condition:
     action:
     - data:
         entity_id: switch.yakir_tv
-      service: switch.turn_on      
+      service: switch.turn_on

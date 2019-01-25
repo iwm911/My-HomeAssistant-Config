@@ -331,7 +331,7 @@ automation:
     initial_state: 'on'  
     trigger:
     - platform: state
-      entity_id: notify.AviTelegram 
+      entity_id: notify.avitelegram 
       to: 'home'
       for:
         minutes: 5
@@ -369,14 +369,14 @@ automation:
   - alias: Reset Daily Vacuum First Run state at midnight
     initial_state: 'on'  
     trigger:
-    - platform: time
+      platform: time
       at: '0:00:00'
     action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.daily_vacuum_first_run
 
   - alias: Start Cleaning Room
-    hide_entity: True
+    hide_entity: true
     trigger:
     - platform: state
       entity_id: input_select.vacuum_room
@@ -407,9 +407,8 @@ automation:
   - alias: Start Daily Vacuum
     initial_state: 'on'  
     trigger:
-    - platform: time
-      minutes: '/45'
-      seconds: 00
+    - platform: time_pattern
+      minutes: 45
     condition:
       condition: and
       conditions:

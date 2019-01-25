@@ -11,6 +11,19 @@
 #                                                               #
 #################################################################
 homeassistant:
+  # customize:
+
+
+
+
+
+#################################################################
+#                                                               #
+#                           Groups                              #
+#                                                               #
+#################################################################
+#group:
+
 
 #################################################################
 #                                                               #
@@ -27,7 +40,7 @@ automation:
       platform: homeassistant
       event: start
     action:
-      - service: notify.AviTelegram 
+      - service: notify.avitelegram 
         data:
           title: 'System info'
           message: 'Home Assistant is Up and Running'
@@ -49,7 +62,7 @@ automation:
       for:
         minutes: 1
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: 'דלת הבית פתוחה יותר מדקה'
@@ -74,7 +87,7 @@ automation:
       - service: homeassistant.turn_on
         entity_id: switch.sh20_pow
         
-      - service: notify.AviTelegram
+      - service: notify.avitelegram
         data:
           title: "אבטחה"  
           message: 'השעה 23:00 המצלמות דולקות'
@@ -90,7 +103,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: 'המזגן נכנס לעבודה'
@@ -107,7 +120,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "חמור מאוד, אבי"
         message: 'מישהו הדליק את הדוד' 
@@ -125,7 +138,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "האור דולק במרפסת" 
@@ -139,7 +152,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "האור דולק במרפסת"
@@ -153,7 +166,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "האור דולק בחדר כביסה"
@@ -167,7 +180,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "האור דולק בחדר של לירן" 
@@ -181,7 +194,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "התאורה דולקת בשירותי אורחים"
@@ -195,7 +208,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "התאורה דולקת בפרוזדור"
@@ -209,7 +222,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "התאורה דולקת במקלחת"
@@ -223,7 +236,7 @@ automation:
       from: 'off'
       to: 'on'
     action:
-      service: notify.AviTelegram
+      service: notify.avitelegram
       data:
         title: "שלום אבי"
         message: "התאורה דולקת במדרגות"        

@@ -259,7 +259,7 @@ group:
 automation:
 
 #################################################################
-#                    חיישן תנועה מקלחת שלי                      #
+#                    חיישן תנועה מקלחת שלי                           #
 #################################################################
   - alias: Turn on lights parents based on montion
     initial_state: 'on'
@@ -363,7 +363,7 @@ automation:
 
 
 #################################################################
-#                      חיישן תנועה חדר מחשבים                   #
+#                      חיישן תנועה חדר מחשבים                       #
 #################################################################
   - alias: Turn on lights pc room based on montion
     initial_state: 'on'  
@@ -375,8 +375,8 @@ automation:
     - service: light.turn_on
       entity_id: light.yeelight_rgb_7c49eb0f97b1
       data:
-        brightness: 255
-        rgb_color: [255,255,255]  
+        brightness_pct: 100
+        kelvin: 5000        
 
   - alias: Turn off lights pc room based on montion
     initial_state: 'on'  

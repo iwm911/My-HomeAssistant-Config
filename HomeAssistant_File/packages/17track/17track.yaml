@@ -56,11 +56,11 @@ automation:
     alias: 'Packages - Send Packages Status Updates'
     initial_state: 'on'
     trigger:
-    - at: '07:00'
-      platform: time
-    - at: '16:00'
-      platform: time    
-    condition: []
+      - platform: time
+        at: '07:00:00'
+      - platform: time      
+        at: '16:00:00'
+    condition:
     action:
     - data_template:
         message: "17track Tracking data
@@ -73,7 +73,7 @@ automation:
           {%- endfor %}
           |\n"
         title: Package updates 17track & AfterShip by Home Assistant
-      service: notify.AviTelegram
+      service: notify.avitelegram
 
 
   - id: '1547151681126'
@@ -96,7 +96,7 @@ automation:
       from: '3'
       platform: state
       to: '4'
-    condition: []
+    condition:
     action:
     - data_template:
         message: "17track Tracking data
@@ -109,5 +109,5 @@ automation:
           {%- endfor %}
           |\n"
         title: New Package ready for Pickup - 17Track by Home Assistant
-      service: notify.AviTelegram
+      service: notify.avitelegram
 

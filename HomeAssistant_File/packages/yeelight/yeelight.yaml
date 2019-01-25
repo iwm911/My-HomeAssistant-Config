@@ -45,13 +45,13 @@ group:
 light:
   - platform: yeelight
     devices:
-      192.xxx.x.xxx:
+      192.168.1.147:
         name: Computer Room
         transition: 1000
                 
   - platform: yeelight
     devices:
-      192.xxx.x.xxx:
+      192.168.1.174:
         name: Kitchen strip Lamp
         transition: 1000     
     
