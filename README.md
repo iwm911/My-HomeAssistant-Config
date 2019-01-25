@@ -12,7 +12,7 @@ The project presented - is my smart home project. Where I sat for hours and was 
 
 <p>
   <img src="https://img.shields.io/github/stars/abeksis/My-HomeAssistant-Config.svg?style=plasticr"/>
-  <img src="https://img.shields.io/badge/HA--Version-0.85.1-brightgreen.svg"/>
+  <img src="https://img.shields.io/badge/HA--Version-0.86.2-brightgreen.svg"/>
   <img src="https://img.shields.io/maintenance/yes/2019.svg"/>
   <img src="https://img.shields.io/github/commit-activity/y/abeksis/My-HomeAssistant-Config.svg"/>
   <img src="https://img.shields.io/github/last-commit/abeksis/My-HomeAssistant-Config.svg?style=plasticr"/>
