@@ -112,19 +112,18 @@ automation:
         title: "כלבים"
         message: האם סקאי וגוצי אכלו ארוחת ערב?
         
-  ## לא למחוק לבדוק למה זה לא עובד מבחינת הזמנים #
-  # #########################  FReset Feed The Dog Notifications   ##########################
-  # - alias: "Reset Feed The Dog Notifications"
-  #   initial_state: 'on'
-  #   trigger:
-  #     platform: time
-  #     at: '02:00:00'
-  #   action:
-  #     - service: automation.turn_on
-  #       entity_id: automation.dog_has_been_fed__evening
-  #     - service: automation.turn_on
-  #       entity_id: automation.dog_has_been_fed__morning
-  #     - service: automation.turn_on
-  #       entity_id: automation.feed_the_dog_evening
-  #     - service: automation.turn_on
-  #       entity_id: automation.feed_the_dog_morning        
+  #########################  FReset Feed The Dog Notifications   ##########################
+  - alias: "Reset Feed The Dog Notifications"
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '02:00:00'
+    action:
+      - service: automation.turn_on
+        entity_id: automation.dog_has_been_fed_evening
+      - service: automation.turn_on
+        entity_id: automation.dog_has_been_fed_morning
+      - service: automation.turn_on
+        entity_id: automation.feed_the_dog_evening
+      - service: automation.turn_on
+        entity_id: automation.feed_the_dog_morning        
