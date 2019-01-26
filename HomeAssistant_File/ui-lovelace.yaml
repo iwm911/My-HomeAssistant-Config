@@ -2490,6 +2490,11 @@ views:
                   prefix: 'System Uptime ----- '
                   style: {color: white, left: 50%, top: 8%, font-size: 115%, font-weight: bold}
 
+                - type: state-label
+                  entity: sensor.load_unraid
+                  prefix: 'Load Average ----- '
+                  style: {color: white, left: 49%, top: 21%, font-size: 115%, font-weight: bold}                  
+
                 - type: state-icon
                   entity: sensor.disk_use_percent_home
                   style: {color: white, left: 29%, top: 84%}

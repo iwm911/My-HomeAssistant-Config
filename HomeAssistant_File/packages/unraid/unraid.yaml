@@ -229,3 +229,8 @@ sensor:
   - platform: command_line
     name: uptime unraid
     command: "uptime -p"   
+
+  ############  load unraid ##############
+  - platform: command_line
+    name: load unraid
+    command: "cat /proc/loadavg"  
