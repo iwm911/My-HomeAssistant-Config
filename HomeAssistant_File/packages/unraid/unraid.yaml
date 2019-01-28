@@ -84,7 +84,7 @@ homeassistant:
       icon: mdi:harddisk
       homebridge_hidden: true
     
-    sensor.disk_use_:
+    ssensor.disk_use:
       friendly_name: Disk Use
 
     sensor.home_assistant_v2_db:

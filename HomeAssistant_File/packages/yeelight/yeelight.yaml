@@ -13,7 +13,6 @@
 homeassistant:
   customize:
     light.yeelight_rgb_7c49eb0f97b1:
-      friendly_name: תאורה חדר שרתים
       icon: mdi:server      
 
     light.yeelight_strip_7c49ebadb95c:
