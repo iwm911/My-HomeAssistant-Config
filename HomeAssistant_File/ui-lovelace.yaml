@@ -59,6 +59,9 @@ resources:
   - url: /local/waze-card/waze-card.js?v=1.1.1
     type: js   
 
+  ## https://github.com/thomasloven/lovelace-auto-entities
+  - url: /local/custom_ui/auto-entities.js
+    type: js 
 
 #################################################################
 #                          Module                               #
@@ -92,10 +95,8 @@ resources:
   ## https://community.home-assistant.io/t/custom-dark-sky-animated-weather-card/59816/394 ##    
   - url: /local/custom_ui/dark-sky-weather-card.js?v=0.8.3
     type: module 
+
     
- ## https://github.com/VirtualL
-  - url: /local/custom_ui/dark-sky-weather-card-rtl.js?v=0.7.52
-    type: module    
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                               VIEW 0 - HOME                                                               #
@@ -317,8 +318,38 @@ views:
               box-shadow: 3px 3px rgba(0,0,0,0.4)       
               overflow: hidden
 
-                
 
+#################################################################
+#                                                               #
+#          Home - show all lights that are on Card              #
+#                                                               #
+#################################################################
+
+          # - type: custom:card-modder
+          #   card:
+          #     type: custom:auto-entities
+          #     show_empty: false
+          #     card:
+          #       type: entities
+          #       title: Lights on
+          #       show_header_toggle: false
+          #     filter:
+          #       include:
+          #         - domain: light
+          #       exclude:
+          #       - state: "off"
+          #       - state: "unavailable"
+          #   style:
+          #     background-image: url("/local/lovelace/background/cardbackk.png")
+          #     background-repeat: no-repeat
+          #     background-color: rgba(50,50,50,0.3)
+          #     background-size: 100% 68px
+          #     border-radius: 20px
+          #     border: solid 1px rgba(100,100,100,0.3)
+          #     box-shadow: 3px 3px rgba(0,0,0,0.4)
+          #     overflow: hidden                
+        
+        
       - id: 75add65258264b92b432ba7d83978ea6  
         type: vertical-stack
         cards:
@@ -422,7 +453,7 @@ views:
               background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
               background-color: rgba(50,50,50,0.3)
-              background-size: 100% 68px
+              background-size: 100% 100%
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
@@ -822,7 +853,7 @@ views:
               title: Last IP Login
               elements:
                 - type: state-icon
-                  entity: sensor.last_successful_
+                  entity: sensor.last_successful_authentication
                   style: {top: 6%, left: 50%}
 
                 - type: state-icon
@@ -1925,49 +1956,48 @@ views:
           elements:
             - type: icon
               icon: mdi:bell-ring
-              tap_action: call-service
               entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.locate
-              style:
-                top: 93%
-                left: 80%
-                color: '#ffffff'
+              tap_action: 
+                action: call-service
+                service: vacuum.locate
+              style: {left: 80%, top: 93%, color: '#ffffff'}
+ 
             - type: icon
               icon: mdi:crosshairs
-              tap_action: call-service
               entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.clean_spot
-              style:
-                top: 93%
-                left: 65%
-                color: '#ffffff'
+              tap_action: 
+                action: call-service
+                service: vacuum.clean_spot
+              style: {top: 93%, left: 65%, color: '#ffffff'}
+
+ 
             - type: icon
-              tap_action: call-service
               icon: mdi:home
               entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.return_to_base
-              style:
-                top: 93%
-                left: 50%
-                color: '#ffffff'
+              tap_action: 
+                action: call-service
+                service: vacuum.return_to_base
+              style: {top: 93%, left: 50%, color: '#ffffff'}                
+ 
+
             - type: icon
               icon: mdi:stop
-              tap_action: call-service
               entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.stop
-              style:
-                top: 93%
-                left: 35%
-                color: '#ffffff'
+              tap_action:
+                action: call-service
+                service: vacuum.stop
+              style: {top: 93%, left: 35%, color: '#ffffff'} 
+
+
             - type: icon
               icon: mdi:play
-              tap_action: call-service
               entity: vacuum.xiaomi_vacuum_cleaner
-              service: vacuum.start
-              style:
-                top: 93%
-                left: 20%
-                color: '#ffffff'
+              tap_action: 
+                action: call-service
+                service: vacuum.start
+              style: {top: 93%, left: 20%, color: '#ffffff'} 
+
+              
             - type: state-label
               entity: sensor.vacuum_operation
               style:
@@ -1976,9 +2006,9 @@ views:
                 color: rgb(255, 255, 255)
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 90%
                 font-weight: bold
+
             - type: state-label
               entity: sensor.vacuum_accessories
               style:
@@ -1987,7 +2017,6 @@ views:
                 color: rgb(255, 255, 255)
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 90%
                 font-weight: bold
   
@@ -1999,7 +2028,6 @@ views:
                 right: 43%
                 color: rgb(255, 255, 255)
                 transform: translate(0%,-50%)
-                font-family: Trebuchet MS
                 font-size: 150%
                 font-weight: bold
   
@@ -2011,7 +2039,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 76%
                 font-weight: bold
    
@@ -2023,7 +2050,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 76%
                 font-weight: bold
   
@@ -2035,7 +2061,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 76%
                 font-weight: bold
                 opacity: 0.8
@@ -2048,7 +2073,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 76%
                 font-weight: bold
   
@@ -2060,7 +2084,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 80%
                 font-weight: bold
   
@@ -2072,7 +2095,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 80%
                 font-weight: bold
   
@@ -2084,7 +2106,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 80%
                 font-weight: bold
   
@@ -2097,7 +2118,6 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 80%
                 font-weight: bold
   
@@ -2110,22 +2130,20 @@ views:
                 color: '#ffffff'
                 transform: translate(0%,-50%)
                 pointer-events: none
-                font-family: Trebuchet MS
                 font-size: 80%
                 font-weight: bold
-
         style:                 
           border-radius: 20px
           border: solid 1px rgba(100,100,100,0.3)
           box-shadow: 3px 3px rgba(0,0,0,0.4)    
           overflow: hidden
-
-
-
+          
+            
 
       - type: custom:layout-card
         layout: horizontal
         cards:
+##        
           - type: custom:card-modder
             card:
               type: glance
@@ -2142,7 +2160,7 @@ views:
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
-              
+##            
           - type: custom:card-modder
             card:
               type: entities
@@ -2156,7 +2174,6 @@ views:
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
-          
 
 #############################################################################################################################################
 #                                                                                                                                           # 
@@ -2486,7 +2503,7 @@ views:
               image: /local/lovelace/settings/rpi.png
               elements:
                 - type: state-label
-                  entity: sensor.uptime_unraid
+                  entity: sensor.unraid_uptime
                   prefix: 'System Uptime ----- '
                   style: {color: white, left: 50%, top: 8%, font-size: 115%, font-weight: bold}
 
@@ -3034,7 +3051,7 @@ views:
 
 #############################################################################################################################################
 #                                                                                                                                           # 
-#                                                        VIEW 12 - XIAOMI SENSOR STATUS                                                     #
+#                                                        VIEW 11 - XIAOMI SENSOR STATUS                                                     #
 #                                                                                                                                           #
 #############################################################################################################################################
 
@@ -3082,7 +3099,7 @@ views:
           
 #############################################################################################################################################
 #                                                                                                                                           # 
-#                                                             VIEW 13 - Camera                                                               #
+#                                                             VIEW 12 - Camera                                                               #
 #                                                                                                                                           #
 ############################################################################################################################################# 
 
@@ -3225,4 +3242,3 @@ views:
               border: solid 1px rgba(100,100,100,0.3)
               color: "#999999"
               box-shadow: 3px 3px rgba(0,0,0,0.4)
-            
