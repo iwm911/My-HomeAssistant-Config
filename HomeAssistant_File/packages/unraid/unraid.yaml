@@ -88,10 +88,8 @@ homeassistant:
       friendly_name: Disk Use
 
     sensor.home_assistant_v2_db:
-      # friendly_name: גודל הדאטה בייס
       icon: mdi:database
       homebridge_hidden: true
-      # unit_of_measurement: 'מגה-ביט'      
   
 #################################################################
 #                                                               #
@@ -130,8 +128,30 @@ group:
       - sensor.last_boot
       - sensor.time_online      
   
-    
 
+
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+
+automation:
+  - alias: 'SSD cache usage alert'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.ssd_usage
+      above: 80
+    action:
+      - service: notify.avitelegram
+        data:
+          title: 'התראה'
+          message: 'ניצול דיסק ססדי מטמון מעל 80 אחוז!'
+  
+
+   
 #################################################################
 #                                                               #
 #                          Sensors                              #
@@ -213,7 +233,7 @@ sensor:
     name: 'CPU temp'
     unit_of_measurement: "°C"
     scan_interval: 120 
-    command: " sshpass -p xxxxx ssh -o StrictHostKeyChecking=no root@192.xxx.x.xxx 'sensors |grep CPU | grep -o '[0-9][0-9].[0-9]' | head -1;' "
+    command: " sshpass -p xxxxxxx ssh -o StrictHostKeyChecking=no root@192.xxx.x.xxx 'sensors |grep CPU | grep -o '[0-9][0-9].[0-9]' | head -1;' "
  
   ############  The latest version of ha ##############
   - platform: command_line
@@ -225,41 +245,20 @@ sensor:
     name: Installed version
     command: "head -5 /config/.HA_VERSION"      
     
-  ############  The uptime unraid ##############
-  - platform: template
-    sensors:      
-      unraid_uptime:
-        friendly_name: Unraid Uptime
-        value_template: >
-          {% set up_time = as_timestamp(now()) - as_timestamp(states('sensor.last_boot')) %}
-          
-            {% set minutes = (up_time // 60) | int %}
-            {% set hours = (minutes // 60) %}
-            {% set days = (hours // 24) %}
-            {% set weeks = (days // 7) %}
-            {% set minutes = (minutes % 60) %}
-            {% set hours = (hours % 24) %}
-            {% set days = (days % 7) %}
-          
-          
-            {% macro phrase(value, name) %}
-                 {%- set value = value %}
-                 {%- set end = 's' if value > 1 else '' %}
-                 {{- '{} {}{}'.format(value, name, end) if value | int > 0 else '' }}
-            {%- endmacro %}
-                      
-            {% set text = [ phrase(weeks, 'week'), phrase(days, 'day'), phrase(hours, 'hr'), phrase(minutes, 'min') ] | select('!=','') | list | join(', ') %}
-          
-          {% set last_comma = text.rfind(',') %}
-          {% set text = text[:last_comma] + ' and' + text[last_comma + 1:] %}
-          
-          {{ text }}    
- 
-  # - platform: command_line
-  #   name: uptime unraid
-  #   command: "uptime -p"   
 
+  ############  The uptime unraid ##############
+  - platform: command_line
+    name: uptime unraid
+    command: "uptime -p"   
+ 
   ############  load unraid ##############
   - platform: command_line
     name: load unraid
-    command: "cat /proc/loadavg"  
+    command: "cat /proc/loadavg"
+
+  ############  SSD Usage  ##############
+  - platform: command_line 
+    command: "bash /config/bin/ssd_usage.sh"
+    name: 'SSD Usage'
+    unit_of_measurement: "%" #temperature in C
+    scan_interval: 600 #10 min    
