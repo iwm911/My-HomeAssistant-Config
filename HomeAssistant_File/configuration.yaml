@@ -72,7 +72,7 @@ custom_updater:
       - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
       - https://raw.githubusercontent.com/iammexx/home-assistant-config/master/ui/darksky/version.json
 ios:
-homekit:
+#homekit:
 tts:
   - platform: google
 
@@ -113,34 +113,10 @@ logger:
 ####################################################
 
 recorder:
-  purge_keep_days: 3
   purge_interval: 1
-  exclude:
-    domains:
-      - automation
-      - weblink
-      - updater
-      - media_player
-    entities:
-      - sensor.last_boot
-      - sensor.iturn_lat
-      - group.skoda_ituran
-      - group.ituran
-      - sensor.iturn_address
-      - sensor.iturn_lat
-      - sensor.iturn_lon
-      - sensor.iturn_milage
-      - sensor.iturn_name
-      - sensor.iturn_plate
-      - calendar.avi_abeksis
-      - calendar.work
-      - sensor.internet_time
-      - sensor.disk_use_percent_home
-      - group.netdata_sensor
-      - group.speedtest_sensor
-      - group.weather_sensor
-      - sun.sun
-      
+  purge_keep_days: 14
+
+
 ####################################################
 #                                                  #
 #                      Cloud                       #
@@ -165,7 +141,7 @@ owntracks:
 
 mqtt: 
   password: !secret http_password
-  broker: 192.xxx.x.xx
+  broker: 192.168.1.125
   username: !secret http_username
   client_id: HOME_ASSISTANT
 
@@ -178,12 +154,6 @@ xiaomi_aqara:
   discovery_retry: 10
   gateways:
     - key: !secret xiaomi
-
-vacuum:
-  - platform: xiaomi_miio
-    host: !secret vacuum_ip
-    token: !secret vacuum
-
 
 
 ####################################################

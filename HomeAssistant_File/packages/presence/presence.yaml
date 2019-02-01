@@ -54,7 +54,7 @@ group:
 sensor:
   # Zanzito #
   - platform: mqtt
-    state_topic: "owntracks/Avi/avi"
+    state_topic: "owntracks/avi/avi"
     name: "Avi Battery"
     unit_of_measurement: "%"
     value_template: '{{ value_json.batt }}'

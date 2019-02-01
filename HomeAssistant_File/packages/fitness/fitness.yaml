@@ -73,12 +73,12 @@ sensor:
 #                                                  #
 ####################################################
 
-  - platform: mqtt
-    name: "Avi Steps"
-    state_topic: "steps/avi/samsung"
+  # - platform: mqtt
+  #   name: "Avi Steps"
+  #   state_topic: "steps/avi/samsung"
 
-  - platform: mqtt
-    name: "Nurit Steps"
-    state_topic: "steps/nurit/iphone"
+  # - platform: mqtt
+  #   name: "Nurit Steps"
+  #   state_topic: "steps/nurit/iphone"
     
   
