@@ -30,8 +30,7 @@
     unit_of_measurement: "%"
 
 
-  # התחברות אחרונה ##
-  - platform: authenticated 
+
   
   # גוגל #
   - platform: time_date
@@ -39,19 +38,6 @@
       - 'time'
           
            
-
-# אבטחה - איזה כתובת אי פי התחברה #
-  - platform: template
-    sensors:
-      authentication_known_ip_info:
-        value_template: >-
-          {% if is_state('sensor.last_successful_authentication.attributes.new_ip', 'true') %}
-            כן
-          {% else %}
-            לא
-          {% endif %}
-          
-
   - platform: mqtt
     name: "BlitzWolf shp1 energy today"
     state_topic: "tele/bw-shp1/SENSOR"
