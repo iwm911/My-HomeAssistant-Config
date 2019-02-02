@@ -1953,7 +1953,7 @@ views:
 
   - id: 6 
     icon: mdi:robot-vacuum-variant
-    background: center / cover no-repeat url("/local/lovelace/background/back01.jpg") fixed
+    background: center / cover no-repeat url("/local/lovelace/background/back02.jpg") fixed
     type: custom:layout-card
     name: Xiaomi Vacuum
     layout: horizontal
@@ -2236,26 +2236,21 @@ views:
                     - input_number.vacuum_passes
                     - input_select.vacuum_zone
 
+
 #################################################################
 #                                                               #
-#                   Vacuum - Status Value Card                  #
+#                   Vacuum - Zone Fan Card                      #
 #                                                               #
 #################################################################
 
           - type: custom:card-modder
             card:
-              type: custom:entity-attributes-card
-              entity: vacuum.xiaomi_vacuum
-              heading_name: Status
-              heading_state: Value
-              filter:
-                include:
-                  - key: vacuum.xiaomi_vacuum.do_not_disturb
-                    name: Do not disturb
-                  - key: vacuum.xiaomi_vacuum.do_not_disturb_start
-                    name: Do not disturb start
-                  - key: vacuum.xiaomi_vacuum.do_not_disturb_end
-                    name: Do not disturb end
+              type: glance
+              entities:
+                - entity: input_boolean.vacuum_zone_settings
+                  name: Zone Settings
+                - entity: input_select.vacuum_fan_speed_list
+                  name: Fan speed
             style:                 
               background-image: url("/local/lovelace/background/cardbackk.png")
               background-repeat: no-repeat
@@ -2264,6 +2259,14 @@ views:
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
+
+
+
+#################################################################
+#                                                               #
+#                   Vacuum - INFO Value Card                    #
+#                                                               #
+#################################################################
 
           - type: custom:card-modder
             card:
@@ -2294,9 +2297,39 @@ views:
               background-size: 100% 130px
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4) 
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
-            
+
+#################################################################
+#                                                               #
+#                   Vacuum - Status Value Card                  #
+#                                                               #
+#################################################################
+
+          - type: custom:card-modder
+            card:
+              type: custom:entity-attributes-card
+              entity: vacuum.xiaomi_vacuum
+              heading_name: Status
+              heading_state: Value
+              filter:
+                include:
+                  - key: vacuum.xiaomi_vacuum.do_not_disturb
+                    name: Do not disturb
+                  - key: vacuum.xiaomi_vacuum.do_not_disturb_start
+                    name: Do not disturb start
+                  - key: vacuum.xiaomi_vacuum.do_not_disturb_end
+                    name: Do not disturb end
+            style:                 
+              background-image: url("/local/lovelace/background/cardbackk.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 130px
+              border-radius: 20px
+              border: solid 1px rgba(100,100,100,0.3)
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+
+ 
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                             VIEW 7 - Second Floor                                                         #
@@ -3202,7 +3235,7 @@ views:
                 - binary_sensor.computer_temperature
                 - binary_sensor.second_temperature
                 - binary_sensor.bedroom_motion                
-                - binary_sensor.motion_shower                
+                - binaty_sensor.main_shower
                 - binary_sensor.computer_room
                 - binary_sensor.guest_services
                 - binary_sensor.laundry_room

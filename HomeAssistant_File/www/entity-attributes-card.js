@@ -66,12 +66,6 @@ class EntityAttributesCard extends HTMLElement {
       thead th {
         text-align: left;
       }
-      tbody tr:nth-child(odd) {
-        background-color: var(--paper-card-background-color);
-      }
-      tbody tr:nth-child(even) {
-        background-color: var(--secondary-background-color);
-      }
     `;
     content.innerHTML = `
       <table>
