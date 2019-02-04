@@ -1,9 +1,29 @@
-  - name: Work
-    latitude: 11.123544
-    longitude: 11.186545
-    radius: 150
-  - name: Home
-    latitude: 11.186545
-    longitude: 11.186545
-    radius: 150
-    icon: mdi:account-multiple
+#################################################################
+#                                                               #
+#                            Zones                              #
+#                                                               #
+#################################################################
+
+- name: Work
+  latitude: !secret work_latitude
+  longitude: !secret work_longitude 
+  radius: 150
+  icon: mdi:worker
+  
+- name: Nurit Work
+  latitude: !secret nurit_work_latitude
+  longitude: !secret nurit_work_longitude 
+  radius: 150
+  icon: mdi:human-female 
+
+- name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude  
+  radius: 150
+  icon: mdi:account-multiple
+
+- name: Mall
+  latitude: !secret mall_latitude
+  longitude: !secret mall_longitude  
+  radius: 150
+  icon: mdi:shopping

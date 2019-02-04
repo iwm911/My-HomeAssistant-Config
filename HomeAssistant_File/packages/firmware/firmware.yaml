@@ -91,5 +91,5 @@ sensor:
 ## Check Latest Sonoff Firmware Version
   - platform: command_line
     name: Sonoff Firmware Version
-    command: /config/html/versionsonoffhtml.sh
-    scan_interval: 21600    
+    command: /config/bin/versionsonoffhtml.sh
+    scan_interval: 21600  

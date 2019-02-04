@@ -209,6 +209,6 @@ switch: !include config/switchs.yaml
 weblink: !include config/weblink.yaml
 cloudflare: !include config/cloudflare.yaml
 cover: !include config/cover.yaml
-zone: !include config/zone.yaml
+zone: !include config/zones.yaml
 timer: !include config/timer.yaml
 input_datetime: !include config/input_datetime.yaml
