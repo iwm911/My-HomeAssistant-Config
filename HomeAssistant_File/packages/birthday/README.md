@@ -5,7 +5,7 @@
 <p align="center">Be sure to :star: my repo!</p>
 <hr *** </hr>
 
-This package allows you to keep track of your family's birthdays. The code provides information and sends alerts. In addition, the code sends a request to Alexa to sing a song. [birthday Birthday](https://github.com/skalavala/smarthome/blob/master/packages/birthday.yaml).
+This package allows you to keep track of your family's birthdays. The code provides information and sends alerts. In addition, the code sends a request to Alexa to sing a song. [Skalavala - Birthday](https://github.com/skalavala/smarthome/blob/master/packages/birthday.yaml).
 
 <hr --- </hr> 
 

@@ -42,7 +42,7 @@ resources:
     type: js
 
     ## https://github.com/custom-cards/tracker-card ##
-  - url: /local/custom_ui/tracker-card.js?v=0.2.0
+  - url: /local/custom_ui/tracker-card.js?v=0.3.0
     type: js
    ## https://github.com/thomasloven/lovelace-layout-card ##
   - url: /local/custom_ui/layout-card.js
@@ -81,7 +81,7 @@ resources:
     type: module
 
   ## https://github.com/kalkih/mini-media-player ##
-  - url: /local/custom_ui/mini-media-player-bundle.js?v=0.9.8
+  - url: /local/custom_ui/mini-media-player-bundle.js?v=1.0.0
     type: module
 
   ## https://github.com/thomasloven/lovelace-card-modder ##
@@ -93,11 +93,11 @@ resources:
     type: module
 
   ## https://github.com/kalkih/mini-graph-card
-  - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.2.0
+  - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.2.2
     type: module
   
   ## https://community.home-assistant.io/t/custom-dark-sky-animated-weather-card/59816/394 ##    
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.8.3
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.9.3
     type: module 
 
     
@@ -329,31 +329,85 @@ views:
 #                                                               #
 #################################################################
 
-          # - type: custom:card-modder
-          #   card:
-          #     type: custom:auto-entities
-          #     show_empty: false
-          #     card:
-          #       type: entities
-          #       title: Lights on
-          #       show_header_toggle: false
-          #     filter:
-          #       include:
-          #         - domain: light
-          #       exclude:
-          #       - state: "off"
-          #       - state: "unavailable"
-          #   style:
-          #     background-image: url("/local/lovelace/background/cardbackk.png")
-          #     background-repeat: no-repeat
-          #     background-color: rgba(50,50,50,0.3)
-          #     background-size: 100% 68px
-          #     border-radius: 20px
-          #     border: solid 1px rgba(100,100,100,0.3)
-          #     box-shadow: 3px 3px rgba(0,0,0,0.4)
-          #     overflow: hidden                
-        
-        
+
+          - type: custom:card-modder
+            card:
+              type: picture-elements
+              image: /local/lovelace/home/batteries_01.jpg
+              elements:
+                - type: state-icon
+                  entity: input_label.nurit_birthday_days2go
+                  style: {color: white, left: 30px, top: 31px}
+                - type: state-label
+                  prefix: 'Nurit -- '
+                  entity: input_label.nurit_birthday_days2go
+                  style:
+                    top: 8%
+                    left: 52px
+                    transform: none
+                    color: rgb(255, 255, 255)
+                    font-size: 90%
+                    font-weight: bold
+                    border-left-style: solid
+                    border-color: Yellow
+                    background-color: rgb(4, 4, 4, 0.6)
+                    pointer-events: none
+                    width: 263px
+                    padding: 5px
+                    border-top-right-radius: 5px
+                - type: state-icon
+                  entity: input_label.rotam_birthday_days2go
+                  style: {color: white, left: 29px, top: 89px}
+                - type: state-label
+                  prefix: 'Rotam -- '
+                  entity: input_label.rotam_birthday_days2go
+                  style:
+                    top: 42%
+                    left: 52px
+                    transform: none
+                    color: rgb(255, 255, 255)
+                    font-size: 90%
+                    font-weight: bold
+                    border-left-style: solid
+                    border-color: Orange
+                    background-color: rgb(4, 4, 4, 0.6)
+                    pointer-events: none
+                    width: 263px
+                    padding: 5px
+                    border-top-right-radius: 5px
+                - type: state-icon
+                  entity: input_label.liran_birthday_days2go
+                  style: {color: white, left: 30px, top: 135px}
+                - type: state-label
+                  prefix: 'Liran -- '
+                  entity: input_label.liran_birthday_days2go
+                  style:
+                    top: 72%
+                    left: 52px
+                    transform: none
+                    color: rgb(255, 255, 255)
+                    font-size: 90%
+                    font-weight: bold
+                    border-left-style: solid
+                    border-color: Yellow
+                    background-color: rgb(4, 4, 4, 0.6)
+                    pointer-events: none
+                    width: 263px
+                    padding: 5px
+                    border-top-right-radius: 5px   
+                - type: state-icon
+                  entity: input_label.yakir_birthday_days2go
+                  style: {color: white, left: 80%, top: 51%}
+                - type: state-label
+                  prefix: 'Yakir '
+                  entity: input_label.yakir_birthday_days2go
+                  style: {color: white, left: 90%, top: 53%}                    
+            style:                 
+              border-radius: 20px
+              border: solid 1px rgba(100,100,100,0.3)
+              box-shadow: 3px 3px rgba(0,0,0,0.4) 
+              overflow: hidden
+
       - id: 75add65258264b92b432ba7d83978ea6  
         type: vertical-stack
         cards:
@@ -439,7 +493,7 @@ views:
               entity_summary_3: sensor.dark_sky_summary_3
               entity_summary_4: sensor.dark_sky_summary_4
               entity_summary_5: sensor.dark_sky_summary_5
-              locale: en
+              locale: he
               static_icons: false
               tooltip_bg_color: 'rgb( 75,155,239)'
               tooltip_border_color: orange
@@ -653,7 +707,7 @@ views:
 ############################################################################################################################################# 
 
   - id: 1  
-    icon: mdi:security-home
+    icon: mdi:shield-home
     background: center / cover no-repeat url("/local/lovelace/background/back01.jpg") fixed
     name: Security
     cards:
@@ -769,25 +823,22 @@ views:
 #################################################################
 #                      Security - Cameras Card                  #
 ################################################################# 
+           
           - type: custom:card-modder
             card:
-              type: entity-filter
+              type: picture-glance
+              title: Cameras
+              tap_action: toggle
               entities:
                 - camera.entrance_to_the_building
                 - camera.dahua_camera
                 - camera.dahua_camera_6m
                 - camera.front_door_camera
-              state_filter:
-                - 'off'
-              card:
-                type: picture-glance
-                title: Cameras
-                image: /local/lovelace/security/cameras.jpg
+              image: /local/lovelace/security/cameras.jpg
             style:                 
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)    
-              overflow: hidden              
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
 #                      Security - Motion Sensor Card            #
@@ -1403,7 +1454,7 @@ views:
                   style: {color: white, left: 52%, top: 18%}
 
                 - type: state-label
-                  prefix: 'Month 11-12 ----- '
+                  prefix: 'Month:01 Day:23 ----- '
                   entity: sensor.shekel_count_all
                   style: {color: white, left: 51%, top: 38%}
 
@@ -1714,7 +1765,7 @@ views:
           - type: custom:card-modder
             card:        
               type: picture-glance
-              title: Blitzwolf Switches
+              title: Blitzwolf Switches (Tami_4)
               tap_action: toggle
               entities:
                 - switch.blitzwolf_shp1
@@ -1729,7 +1780,7 @@ views:
           - type: custom:card-modder
             card:
               type: picture-glance
-              title: SH20 Pow Switch
+              title: SH20 Pow Switch (Camera)
               tap_action: toggle
               entities:
                 - switch.sh20_pow
@@ -1954,9 +2005,8 @@ views:
   - id: 6 
     icon: mdi:robot-vacuum-variant
     background: center / cover no-repeat url("/local/lovelace/background/back02.jpg") fixed
-    type: custom:layout-card
     name: Xiaomi Vacuum
-    layout: horizontal
+    type: horizontal
     cards:   
       - type: custom:card-modder
         card:
@@ -2192,10 +2242,8 @@ views:
 #                Vacuum - Start Time Hour Minutes Card          #
 #                                                               #
 #################################################################
-
-      - type: custom:layout-card
-        layout: horizontal
-        cards:
+      - type: vertical-stack
+        cards:        
           - type: custom:card-modder
             card:
               type: conditional
@@ -2215,26 +2263,36 @@ views:
               background-size: 100% 200px
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)  
-              
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
+
+
 #################################################################
 #                                                               #
 #           Vacuum - Turens on Zone Settings Value Card         #
 #                                                               #
 #################################################################
-
-          - type: conditional
-            conditions:
-              - entity: input_boolean.vacuum_zone_settings
-                state: "on"
+          - type: custom:card-modder
             card:
-              type: vertical-stack
-              cards:
-                - type: entities
-                  entities:
-                    - input_select.vacuum_fan_speed_list
-                    - input_number.vacuum_passes
-                    - input_select.vacuum_zone
+              type: conditional
+              conditions:
+                - entity: input_boolean.vacuum_zone_settings
+                  state: "on"
+              card:
+                type: vertical-stack
+                cards:
+                  - type: entities
+                    entities:
+                      - input_select.vacuum_fan_speed_list
+                      - input_number.vacuum_passes
+                      - input_select.vacuum_zone 
+            style:                 
+              background-image: url("/local/lovelace/background/cardbackk.png")
+              background-repeat: no-repeat
+              background-color: rgba(50,50,50,0.3)
+              background-size: 100% 130px
+              border-radius: 20px
+              border: solid 1px rgba(100,100,100,0.3)
+              box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 
 #################################################################
@@ -2242,7 +2300,8 @@ views:
 #                   Vacuum - Zone Fan Card                      #
 #                                                               #
 #################################################################
-
+      - type: vertical-stack
+        cards:             
           - type: custom:card-modder
             card:
               type: glance

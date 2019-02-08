@@ -34,6 +34,8 @@ input_label:
     value: !secret rotam_birthday
   liran_birthday:
     value: !secret liran_birthday
+  yakir_birthday:
+    value: !secret yakir_birthday
 
   nurit_birthday_days2go:
     icon: mdi:cake-variant
@@ -44,6 +46,9 @@ input_label:
   liran_birthday_days2go:
     icon: mdi:cake-variant
     name: Liran Birthday
+  yakir_birthday_days2go:
+    icon: mdi:cake-variant
+    name: Yakir Birthday    
 
 #################################################################
 #                                                               #
@@ -64,6 +69,7 @@ automation:
         - input_label.nurit_birthday_days2go
         - input_label.rotam_birthday_days2go
         - input_label.liran_birthday_days2go
+        - input_label.yakir_birthday_days2go
     condition:
       - condition: state
         entity_id: group.all_devices
@@ -71,7 +77,7 @@ automation:
       - condition: template
         value_template: "{{ trigger.to_state.state | int > 0 and trigger.to_state.state | int < 30 }}"
     action:
-      - service: script.notify_me
+      - service: notify.avitelegram
         data_template:
           message: "{{ trigger.entity_id.split('.')[1].split('_')[0] | title }}'s Birthday is only {{ trigger.to_state.state }} days to go!"
 
@@ -86,6 +92,7 @@ automation:
         - input_label.nurit_birthday_days2go
         - input_label.rotam_birthday_days2go
         - input_label.liran_birthday_days2go
+        - input_label.yakir_birthday_days2go
     condition:
       - condition: state
         entity_id: group.all_devices
@@ -93,7 +100,7 @@ automation:
       - condition: template
         value_template: "{{ trigger.to_state.state | int == 0 }}"
     action:
-      - service: script.notify_me
+      - service: notify.avitelegram
         data_template:
           message: "Hurray! Today is {{ trigger.entity_id.split('.')[1].split('_')[0] | title }}'s Birthday!"
 
@@ -124,6 +131,8 @@ automation:
               value_template: "{{ states.input_label.rotam_birthday_days2go.state | int == 0 }}"
             - condition: template
               value_template: "{{ states.input_label.liran_birthday_days2go.state | int == 0 }}"
+            - condition: template
+              value_template: "{{ states.input_label.yakir_birthday_days2go.state | int == 0 }}"              
     action:
       - service: script.voice_notify
         data_template:
@@ -150,6 +159,8 @@ automation:
         value_template: "{{ states.input_label.rotam_birthday.state.split('-') | length  > 0 }}"
       - condition: template
         value_template: "{{ states.input_label.liran_birthday.state.split('-') | length  > 0 }}"
+      - condition: template
+        value_template: "{{ states.input_label.yakir_birthday.state.split('-') | length  > 0 }}"        
     action:
       - service: input_label.set_value
         data_template:
@@ -199,6 +210,26 @@ automation:
             {% if states('input_label.liran_birthday') != "unknown" %}
               {%- set bDayMonth = states.input_label.liran_birthday.state.split('-')[0] -%}
               {%- set bDayDate = states.input_label.liran_birthday.state.split('-')[1] -%}
+              {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
+              {%- if numOfDays < 0 -%}
+                {{ numOfDays + 365 }}
+              {%- else -%}
+                {{ numOfDays }}
+              {%- endif -%}
+            {% else %}
+              -
+            {% endif %}
+
+      - service: input_label.set_value
+        data_template:
+          entity_id: input_label.yakir_birthday_days2go
+          value: >
+            {% set year = states.sensor.date.state.split('-')[0] %}
+            {% set month = states.sensor.date.state.split('-')[1] %}
+            {% set date = states.sensor.date.state.split('-')[2] %}
+            {% if states('input_label.yakir_birthday') != "unknown" %}
+              {%- set bDayMonth = states.input_label.yakir_birthday.state.split('-')[0] -%}
+              {%- set bDayDate = states.input_label.yakir_birthday.state.split('-')[1] -%}
               {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
               {%- if numOfDays < 0 -%}
                 {{ numOfDays + 365 }}
