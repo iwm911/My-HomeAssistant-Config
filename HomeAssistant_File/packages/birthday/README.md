@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/abeksis/My-HomeAssistant-Config/blob/master/HA_Pictures/Images_for_packages/Birthday.png" width="450"/>
+  <img src="https://raw.githubusercontent.com/abeksis/My-HomeAssistant-Config/master/HA_Pictures/Images_for_packages/Birthday.png" width="450"/>
 </p>
 <h1 align="center">Birthday Package</h1>
 <p align="center">Be sure to :star: my repo!</p>
