@@ -66,7 +66,7 @@ homeassistant:
       assumed_state: false 
 
 #################################################################
-#                 Automation - שינוי שם לאוטומציה                 #
+#                 Automation - שינוי שם לאוטומציה                    #
 #################################################################  
     automation.turn_on_lights_parents_based_on_montion:
       friendly_name: תאורה אוטומטית - הורים
@@ -82,7 +82,7 @@ homeassistant:
       friendly_name: תאורה אוטונטית - חדר מחשבים
       icon: mdi:light-switch
       assumed_state: false 
-      
+
 
 #################################################################
 #                                                               #
@@ -92,7 +92,6 @@ homeassistant:
 light:
   - platform: mqtt  
     name: "laundry"
-    icon: mdi:ceiling-light
     command_topic: "cmnd/laundry/POWER"
     state_topic: "stat/laundry/POWER"
     availability_topic: "tele/laundry/LWT"   
@@ -104,8 +103,8 @@ light:
     retain: true       
  
   - platform: mqtt  
-    name: "Parents"
-    icon: mdi:ceiling-light
+    name: "parents"
+    # icon: mdi:human-male-female
     state_topic: "stat/parents/POWER"
     command_topic: "cmnd/parents/POWER"
     availability_topic: "tele/parents/LWT"
@@ -118,7 +117,6 @@ light:
 
   - platform: mqtt  
     name: "poop"
-    icon: mdi:ceiling-light
     command_topic: "cmnd/poop/POWER"
     state_topic: "stat/poop/POWER"
     availability_topic: "tele/poop/LWT"   
@@ -131,7 +129,6 @@ light:
 
   - platform: mqtt  
     name: "prozdor"
-    icon: mdi:ceiling-light
     command_topic: "cmnd/prozdor/POWER"
     state_topic: "stat/prozdor/POWER"
     availability_topic: "tele/prozdor/LWT"   
@@ -144,7 +141,6 @@ light:
 
   - platform: mqtt  
     name: "Balcony"
-    icon: mdi:ceiling-light
     command_topic: "cmnd/balcony/POWER"
     state_topic: "stat/balcony/POWER"
     availability_topic: "tele/balcony/LWT"   
@@ -157,7 +153,6 @@ light:
 
   - platform: mqtt  
     name: "Service Balcony"
-    icon: mdi:ceiling-light
     state_topic: "stat/service_balcony/POWER"
     command_topic: "cmnd/service_balcony/POWER"
     availability_topic: "tele/service_balcony/LWT"
@@ -170,7 +165,6 @@ light:
 
   - platform: mqtt  
     name: "Liran Room"
-    icon: mdi:ceiling-light
     state_topic: "stat/liran_room/POWER"
     command_topic: "cmnd/liran_room/POWER"
     availability_topic: "tele/liran_room/LWT"
@@ -183,7 +177,6 @@ light:
 
   - platform: mqtt  
     name: "Miklahat"
-    icon: mdi:shower
     state_topic: "stat/miklahat/POWER"
     command_topic: "cmnd/miklahat/POWER"
     availability_topic: "tele/miklahat/LWT"
@@ -196,7 +189,6 @@ light:
 
   - platform: mqtt  
     name: "Server Room Fan"
-    icon: mdi:ceiling-light
     state_topic: "stat/fan/POWER"
     command_topic: "cmnd/fan/POWER"
     availability_topic: "tele/fan/LWT"
@@ -209,7 +201,6 @@ light:
 
   - platform: mqtt  
     name: "stairs"
-    icon: mdi:ceiling-light
     state_topic: "stat/stairs/POWER"
     command_topic: "cmnd/stairs/POWER"
     availability_topic: "tele/stairs/LWT"
@@ -394,7 +385,7 @@ automation:
       
 
 #################################################################
-#       הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש      #
+#            הדלקה/כיבוי תאורה במדרגות בהתאם לשקיעה וזריחת השמש          #
 #################################################################
 
   - alias: Lighting the light after sunset at eleven oclock
@@ -417,9 +408,7 @@ automation:
     - service: light.turn_off
       data_template:
         entity_id: 
-        - light.stairs        
-
-
+        - light.stairs
 
 #################################################################
 #                     Sensor Xiaom                              #
