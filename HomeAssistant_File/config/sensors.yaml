@@ -6,8 +6,10 @@
   - platform: time_date
     display_options:
       - 'date_time'
+      - 'time_date'
       - 'time'
       - 'date' 
+    
 
   ## cloudflare ##
   #https://www.home-assistant.io/components/sensor.dnsip/    
@@ -26,9 +28,8 @@
     name: "Humidity second floor"
     state_topic: "tele/stairs/SENSOR"
     value_template: "{{ value_json['AM2301'].Humidity }}"
-    homebridge_sensor_type: "humidity"
+    # homebridge_sensor_type: "humidity"
     unit_of_measurement: "%"
-
 
 
   
@@ -36,26 +37,3 @@
   - platform: time_date
     display_options:
       - 'time'
-          
-           
-  - platform: mqtt
-    name: "BlitzWolf shp1 energy today"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ value_json["ENERGY"]["Today"] }}'
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "BlitzWolf shp1 yesterday"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "BlitzWolf shp1 total"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ value_json["ENERGY"]["Total"] }}'
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "BlitzWolf shp1 total cost"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ (value_json["ENERGY"]["Total"] * 0.5404) | round(3) }}'
-    #ILS OR USD (Depends on local currency) Just change the value of "0.5404" to your local elctricity price
-    unit_of_measurement: "₪" # USD / Other local currency
