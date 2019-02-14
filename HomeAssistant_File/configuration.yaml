@@ -112,9 +112,146 @@ logger:
 #                                                  #
 ####################################################
 
+####################################################
+#                                                  #
+#                     Recorder                     #
+#                                                  #
+####################################################
+
 recorder:
   purge_interval: 1
-  purge_keep_days: 14
+  purge_keep_days: 7
+  exclude:
+    domains:
+      - automation
+      - binary_sensor
+      - geo_location
+      - weblink
+      - device_tracker
+      - updater
+      - group
+      - input_number
+      - input_select
+      - zone      
+    entities:
+      - sensor.darksky
+      - sensor.vacuum
+      - sensor.unriad
+      - sensor.phaze
+      - sensor.dark_sky_humidity_1
+      - sensor.dark_sky_humidity_2
+      - sensor.dark_sky_humidity_3
+      - sensor.dark_sky_humidity_4
+      - sensor.dark_sky_humidity_5
+      - sensor.dark_sky_daytime_high_temperature_1
+      - sensor.dark_sky_daytime_high_temperature_2
+      - sensor.dark_sky_daytime_high_temperature_3
+      - sensor.dark_sky_daytime_high_temperature_4
+      - sensor.dark_sky_daytime_high_temperature_5
+      - sensor.dark_sky_daily_max_precip_intensity_1
+      - sensor.dark_sky_daily_max_precip_intensity_2
+      - sensor.dark_sky_daily_max_precip_intensity_3
+      - sensor.dark_sky_daily_max_precip_intensity_4
+      - sensor.dark_sky_daily_max_precip_intensity_5
+      - sensor.dark_sky_icon_1
+      - sensor.dark_sky_icon_2
+      - sensor.dark_sky_icon_3
+      - sensor.dark_sky_icon_4
+      - sensor.dark_sky_icon_5
+      - sensor.dark_sky_overnight_low_temperature_1
+      - sensor.dark_sky_overnight_low_temperature_2
+      - sensor.dark_sky_overnight_low_temperature_3
+      - sensor.dark_sky_overnight_low_temperature_4
+      - sensor.dark_sky_overnight_low_temperature_5
+      - sensor.dark_sky_precip_intensity_1
+      - sensor.dark_sky_precip_intensity_2
+      - sensor.dark_sky_precip_intensity_3
+      - sensor.dark_sky_precip_intensity_4
+      - sensor.dark_sky_precip_intensity_5
+      - sensor.dark_sky_precip_probability_1
+      - sensor.dark_sky_precip_probability_2
+      - sensor.dark_sky_precip_probability_3
+      - sensor.dark_sky_precip_probability_4
+      - sensor.dark_sky_precip_probability_5
+      - sensor.dark_sky_pressure_1
+      - sensor.dark_sky_pressure_2
+      - sensor.dark_sky_pressure_3
+      - sensor.dark_sky_pressure_4
+      - sensor.dark_sky_pressure_5
+      - sensor.dark_sky_summary_1
+      - sensor.dark_sky_summary_2
+      - sensor.dark_sky_summary_3
+      - sensor.dark_sky_summary_4
+      - sensor.dark_sky_summary_5 
+      - sensor.sonoff_firmware_version      
+      - binary_sensor.alexa_main
+      - binary_sensor.amzonecho
+      - binary_sensor.balcony_door
+      - binary_sensor.bedroom_camera
+      - binary_sensor.bedroom_motion
+      - binary_sensor.blitzwolf_tami4
+      - binary_sensor.broadlink
+      - binary_sensor.computer_room
+      - binary_sensor.computer_temperature
+      - binary_sensor.dahua_camera
+      - binary_sensor.desktop_4fdcngh
+      - binary_sensor.door_window_sensor_158d0001ef3425
+      - binary_sensor.door_window_sensor_158d00027a59c6
+      - binary_sensor.doors
+      - binary_sensor.esp_electric
+      - binary_sensor.front_camera_building
+      - binary_sensor.front_door
+      - binary_sensor.front_door_camera
+      - binary_sensor.guest_services
+      - binary_sensor.ha_update_available
+      - binary_sensor.high_quality_camera
+      - binary_sensor.ipad
+      - binary_sensor.laundry_room
+      - binary_sensor.light_balcony_sonoff
+      - binary_sensor.light_switch_poop
+      - binary_sensor.main_shower
+      - binary_sensor.media_tv
+      - binary_sensor.motion_sensor_158d0002047c5a
+      - binary_sensor.motion_sensor_158d000204bfcb
+      - binary_sensor.motion_sensor_158d00024e7972
+      - binary_sensor.motion_sensor_158d000272bc63
+      - binary_sensor.motion_sensor_158d0002b42fa3
+      - binary_sensor.motion_shower
+      - binary_sensor.nas_movies
+      - binary_sensor.new_podcast_available
+      - binary_sensor.router
+      - binary_sensor.second_temperature
+      - binary_sensor.smoke_sensor_158d00028ee7fb
+      - binary_sensor.sonff_fan
+      - binary_sensor.sonoff_light_liran
+      - binary_sensor.sonoff_parents_light
+      - binary_sensor.sonoff_service_balcony_light
+      - binary_sensor.sonoff_stairs_light
+      - binary_sensor.sonoff_tris
+      - binary_sensor.sonoff_update_available
+      - binary_sensor.switch
+      - binary_sensor.switch_158d0001f36255
+      - binary_sensor.switch_158d0001f3ddfd
+      - binary_sensor.switch_158d000224231e
+      - binary_sensor.ubuntu
+      - binary_sensor.unifi
+      - binary_sensor.unifi_access_point
+      - binary_sensor.unriad
+      - binary_sensor.wall_switch_laundry
+      - binary_sensor.wall_switch_miklahat
+      - binary_sensor.wall_switch_prozdor
+      - binary_sensor.windows_10_vm
+      - binary_sensor.windows_liran
+      - binary_sensor.xiaomi_gateway
+      - binary_sensor.xtreamer_whizz
+      - binary_sensor.yeelinklightcolor1_miio86767262
+      - input_number.kwh_number
+      - input_number.shekel_number
+      - input_number.vacuum_passes
+      - input_number.vacuum_start_hour_weekdays
+      - input_number.vacuum_start_hour_weekend
+      - input_number.vacuum_start_minutes_weekdays
+      - input_number.vacuum_start_minutes_weekend
 
 
 ####################################################

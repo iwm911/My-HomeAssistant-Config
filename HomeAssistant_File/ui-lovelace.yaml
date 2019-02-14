@@ -56,7 +56,7 @@ resources:
   - url: /local/custom_ui/monster-card.js?
     type: js  
 
-  - url: /local/waze-card/waze-card.js?v=1.1.1
+  - url: /local/waze-card/waze-card.js?v=1.2.0
     type: js   
 
   ## https://github.com/thomasloven/lovelace-auto-entities
@@ -66,6 +66,7 @@ resources:
   ## For Xiaomi-Vacuum 
   - url: /local/entity-attributes-card.js?v=0.1.1
     type: js    
+
 
 #################################################################
 #                          Module                               #
@@ -81,7 +82,7 @@ resources:
     type: module
 
   ## https://github.com/kalkih/mini-media-player ##
-  - url: /local/custom_ui/mini-media-player-bundle.js?v=1.0.0
+  - url: /local/custom_ui/mini-media-player-bundle.js?v=1.0.1
     type: module
 
   ## https://github.com/thomasloven/lovelace-card-modder ##
@@ -93,14 +94,12 @@ resources:
     type: module
 
   ## https://github.com/kalkih/mini-graph-card
-  - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.2.2
+  - url: /local/custom_ui/mini-graph-card-bundle.js?v=0.2.4
     type: module
   
   ## https://community.home-assistant.io/t/custom-dark-sky-animated-weather-card/59816/394 ##    
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.9.3
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.9.4
     type: module 
-
-    
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                               VIEW 0 - HOME                                                               #
@@ -700,6 +699,7 @@ views:
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
               overflow: hidden
+             
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                             VIEW 1 - SECURITY                                                             #
@@ -960,7 +960,8 @@ views:
           - type: custom:card-modder
             card:
               type: custom:mini-graph-card
-              entity: sensor.temperature_158d00022ece24
+              entities:
+                - sensor.temperature_158d00022ece24
               height: 65
               line_width: 2
               font_size: 70
@@ -978,7 +979,7 @@ views:
               border-radius: 20px
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
-              
+
 #################################################################
 #                                                               #
 #                   Downstairs - Electric shutter Graph Card    #
@@ -1090,7 +1091,8 @@ views:
           - type: custom:card-modder
             card:
               type: custom:mini-graph-card
-              entity: sensor.humidity_158d00022ece24
+              entities:
+                - sensor.humidity_158d00022ece24            
               height: 65
               line_width: 2
               font_size: 70
@@ -1181,7 +1183,7 @@ views:
               
 #################################################################
 #                                                               #
-#                   Playroom - Smart Fan Card                   #
+#                   Playroom - Tami 4                           #
 #                                                               #
 #################################################################
 
@@ -1280,7 +1282,8 @@ views:
           - type: custom:card-modder
             card:
               type: custom:mini-graph-card
-              entity: sensor.living_room_mold
+              entities:
+                - sensor.living_room_mold             
               height: 65
               line_width: 2
               font_size: 70
