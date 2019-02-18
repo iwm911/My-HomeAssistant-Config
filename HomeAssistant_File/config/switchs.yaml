@@ -102,13 +102,13 @@
     retain: false
 
     ##############
-    ## שקע BlitzWolf shp1 
+    ## Tami 4 Power
     ###############
   - platform: mqtt
-    name: "BlitzWolf SHP1"
-    state_topic: "stat/bw-shp1/POWER"
-    command_topic: "cmnd/bw-shp1/POWER"
-    availability_topic: "tele/bw-shp1/LWT"
+    name: "Tami 4 Power"
+    state_topic: "stat/tami4_power/POWER"
+    command_topic: "cmnd/tami4_power/POWER"
+    availability_topic: "tele/tami4_power/LWT"
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"
@@ -131,17 +131,17 @@
     payload_not_available: "Offline"
     retain: true
     
-    ##############
-    ## Heating
-    ###############
-  - platform: mqtt
-    name: "Heating"
-    state_topic: "stat/heating/POWER"
-    command_topic: "cmnd/heating/POWER"
-    availability_topic: "tele/heating/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: true    
+  #   ##############
+  #   ## Heating
+  #   ###############
+  # - platform: mqtt
+  #   name: "Heating"
+  #   state_topic: "stat/heating/POWER"
+  #   command_topic: "cmnd/heating/POWER"
+  #   availability_topic: "tele/heating/LWT"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+  #   retain: true    

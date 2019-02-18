@@ -180,27 +180,27 @@ sensor:
 #################################################################
 #                          Tami 4                               #
 #################################################################     
-  - platform: mqtt
-    name: "BlitzWolf shp1 energy today"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ value_json["ENERGY"]["Today"] }}'
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "BlitzWolf shp1 yesterday"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "BlitzWolf shp1 total"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ value_json["ENERGY"]["Total"] }}'
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "BlitzWolf shp1 total cost"
-    state_topic: "tele/bw-shp1/SENSOR"
-    value_template: '{{ (value_json["ENERGY"]["Total"] * 0.5404) | round(3) }}'
-    #ILS OR USD (Depends on local currency) Just change the value of "0.5404" to your local elctricity price
-    unit_of_measurement: "₪" # USD / Other local currency 
+  # - platform: mqtt
+  #   name: "BlitzWolf shp1 energy today"
+  #   state_topic: "tele/bw-shp1/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  #   unit_of_measurement: "kWh"
+  # - platform: mqtt
+  #   name: "BlitzWolf shp1 yesterday"
+  #   state_topic: "tele/bw-shp1/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  #   unit_of_measurement: "kWh"
+  # - platform: mqtt
+  #   name: "BlitzWolf shp1 total"
+  #   state_topic: "tele/bw-shp1/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  #   unit_of_measurement: "kWh"
+  # - platform: mqtt
+  #   name: "BlitzWolf shp1 total cost"
+  #   state_topic: "tele/bw-shp1/SENSOR"
+  #   value_template: '{{ (value_json["ENERGY"]["Total"] * 0.5404) | round(3) }}'
+  #   #ILS OR USD (Depends on local currency) Just change the value of "0.5404" to your local elctricity price
+  #   unit_of_measurement: "₪" # USD / Other local currency 
 
   - platform: template
     sensors:

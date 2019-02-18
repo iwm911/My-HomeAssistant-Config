@@ -42,20 +42,21 @@ resources:
     type: js
 
     ## https://github.com/custom-cards/tracker-card ##
-  - url: /local/custom_ui/tracker-card.js?v=0.3.0
+  - url: /local/custom_ui/tracker-card.js?v=0.3.2
     type: js
    ## https://github.com/thomasloven/lovelace-layout-card ##
   - url: /local/custom_ui/layout-card.js
     type: js
     
    ## https://github.com/thomasloven/lovelace-card-tools ##
-  - url: /local/custom_ui/card-tools.js?v=297fcc
+  - url: /local/custom_ui/card-tools.js?v=f5bb8e
     type: js
     
   ## https://github.com/ciotlosm/custom-lovelace/tree/master/monster-card
   - url: /local/custom_ui/monster-card.js?
     type: js  
 
+  ## https://github.com/ljmerza/waze-card
   - url: /local/waze-card/waze-card.js?v=1.2.0
     type: js   
 
@@ -66,7 +67,6 @@ resources:
   ## For Xiaomi-Vacuum 
   - url: /local/entity-attributes-card.js?v=0.1.1
     type: js    
-
 
 #################################################################
 #                          Module                               #
@@ -98,7 +98,7 @@ resources:
     type: module
   
   ## https://community.home-assistant.io/t/custom-dark-sky-animated-weather-card/59816/394 ##    
-  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.9.4
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=0.10.1
     type: module 
 #############################################################################################################################################
 #                                                                                                                                           # 
@@ -699,7 +699,7 @@ views:
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
               overflow: hidden
-             
+       
 #############################################################################################################################################
 #                                                                                                                                           # 
 #                                                             VIEW 1 - SECURITY                                                             #
@@ -1759,7 +1759,7 @@ views:
               box-shadow: 3px 3px rgba(0,0,0,0.4)
 
 #################################################################
-#                     Switches Status - Blitzwolf Switches Card #
+#                     Switches Status - Tami 4 Power #
 #################################################################
 
       - id: 4be9d01ffc2e44608387749f77c52bac  
@@ -1768,10 +1768,10 @@ views:
           - type: custom:card-modder
             card:        
               type: picture-glance
-              title: Blitzwolf Switches (Tami_4)
+              title: Tami 4 Power
               tap_action: toggle
               entities:
-                - switch.blitzwolf_shp1
+                - switch.tami_4_power
               image: /local/lovelace/switch/tami4.jpg
             style:                 
               border-radius: 20px
@@ -1815,24 +1815,24 @@ views:
               border: solid 1px rgba(100,100,100,0.3)
               box-shadow: 3px 3px rgba(0,0,0,0.4)
 
-#################################################################
-#                                                               #
-#                  Switches Status - Heating card               #
-#                                                               #
-#################################################################
+# #################################################################
+# #                                                               #
+# #                  Switches Status - Heating card               #
+# #                                                               #
+# #################################################################
 
-          - type: custom:card-modder
-            card:
-              type: picture-glance
-              title: Heating
-              tap_action: toggle
-              entities:
-                - switch.heating
-              image: /local/lovelace/switch/heating.jpg           
-            style:                 
-              border-radius: 20px
-              border: solid 1px rgba(100,100,100,0.3)
-              box-shadow: 3px 3px rgba(0,0,0,0.4)              
+#           - type: custom:card-modder
+#             card:
+#               type: picture-glance
+#               title: Heating
+#               tap_action: toggle
+#               entities:
+#                 - switch.heating
+#               image: /local/lovelace/switch/heating.jpg           
+#             style:                 
+#               border-radius: 20px
+#               border: solid 1px rgba(100,100,100,0.3)
+#               box-shadow: 3px 3px rgba(0,0,0,0.4)              
 
 
 #############################################################################################################################################
@@ -1972,8 +1972,7 @@ views:
 #                                                               #
 #################################################################
 
-      - id:   
-        type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: custom:card-modder
             card:
@@ -1985,9 +1984,9 @@ views:
                 - entity: sensor.nurit_to_home
                   zone: zone.home
                   name: Nurit
-                - entity: sensor.commute_to_work
-                  zone: zone.powertec
-                  name: Work
+                # - entity: sensor.commute_to_work
+                #   zone: zone.powertec
+                #   name: Work
             style:                 
               background-image: url("/local/lovelace/home/waze_5.png")
               background-repeat: no-repeat

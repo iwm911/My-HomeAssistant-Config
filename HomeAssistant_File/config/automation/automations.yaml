@@ -8,7 +8,7 @@
     condition:
     action:
     - data:
-        entity_id: switch.blitzwolf_shp1
+        entity_id: switch.tami_4_power
       service: switch.turn_off
       
   - id: Turn_on_Tami_4_in_Mornning
@@ -20,7 +20,7 @@
     condition:
     action:
     - data:
-        entity_id: switch.blitzwolf_shp1
+        entity_id: switch.tami_4_power
       service: switch.turn_on
 
   - id: Auto_off_Tami_4_in_Night
@@ -49,8 +49,8 @@
         entity_id: timer.tami4
     action:
     - data:
-        entity_id: switch.blitzwolf_shp1
-      service: switch.turn_off            
+        entity_id: switch.tami_4_power
+      service: switch.turn_off          
 
 #################################################################
 #                                                               #
