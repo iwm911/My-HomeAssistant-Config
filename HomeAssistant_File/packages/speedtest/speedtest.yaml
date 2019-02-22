@@ -32,26 +32,10 @@ homeassistant:
 #                          Sensors                              #
 #                                                               #
 ################################################################# 
-sensor: 
-  - platform: speedtest
-    server_id: 9034
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-  
-#################################################################
-#                                                               #
-#                           Group                               #
-#                                                               #
-#################################################################
-
-group:
-  speedtest:
-    name: Speed Test
-    view: no
-    entities:
-      - sensor.speedtest_ping
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
-      - script.update_speedtestnet
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload

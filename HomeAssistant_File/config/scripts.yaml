@@ -1,9 +1,3 @@
-   ## בדיקת מהירות אינטרנט ##
-  update_speedtestnet:
-    alias: Update SpeedtestNet info
-    sequence:
-      - service: sensor.update_speedtest
-
   ## לתריס החשמלי ##
   blinds_up:
     alias: blinds up

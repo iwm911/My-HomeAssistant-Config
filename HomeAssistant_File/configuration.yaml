@@ -55,6 +55,7 @@ http:
 updater:
 discovery:
 conversation:
+speedtestdotnet:
 history:
 logbook:
 map:
